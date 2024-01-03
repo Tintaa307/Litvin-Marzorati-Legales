@@ -7,7 +7,7 @@ import Linked from '../../public/socials/linkedin.svg';
 
 const Nav = () => {
     return (
-        <div className="w-screen h-24 px-96 bg-transparent flex items-center justify-between">
+        <div className="w-screen h-24 fixed top-0 z-50 px-96 bg-transparent flex items-center justify-between">
             <Link href={'/'}>
                 <Image src={Logo} alt="Logo"></Image>
             </Link>
@@ -25,7 +25,7 @@ const Nav = () => {
                     <h3 className="text-base font-medium">Contacto</h3>
                 </Link>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center justify-center gap-2 w-40">
                 <h3 className="text-base font-medium">ES</h3>
                 <span className="w-[1px] h-7 bg-[#0000004D]"></span>
                 <Link href={''}>

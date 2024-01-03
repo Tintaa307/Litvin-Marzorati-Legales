@@ -1,9 +1,11 @@
 import Nav from '@/components/Nav'
+import Hero from '@/components/sections/landing/Hero'
 
 export default function Home() {
   return (
-    <div className='bg-background h-screen'>
+    <div className='h-screen'>
       <Nav></Nav>
+      <Hero></Hero>
     </div>
   )
 }

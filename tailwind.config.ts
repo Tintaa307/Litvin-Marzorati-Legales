@@ -10,11 +10,16 @@ const config: Config = {
     extend: {
       fontFamily: {
         "poppins": ["var(--font-poppins)"],
+        "meshedDisplay": ["var(--font-meshedDisplay)"],
       },
       colors: {
         background: {
           DEFAULT: "var(--color-background)",
-        }
+        },
+        accent: {
+          orange: "var(--accent-orange)",
+          brown: "var(--accent-brown)",
+        },
       }
     },
   },
