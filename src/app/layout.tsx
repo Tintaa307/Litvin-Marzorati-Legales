@@ -38,6 +38,17 @@ const meshedDisplay = localFont({
       style: "normal",
     },
   ]
+});
+
+const dmSerif = localFont({
+  variable: '--font-dmSerif',
+  src: [
+    {
+      path: "./fonts/DMSerifDisplay-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    }
+  ]
 })
 
 export const metadata: Metadata = {
@@ -55,6 +66,7 @@ export default function RootLayout({
       <body className={clsx(
           poppins.variable,
           meshedDisplay.variable,
+          dmSerif.variable,
           'bg-background',
           'font-poppins',
         )}>

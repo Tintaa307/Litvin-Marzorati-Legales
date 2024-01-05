@@ -11,6 +11,7 @@ const config: Config = {
       fontFamily: {
         "poppins": ["var(--font-poppins)"],
         "meshedDisplay": ["var(--font-meshedDisplay)"],
+        "dmSerif": ["var(--font-dmSerif)"],
       },
       colors: {
         background: {
