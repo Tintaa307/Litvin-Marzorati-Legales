@@ -4,7 +4,7 @@ import serviceData from "@/utils/service-data";
 
 const Services = () => {
     return (
-        <div className="flex flex-col items-center gap-20 pt-20 main-padding">
+        <div className="flex flex-col items-center gap-20 pt-20 mb-24 main-padding">
             <Heading title="Nuestros Servicios" subtitle="Nos caracteriza nuestra experiencia, brindando soluciones eficientes minimizando el uso de recursos."></Heading>
             <div className="flex flex-wrap justify-center">
                 {serviceData.map((object, index) => (

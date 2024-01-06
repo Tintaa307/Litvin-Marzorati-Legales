@@ -5,10 +5,13 @@ import Link from "next/link";
 import Logo from '../../public/logo.svg';
 import Insta from '../../public/socials/insta.svg';
 import Linked from '../../public/socials/linkedin.svg';
+import useScrollPosition from "@/hooks/useScrollPosition";
 
 const Nav = () => {   
+    const scrollPosition = useScrollPosition()
+
     return (
-        <div onScroll={() => console.log('hola')} className="w-screen h-24 fixed top-0 z-50 main-padding bg-transparent flex items-center justify-between">
+        <div className={`w-screen h-24 fixed top-0 z-50 main-padding flex items-center justify-between duration-200 ${scrollPosition > 20 ? 'bg-background' : "bg-transparent"}`}>
             <Link href={'/'}>
                 <Image src={Logo} alt="Logo"></Image>
             </Link>
@@ -29,10 +32,10 @@ const Nav = () => {
             <div className="md:flex hidden items-center justify-center gap-2 w-40">
                 <h3 className="text-base font-medium">ES</h3>
                 <span className="w-[1px] h-7 bg-[#0000004D]"></span>
-                <Link href={''}>
+                <Link href={'https://www.linkedin.com/company/litvin-marzorati-legales/?originalSubdomain=ar'} target="_blank">
                     <Image src={Insta} alt="Instagram socials"></Image>
                 </Link>
-                <Link href={''}>
+                <Link href={'https://www.instagram.com/lmlegales/'} target="_blank">
                     <Image src={Linked} alt="LinkedIn socials"></Image>
                 </Link>
             </div>
