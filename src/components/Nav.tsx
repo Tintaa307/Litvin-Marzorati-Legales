@@ -26,7 +26,7 @@ const Nav = () => {
                     <h3 className="text-base font-medium">Servicios</h3>
                 </Link>
                 <Link href={'/'}>
-                    <h3 className="text-base font-medium">Contacto</h3>
+                    <h3 className={`text-base font-medium py-1 px-3 rounded-xl duration-200 ${scrollPosition > 20 ? 'bg-accent-orange' : 'bg-transparent'}`}>Contacto</h3>
                 </Link>
             </div>
             <div className="md:flex hidden items-center justify-center gap-2 w-40">
