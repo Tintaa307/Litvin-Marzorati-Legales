@@ -6,7 +6,7 @@ import testimage from '../../../../public/media/media1.png';
 
 const Media = () => {
     return (
-        <div className="flex justify-between main-padding mt-24">
+        <div className="flex justify-between main-padding mt-24 mb-36">
             <div className="flex flex-col gap-10 max-w-[32rem]">
                 <Heading 
                     title="Trascendiendo en los medios" 

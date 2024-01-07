@@ -4,9 +4,9 @@ import serviceData from "@/utils/service-data";
 
 const Services = () => {
     return (
-        <div className="flex flex-col items-center gap-20 pt-20 mb-24 main-padding">
+        <div className="flex flex-col items-center justify-center gap-20 pt-20 mb-24 2xl:px-44 lg:px-28 px-5">
             <Heading title="Nuestros Servicios" subtitle="Nos caracteriza nuestra experiencia, brindando soluciones eficientes minimizando el uso de recursos."></Heading>
-            <div className="flex flex-wrap justify-center">
+            <div className="flex flex-wrap justify-center max-w-[80rem]">
                 {serviceData.map((object, index) => (
                     <ServiceCard 
                         key={index}

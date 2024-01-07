@@ -13,6 +13,7 @@ const serviceData = [
         bBorder: true,
         lBorder: false,
         rBorder: true,
+        pos: 'first',
     },
     {
         title: 'Asesoramiento en propiedad intelectual',
@@ -22,6 +23,7 @@ const serviceData = [
         bBorder: true,
         lBorder: false,
         rBorder: true,
+        pos: 'sec',
     },
     {
         title: 'Asesoramiento en Internet',
@@ -31,6 +33,7 @@ const serviceData = [
         bBorder: true,
         lBorder: false,
         rBorder: false,
+        pos: 'sec',
     },
     {
         title: 'Asesoramiento legal general',
@@ -40,6 +43,7 @@ const serviceData = [
         bBorder: false,
         lBorder: false,
         rBorder: true,
+        pos: 'third',
     },
     {
         title: 'Emprendedores y nuevos proyectos',
@@ -49,6 +53,7 @@ const serviceData = [
         bBorder: false,
         lBorder: false,
         rBorder: false,
+        pos: 'last',
     },
 ]
 
