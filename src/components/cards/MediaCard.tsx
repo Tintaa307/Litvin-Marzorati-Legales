@@ -6,7 +6,7 @@ interface Props {
 
 const MediaCard = ({image}: Props) => {
     return (
-        <div className="">
+        <div className="lg:w-full w-80">
             <Image src={image} alt="media image"></Image>
         </div>
     );

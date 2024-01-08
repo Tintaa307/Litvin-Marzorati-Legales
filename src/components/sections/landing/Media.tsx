@@ -19,18 +19,18 @@ const Media = () => {
     const swiperRef = useRef<SwiperType>();
 
     return (
-        <div className="flex justify-between main-padding mt-24 mb-36">
+        <div className="flex lg:flex-row flex-col lg:gap-0 gap-8 justify-between items-start main-padding mt-24 mb-36">
             <div className="flex flex-col gap-10 max-w-[32rem]">
                 <Heading 
                     title="Trascendiendo en los medios" 
                     subtitle="Somos uno de los más reconocidos estudios de servicios de Propiedad Intelectual en América Latina." 
                     notCentered={true} />
-                <div className="flex gap-[0.85rem]">
+                <div className="gap-[0.85rem] lg:flex hidden">
                     <ArrowButton left={true} clicks={clicks} maxClicks={swiperLen - 1} handleClick={handleClick} swiperRef={swiperRef}/>
                     <ArrowButton clicks={clicks} maxClicks={swiperLen - 1} handleClick={handleClick} swiperRef={swiperRef}/>
                 </div>
             </div>
-            <div className='w-[36rem]'>
+            <div className='lg:w-[36rem] w-[24rem]'>
                 <Swiper
                     modules={[Navigation, Pagination, A11y]}
                     slidesPerView={1.1}
@@ -45,6 +45,10 @@ const Media = () => {
                         </SwiperSlide>
                     ))}
                 </Swiper>
+            </div>
+            <div className="gap-[0.85rem] lg:hidden flex">
+                <ArrowButton left={true} clicks={clicks} maxClicks={swiperLen - 1} handleClick={handleClick} swiperRef={swiperRef}/>
+                <ArrowButton clicks={clicks} maxClicks={swiperLen - 1} handleClick={handleClick} swiperRef={swiperRef}/>
             </div>
         </div>
     );

@@ -30,10 +30,10 @@ const Footer = () => {
                 <div className="flex flex-col gap-6">
                     <h2 className="font-dmSerif md:text-[2rem] text-[1.75rem]">Seguinos</h2>
                     <div className="flex gap-3 invert">
-                        <Link href={'https://www.linkedin.com/company/litvin-marzorati-legales/?originalSubdomain=ar'} target="_blank">
+                        <Link href={'https://www.instagram.com/lmlegales/'} target="_blank">
                             <Image src={insta} alt="instagram link"></Image>
                         </Link>
-                        <Link href={'https://www.instagram.com/lmlegales/'} target="_blank">
+                        <Link href={'https://www.linkedin.com/company/litvin-marzorati-legales/?originalSubdomain=ar'} target="_blank">
                             <Image src={linkedin} alt="linkedin link"></Image>
                         </Link>
                     </div>
