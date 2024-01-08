@@ -5,10 +5,10 @@ import { TypeAnimation } from "react-type-animation";
 
 const Hero = () => {
     return (
-        <div className="bg-cover bg-center bg-[url('/assets/heroBg.png')] pb-10">
-            <div className="main-padding xl:pt-64 pt-48">
+        <div className="bg-cover sm:bg-center bg-[center_right_-38rem] bg-[url('/assets/heroBg.png')] pb-10">
+            <div className="main-padding pt-64">
                 <div className="flex flex-col items-center justify-start gap-12">
-                    <div className="font-meshedDisplay font-semibold 2xl:text-[4.375rem] text-[2.75rem] text-center px-3 max-w-[50rem]">
+                    <div className="font-meshedDisplay font-semibold 2xl:text-[4.375rem] sm:text-[2.75rem] text-[2.1rem] text-center px-3 max-w-[50rem]">
                         <h1 className="sm:whitespace-nowrap">
                             Asesorate con expertos, 
                         </h1>

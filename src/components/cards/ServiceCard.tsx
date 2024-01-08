@@ -13,13 +13,13 @@ interface Props {
 
 const ServiceCard = ({title, icon, redirect, tBorder, bBorder, lBorder, rBorder}: Props) => {
     return (
-        <div className={`w-[23.8rem] h-[17.6rem] p-7 bg-transparent flex flex-col gap-8 group hover:cursor-pointer border-black ${tBorder && 'xl:border-t'} ${bBorder ? 'border-b' : 'border-b xl:border-b-0'} ${rBorder && 'xl:border-r'} ${lBorder && 'xl:border-l'}`}>
+        <div className={`sm:w-[23.8rem] w-[20rem] sm:h-[17.6rem] h-[13.8rem] p-4 bg-transparent flex flex-col sm:gap-8 gap-4 group hover:cursor-pointer border-black ${tBorder && 'xl:border-t'} ${bBorder ? 'border-b' : 'border-b xl:border-b-0'} ${rBorder && 'xl:border-r'} ${lBorder && 'xl:border-l'}`}>
             <div className="flex flex-col gap-6 w-[19rem]">
                 <Image src={icon} alt={title} className="duration-150 group-hover:rotate-12"></Image>
                 <h2 className="text-[1.5rem]">{title}</h2>
             </div>
             <div className="flex items-center gap-1 group-hover:gap-3 duration-150">
-                <h3 className="text-base">Aprendé más</h3>
+                <h3 className="sm:text-base text-sm">Aprendé más</h3>
                 <Image src={arrow} alt="arrow icon"></Image>
             </div>
         </div>
