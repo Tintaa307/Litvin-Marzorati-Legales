@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import clsx from "clsx";
 import localFont from 'next/font/local';
 import './globals.css'
+import Footer from '@/components/sections/Footer';
 
 const poppins = localFont({
   variable: "--font-poppins",
@@ -72,7 +73,7 @@ export default function RootLayout({
         )}>
         <main className="flex flex-col">
           {children}
-          {/* <Footer /> */}
+          <Footer />
         </main>
       </body>
     </html>

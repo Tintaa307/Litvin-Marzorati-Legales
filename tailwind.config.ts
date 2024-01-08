@@ -21,6 +21,9 @@ const config: Config = {
           orange: "var(--accent-orange)",
           brown: "var(--accent-brown)",
         },
+        footer: {
+          DEFAULT: "var(--color-footer)",
+        }
       },
       animation: {
         marquee: 'marquee 30s linear infinite',
