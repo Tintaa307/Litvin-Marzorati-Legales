@@ -19,7 +19,7 @@ const Media = () => {
     const swiperRef = useRef<SwiperType>();
 
     return (
-        <div className="flex lg:flex-row flex-col lg:gap-0 gap-8 justify-between lg:items-start items-center main-padding mt-24 mb-36">
+        <div className="flex lg:flex-row flex-col lg:gap-0 gap-8 justify-between lg:items-start items-center main-padding mt-24 mb-24">
             <div className="flex flex-col gap-10 max-w-[32rem]">
                 <Heading 
                     title="Trascendiendo en los medios" 

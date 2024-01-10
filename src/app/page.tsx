@@ -7,7 +7,7 @@ import Services from '@/components/sections/landing/Services'
 
 export default function Home() {
   return (
-    <div className=''>
+    <div>
       <Nav></Nav>
       <Hero></Hero>
       <Services></Services>
