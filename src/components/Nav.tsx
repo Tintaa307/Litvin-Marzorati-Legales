@@ -19,7 +19,7 @@ const Nav = () => {
                 <Link href={'/'}>
                     <h3 className="text-base font-medium">Inicio</h3>
                 </Link>
-                <Link href={'/'}>
+                <Link href={'/about'}>
                     <h3 className="text-base font-medium whitespace-nowrap">Sobre nosotros</h3>
                 </Link>
                 <Link href={'/'}>
