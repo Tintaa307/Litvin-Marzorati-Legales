@@ -11,9 +11,9 @@ const Nav = () => {
     const scrollPosition = useScrollPosition()
 
     return (
-        <div className={`w-screen h-24 fixed top-0 z-50 main-padding flex items-center justify-between duration-200 ${scrollPosition > 20 ? 'bg-background' : "bg-transparent"}`}>
+        <div className={`w-screen h-20 fixed top-0 z-50 main-padding flex items-center justify-between duration-200 ${scrollPosition > 20 ? 'bg-background' : "bg-transparent"}`}>
             <Link href={'/'}>
-                <Image src={Logo} alt="Logo"></Image>
+                <Image src={Logo} alt="Logo" className="w-32"></Image>
             </Link>
             <div className="md:flex hidden items-center gap-6">
                 <Link href={'/'}>

@@ -39,6 +39,9 @@ const config: Config = {
           '100%': { transform: 'translateX(0%)' },
         },
       },
+      screens: {
+        'service': '1370px',
+      },
     },
   },
   plugins: [],
