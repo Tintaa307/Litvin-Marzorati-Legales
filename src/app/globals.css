@@ -22,6 +22,6 @@ html {
 
 @layer components {
   .main-padding {
-    @apply 2xl:px-72 lg:px-32 px-5;
+    @apply 2xl:px-72 lg:px-32 px-3;
   }
 }

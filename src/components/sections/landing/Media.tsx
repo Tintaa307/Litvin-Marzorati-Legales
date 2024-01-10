@@ -40,7 +40,7 @@ const Media = () => {
                     }}
                     >
                     {mediaData.map((object, index) => (
-                        <SwiperSlide key={index}>
+                        <SwiperSlide key={index} className='sm:pl-0 pl-[10%] overflow-hidden'>
                             <MediaCard image={object.src}></MediaCard>
                         </SwiperSlide>
                     ))}
