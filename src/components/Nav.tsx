@@ -53,12 +53,13 @@ const Nav = () => {
                 <span className={`bg-black block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isOpen ? 'opacity-0' : 'opacity-100'}`}></span>
                 <span className={`bg-black block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isOpen ? '-rotate-45' : 'translate-y-1'}`}></span>
             </button>
-            <div className={`absolute md:hidden h-screen w-[70%] top-0 bg-background transition-all ease-out duration-300 ${isOpen ? 'left-0' : '-left-72 sm:-left-[32rem]'}`}>
-                <div className="w-full h-full bg-background flex flex-col p-10">
+            <div className={`absolute md:hidden h-screen w-[70%] top-0 z-10 bg-background transition-all ease-out duration-300 ${isOpen ? 'left-0' : '-left-72 sm:-left-[32rem]'}`}>
+                <div className="w-full h-full flex flex-col p-10">
                     <Link href={'./'}>Inicio</Link>
                     <Link href={'./about'}>Sobre nosotros</Link>
                 </div>
             </div>
+            <div onClick={handleClick} className={`absolute md:hidden h-screen w-full z-0 top-0 right-0 bg-neutral-500 duration-200 ${isOpen ? 'opacity-40' : 'opacity-0 hidden'}`}></div>
         </div>
     )
 }
