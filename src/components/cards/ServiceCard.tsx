@@ -1,5 +1,6 @@
 import Image from "next/image";
 import arrow from "../../../public/icons/arrow-right.svg";
+import Link from "next/link";
 
 interface Props {
     icon: string,
@@ -18,10 +19,12 @@ const ServiceCard = ({title, icon, redirect, tBorder, bBorder, lBorder, rBorder}
                 <Image src={icon} alt={title} className="duration-150 group-hover:rotate-12 sm:w-fit w-10"></Image>
                 <h2 className="sm:text-[1.5rem] text-[1.25rem]">{title}</h2>
             </div>
-            <div className="flex items-center gap-1 group-hover:gap-3 duration-150">
-                <h3 className="sm:text-base text-sm">Aprendé más</h3>
-                <Image src={arrow} alt="arrow icon"></Image>
-            </div>
+            <Link href={redirect}>
+                <div className="flex items-center gap-1 group-hover:gap-3 duration-150">
+                    <h3 className="sm:text-base text-sm">Aprendé más</h3>
+                    <Image src={arrow} alt="arrow icon"></Image>
+                </div>
+            </Link>
         </div>
     );
 };

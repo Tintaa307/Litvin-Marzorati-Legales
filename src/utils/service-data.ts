@@ -8,7 +8,7 @@ const serviceData = [
     {
         title: 'Asesoramiento legal en metaverso e IA',
         icon: metaverseIcon,
-        redirect: '',
+        redirect: '/servicios/metaverso-e-ia',
         tBorder: false,
         bBorder: true,
         lBorder: false,

@@ -6,7 +6,7 @@ import Logo from '../../public/logo.svg';
 import Insta from '../../public/socials/insta.svg';
 import Linked from '../../public/socials/linkedin.svg';
 import useScrollPosition from "@/hooks/useScrollPosition";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface Props {
     white?: boolean,
@@ -34,11 +34,28 @@ const Nav = ({white}: Props) => {
                 <Link href={'/about'}>
                     <h3 className="text-base font-medium whitespace-nowrap">Sobre nosotros</h3>
                 </Link>
+                <div className="group">
+                    <h3 className="text-base font-medium cursor-default">Servicios</h3>
+                    <div className="bg-background text-black group-hover:flex flex-col gap-4 p-4 rounded-md hidden absolute opacity-0 group-hover:opacity-100">
+                        <Link href={'/servicios/metaverso-e-ia'}>
+                            <h3 className="text-base duration-200 font-medium whitespace-nowrap hover:text-black/60 transition-all">Asesoramiento legal en metavero e IA</h3>
+                        </Link>
+                        <Link href={'/'}>
+                            <h3 className="text-base duration-200 font-medium whitespace-nowrap hover:text-black/60 transition-all">Asesoramiento en propiedad intelectual</h3>
+                        </Link>
+                        <Link href={'/'}>
+                            <h3 className="text-base duration-200 font-medium whitespace-nowrap hover:text-black/60 transition-all">Asesoramiento en internet</h3>
+                        </Link>
+                        <Link href={'/'}>
+                            <h3 className="text-base duration-200 font-medium whitespace-nowrap hover:text-black/60 transition-all">Asesoramiento legal general</h3>
+                        </Link>
+                        <Link href={'/'}>
+                            <h3 className="text-base duration-200 font-medium whitespace-nowrap hover:text-black/60 transition-all">Emprendedores y nuevos proyectos</h3>
+                        </Link>
+                    </div>
+                </div>
                 <Link href={'/'}>
-                    <h3 className="text-base font-medium">Servicios</h3>
-                </Link>
-                <Link href={'/'}>
-                    <h3 className={`text-base font-medium py-1 px-3 rounded-xl duration-100 ${scrollPosition > 20 ? 'bg-accent-orange' : 'bg-transparent'}`}>Contacto</h3>
+                    <h3 className={`text-base font-medium py-1 px-3 rounded-xl ${scrollPosition > 20 ? 'bg-accent-orange' : 'bg-transparent'}`}>Contacto</h3>
                 </Link>
             </div>
             <div className="md:flex hidden items-center justify-center gap-2 w-40">
