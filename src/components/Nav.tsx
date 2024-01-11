@@ -38,12 +38,12 @@ const Nav = ({white}: Props) => {
                     <h3 className="text-base font-medium">Servicios</h3>
                 </Link>
                 <Link href={'/'}>
-                    <h3 className={`text-base font-medium py-1 px-3 rounded-xl ${scrollPosition > 20 ? 'bg-accent-orange' : 'bg-transparent'}`}>Contacto</h3>
+                    <h3 className={`text-base font-medium py-1 px-3 rounded-xl duration-100 ${scrollPosition > 20 ? 'bg-accent-orange' : 'bg-transparent'}`}>Contacto</h3>
                 </Link>
             </div>
             <div className="md:flex hidden items-center justify-center gap-2 w-40">
                 <h3 className="text-base font-medium">ES</h3>
-                <span className={`w-[1px] h-7 ${scrollPosition > 20 ? 'bg-black' : `${white && 'bg-white'}` } `}></span>
+                <span className={`w-[1px] h-7 ${scrollPosition > 20 ? 'bg-black' : `${white ? 'bg-white' : 'bg-black'}` } `}></span>
                 <Link href={'https://www.linkedin.com/company/litvin-marzorati-legales/?originalSubdomain=ar'} target="_blank">
                     <Image src={Insta} alt="Instagram socials" className={`${scrollPosition > 20 ? 'filter-none' : `${white && 'filter invert-[100%]'}` }`}></Image>
                 </Link>
@@ -59,8 +59,10 @@ const Nav = ({white}: Props) => {
             </button>
             <div className={`absolute md:hidden h-screen w-[70%] top-0 z-10 bg-background transition-all ease-out duration-300 ${isOpen ? 'left-0' : '-left-[30rem] sm:-left-[36rem]'}`}>
                 <div className="w-full h-full flex flex-col p-10 text-black">
-                    <Link href={'./'}>Inicio</Link>
-                    <Link href={'./about'}>Sobre nosotros</Link>
+                    <Link href={'/'}>Inicio</Link>
+                    <Link href={'/about'}>Sobre nosotros</Link>
+                    <h2 className="pt-6 font-semibold">Servicios</h2>
+                    <Link href={'/servicios/metaverso-e-ia'}>Metaverso e ia</Link>
                 </div>
             </div>
             <div onClick={handleClick} className={`absolute md:hidden h-screen w-full z-0 top-0 right-0 bg-neutral-500 duration-200 ${isOpen ? 'opacity-40' : 'opacity-0 hidden'}`}></div>

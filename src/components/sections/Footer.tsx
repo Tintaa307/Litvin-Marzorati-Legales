@@ -16,7 +16,7 @@ const Footer = () => {
                         <Link href={''}>Asesoramiento General</Link>
                         <Link href={''}>Asesoramiento en Internet</Link>
                         <Link href={''}>Emprendedores y nuevos proyectos</Link>
-                        <Link href={''}>Asesoramiento legal en el metaverso e IA</Link>
+                        <Link href={'/servicios/metaverso-e-ia'}>Asesoramiento legal en el metaverso e IA</Link>
                     </div>
                 </div>
                 <div className="flex flex-col gap-6">

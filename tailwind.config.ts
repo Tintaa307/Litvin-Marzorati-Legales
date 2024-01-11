@@ -41,6 +41,7 @@ const config: Config = {
       },
       screens: {
         'service': '1370px',
+        '3xl': '1600px',
       },
     },
   },

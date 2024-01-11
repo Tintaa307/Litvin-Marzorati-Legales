@@ -4,7 +4,7 @@ import teamData from "@/utils/team-data";
 
 const Team = () => {
     return (
-        <div className="mt-48 mb-48 flex flex-col gap-10 items-center justify-start main-padding">
+        <div className="sm:mt-48 mt-40 sm:mb-48 mb-40 flex flex-col gap-10 items-center justify-start main-padding">
             <Heading title="Nuestro equipo" subtitle="Forjamos un camino conjunto hacia metas compartidas, donde cada integrante juega un papel esencial."></Heading>
             <div className="flex flex-wrap justify-center items-center gap-5">
                 {teamData.map((obj, index) => (

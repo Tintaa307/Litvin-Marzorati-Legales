@@ -8,7 +8,7 @@ interface Props {
 
 const AboutCard = ({title, text, image}: Props) => {
     return (
-        <div className="w-[22rem] h-[14rem] bg-[#F4E6DE] rounded-2xl group relative overflow-hidden">
+        <div className="sm:w-[22rem] w-[20rem] sm:h-[14rem] h-[12rem] bg-[#F4E6DE] rounded-2xl group relative overflow-hidden">
             <div className="absolute w-full h-full duration-300 bg-gradient-to-br from-accent-orange to-accent-brown opacity-0 group-hover:opacity-100"></div>
             <div className="absolute w-full h-full flex justify-center items-center text-center p-4 duration-[400ms] -bottom-48 group-hover:-bottom-2">
                 <h2 className="text-white">{text}</h2>
