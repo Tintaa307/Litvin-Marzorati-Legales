@@ -1,37 +1,33 @@
 import FinalCTA from "../landing/FinalCTA";
 
-interface Props {
-    firstHighlight?: string,
-    secondHighlight?: string,
-    p1: string,
-    p2?: string,
-    p3?: string,
-    p4?: string,
-    p5?: string,
-    p6?: string,
+interface ServiceData {
+    title: string;
+    p: string;
 }
 
-const ServiceBody = ({firstHighlight, secondHighlight, p1, p2, p3, p4, p5}: Props) => {
+interface Props {
+    data: ServiceData[];
+}
+
+const ServiceBody = ({data}: Props) => {
+    const textBlock = (title: string, p: string) => {
+        return(
+            <div className="flex flex-col sm:gap-6 gap-4 font-poppins">
+                <h2 className="sm:text-2xl text-xl font-semibold">{title}</h2>
+                <h3 className="sm:text-xl text-lg">{p}</h3>
+            </div>
+        )
+    };
+
     return (
         <>
-            <div className="main-padding sm:pb-[6.25rem] pb-[5.5rem] flex flex-col gap-[6.25rem] font-poppins">
-                {firstHighlight && (
-                    <div className="py-5 border-t border-b border-black">
-                        <h2 className="text-justify md:text-[1.5rem] text-[1.25rem] font-semibold">{firstHighlight}</h2>
+            <div className="flex flex-col sm:gap-20 gap-16 main-padding">
+                {data.map((object, index) => (
+                    <div key={index}>
+                        {textBlock(object.title, object.p)}
                     </div>
-                )}
-                <div className="text-base font-medium text-justify flex flex-col gap-6">
-                    <p>{p1}</p>
-                    <p>{p2}</p>
-                    <p>{p3}</p>
-                    <p>{p4}</p>
-                    <p>{p5}</p>
-                </div>
-                {secondHighlight && (
-                    <div className="py-5 border-t border-b border-black">
-                        <h2 className="text-justify md:text-[1.5rem] text-[1.25rem] font-semibold">{secondHighlight}</h2>
-                    </div>
-                )}
+                ))
+                }
             </div>
             <FinalCTA></FinalCTA>
         </>

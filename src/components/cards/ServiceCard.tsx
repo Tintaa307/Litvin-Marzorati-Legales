@@ -21,7 +21,7 @@ const ServiceCard = ({title, icon, redirect, tBorder, bBorder, lBorder, rBorder}
             </div>
             <Link href={redirect}>
                 <div className="flex items-center gap-1 group-hover:gap-3 duration-150">
-                    <h3 className="sm:text-base text-sm">Aprendé más</h3>
+                    <h3 className="sm:text-base text-sm">Aprende más</h3>
                     <Image src={arrow} alt="arrow icon"></Image>
                 </div>
             </Link>

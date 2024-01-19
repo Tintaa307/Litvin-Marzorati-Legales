@@ -36,7 +36,7 @@ const Hero = () => {
                     </div>
                     <CtaButton></CtaButton>
                 </div>
-                <div className="mt-40 flex flex-wrap justify-around">
+                <div className="3xl:mt-40 mt-24 flex flex-wrap justify-around">
                     <HeroFact num={21500} title="Expedientes"></HeroFact>
                     <HeroFact num={3700} title="Clientes"></HeroFact>
                     <HeroFact num={90} title="Corresponsales especializados"></HeroFact>

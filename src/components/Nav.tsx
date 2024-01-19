@@ -36,11 +36,11 @@ const Nav = ({white}: Props) => {
                 </Link>
                 <div className="group">
                     <h3 className="text-base font-medium cursor-default">Servicios</h3>
-                    <div className="bg-background text-black group-hover:flex flex-col gap-4 p-4 rounded-md hidden absolute opacity-0 group-hover:opacity-100">
+                    <div className="bg-background shadow-2xl text-black group-hover:flex flex-col gap-4 p-6 rounded-md hidden absolute opacity-0 group-hover:opacity-100">
                         <Link href={'/servicios/metaverso-e-ia'}>
                             <h3 className="text-base duration-200 font-medium whitespace-nowrap hover:text-black/60 transition-all">Asesoramiento legal en metavero e IA</h3>
                         </Link>
-                        <Link href={'/'}>
+                        <Link href={'/servicios/propiedad-intelectual'}>
                             <h3 className="text-base duration-200 font-medium whitespace-nowrap hover:text-black/60 transition-all">Asesoramiento en propiedad intelectual</h3>
                         </Link>
                         <Link href={'/'}>

@@ -20,7 +20,7 @@ const Media = () => {
 
     return (
         <div className="flex lg:flex-row flex-col lg:gap-0 gap-8 justify-between lg:items-start items-center main-padding mt-24 sm:mb-24 mb-20">
-            <div className="flex flex-col gap-10 max-w-[32rem]">
+            <div className="flex flex-col gap-10 max-w-[24rem]">
                 <Heading 
                     title="Trascendiendo en los medios" 
                     subtitle="Somos uno de los más reconocidos estudios de servicios de Propiedad Intelectual en América Latina." 
@@ -33,7 +33,7 @@ const Media = () => {
             <div className='lg:w-[36rem] w-[24rem]'>
                 <Swiper
                     modules={[Navigation, Pagination, A11y]}
-                    slidesPerView={1.1}
+                    slidesPerView={1.2}
                     centeredSlides={true}
                     onSwiper={(swiper) => {
                         swiperRef.current = swiper;
