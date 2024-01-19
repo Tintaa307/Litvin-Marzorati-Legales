@@ -85,13 +85,48 @@ const internetData = [
         title: 'Redes sociales y marketing digital',
         p: 'Asesoramiento sobre la eficiente reacción, organización de defensas y ataques a infractores digitales en redes sociales y marketing digital. Especialistas en minimizar futuros conflictos.',
     },
-]
+];
 
-const example = [
+const generalData = [
     {
-        title: '',
-        p: '',
+        title: 'Asesoramiento Integral en Asuntos Comerciales y Digitales',
+        p: 'Somos un estudio que guía a clientes a través de complejas cuestiones comerciales, digitales y de propiedad intelectual. Acompañamos en la creación de proyectos, empresas, operaciones cotidianas, transacciones, riesgos y oportunidades para el crecimiento estratégico. Destacamos por nuestro asesoramiento personalizado, innovador y especializado.',
     },
-]
+    {
+        title: 'Representación Global y Enfoque Comercial Integral',
+        p: 'Representamos a clientes en todo el mundo, respaldados por nuestra experiencia y habilidades. Nuestro asesoramiento se centra en negocios, desde simples consultas diarias hasta grandes acuerdos y juicios internacionales. Conocemos el mercado nacional e internacional.',
+    },
+    {
+        title: 'Contratos Especializados y Colaboración Estratégica',
+        p: 'Brindamos diversos contratos, como confidencialidad, no competencia, distribución, licencia y franquicia. Cubrimos el uso de know-how, secretos comerciales, propiedad intelectual e industrial. Colaboramos con diversas áreas de empresas para ofrecer asesoramiento innovador, rápido, estratégico y eficiente. Los clientes acuden a nosotros para obtener un asesoramiento completo e integral.',
+    },
+    {
+        title: 'Tecnología, Eficiencia y Confianza',
+        p: 'Hemos desarrollado un software de gestión para reducir tiempos y costos, permitiéndonos brindar soluciones legales a medida. La calidad de nuestros servicios y nuestra capacidad de respuesta inmediata han ganado la confianza y fidelidad de clientes internacionales y nacionales.',
+    },
+];
 
-export { metaverseData, propIntelecualData, internetData };
+const emprendedoresData = [
+    {
+        title: 'Asesoramiento Integral para Emprendedores e Innovadores',
+        p: 'Como estudio innovador, entendemos las dificultades que enfrentan los emprendedores y nos destacamos como referentes en asesoría legal para startups e innovadores. Nuestros servicios abarcan integralmente las necesidades legales, financieras y digitales.',
+    },
+    {
+        title: 'Experiencia y Compromiso con Emprendedores',
+        p: 'Con años de experiencia, trabajamos de cerca con emprendedores, siendo parte esencial de sus equipos y brindando asesoramiento en todos los aspectos legales y administrativos.',
+    },
+    {
+        title: 'Asesoramiento hasta el Crecimiento Empresarial',
+        p: 'Somos únicos al ofrecer asesoramiento legal desde el inicio de pequeños proyectos hasta su expansión como grandes empresas. Acompañamos a los emprendedores desde la creación de la idea hasta el desarrollo del negocio, siendo esenciales en cada etapa.',
+    },
+    {
+        title: 'Servicios Esenciales para Emprendedores',
+        p: 'Brindamos un asesoramiento completo, cubriendo desde la gestión y protección de marcas, patentes, modelos y diseños industriales hasta la creación de la estructura legal más adecuada. Además, proporcionamos asesoramiento integral en cuestiones legales, elaboración de pactos de socios, due diligence legal, evaluación de riesgos, confección de contratos comerciales y apoyo en las operaciones diarias. Destacamos la importancia de contar con asesoría legal especializada para prevenir contingencias y evitar posibles infracciones, asegurando un desarrollo empresarial exitoso.',
+    },
+    {
+        title: 'Importancia de la Asesoría Legal Especializada',
+        p: 'Enfatizamos la relevancia de contar con asesoría legal especializada para emprendedores, evitando contingencias legales o infracciones que podrían haberse evitado fácilmente.',
+    },
+];
+
+export { metaverseData, propIntelecualData, internetData, generalData, emprendedoresData };

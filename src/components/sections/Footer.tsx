@@ -12,10 +12,10 @@ const Footer = () => {
                 <div className="flex flex-col gap-6">
                     <h2 className="font-dmSerif md:text-[2rem] text-[1.75rem]">Servicios</h2>
                     <div className="flex flex-col gap-3">
-                        <Link href={''}>Asesoramiento en propiedad intelectual</Link>
-                        <Link href={''}>Asesoramiento General</Link>
-                        <Link href={''}>Asesoramiento en Internet</Link>
-                        <Link href={''}>Emprendedores y nuevos proyectos</Link>
+                        <Link href={'/servicios/propiedad-intelectual'}>Asesoramiento en propiedad intelectual</Link>
+                        <Link href={'/servicios/asesoramiento-general'}>Asesoramiento General</Link>
+                        <Link href={'/servicios/internet'}>Asesoramiento en Internet</Link>
+                        <Link href={'/servicios/emprendedores'}>Emprendedores y nuevos proyectos</Link>
                         <Link href={'/servicios/metaverso-e-ia'}>Asesoramiento legal en el metaverso e IA</Link>
                     </div>
                 </div>
