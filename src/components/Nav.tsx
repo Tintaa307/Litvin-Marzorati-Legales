@@ -5,8 +5,9 @@ import Link from "next/link";
 import Logo from '../../public/logo.svg';
 import Insta from '../../public/socials/insta.svg';
 import Linked from '../../public/socials/linkedin.svg';
+import Facebook from '../../public/socials/facebook.svg';
 import useScrollPosition from "@/hooks/useScrollPosition";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 interface Props {
     white?: boolean,
@@ -22,9 +23,9 @@ const Nav = ({white}: Props) => {
     };
 
     return (
-        <div className={`w-screen h-20 fixed top-0 z-50 main-padding flex items-center justify-between duration-200 ${scrollPosition > 20 ? 'bg-background text-black' : `bg-transparent ${white && 'text-white'}` }`}>
+        <div className={`w-screen h-20 fixed top-0 z-50 main-padding flex items-center justify-between duration-200 border-b ${scrollPosition > 20 ? 'bg-background text-black border-transparent' : `${white && 'text-white'} ${isOpen ? 'bg-background border-[#1E1E1E]/30' : 'bg-transparent border-transparent'}` }`}>
             <Link href={'/'}>
-                <Image src={Logo} alt="Logo" className={`w-32 ${scrollPosition > 20 ? 'filter-none' : `${white && 'filter invert-[100%]'}` }`}></Image>
+                <Image src={Logo} alt="Logo" className={`w-32 ${scrollPosition > 20 ? 'filter-none' : `${(white && !isOpen) && 'filter invert-[100%]'}` }`}></Image>
             </Link>
             {/* For Desktop */}
             <div className="md:flex hidden items-center gap-6">
@@ -67,22 +68,45 @@ const Nav = ({white}: Props) => {
                 <Link href={'https://www.instagram.com/lmlegales/'} target="_blank">
                     <Image src={Linked} alt="LinkedIn socials" className={`${scrollPosition > 20 ? 'filter-none' : `${white && 'filter invert-[100%]'}` }`}></Image>
                 </Link>
+                <Link href={'https://www.facebook.com/Lmlegales'} target="_blank">
+                    <Image src={Facebook} alt="LinkedIn socials" className={`${scrollPosition > 20 ? 'filter-none' : `${white && 'filter invert-[100%]'}` }`}></Image>
+                </Link>
             </div>
             {/* For mobile */}
             <button onClick={handleClick} className="md:hidden flex flex-col justify-center items-center">
-                <span className={`bg-black ${scrollPosition > 20 ? 'bg-black' : `${white && 'bg-white'}` } block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isOpen ? 'rotate-45 translate-y-1' : '-translate-y-1'}`}></span>
-                <span className={`bg-black ${scrollPosition > 20 ? 'bg-black' : `${white && 'bg-white'}` } block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isOpen ? 'opacity-0' : 'opacity-100'}`}></span>
-                <span className={`bg-black ${scrollPosition > 20 ? 'bg-black' : `${white && 'bg-white'}` } block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isOpen ? '-rotate-45' : 'translate-y-1'}`}></span>
+                <span className={`bg-black ${scrollPosition > 20 ? 'bg-black' : `${(white && !isOpen) && 'bg-white'}` } block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isOpen ? 'rotate-45 translate-y-1' : '-translate-y-1'}`}></span>
+                <span className={`bg-black ${scrollPosition > 20 ? 'bg-black' : `${(white && !isOpen) && 'bg-white'}` } block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+                <span className={`bg-black ${scrollPosition > 20 ? 'bg-black' : `${(white && !isOpen) && 'bg-white'}` } block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isOpen ? '-rotate-45' : 'translate-y-1'}`}></span>
             </button>
-            <div className={`absolute md:hidden h-screen w-[70%] top-0 z-10 bg-background transition-all ease-out duration-300 ${isOpen ? 'left-0' : '-left-[30rem] sm:-left-[36rem]'}`}>
-                <div className="w-full h-full flex flex-col p-10 text-black">
+            <div className={`absolute md:hidden h-screen w-[40%] top-20 z-10 bg-background border-l border-[#1E1E1E]/30 transition-all ease-out duration-300 ${isOpen ? 'right-0' : '-right-[20rem] sm:-right-[26rem]'}`}>
+                <div className="w-full h-full flex flex-col gap-[1.25rem] p-[0.62rem] text-base font-medium text-black">
                     <Link href={'/'}>Inicio</Link>
                     <Link href={'/about'}>Sobre nosotros</Link>
-                    <h2 className="pt-6 font-semibold">Servicios</h2>
-                    <Link href={'/servicios/metaverso-e-ia'}>Metaverso e ia</Link>
+                    <div className="flex gap-2 items-center">
+                        <h2>Servicios</h2>
+                        <h2 className="rotate-0">{`>`}</h2>
+                    </div>
+                    <Link href={'/'}>Contacto</Link>
+                    <span className="w-full h-[1px] bg-black/30"></span>
+                    <div className="flex gap-2 items-center">
+                        <h2>Español</h2>
+                        <h2 className="rotate-0">{`>`}</h2>
+                    </div>
+                    <span className="w-full h-[1px] bg-black/30"></span>
+                    <div className="flex gap-2">
+                        <Link href={'https://www.linkedin.com/company/litvin-marzorati-legales/?originalSubdomain=ar'} target="_blank">
+                            <Image src={Insta} alt="Instagram socials" className={`${scrollPosition > 20 ? 'filter-none' : `${(white && !isOpen) && 'filter invert-[100%]'}` }`}></Image>
+                        </Link>
+                        <Link href={'https://www.instagram.com/lmlegales/'} target="_blank">
+                            <Image src={Linked} alt="LinkedIn socials" className={`${scrollPosition > 20 ? 'filter-none' : `${(white && !isOpen) && 'filter invert-[100%]'}` }`}></Image>
+                        </Link>
+                        <Link href={'https://www.facebook.com/Lmlegales'} target="_blank">
+                            <Image src={Facebook} alt="LinkedIn socials" className={`${scrollPosition > 20 ? 'filter-none' : `${(white && !isOpen) && 'filter invert-[100%]'}` }`}></Image>
+                        </Link>
+                    </div>
                 </div>
             </div>
-            <div onClick={handleClick} className={`absolute md:hidden h-screen w-full z-0 top-0 right-0 bg-neutral-500 duration-200 ${isOpen ? 'opacity-40' : 'opacity-0 hidden'}`}></div>
+            <div onClick={handleClick} className={`absolute md:hidden h-screen w-full z-0 top-20 right-0 bg-neutral-500 duration-200 ${isOpen ? 'opacity-40' : 'opacity-0 hidden'}`}></div>
         </div>
     )
 }
