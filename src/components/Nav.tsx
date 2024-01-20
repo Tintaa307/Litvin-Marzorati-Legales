@@ -1,6 +1,7 @@
 'use client';
 import Image from "next/image";
 import Link from "next/link";
+import { AnimatePresence, motion } from "framer-motion"
 
 import MobileMenu from "./navigation/MobileMenu";
 
@@ -10,6 +11,7 @@ import Linked from '../../public/socials/linkedin.svg';
 import Facebook from '../../public/socials/facebook.svg';
 import useScrollPosition from "@/hooks/useScrollPosition";
 import { useState } from "react";
+import ServicesHoverCard from "./navigation/ServicesHoverCard";
 
 interface Props {
     white?: boolean,
@@ -24,6 +26,9 @@ const Nav = ({white}: Props) => {
         setIsOpen(!isOpen);
     };
 
+    //Handle service option hovering
+    const [isHovering, setIsHovering] = useState(false);
+
     return (
         <div className={`w-screen h-20 fixed top-0 z-50 main-padding flex items-center justify-between duration-200 border-b ${scrollPosition > 20 ? 'bg-background text-black border-transparent' : `${white && 'text-white'} ${isOpen ? 'bg-background border-[#1E1E1E]/30' : 'bg-transparent border-transparent'}` }`}>
             <Link href={'/'}>
@@ -37,25 +42,19 @@ const Nav = ({white}: Props) => {
                 <Link href={'/about'}>
                     <h3 className="text-base font-medium whitespace-nowrap">Sobre nosotros</h3>
                 </Link>
-                <div className="group">
+                <div onMouseOver={() => setIsHovering(true)} onMouseOut={() => setIsHovering(false)} className="group">
                     <h3 className="text-base font-medium cursor-default">Servicios</h3>
-                    <div className="bg-background shadow-2xl text-black group-hover:flex flex-col gap-4 p-6 rounded-md hidden absolute opacity-0 group-hover:opacity-100">
-                        <Link href={'/servicios/metaverso-e-ia'}>
-                            <h3 className="text-base duration-200 font-medium whitespace-nowrap hover:text-black/60 transition-all">Asesoramiento legal en metavero e IA</h3>
-                        </Link>
-                        <Link href={'/servicios/propiedad-intelectual'}>
-                            <h3 className="text-base duration-200 font-medium whitespace-nowrap hover:text-black/60 transition-all">Asesoramiento en propiedad intelectual</h3>
-                        </Link>
-                        <Link href={'/servicios/internet'}>
-                            <h3 className="text-base duration-200 font-medium whitespace-nowrap hover:text-black/60 transition-all">Asesoramiento en internet</h3>
-                        </Link>
-                        <Link href={'/servicios/asesoramiento-general'}>
-                            <h3 className="text-base duration-200 font-medium whitespace-nowrap hover:text-black/60 transition-all">Asesoramiento legal general</h3>
-                        </Link>
-                        <Link href={'/servicios/emprendedores'}>
-                            <h3 className="text-base duration-200 font-medium whitespace-nowrap hover:text-black/60 transition-all">Emprendedores y nuevos proyectos</h3>
-                        </Link>
-                    </div>
+                    <AnimatePresence>
+                        {isHovering && 
+                            <motion.div 
+                                initial={{ x: -30, opacity: 0 }}
+                                animate={{ x: 0, opacity: 1 }}
+                                exit={{ x: 0, opacity: 0 }}
+                                className="bg-background shadow-2xl text-black flex flex-col gap-4 p-6 rounded-md absolute">
+                                <ServicesHoverCard></ServicesHoverCard>
+                            </motion.div>
+                        }
+                    </AnimatePresence>
                 </div>
                 <Link href={'/'}>
                     <h3 className={`text-base font-medium py-1 px-3 rounded-xl ${scrollPosition > 20 ? 'bg-accent-orange' : 'bg-transparent'}`}>Contacto</h3>
