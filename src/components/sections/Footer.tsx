@@ -3,6 +3,8 @@ import Image from "next/image";
 
 import insta from '../../../public/socials/insta.svg';
 import linkedin from '../../../public/socials/linkedin.svg';
+import facebook from '../../../public/socials/facebook.svg';
+
 import logo from '../../../public/logo.svg';
 
 const Footer = () => {
@@ -35,6 +37,9 @@ const Footer = () => {
                         </Link>
                         <Link href={'https://www.linkedin.com/company/litvin-marzorati-legales/?originalSubdomain=ar'} target="_blank">
                             <Image src={linkedin} alt="linkedin link"></Image>
+                        </Link>
+                        <Link href={'https://www.facebook.com/Lmlegales'} target="_blank">
+                            <Image src={facebook} alt="facebook socials"></Image>
                         </Link>
                     </div>
                 </div>
