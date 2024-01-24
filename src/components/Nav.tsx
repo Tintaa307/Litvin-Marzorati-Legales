@@ -43,7 +43,10 @@ const Nav = ({white}: Props) => {
                     <h3 className="text-base font-medium whitespace-nowrap">Sobre nosotros</h3>
                 </Link>
                 <div onMouseOver={() => setIsHovering(true)} onMouseOut={() => setIsHovering(false)} className="group">
-                    <h3 className="text-base font-medium cursor-default">Servicios</h3>
+                    <div className="text-base font-medium cursor-default flex gap-2">
+                        <h3>Servicios</h3>
+                        <h3 className={`transition-all ${!isHovering ? 'rotate-0' : 'rotate-90'}`}>{">"}</h3>
+                    </div>
                     <AnimatePresence>
                         {isHovering && 
                             <motion.div 
