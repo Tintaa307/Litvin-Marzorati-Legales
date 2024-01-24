@@ -25,8 +25,8 @@ const Footer = () => {
                     <h2 className="font-dmSerif md:text-[2rem] text-[1.75rem]">Litvin Marzorati Legales</h2>
                     <div className="flex flex-col gap-3">
                         <Link href={'/'}>Inicio</Link>
-                        <Link href={'/'}>Sobre nosotros</Link>
-                        <Link href={'/'}>Contacto</Link>
+                        <Link href={'/about'}>Sobre nosotros</Link>
+                        <Link href={'/contacto'}>Contacto</Link>
                     </div>
                 </div>
                 <div className="flex flex-col gap-6">

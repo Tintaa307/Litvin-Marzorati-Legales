@@ -41,7 +41,7 @@ const MobileMenu = ({scrollPosition, isOpen, white}: Props) => {
         <Link href={'/'}>Inicio</Link>
         <Link href={'/about'}>Sobre nosotros</Link>
         <ListDisplay heading="Servicios" options={Services}/>
-        <Link href={'/'}>Contacto</Link>
+        <Link href={'/contacto'}>Contacto</Link>
         <span className="w-full h-[1px] bg-black/30"></span>
         <div className="flex gap-2 items-center">
             <h2>Español</h2>

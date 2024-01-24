@@ -59,7 +59,7 @@ const Nav = ({white}: Props) => {
                         }
                     </AnimatePresence>
                 </div>
-                <Link href={'/'}>
+                <Link href={'/contacto'}>
                     <h3 className={`text-base font-medium py-1 px-3 rounded-xl ${scrollPosition > 20 ? 'bg-accent-orange' : 'bg-transparent'}`}>Contacto</h3>
                 </Link>
             </div>
