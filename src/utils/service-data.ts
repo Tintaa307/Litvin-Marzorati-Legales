@@ -18,7 +18,7 @@ const serviceData = [
     {
         title: 'Asesoramiento en propiedad intelectual',
         icon: lightIcon,
-        redirect: '',
+        redirect: '/servicios/propiedad-intelectual',
         tBorder: false,
         bBorder: true,
         lBorder: false,
@@ -28,7 +28,7 @@ const serviceData = [
     {
         title: 'Asesoramiento en Internet',
         icon: webIcon,
-        redirect: '',
+        redirect: '/servicios/internet',
         tBorder: false,
         bBorder: true,
         lBorder: false,
@@ -38,7 +38,7 @@ const serviceData = [
     {
         title: 'Asesoramiento legal general',
         icon: generalIcon,
-        redirect: '',
+        redirect: '/servicios/asesoramiento-general',
         tBorder: false,
         bBorder: false,
         lBorder: false,
@@ -48,7 +48,7 @@ const serviceData = [
     {
         title: 'Emprendedores y nuevos proyectos',
         icon: zapIcon,
-        redirect: '',
+        redirect: '/servicios/emprendedores',
         tBorder: false,
         bBorder: false,
         lBorder: false,

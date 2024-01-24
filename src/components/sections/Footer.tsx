@@ -50,7 +50,6 @@ const Footer = () => {
                 <div className="flex flex-col gap-3 text-[1rem]">
                     <h3>Tel: +54 11 4782-9952</h3>
                     <h3>Mail: info@lmlegales.com.ar</h3>
-                    <h3>Ubic: -----</h3>
                 </div>
             </div>
         </div>
