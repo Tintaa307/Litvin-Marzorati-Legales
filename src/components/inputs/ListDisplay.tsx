@@ -31,8 +31,8 @@ const ListDisplay = ({heading, options}: Props) => {
                         animate={{ opacity: 1 }}
                         className="flex flex-col gap-4 pl-2">
                         {
-                            options.map((service) => (
-                                <Link className="text-sm" href={service.url}>{service.title}</Link>
+                            options.map((service, index) => (
+                                <Link key={index} className="text-sm" href={service.url}>{service.title}</Link>
                             ))
                         }
                     </motion.div>
