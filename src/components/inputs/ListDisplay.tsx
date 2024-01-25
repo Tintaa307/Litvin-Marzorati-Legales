@@ -32,7 +32,7 @@ const ListDisplay = ({heading, options}: Props) => {
                         className="flex flex-col gap-4 pl-2">
                         {
                             options.map((service, index) => (
-                                <Link key={index} className="text-sm" href={service.url}>{service.title}</Link>
+                                <Link key={index} className="text-sm font-normal" href={service.url}>{service.title}</Link>
                             ))
                         }
                     </motion.div>

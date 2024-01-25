@@ -42,12 +42,12 @@ const MobileMenu = ({scrollPosition, isOpen, white}: Props) => {
         <Link href={'/about'}>Sobre nosotros</Link>
         <ListDisplay heading="Servicios" options={Services}/>
         <Link href={'/contacto'}>Contacto</Link>
-        <span className="w-full h-[1px] bg-black/30"></span>
+        <span className="w-full h-[1px] bg-black/15"></span>
         <div className="flex gap-2 items-center">
             <h2>Español</h2>
             <h2 className="rotate-0">{`>`}</h2>
         </div>
-        <span className="w-full h-[1px] bg-black/30"></span>
+        <span className="w-full h-[1px] bg-black/15"></span>
         <div className="flex gap-2">
             <Link href={'https://www.linkedin.com/company/litvin-marzorati-legales/?originalSubdomain=ar'} target="_blank">
                 <Image src={Insta} alt="Instagram socials" className={`${scrollPosition > 20 ? 'filter-none' : `${(white && !isOpen) && 'filter invert-[100%]'}` }`}></Image>
