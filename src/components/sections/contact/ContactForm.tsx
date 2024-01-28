@@ -1,15 +1,67 @@
+'use client';
+import { sendEmail } from '@/app/_actions';
+import React from 'react';
+
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import InputLabel from "./InputLabel";
 
 const ContactForm = () => {
+    //Toast notifications
+    const toastSuccess = () => toast.success("Su email ha sido enviado! Recibirá una respuesta en breve.");
+    const toastEmailError = () => toast.error('Ingrese un email válido.');
+    const toastError = () => toast.error('Complete el formulario entero.');
+
+    //Function called when form is submited
+    const submitContact = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget)
+        const data = Object.fromEntries(formData.entries())
+
+        if(data.email && data.name && data.message) {
+            if(ValidateEmail(String(data.email))){
+                submitEmail({ email: String(data.email), name: String(data.name), subject: String(data.subject), message: String(data.message) });
+                e.currentTarget.reset();
+                void toastSuccess();
+                return;
+            }
+            void toastEmailError();
+            return;
+        }
+        void toastError();
+    }
+
+        //Function for calling email api
+        const submitEmail = async ({email, name, subject, message}: {email: string, name: string, subject?: string, message: string}) => {
+            await sendEmail({email, name, subject, message})
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((err) => {
+                console.log('Error', err)
+                throw new Error('Network error.')
+            })
+        }
+    
+        //Function for validating email adress
+        const ValidateEmail = (mail: string) => {
+            if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
+            {
+                return (true) //Valid email
+            }
+            return (false) //Invalid
+        }
+
     return (
-        <form action="submit" className="md:w-[45%] w-full grid gap-6 items-start h-fit">
+        <form onSubmit={submitContact} action="submit" className="md:w-[45%] w-full grid gap-6 items-start h-fit">
             <div className="flex flex-col gap-2">
                 <InputLabel pos="01" text="Nombre completo*"></InputLabel>
                 <input name="name" type="text" className="bg-transparent outline-none border-b border-black/30"/>
             </div>
             <div className="flex flex-col gap-2">
                 <InputLabel pos="02" text="Correo electrónico*"></InputLabel>
-                <input name="mail" type="text" className="bg-transparent outline-none border-b border-black/30"/>
+                <input name="email" type="text" className="bg-transparent outline-none border-b border-black/30"/>
             </div>
             <div className="flex flex-col gap-2">
                 <InputLabel pos="03" text="Asunto"></InputLabel>
