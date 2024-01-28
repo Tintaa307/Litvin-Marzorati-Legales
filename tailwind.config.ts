@@ -28,7 +28,7 @@ const config: Config = {
       animation: {
         marquee: 'marquee 30s linear infinite',
         marquee2: 'marquee2 30s linear infinite',
-        moveBg: 'moveBg 20s ease infinite',
+        moveBg: 'moveBg 10s linear infinite',
       },
       keyframes: {
         marquee: {
@@ -40,9 +40,11 @@ const config: Config = {
           '100%': { transform: 'translateX(0%)' },
         },
         moveBg: {
-          '0%': { 'background-position': '0% 0%' },
-          '50%': { 'background-position': '800%' },
-          '100%': { 'background-position': '0% 0%' },
+          '0%': { 'background-position': '100%' },
+          '25%': { 'background-position': '100%' },
+          '50%': { 'background-position': '0%' },
+          '75%': { 'background-position': '0%' },
+          '100%': { 'background-position': '100%' },
         },
       },
       screens: {
