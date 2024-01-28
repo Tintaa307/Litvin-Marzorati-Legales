@@ -71,7 +71,7 @@ export default function RootLayout({
           'bg-background',
           'font-poppins',
         )}>
-        <main className="flex flex-col">
+        <main className="flex flex-col overflow-hidden">
           {children}
           <Footer />
         </main>
