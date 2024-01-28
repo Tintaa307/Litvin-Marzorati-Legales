@@ -69,10 +69,10 @@ const ContactForm = () => {
             </div>
             <div className="flex flex-col gap-2">
                 <InputLabel pos="04" text="Mensaje*"></InputLabel>
-                <input name="message" type="text" className="bg-transparent outline-none border-b border-black/30"/>
+                <textarea name="message" className="w-full resize-none bg-transparent outline-none border-b border-black/30"/>
             </div>
             <div className="w-full flex justify-start">
-                <button type="submit" className="bg-accent-orange py-3 px-8 rounded-md w-28">Enviar</button>
+                <button type="submit" className={`bg-accent-orange py-3 px-8 rounded-md w-28`}>Enviar</button>
             </div>
        </form>
     );
