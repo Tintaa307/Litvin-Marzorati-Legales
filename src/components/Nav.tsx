@@ -82,7 +82,7 @@ const Nav = ({white}: Props) => {
                 <span className={`bg-black ${scrollPosition > 20 ? 'bg-black' : `${(white && !isOpen) && 'bg-white'}` } block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isOpen ? 'opacity-0' : 'opacity-100'}`}></span>
                 <span className={`bg-black ${scrollPosition > 20 ? 'bg-black' : `${(white && !isOpen) && 'bg-white'}` } block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isOpen ? '-rotate-45' : 'translate-y-1'}`}></span>
             </button>
-            <div className={`absolute md:hidden h-screen w-[50%] top-20 z-10 bg-background border-l border-[#1E1E1E]/30 transition-all ease-out duration-300 ${isOpen ? 'right-0' : '-right-[22rem] sm:-right-[26rem]'}`}>
+            <div className={`absolute md:hidden h-screen top-20 z-10 bg-background border-l border-[#1E1E1E]/30 transition-all ease-out duration-300 ${isOpen ? 'right-0 sm:w-[50%] w-[70%]' : '-right-[16rem] sm:-right-[26rem] w-[40%]'}`}>
                 <MobileMenu scrollPosition={scrollPosition} white={white} isOpen={isOpen}></MobileMenu>
             </div>
             <div onClick={handleClick} className={`absolute md:hidden h-screen w-full z-0 top-20 right-0 bg-neutral-500 duration-200 ${isOpen ? 'opacity-40' : 'opacity-0 hidden'}`}></div>
