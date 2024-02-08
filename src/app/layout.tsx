@@ -50,7 +50,28 @@ const dmSerif = localFont({
       style: "normal",
     }
   ]
-})
+});
+
+const ubuntu = localFont({
+  variable: '--font-ubuntu',
+  src: [
+    {
+      path: "./fonts/Ubuntu-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Ubuntu-Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/Ubuntu-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    }
+  ]
+});
 
 export const metadata: Metadata = {
   title: 'Litvin Marzorati Legales',

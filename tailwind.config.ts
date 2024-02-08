@@ -12,6 +12,7 @@ const config: Config = {
         "poppins": ["var(--font-poppins)"],
         "meshedDisplay": ["var(--font-meshedDisplay)"],
         "dmSerif": ["var(--font-dmSerif)"],
+        "ubuntu": ["var(--font-ubuntu)"],
       },
       colors: {
         background: {
