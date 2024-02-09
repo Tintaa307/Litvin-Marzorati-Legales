@@ -66,10 +66,10 @@ const Nav = ({white}: Props) => {
             <div className="md:flex hidden items-center justify-center gap-2 w-40">
                 <h3 className="text-base font-medium">ES</h3>
                 <span className={`w-[1px] h-7 ${scrollPosition > 20 ? 'bg-black' : `${white ? 'bg-white' : 'bg-black'}` } `}></span>
-                <Link href={'https://www.linkedin.com/company/litvin-marzorati-legales/?originalSubdomain=ar'} target="_blank">
+                <Link href={'https://www.instagram.com/lmlegales/'} target="_blank">
                     <Image src={Insta} alt="Instagram socials" className={`${scrollPosition > 20 ? 'filter-none' : `${white && 'filter invert-[100%]'}` }`}></Image>
                 </Link>
-                <Link href={'https://www.instagram.com/lmlegales/'} target="_blank">
+                <Link href={'https://www.linkedin.com/company/litvin-marzorati-legales/?originalSubdomain=ar'} target="_blank">
                     <Image src={Linked} alt="LinkedIn socials" className={`${scrollPosition > 20 ? 'filter-none' : `${white && 'filter invert-[100%]'}` }`}></Image>
                 </Link>
                 <Link href={'https://www.facebook.com/Lmlegales'} target="_blank">
