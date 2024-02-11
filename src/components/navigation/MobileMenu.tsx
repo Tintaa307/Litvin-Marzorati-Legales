@@ -15,23 +15,23 @@ interface Props {
 const MobileMenu = ({scrollPosition, isOpen, white}: Props) => {
     const Services = [
         {
-            title: 'Asesoramiento legal en metavero e IA',
+            title: 'Asesoramiento legal en metaverso e IA.',
             url: '/servicios/metaverso-e-ia'
         },
         {
-            title: 'Asesoramiento en propiedad intelectual',
+            title: 'Asesoramiento en propiedad intelectual.',
             url: '/servicios/propiedad-intelectual'
         },
         {
-            title: 'Asesoramiento en internet',
+            title: 'Asesoramiento en internet.',
             url: '/servicios/internet'
         },
         {
-            title: 'Asesoramiento legal general',
+            title: 'Asesoramiento legal general.',
             url: '/servicios/asesoramiento-general'
         },
         {
-            title: 'Emprendedores y nuevos proyectos',
+            title: 'Emprendedores y nuevos proyectos.',
             url: '/servicios/emprendedores'
         },
     ];
