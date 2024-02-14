@@ -19,7 +19,7 @@ const Services = () => {
                         key={index}
                         title={object.title}
                         icon={object.icon}
-                        redirect={object.redirect}
+                        redirect={'/es' + object.redirect}
                         tBorder={object.tBorder}
                         bBorder={object.bBorder}
                         lBorder={object.lBorder}
@@ -30,7 +30,7 @@ const Services = () => {
                         key={index}
                         title={object.title}
                         icon={object.icon}
-                        redirect={object.redirect}
+                        redirect={'/en' + object.redirect}
                         tBorder={object.tBorder}
                         bBorder={object.bBorder}
                         lBorder={object.lBorder}
