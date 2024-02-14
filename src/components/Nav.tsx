@@ -88,12 +88,12 @@ const Nav = ({white, tInicio, tAbout, tContacto, tServicios, locale}: Props) => 
                                 exit={{ x: 0, opacity: 0 }}
                                 className="bg-background shadow-2xl text-black font-medium flex flex-col gap-4 p-4 rounded-md absolute cursor-pointer">
                                 {locale === 'es' ? (
-                                    <Link href={pathname.replace('/es/', '/en/')} className="flex gap-2 items-center justify-center">
+                                    <Link href={pathname.replace('/es', '/en')} className="flex gap-2 items-center justify-center">
                                         <Image src={usaFlag} alt="United States Flag" width={25}></Image>
                                         <h3>EN</h3> 
                                     </Link>
                                 ) : (
-                                    <Link href={pathname.replace('/en/', '/es/')} className="flex gap-2 items-center justify-center">
+                                    <Link href={pathname.replace('/en', '/es')} className="flex gap-2 items-center justify-center">
                                         <Image src={esFlag} alt="Spanish Flag" width={25}></Image>
                                         <h3>ES</h3> 
                                     </Link>

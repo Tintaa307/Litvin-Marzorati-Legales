@@ -80,12 +80,12 @@ const MobileMenu = ({scrollPosition, isOpen, white, tAbout, tContacto, tInicio, 
         <span className="w-full h-[1px] bg-black/15"></span>
         <div className="flex gap-2 items-center">
             {locale === 'es' ? (
-                <Link href={pathname.replace('/es/', '/en/')} className="flex gap-2 items-center justify-center">
+                <Link href={pathname.replace('/es', '/en')} className="flex gap-2 items-center justify-center py-1 pr-4">
                     <Image src={usaFlag} alt="United States Flag" width={25}></Image>
                     <h3>EN</h3> 
                 </Link>
             ) : (
-                <Link href={pathname.replace('/en/', '/es/')} className="flex gap-2 items-center justify-center">
+                <Link href={pathname.replace('/en', '/es')} className="flex gap-2 items-center justify-center py-1 pr-4">
                     <Image src={esFlag} alt="Spanish Flag" width={25}></Image>
                     <h3>ES</h3> 
                 </Link>
