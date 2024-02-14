@@ -1,0 +1,96 @@
+{
+  "Nav":
+  {
+    "inicio": "Home",
+    "sobreNos": "About us",
+    "servicios": "Services",
+    "contacto": "Contact"
+  },
+  "Hero": 
+  {
+    "head1": "Get advice from experts,",
+    "head2": "we give value to your",
+    "type1": "ideas.",
+    "type2": "brands.",
+    "type3": "domains.",
+    "type4": "patents.",
+    "type5": "utility models.",
+    "type6": "software.",
+    "fact1": "Cases",
+    "fact2": "Clients",
+    "fact3": "Specialized correspondents",
+    "cta": "Contact us"
+  },
+  "ServiceLand":    
+  {
+    "title": "Our Services",
+    "subtitle": "Our experience sets us apart, providing efficient solutions while minimizing resource usage."
+  },
+  "Media":
+  {
+    "title": "Elevating Presence Across Media Platforms",
+    "subtitle": "We are one of the most renowned Intellectual Property service studios in Latin America."
+  },
+  "FinalCTA":
+  {
+    "title": "Don't hesitate, get in touch with us.",
+    "cta": "Contact us"
+  },
+  "Footer":
+  {
+    "services": "Services",
+    "intelectual": "Legal Advice on Intellectual Property",
+    "general": "General Legal Advice",
+    "internet": "Legal Advice on Internet",
+    "projects": "Entrepreneurs and New Projects",
+    "meta": "Legal Advice on Metaverse and AI",
+    "inicio": "Home",
+    "sobreNos": "About us",
+    "contact": "Contact",
+    "seguinos": "Follow us"
+  },
+  "AboutCards":
+  {
+    "title": "About Us",
+    "subtitle": "We are convinced that the success of our clients will be our own success."
+  },
+  "Team":
+  {
+    "title": "Our Team",
+    "subtitle": "We forge a collective path towards shared goals, where each member plays an essential role."
+  },
+  "Contact":
+  {
+    "title": "We work to provide you with a prompt response.",
+    "name": "Full Name*",
+    "email": "Email Address*",
+    "subject": "Subject",
+    "message": "Message*",
+    "btn": "Submit"
+  },
+  "ServiceGeneral":
+  {
+    "title": "General Legal Advice",
+    "subtitle": "We focus on businesses. From simple daily consultations to large international agreements and trials"
+  },
+  "Emprendedores":
+  {
+    "title": "Entrepreneurs and New Projects",
+    "subtitle": "We focus on businesses. From simple daily consultations to large international agreements and trials."
+  },
+  "Internet":
+  {
+    "title": "Legal Advice on the Internet",
+    "subtitle": "Pioneers in providing assistance to our clients to navigate the legal world of technology and the Internet."
+  },
+  "Metaverse":
+  {
+    "title": "Legal Advice on Metaverse and Artificial Intelligence",
+    "subtitle": "We are a leading and visionary firm in the field of intellectual property and artificial intelligence."
+  },
+  "Intelectual":
+  {
+    "title": "Legal Advice on Intellectual Property",
+    "subtitle": "Our legal advice is characterized by being innovative, personalized, and efficient."
+  }
+}

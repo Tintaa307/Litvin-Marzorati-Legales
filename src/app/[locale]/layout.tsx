@@ -78,13 +78,15 @@ export const metadata: Metadata = {
   description: 'Estudio de legales',
 }
 
-export default function RootLayout({
+export default function LocaleLayout({
   children,
+  params: {locale}
 }: {
-  children: React.ReactNode
+  children: React.ReactNode,
+  params: {locale: string};
 }) {
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body className={clsx(
           poppins.variable,
           meshedDisplay.variable,

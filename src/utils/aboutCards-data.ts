@@ -32,4 +32,32 @@ const aboutCardsData = [
     },
 ];
 
-export default aboutCardsData;
+const aboutCardsDataEng = [
+    {
+        title: 'Growth',
+        text: 'Our goal and greatest responsibility is to drive the growth and development of our clients\' businesses.',
+        image: graphIcon,
+    },
+    {
+        title: 'Recognition',
+        text: 'As a globally recognized Intellectual Property firm in America, we provide counsel to Argentine companies and abroad.',
+        image: starIcon,
+    },
+    {
+        title: 'Experience',
+        text: 'With years of building strong relationships globally, we innovate legal solutions for our clients.',
+        image: flameIcon,
+    },
+    {
+        title: 'Innovation',
+        text: 'Choosing us goes beyond the quality of services. We bring common sense, pragmatism, and innovation to your legal challenges.',
+        image: rocketIcon,
+    },
+    {
+        title: 'Multijurisdictional',
+        text: 'We have expert lawyers to advise and defend clients in multi-jurisdictional matters. With deep knowledge of the Argentine market, we ensure the achievement of your objectives.',
+        image: multiIcon,
+    },
+];
+
+export{ aboutCardsData, aboutCardsDataEng };

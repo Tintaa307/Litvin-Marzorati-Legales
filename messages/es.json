@@ -1,0 +1,96 @@
+{
+  "Nav":
+  {
+    "inicio": "Inicio",
+    "sobreNos": "Sobre Nosotros",
+    "servicios": "Servicios",
+    "contacto": "Contacto"
+  },
+  "Hero": 
+  {
+    "head1": "Asesorate con expertos,",
+    "head2": "le damos valor a tus",
+    "type1": "ideas.",
+    "type2": "marcas.",
+    "type3": "dominios.",
+    "type4": "patentes.",
+    "type5": "modelos de utilidad.",
+    "type6": "software.",
+    "fact1": "Expedientes",
+    "fact2": "Clientes",
+    "fact3": "Corresponsales especializados",
+    "cta": "Contactános"
+  },
+  "ServiceLand":
+  {
+    "title": "Nuestros Servicios",
+    "subtitle": "Nos caracteriza nuestra experiencia, brindando soluciones eficientes minimizando el uso de recursos."
+  },
+  "Media":
+  {
+    "title": "Trascendiendo en los medios",
+    "subtitle":"Somos uno de los más reconocidos estudios de servicios de Propiedad Intelectual en América Latina."
+  },
+  "FinalCTA":
+  {
+    "title": "No lo dudes, contactános.",
+    "cta": "Contactános"
+  },
+  "Footer":
+  {
+    "services": "Servicios",
+    "intelectual": "Asesoramiento en propiedad intelectual",
+    "general": "Asesoramiento General",
+    "internet": "Asesoramiento en Internet",
+    "projects": "Emprendedores y nuevos proyectos",
+    "meta": "Asesoramiento legal en el metaverso e IA",
+    "inicio": "Inicio",
+    "sobreNos": "Sobre Nosotros",
+    "contact": "Contacto",
+    "seguinos": "Seguinos"
+  },
+  "AboutCards":
+  {
+    "title": "Sobre nosotros",
+    "subtitle": "Estamos convencidos que el éxito de nuestros clientes, será nuestro propio éxito."
+  },
+  "Team":
+  {
+    "title": "Nuestro equipo",
+    "subtitle": "Forjamos un camino conjunto hacia metas compartidas, donde cada integrante juega un papel esencial."
+  },
+  "Contact":
+  {
+    "title": "Trabajamos para darle una respuesta pronto.",
+    "name": "Nombre completo*",
+    "email": "Correo electrónico*",
+    "subject": "Asunto",
+    "message": "Mensaje*",
+    "btn": "Enviar"
+  },
+  "ServiceGeneral":
+  {
+    "title": "Asesoramiento legal general",
+    "subtitle": "Nos enfocamos en negocios. Desde simples consultas diarias hasta grandes acuerdos y juicios internacionales."
+  },
+  "Emprendedores":
+  {
+    "title": "Emprendedores y nuevos proyectos",
+    "subtitle": "Nos enfocamos en negocios. Desde simples consultas diarias hasta grandes acuerdos y juicios internacionales."
+  },
+  "Internet":
+  {
+    "title": "Asesoramiento legal en Internet",
+    "subtitle": "Pioneros en brindar asistencia a nuestros clientes para navegar en el mundo legal de la tecnología y el Internet."
+  },
+  "Metaverse":
+  {
+    "title": "Asesoramiento legal en Metaverso e Inteligencia Artificial",
+    "subtitle": "Somos un estudio líder y visionario en el ámbito de la propiedad intelectual e inteligencia artificial."
+  },
+  "Intelectual":
+  {
+    "title": "Asesoramiento legal en Propiedad Intelectual",
+    "subtitle": "Nuestro asesoramiento legal se caracteriza por ser innovador, personalizado y eficiente"
+  }
+}

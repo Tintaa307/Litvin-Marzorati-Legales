@@ -129,4 +129,135 @@ const emprendedoresData = [
     },
 ];
 
-export { metaverseData, propIntelecualData, internetData, generalData, emprendedoresData };
+const metaverseDataEng = [
+    {
+        title: 'Metaverse and Specialized Department',
+        p: 'Given the growing phenomenon of the metaverse, we recognize the urgent need for specialized legal advice. To address this challenge, we have established a highly specialized department dedicated to constant evolution and innovation to tackle emerging challenges in this developing field.',
+    },
+    {
+        title: 'Legal Strategies and Comprehensive Approach',
+        p: 'Our team of highly trained lawyers not only offers advanced legal strategies but also adopts a comprehensive approach. From formulating business strategies to digital, legal, and technological advice, we seek to provide holistic solutions to our clients in the complex metaverse environment.',
+    },
+    {
+        title: 'Daily Problem Solving',
+        p: 'We closely collaborate with our clients in solving daily problems. From personal data protection to digital identity security, we are committed to addressing the practical and daily concerns that may arise in this new paradigm.',
+    },
+    {
+        title: 'Solutions for Metaverse and AI',
+        p: 'From drafting smart contracts to intellectual property issues in virtual environments, we excel in providing tailored and advanced solutions for the complexities presented by the metaverse and artificial intelligence.',
+    },
+    {
+        title: 'Specialization in AI and Intellectual Property',
+        p: 'In the convergence between artificial intelligence and intellectual property, our highly qualified lawyers specialize in a wide range of aspects, from protecting algorithms and AI models to managing human-AI collaboration, corporate legal liability for autonomous AI decisions, and data security in machine learning systems.',
+    },
+    {
+        title: 'Commitment and Interest Protection',
+        p: 'In a scenario where virtual and legal realities constantly merge, our commitment is to provide security and clarity to our clients. We are dedicated to protecting their interests with diligence, effectiveness, and innovative strategies.',
+    },
+    {
+        title: 'Distinguishing Features and Demonstrated Success',
+        p: 'We stand out for our specialized experience, proactive approach, interdisciplinary collaboration, internationalization, emphasis on ethics, innovation, and adaptation to emerging technologies. We have demonstrated our success in various instances, offering personalized attention and maintaining a strong social commitment in every legal action.',
+    },
+];
+
+const propIntelecualDataEng = [
+    {
+        title: 'Comprehensive Legal Advice',
+        p: 'Includes intellectual property rights such as inventions, trademarks, trade names, and contract drafting. We provide innovative advice on trademarks, patents, artistic and literary creations, and image rights.',
+    },
+    {
+        title: 'Brand and Patent Management',
+        p: 'Registrability, background searches, filing, application tracking, renewals, and changes in a comprehensive legal approach.',
+    },
+    {
+        title: 'Creative Protection and Copyright',
+        p: 'We stand out in copyright protection and registration, collaborating with musicians, writers, artists, developers, and influencers.',
+    },
+    {
+        title: 'Entertainment, Sports, and Customized Contracts',
+        p: 'With an exclusive department, we draft customized agreements and contracts for athletes, influencers, and artists.',
+    },
+    {
+        title: 'Technological Innovation and Competitive Advantage',
+        p: 'We offer personalized and efficient legal services, incorporating advanced technologies for the satisfaction of our clients.',
+    },
+    {
+        title: 'Experience, Specialization, and Reputation',
+        p: 'Backed by experience and specialization, we guarantee quality services. Our reputation is a testimony to the reliability of our legal services.',
+    },
+    {
+        title: 'Communication, Accessibility, and Transparent Costs',
+        p: 'We value communication and accessibility, ensuring transparent relationships and competitive costs.',
+    },
+    {
+        title: 'Global Focus and Tailored Solutions',
+        p: 'We understand the needs in a constantly evolving legal environment, striving to offer accessible and global solutions.',
+    },
+];
+
+const internetDataEng = [
+    {
+        title: 'Internet and Technology Law',
+        p: 'Specialization in legal issues related to the Internet and technology, covering data protection, online privacy, copyright, trademarks, e-commerce, and online contracts. Pioneers in providing assistance in this complex legal field.',
+    },
+    {
+        title: 'Policies and Digital Advice',
+        p: 'Drafting personalized terms and conditions, privacy policies, and advising on personal data policies for applications, websites, and software in general.',
+    },
+    {
+        title: 'Comprehensive Technology Consulting',
+        p: 'From comprehensive digital advice to the use of know-how, trade secrets, intellectual and industrial property, we offer the best legal and business solutions.',
+    },
+    {
+        title: 'Digital Franchise Development',
+        p: 'We have a specialized team in the development of digital franchises, with an emphasis on software, technology transfer, social networks, and e-commerce.',
+    },
+    {
+        title: 'Social Networks and Digital Marketing',
+        p: 'Advice on efficient reaction, organization of defenses, and attacks on digital infringers in social networks and digital marketing. Specialists in minimizing future conflicts.',
+    },
+];
+
+const generalDataEng = [
+    {
+        title: 'Comprehensive Advice on Business and Digital Matters',
+        p: 'We are a firm that guides clients through complex business, digital, and intellectual property issues. We accompany in the creation of projects, companies, daily operations, transactions, risks, and opportunities for strategic growth. We stand out for our personalized, innovative, and specialized advice.',
+    },
+    {
+        title: 'Global Representation and Comprehensive Business Focus',
+        p: 'We represent clients worldwide, backed by our experience and skills. Our advice focuses on business, from simple daily consultations to large international agreements and trials. We know the national and international market.',
+    },
+    {
+        title: 'Specialized Contracts and Strategic Collaboration',
+        p: 'We provide various contracts, such as confidentiality, non-competition, distribution, license, and franchise. We cover the use of know-how, trade secrets, intellectual, and industrial property. We collaborate with various areas of companies to offer innovative, fast, strategic, and efficient advice. Clients come to us for comprehensive and integral advice.',
+    },
+    {
+        title: 'Technology, Efficiency, and Trust',
+        p: 'We have developed management software to reduce time and costs, allowing us to provide tailored legal solutions. The quality of our services and our immediate response capacity have gained the trust and loyalty of international and national clients.',
+    },
+];
+
+const emprendedoresDataEng = [
+    {
+        title: 'Comprehensive Advice for Entrepreneurs and Innovators',
+        p: 'As an innovative firm, we understand the challenges faced by entrepreneurs and stand out as leaders in legal advice for startups and innovators. Our services comprehensively cover legal, financial, and digital needs.',
+    },
+    {
+        title: 'Experience and Commitment to Entrepreneurs',
+        p: 'With years of experience, we work closely with entrepreneurs, being an essential part of their teams and providing advice on all legal and administrative aspects.',
+    },
+    {
+        title: 'Advice to Business Growth',
+        p: 'We are unique in offering legal advice from the beginning of small projects to their expansion into large companies. We accompany entrepreneurs from idea creation to business development, being essential at every stage.',
+    },
+    {
+        title: 'Essential Services for Entrepreneurs',
+        p: 'We provide comprehensive advice, covering from brand management and protection, patents, models, and industrial designs to creating the most appropriate legal structure. In addition, we provide comprehensive advice on legal issues, drafting partnership agreements, legal due diligence, risk assessment, preparation of commercial contracts, and support in daily operations. We emphasize the importance of having specialized legal advice to prevent contingencies and avoid possible infractions, ensuring successful business development.',
+    },
+    {
+        title: 'Importance of Specialized Legal Advice',
+        p: 'We emphasize the relevance of having specialized legal advice for entrepreneurs, avoiding legal contingencies or infractions that could have been easily avoided.',
+    },
+];
+
+export { metaverseData, propIntelecualData, internetData, generalData, emprendedoresData, metaverseDataEng, propIntelecualDataEng, internetDataEng, generalDataEng, emprendedoresDataEng };

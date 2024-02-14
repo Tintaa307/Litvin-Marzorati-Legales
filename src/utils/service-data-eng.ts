@@ -4,57 +4,57 @@ import webIcon from '../../public/icons/Web.svg';
 import generalIcon from '../../public/icons/General.svg';
 import zapIcon from '../../public/icons/Zap.svg';
 
-const serviceData = [
+const serviceDataEng = [
     {
-        title: 'Asesoramiento legal en metaverso e IA',
+        title: "Legal Advice on Metaverse and AI",
         icon: metaverseIcon,
-        redirect: '/servicios/metaverso-e-ia',
+        redirect: "/servicios/metaverso-e-ia",
         tBorder: false,
         bBorder: true,
         lBorder: false,
         rBorder: true,
-        pos: 'first',
+        pos: "first"
     },
     {
-        title: 'Asesoramiento legal en propiedad intelectual',
+        title: "Legal Advice on Intellectual Property",
         icon: lightIcon,
-        redirect: '/servicios/propiedad-intelectual',
+        redirect: "/servicios/propiedad-intelectual",
         tBorder: false,
         bBorder: true,
         lBorder: false,
         rBorder: true,
-        pos: 'sec',
+        pos: "sec"
     },
     {
-        title: 'Asesoramiento legal en Internet',
+        title: "Legal Advice on Internet",
         icon: webIcon,
-        redirect: '/servicios/internet',
+        redirect: "/servicios/internet",
         tBorder: false,
         bBorder: true,
         lBorder: false,
         rBorder: false,
-        pos: 'sec',
+        pos: "sec"
     },
     {
-        title: 'Asesoramiento legal general',
+        title: "General Legal Advice",
         icon: generalIcon,
-        redirect: '/servicios/asesoramiento-general',
+        redirect: "/servicios/asesoramiento-general",
         tBorder: false,
         bBorder: false,
         lBorder: false,
         rBorder: true,
-        pos: 'third',
+        pos: "third"
     },
     {
-        title: 'Emprendedores y nuevos proyectos',
+        title: "Entrepreneurs and New Projects",
         icon: zapIcon,
-        redirect: '/servicios/emprendedores',
+        redirect: "/servicios/emprendedores",
         tBorder: false,
         bBorder: false,
         lBorder: false,
         rBorder: false,
-        pos: 'last',
-    },
+        pos: "last"
+    }
 ]
 
-export default serviceData;
+export default serviceDataEng;

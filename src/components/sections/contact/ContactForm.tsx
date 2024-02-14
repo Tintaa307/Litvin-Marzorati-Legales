@@ -7,7 +7,15 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import InputLabel from "./InputLabel";
 
-const ContactForm = () => {
+interface Props {
+    name: string,
+    email: string,
+    subject: string,
+    message: string,
+    btn: string
+}
+
+const ContactForm = ({name, email, subject, message, btn}: Props) => {
     //Toast notifications
     const toastSuccess = () => toast.success("Su email ha sido enviado! Recibirá una respuesta en breve.");
     const toastEmailError = () => toast.error('Ingrese un email válido.');
@@ -56,23 +64,23 @@ const ContactForm = () => {
     return (
         <form onSubmit={submitContact} action="submit" className="md:w-[45%] w-full grid gap-6 items-start h-fit">
             <div className="flex flex-col gap-2">
-                <InputLabel pos="01" text="Nombre completo*"></InputLabel>
+                <InputLabel pos="01" text={name}></InputLabel>
                 <input name="name" type="text" className="bg-transparent outline-none border-b border-black/30"/>
             </div>
             <div className="flex flex-col gap-2">
-                <InputLabel pos="02" text="Correo electrónico*"></InputLabel>
+                <InputLabel pos="02" text={email}></InputLabel>
                 <input name="email" type="text" className="bg-transparent outline-none border-b border-black/30"/>
             </div>
             <div className="flex flex-col gap-2">
-                <InputLabel pos="03" text="Asunto"></InputLabel>
+                <InputLabel pos="03" text={subject}></InputLabel>
                 <input name="subject" type="text" className="bg-transparent outline-none border-b border-black/30"/>
             </div>
             <div className="flex flex-col gap-2">
-                <InputLabel pos="04" text="Mensaje*"></InputLabel>
+                <InputLabel pos="04" text={message}></InputLabel>
                 <textarea name="message" className="w-full resize-none bg-transparent outline-none border-b border-black/30"/>
             </div>
             <div className="w-full flex justify-start">
-                <button type="submit" className={`bg-accent-orange py-3 px-8 rounded-md w-28`}>Enviar</button>
+                <button type="submit" className={`bg-accent-orange py-3 px-7 rounded-md w-28`}>{btn}</button>
             </div>
        </form>
     );

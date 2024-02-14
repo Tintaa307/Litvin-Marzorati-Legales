@@ -13,7 +13,11 @@ import { useRef } from 'react';
 import mediaData from '@/utils/media-data';
 import useClicks from '@/hooks/useSliderClick';
 
-const Media = () => {
+interface Props {
+    header: Header,
+}
+
+const Media = ({header}: Props) => {
     const swiperLen = mediaData.length;
     const {clicks, handleClick} = useClicks(0, swiperLen);
     const swiperRef = useRef<SwiperType>();
@@ -22,8 +26,8 @@ const Media = () => {
         <div className="flex lg:flex-row flex-col lg:gap-0 gap-8 justify-between lg:items-start items-center main-padding mt-24 sm:mb-24 mb-20">
             <div className="flex flex-col gap-10 max-w-[24rem]">
                 <Heading 
-                    title="Trascendiendo en los medios" 
-                    subtitle="Somos uno de los más reconocidos estudios de servicios de Propiedad Intelectual en América Latina." 
+                    title={header.title} 
+                    subtitle={header.subtitle}
                     notCentered={true} />
                 <div className="gap-[0.85rem] lg:flex hidden">
                     <ArrowButton left={true} clicks={clicks} maxClicks={swiperLen - 1} handleClick={handleClick} swiperRef={swiperRef}/>

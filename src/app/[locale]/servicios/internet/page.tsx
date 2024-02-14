@@ -2,22 +2,25 @@ import Nav from "@/components/Nav";
 import ServiceBody from "@/components/sections/servicios/ServiceBody";
 import ServiceHero from "@/components/sections/servicios/ServiceHero";
 
-import { internetData } from "@/utils/servicePages-data";
+import { internetData, internetDataEng } from "@/utils/servicePages-data";
+import { useLocale, useTranslations } from "next-intl";
 
 export default function Internet() {
+    const t = useTranslations('Internet');
     const heroData = {
-        title: 'Internet',
-        subtitle: 'Pioneros en brindar asistencia a nuestros clientes para navegar en el mundo legal de la tecnología y el Internet',
+        title: t('title'),
+        subtitle: t('subtitle'),
     }
+    const tNav = useTranslations('Nav');
     return (
         <>
             <div className="absolute -top-16 bg-no-repeat bg-center bg-[url('/assets/internetBg.png')] w-full h-[124vh] -z-50">
                 <div className="w-full absolute bottom-0 h-12 bg-gradient-to-t from-background"></div>
             </div>
-            <Nav white={true}></Nav>
+            <Nav white={true} locale={useLocale()} tInicio={tNav("inicio")} tAbout={tNav("sobreNos")} tContacto={tNav("contacto")} tServicios={tNav("servicios")}></Nav>
             <div className="z-10">
                 <ServiceHero title={heroData.title} subtitle={heroData.subtitle}></ServiceHero>
-                <ServiceBody data={internetData}/>
+                <ServiceBody data={useLocale() === 'es' ? internetData : internetDataEng}/>
             </div>
         </>
     );

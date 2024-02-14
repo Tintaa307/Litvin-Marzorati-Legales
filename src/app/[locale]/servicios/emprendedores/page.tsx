@@ -2,22 +2,26 @@ import Nav from "@/components/Nav";
 import ServiceBody from "@/components/sections/servicios/ServiceBody";
 import ServiceHero from "@/components/sections/servicios/ServiceHero";
 
-import { emprendedoresData } from "@/utils/servicePages-data";
+import { emprendedoresData, emprendedoresDataEng } from "@/utils/servicePages-data";
+import { useLocale, useTranslations } from "next-intl";
 
 export default function Emprendedores() {
+    const t = useTranslations('Emprendedores');
     const heroData = {
-        title: 'Emprendedores y nuevos proyectos',
-        subtitle: 'Nos enfocamos en negocios. Desde simples consultas diarias hasta grandes acuerdos y juicios internacionales',
+        title: t('title'),
+        subtitle: t('subtitle'),
     }
+    const tNav = useTranslations('Nav');
+
     return (
         <>
             <div className="absolute -top-16 bg-no-repeat bg-center bg-[url('/assets/emprendedoresBg.png')] w-full h-[124vh] -z-50">
                 <div className="w-full absolute bottom-0 h-12 bg-gradient-to-t from-background"></div>
             </div>
-            <Nav white={true}></Nav>
+            <Nav white={true} locale={useLocale()} tInicio={tNav("inicio")} tAbout={tNav("sobreNos")} tContacto={tNav("contacto")} tServicios={tNav("servicios")}></Nav>
             <div className="z-10">
                 <ServiceHero title={heroData.title} subtitle={heroData.subtitle}></ServiceHero>
-                <ServiceBody data={emprendedoresData}/>
+                <ServiceBody data={useLocale() === 'es' ? emprendedoresData : emprendedoresDataEng}/>
             </div>
         </>
     );
