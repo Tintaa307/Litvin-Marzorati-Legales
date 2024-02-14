@@ -93,10 +93,10 @@ const MobileMenu = ({scrollPosition, isOpen, white, tAbout, tContacto, tInicio, 
         </div>
         <span className="w-full h-[1px] bg-black/15"></span>
         <div className="flex gap-2">
-            <Link href={'https://www.linkedin.com/company/litvin-marzorati-legales/?originalSubdomain=ar'} target="_blank">
+            <Link href={'https://www.instagram.com/lmlegales/'} target="_blank">
                 <Image src={Insta} alt="Instagram socials" className={`${scrollPosition > 20 ? 'filter-none' : `${(white && !isOpen) && 'filter invert-[100%]'}` }`}></Image>
             </Link>
-            <Link href={'https://www.instagram.com/lmlegales/'} target="_blank">
+            <Link href={'https://www.linkedin.com/company/litvin-marzorati-legales/?originalSubdomain=ar'} target="_blank">
                 <Image src={Linked} alt="LinkedIn socials" className={`${scrollPosition > 20 ? 'filter-none' : `${(white && !isOpen) && 'filter invert-[100%]'}` }`}></Image>
             </Link>
             <Link href={'https://www.facebook.com/Lmlegales'} target="_blank">

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import arrow from "../../../public/icons/arrow-right.svg";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 interface Props {
     icon: string,
@@ -13,6 +14,7 @@ interface Props {
 }
 
 const ServiceCard = ({title, icon, redirect, tBorder, bBorder, lBorder, rBorder}: Props) => {
+    const t = useTranslations('ServiceLand');
     return (
         <Link href={redirect}>
             <div className={`sm:w-[23.8rem] w-[20rem] sm:h-[17.6rem] h-fit p-4 sm:py-4 py-6 bg-transparent flex flex-col sm:gap-8 gap-4 group hover:cursor-pointer border-black ${tBorder && 'service:border-t'} ${bBorder ? 'border-b' : 'border-b service:border-b-0'} ${rBorder && 'service:border-r'} ${lBorder && 'service:border-l'}`}>
@@ -21,7 +23,7 @@ const ServiceCard = ({title, icon, redirect, tBorder, bBorder, lBorder, rBorder}
                     <h2 className="sm:text-[1.5rem] text-[1.25rem]">{title}</h2>
                 </div>
                 <div className="flex items-center gap-1 group-hover:gap-3 duration-150">
-                    <h3 className="sm:text-base text-sm">Aprende más</h3>
+                    <h3 className="sm:text-base text-sm">{t('learn')}</h3>
                     <Image src={arrow} alt="arrow icon"></Image>
                 </div>
             </div>

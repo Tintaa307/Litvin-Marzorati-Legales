@@ -54,6 +54,9 @@ const config: Config = {
       },
     },
   },
+  // @ts-ignore
+  darkMode: "false", 
   plugins: [],
 }
+
 export default config
