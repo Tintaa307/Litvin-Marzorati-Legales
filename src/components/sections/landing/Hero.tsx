@@ -15,10 +15,11 @@ interface Props {
     fact1: string,
     fact2: string,
     fact3: string,
-    cta: string
+    cta: string,
+    locale: string
 }
 
-const Hero = ({head1, head2, type1, type2, type3, type4, type5, type6, fact1, fact2, fact3, cta}: Props) => {
+const Hero = ({head1, head2, type1, type2, type3, type4, type5, type6, fact1, fact2, fact3, cta, locale}: Props) => {
     return (
         <div id="inicio" className="bg-cover sm:bg-center bg-[center_right_-38rem] bg-[url('/assets/heroBg.png')] pb-10">
             <div className="main-padding pt-64">
@@ -49,7 +50,7 @@ const Hero = ({head1, head2, type1, type2, type3, type4, type5, type6, fact1, fa
                             repeat={Infinity}
                         />
                     </div>
-                    <CtaButton text={cta}></CtaButton>
+                    <CtaButton locale={locale} text={cta}></CtaButton>
                 </div>
                 <div className="3xl:mt-40 mt-24 flex flex-wrap justify-around">
                     <HeroFact num={21500} title={fact1}></HeroFact>
