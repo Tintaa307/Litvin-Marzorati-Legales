@@ -34,7 +34,7 @@
   },
   "FinalCTA":
   {
-    "title": "No lo dudes, contactános.",
+    "title": "Sabemos como ayudarte, contactános.",
     "cta": "Contactános"
   },
   "Footer":
@@ -48,7 +48,9 @@
     "inicio": "Inicio",
     "sobreNos": "Sobre Nosotros",
     "contact": "Contacto",
-    "seguinos": "Seguinos"
+    "newsletter": "Newsletter",
+    "aviso": "Aviso Legal",
+    "privacy": "Política de Privacidad"
   },
   "AboutCards":
   {

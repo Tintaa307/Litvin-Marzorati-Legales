@@ -3,8 +3,6 @@ import Link from "next/link";
 import Insta from '../../../public/socials/insta.svg';
 import Linked from '../../../public/socials/linkedin.svg';
 import Facebook from '../../../public/socials/facebook.svg';
-import esFlag from '../../../public/icons/flags/espana.png';
-import usaFlag from '../../../public/icons/flags/estados-unidos.png';
 import Image from "next/image";
 import ListDisplay from "../inputs/ListDisplay";
 import { useLocale } from "next-intl";
@@ -78,18 +76,10 @@ const MobileMenu = ({scrollPosition, isOpen, white, tAbout, tContacto, tInicio, 
         <ListDisplay heading={tServicios} options={useLocale() === 'es' ? Services : ServicesEng}/>
         <Link href={'/' + (locale || '') + '/contacto'}>{tContacto}</Link>
         <span className="w-full h-[1px] bg-black/15"></span>
-        <div className="flex gap-2 items-center">
-            {locale === 'es' ? (
-                <Link href={pathname.replace('/es', '/en')} className="flex gap-2 items-center justify-center py-1 pr-4">
-                    <Image src={usaFlag} alt="United States Flag" width={25}></Image>
-                    <h3>EN</h3> 
-                </Link>
-            ) : (
-                <Link href={pathname.replace('/en', '/es')} className="flex gap-2 items-center justify-center py-1 pr-4">
-                    <Image src={esFlag} alt="Spanish Flag" width={25}></Image>
-                    <h3>ES</h3> 
-                </Link>
-            )}
+        <div className="flex gap-2 items-center justify-start mr-4">
+            <Link href={pathname.replace('/en', '/es')} className={`${locale === 'es' ? 'font-semibold' : 'font-medium'}`}>ES</Link>
+            <span className={`w-[1px] h-5 ${scrollPosition > 20 ? 'bg-black/70' : `${white ? 'bg-white/70' : 'bg-black/70'}` } `}></span>
+            <Link href={pathname.replace('/es', '/en')} className={`${locale === 'en' ? 'font-semibold' : 'font-medium'}`}>EN</Link>
         </div>
         <span className="w-full h-[1px] bg-black/15"></span>
         <div className="flex gap-2">

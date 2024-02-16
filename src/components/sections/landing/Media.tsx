@@ -23,7 +23,7 @@ const Media = ({header}: Props) => {
     const swiperRef = useRef<SwiperType>();
 
     return (
-        <div className="flex lg:flex-row flex-col lg:gap-0 gap-8 justify-between lg:items-start items-center main-padding mt-24 sm:mb-24 mb-20">
+        <div className="flex lg:flex-row flex-col lg:gap-0 gap-8 justify-between lg:items-start items-center main-padding pt-24 sm:mb-24 mb-20 bg-cover bg-center bg-[url('/assets/mediaBg.png')]">
             <div className="flex flex-col gap-10 max-w-[24rem]">
                 <Heading 
                     title={header.title} 

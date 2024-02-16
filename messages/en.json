@@ -30,7 +30,7 @@
   "Media":
   {
     "title": "Elevating Presence Across Media Platforms",
-    "subtitle": "We are one of the most renowned Intellectual Property service studios in Latin America."
+    "subtitle": "We are one of the most renowned Intellectual Property law firms in Latin America."
   },
   "FinalCTA":
   {
@@ -48,7 +48,9 @@
     "inicio": "Home",
     "sobreNos": "About us",
     "contact": "Contact",
-    "seguinos": "Follow us"
+    "newsletter": "Newsletter",
+    "aviso": "Legal Advice",
+    "privacy": "Privacy Policy"
   },
   "AboutCards":
   {

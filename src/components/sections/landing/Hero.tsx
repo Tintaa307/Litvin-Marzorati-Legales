@@ -20,7 +20,7 @@ interface Props {
 
 const Hero = ({head1, head2, type1, type2, type3, type4, type5, type6, fact1, fact2, fact3, cta}: Props) => {
     return (
-        <div className="bg-cover sm:bg-center bg-[center_right_-38rem] bg-[url('/assets/heroBg.png')] pb-10">
+        <div id="inicio" className="bg-cover sm:bg-center bg-[center_right_-38rem] bg-[url('/assets/heroBg.png')] pb-10">
             <div className="main-padding pt-64">
                 <div className="flex flex-col items-center justify-start gap-12">
                     <div className="font-meshedDisplay font-bold 2xl:text-[3.75rem] sm:text-[2.75rem] text-[1.9rem] text-center px-0 max-w-[50rem]">

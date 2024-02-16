@@ -38,9 +38,7 @@ const Nav = ({white, tInicio, tAbout, tContacto, tServicios, locale}: Props) => 
     //Handle service option hovering
     const [isHovering, setIsHovering] = useState(false);
 
-    //Handle lang option hover
-    const [isHoveringLang, setIsHoveringLang] = useState(false);
-
+    //Handle lang pathname
     const pathname = usePathname();
     
     return (
@@ -78,31 +76,11 @@ const Nav = ({white, tInicio, tAbout, tContacto, tServicios, locale}: Props) => 
                 </Link>
             </div>
             <div className="md:flex hidden items-center justify-center gap-2 w-40">
-                <div onMouseOver={() => setIsHoveringLang(true)} onMouseOut={() => setIsHoveringLang(false)} className="group">
-                    <h3 className="text-base font-medium cursor-default">{(String(locale || 'es')).toUpperCase()}</h3>
-                    <AnimatePresence>
-                        {isHoveringLang && 
-                            <motion.div 
-                                initial={{ x: -30, opacity: 0 }}
-                                animate={{ x: 0, opacity: 1 }}
-                                exit={{ x: 0, opacity: 0 }}
-                                className="bg-background shadow-2xl text-black font-medium flex flex-col gap-4 p-4 rounded-md absolute cursor-pointer">
-                                {locale === 'es' ? (
-                                    <Link href={pathname.replace('/es', '/en')} className="flex gap-2 items-center justify-center">
-                                        <Image src={usaFlag} alt="United States Flag" width={25}></Image>
-                                        <h3>EN</h3> 
-                                    </Link>
-                                ) : (
-                                    <Link href={pathname.replace('/en', '/es')} className="flex gap-2 items-center justify-center">
-                                        <Image src={esFlag} alt="Spanish Flag" width={25}></Image>
-                                        <h3>ES</h3> 
-                                    </Link>
-                                )}
-                            </motion.div>
-                        }
-                    </AnimatePresence>
+                <div className="flex gap-2 items-center justify-center mr-4">
+                    <Link href={pathname.replace('/en', '/es')} className={`${locale === 'es' ? 'font-semibold' : 'font-medium'}`}>ES</Link>
+                    <span className={`w-[1px] h-5 ${scrollPosition > 20 ? 'bg-black/70' : `${white ? 'bg-white/70' : 'bg-black/70'}` } `}></span>
+                    <Link href={pathname.replace('/es', '/en')} className={`${locale === 'en' ? 'font-semibold' : 'font-medium'}`}>EN</Link>
                 </div>
-                <span className={`w-[1px] h-7 ${scrollPosition > 20 ? 'bg-black' : `${white ? 'bg-white' : 'bg-black'}` } `}></span>
                 <Link href={'https://www.instagram.com/lmlegales/'} target="_blank">
                     <Image src={Insta} alt="Instagram socials" className={`${scrollPosition > 20 ? 'filter-none' : `${white && 'filter invert-[100%]'}` }`}></Image>
                 </Link>
