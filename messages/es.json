@@ -49,6 +49,9 @@
     "sobreNos": "Sobre Nosotros",
     "contact": "Contacto",
     "newsletter": "Newsletter",
+    "enterEmail": "Ingrese su email",
+    "accept": "Accepto la política de privacidad",
+    "submit": "Enviar",
     "aviso": "Aviso Legal",
     "privacy": "Política de Privacidad"
   },
@@ -95,5 +98,9 @@
   {
     "title": "Asesoramiento legal en Propiedad Intelectual",
     "subtitle": "Nuestro asesoramiento legal se caracteriza por ser innovador, personalizado y eficiente"
+  },
+  "Privacidad":
+  {
+    "title": "Política de privacidad"
   }
 }

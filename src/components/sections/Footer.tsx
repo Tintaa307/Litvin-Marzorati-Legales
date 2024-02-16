@@ -37,15 +37,15 @@ const Footer = () => {
                     <h2 className="text-[1.75rem] font-medium">{t("newsletter")}</h2>
                     <div className="flex flex-col gap-4 text-sm">
                         <div className="w-full flex flex-col gap-2">
-                            <h3 className="">Ingrese su email</h3>
+                            <h3 className="">{t('enterEmail')}</h3>
                             <input name="name" type="text" className="bg-transparent outline-none border-b border-white/30 text-sm"/>
                         </div>
                         <div className="flex gap-2 text-xs font-light text-white/70">
                             <input type="checkbox" />
-                            <h3>Accepto la política de privacidad</h3>
+                            <h3>{t("accept")}</h3>
                         </div>
                         <div className="w-full flex justify-start">
-                            <button type="submit" className={`bg-accent-orange py-2 px-4 rounded-md w-20 text-black text-sm`}>Enviar</button>
+                            <button type="submit" className={`bg-accent-orange py-2 px-4 rounded-md w-20 text-black text-sm`}>{t("submit")}</button>
                         </div>
                     </div>
                 </div>
@@ -77,7 +77,7 @@ const Footer = () => {
                 <div className="flex items-center justify-center text-sm gap-2 text-white/50">
                     <h3>{t("aviso")}</h3>
                     <h3>-</h3>
-                    <h3>{t("privacy")}</h3>
+                    <Link href={'/' + (locale || '') + '/politica-privacidad'}>{t("privacy")}</Link>
                 </div>
             </div>
         </div>

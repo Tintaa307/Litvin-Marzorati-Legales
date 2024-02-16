@@ -49,6 +49,9 @@
     "sobreNos": "About us",
     "contact": "Contact",
     "newsletter": "Newsletter",
+    "enterEmail": "Enter your email",
+    "accept": "I accept the privacy policy",
+    "submit": "Submit",
     "aviso": "Legal Advice",
     "privacy": "Privacy Policy"
   },
@@ -95,5 +98,9 @@
   {
     "title": "Legal Advice on Intellectual Property",
     "subtitle": "Our legal advice is characterized by being innovative, personalized, and efficient."
+  },
+  "Privacidad":
+  {
+    "title": "Privacy Policy"
   }
 }
