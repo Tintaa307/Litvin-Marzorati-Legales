@@ -53,7 +53,9 @@
     "accept": "Accepto la política de privacidad",
     "submit": "Enviar",
     "aviso": "Aviso Legal",
-    "privacy": "Política de Privacidad"
+    "privacy": "Política de Privacidad",
+    "condiciones": "Condiciones de uso",
+    "disclaimer": "Descargo de responsabilidad"
   },
   "AboutCards":
   {
@@ -106,5 +108,9 @@
   "Terms":
   {
     "title": "Condiciones de uso"
+  },
+  "Disclaimer":
+  {
+    "title": "Descargo de responsabilidad"
   }
 }

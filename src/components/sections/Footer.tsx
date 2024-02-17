@@ -74,10 +74,12 @@ const Footer = () => {
                         <h3>Avenida del Libertador 5990, piso 3, Buenos Aires, Argentina</h3>
                     </div>
                 </div>
-                <div className="flex items-center justify-center text-sm gap-2 text-white/50">
-                    <h3>{t("aviso")}</h3>
+                <div className="flex items-center justify-center text-xs gap-2 text-white/50">
+                    <Link href={'/' + (locale || '') + '/condiciones-de-uso'}>{t("condiciones")}</Link>
                     <h3>-</h3>
                     <Link href={'/' + (locale || '') + '/politica-privacidad'}>{t("privacy")}</Link>
+                    <h3>-</h3>
+                    <Link href={'/' + (locale || '') + '/descargo-de-responsabilidad'}>{t("disclaimer")}</Link>
                 </div>
             </div>
         </div>

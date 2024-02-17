@@ -52,8 +52,9 @@
     "enterEmail": "Enter your email",
     "accept": "I accept the privacy policy",
     "submit": "Submit",
-    "aviso": "Legal Advice",
-    "privacy": "Privacy Policy"
+    "privacy": "Privacy Policy",
+    "condiciones": "Terms of Use",
+    "disclaimer": "Legal Disclaimer"
   },
   "AboutCards":
   {
@@ -106,5 +107,9 @@
   "Terms":
   {
     "title": "Terms of Use"
+  },
+  "Disclaimer":
+  {
+    "title": "Legal Disclaimer"
   }
 }
