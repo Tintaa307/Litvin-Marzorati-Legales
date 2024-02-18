@@ -11,6 +11,7 @@ import Newsletter from "../inputs/Newsletter";
 
 const Footer = () => {
     const t = useTranslations("Footer");
+    const tToast = useTranslations("Toast");
     const locale = useLocale()
     
     return (
@@ -36,7 +37,7 @@ const Footer = () => {
                 </div>
                 <div className="flex flex-col gap-6">
                     <h2 className="text-[1.75rem] font-medium">{t("newsletter")}</h2>
-                    <Newsletter label={t('enterEmail')} accept={t("accept")} submit={t("submit")}></Newsletter>
+                    <Newsletter label={t('enterEmail')} accept={t("accept")} submit={t("submit")} success={tToast("newsletterSuccess")} emailError={tToast("emailError")} formError={tToast("formError")}></Newsletter>
                 </div>
             </div>
             <div className="flex gap-2 items-center justify-center">

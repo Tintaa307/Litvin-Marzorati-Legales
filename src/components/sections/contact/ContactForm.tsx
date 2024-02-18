@@ -12,14 +12,17 @@ interface Props {
     email: string,
     subject: string,
     message: string,
-    btn: string
+    btn: string,
+    success: string,
+    emailError: string,
+    formError: string
 }
 
-const ContactForm = ({name, email, subject, message, btn}: Props) => {
+const ContactForm = ({name, email, subject, message, btn, success, emailError, formError}: Props) => {
     //Toast notifications
-    const toastSuccess = () => toast.success("Su email ha sido enviado! Recibirá una respuesta en breve.");
-    const toastEmailError = () => toast.error('Ingrese un email válido.');
-    const toastError = () => toast.error('Complete el formulario entero.');
+    const toastSuccess = () => toast.success(success);
+    const toastEmailError = () => toast.error(emailError);
+    const toastError = () => toast.error(formError);
 
     //Function called when form is submited
     const submitContact = (e: React.FormEvent<HTMLFormElement>) => {

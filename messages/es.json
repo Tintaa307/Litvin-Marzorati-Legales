@@ -112,5 +112,12 @@
   "Disclaimer":
   {
     "title": "Descargo de responsabilidad"
+  },
+  "Toast":
+  {
+    "emailSuccess": "Su email ha sido enviado! Recibirá una respuesta en breve.",
+    "emailError": "Ingrese un email válido.",
+    "newsletterSuccess": "Se ha anotado al Newsletter!",
+    "formError": "Complete el formulario entero."
   }
 }

@@ -111,5 +111,12 @@
   "Disclaimer":
   {
     "title": "Legal Disclaimer"
+  },
+  "Toast":
+  {
+    "emailSuccess": "Your email has been sent! You will receive a response shortly.",
+    "emailError": "Please enter a valid email.",
+    "newsletterSuccess": "You have subscribed to the Newsletter!",
+    "formError": "Please complete the entire form."
   }
 }
