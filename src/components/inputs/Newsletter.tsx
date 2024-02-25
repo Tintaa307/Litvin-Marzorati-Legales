@@ -71,7 +71,7 @@ const Newsletter = ({label, accept, submit, emailError, formError, success}: Pro
             </div>
             <div onClick={() => {setIsChecked(!isChecked)}} className="flex gap-2 text-xs font-light text-white/70">
                 <input name="check" type="checkbox" checked={isChecked} />
-                <h3>{accept}</h3>
+                <h3 className="cursor-default">{accept}</h3>
             </div>
             <div className="w-full flex justify-start">
                 <button type="submit" className={`bg-accent-orange py-2 px-4 rounded-md w-20 text-black text-sm`}>{submit}</button>

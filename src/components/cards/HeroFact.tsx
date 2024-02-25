@@ -1,5 +1,5 @@
 interface Props {
-   num: number,
+   num: string,
    title: string, 
 }
 

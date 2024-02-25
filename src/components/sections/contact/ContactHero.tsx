@@ -13,7 +13,7 @@ const ContactHero = () => {
                 <ColoredHeading title={t('title')} notCentered={true} poppins={true}></ColoredHeading>
                 <WhatsappBtn></WhatsappBtn>
             </div>
-            <ContactForm name={t("name")} email={t("email")} subject={t("subject")} message={t("message")} btn={t("btn")} success={tToast("emailSuccess")} emailError={tToast("emailError")} formError={tToast("formError")}></ContactForm>
+            <ContactForm name={t("name")} email={t("email")} subject={t("subject")} message={t("message")} btn={t("btn")} success={tToast("emailSuccess")} emailError={tToast("emailError")} formError={tToast("formError")} accept={t("accept")}></ContactForm>
         </div>
     );
 };

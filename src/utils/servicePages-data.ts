@@ -132,19 +132,19 @@ const emprendedoresData = [
 const metaverseDataEng = [
     {
         title: 'Metaverse and Specialized Department',
-        p: 'Given the growing phenomenon of the metaverse, we recognize the urgent need for specialized legal advice. To address this challenge, we have established a highly specialized department dedicated to constant evolution and innovation to tackle emerging challenges in this developing field.',
+        p: 'Given the trend of the metaverse, we recognize the demand for expert legal advice. To meet this demand, we have set up a highly specialized department committed to constant evolution and innovation to tackle emerging challenges in this dynamic field.',
     },
     {
         title: 'Legal Strategies and Comprehensive Approach',
-        p: 'Our team of highly trained lawyers not only offers advanced legal strategies but also adopts a comprehensive approach. From formulating business strategies to digital, legal, and technological advice, we seek to provide holistic solutions to our clients in the complex metaverse environment.',
+        p: 'Our team of highly trained lawyers offers advanced legal strategies and embrace a comprehensive approach. From business strategies to digital, legal, and technological advice, we aim to deliver holistic solutions in the complex metaverse environment.',
     },
     {
         title: 'Daily Problem Solving',
-        p: 'We closely collaborate with our clients in solving daily problems. From personal data protection to digital identity security, we are committed to addressing the practical and daily concerns that may arise in this new paradigm.',
+        p: 'We work closely with our clients to tackle everyday problems. From personal data protection to digital identity security, we are committed to addressing the practical and day-to-day concerns that may arise in this new paradigm.',
     },
     {
         title: 'Solutions for Metaverse and AI',
-        p: 'From drafting smart contracts to intellectual property issues in virtual environments, we excel in providing tailored and advanced solutions for the complexities presented by the metaverse and artificial intelligence.',
+        p: 'From drafting smart contracts to intellectual property issues in virtual environments, we excel at delivering tailored and advanced solutions to address complexities presented by the metaverse and artificial intelligence.',
     },
     {
         title: 'Specialization in AI and Intellectual Property',
@@ -155,15 +155,15 @@ const metaverseDataEng = [
         p: 'In a scenario where virtual and legal realities constantly merge, our commitment is to provide security and clarity to our clients. We are dedicated to protecting their interests with diligence, effectiveness, and innovative strategies.',
     },
     {
-        title: 'Distinguishing Features and Demonstrated Success',
-        p: 'We stand out for our specialized experience, proactive approach, interdisciplinary collaboration, internationalization, emphasis on ethics, innovation, and adaptation to emerging technologies. We have demonstrated our success in various instances, offering personalized attention and maintaining a strong social commitment in every legal action.',
+        title: 'Distinguishing Features and proven Success',
+        p: 'We stand out for our specialized experience, proactive approach, interdisciplinary collaboration, internationalization, emphasis on ethics, innovation, and adapting to emerging technologies. We have demonstrated our success in various instances, offering personalized attention and maintaining a strong social commitment in every legal action.',
     },
 ];
 
 const propIntelecualDataEng = [
     {
         title: 'Comprehensive Legal Advice',
-        p: 'Includes intellectual property rights such as inventions, trademarks, trade names, and contract drafting. We provide innovative advice on trademarks, patents, artistic and literary creations, and image rights.',
+        p: 'Includes a wide range of intellectual property rights, including inventions, trademarks, trade names, and contract drafting. We offer innovative advice on trademarks, patents, artistic and literary creations, and image rights.',
     },
     {
         title: 'Brand and Patent Management',
@@ -179,7 +179,7 @@ const propIntelecualDataEng = [
     },
     {
         title: 'Technological Innovation and Competitive Advantage',
-        p: 'We offer personalized and efficient legal services, incorporating advanced technologies for the satisfaction of our clients.',
+        p: 'We offer personalized and efficient legal services, incorporating advanced technologies to ensure client satisfaction.',
     },
     {
         title: 'Experience, Specialization, and Reputation',
@@ -190,7 +190,7 @@ const propIntelecualDataEng = [
         p: 'We value communication and accessibility, ensuring transparent relationships and competitive costs.',
     },
     {
-        title: 'Global Focus and Tailored Solutions',
+        title: 'Global Focus and Customized Solutions',
         p: 'We understand the needs in a constantly evolving legal environment, striving to offer accessible and global solutions.',
     },
 ];
@@ -198,19 +198,19 @@ const propIntelecualDataEng = [
 const internetDataEng = [
     {
         title: 'Internet and Technology Law',
-        p: 'Specialization in legal issues related to the Internet and technology, covering data protection, online privacy, copyright, trademarks, e-commerce, and online contracts. Pioneers in providing assistance in this complex legal field.',
+        p: 'Specialization in legal issues related to the Internet and technology, covering data protection, online privacy, copyright, trademarks, e-commerce, and online contracts. We are committed to providing expert assistance in this complex legal field.',
     },
     {
         title: 'Policies and Digital Advice',
-        p: 'Drafting personalized terms and conditions, privacy policies, and advising on personal data policies for applications, websites, and software in general.',
+        p: 'Drafting personalized terms and conditions, privacy policies, and providing advice on personal data policies for applications, websites, and software at large.',
     },
     {
         title: 'Comprehensive Technology Consulting',
-        p: 'From comprehensive digital advice to the use of know-how, trade secrets, intellectual and industrial property, we offer the best legal and business solutions.',
+        p: 'Our services range from comprehensive digital advice to the use of know-how, trade secrets, intellectual and industrial property, we offer the best legal and business solutions.',
     },
     {
         title: 'Digital Franchise Development',
-        p: 'We have a specialized team in the development of digital franchises, with an emphasis on software, technology transfer, social networks, and e-commerce.',
+        p: 'Our dedicated team specializes in the development of digital franchises, with an emphasis on software, technology transfer, social networks, and e-commerce.',
     },
     {
         title: 'Social Networks and Digital Marketing',

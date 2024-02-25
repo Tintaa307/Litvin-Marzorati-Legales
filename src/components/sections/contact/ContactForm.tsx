@@ -1,6 +1,6 @@
 'use client';
 import { sendEmail } from '@/app/_actions';
-import React from 'react';
+import React, { useState } from 'react';
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -15,10 +15,11 @@ interface Props {
     btn: string,
     success: string,
     emailError: string,
-    formError: string
+    formError: string,
+    accept: string,
 }
 
-const ContactForm = ({name, email, subject, message, btn, success, emailError, formError}: Props) => {
+const ContactForm = ({name, email, subject, message, btn, success, emailError, formError, accept}: Props) => {
     //Toast notifications
     const toastSuccess = () => toast.success(success);
     const toastEmailError = () => toast.error(emailError);
@@ -30,7 +31,7 @@ const ContactForm = ({name, email, subject, message, btn, success, emailError, f
         const formData = new FormData(e.currentTarget)
         const data = Object.fromEntries(formData.entries())
 
-        if(data.email && data.name && data.message) {
+        if(data.email && data.name && data.message && data.check) {
             if(ValidateEmail(String(data.email))){
                 submitEmail({ email: String(data.email), name: String(data.name), subject: String(data.subject), message: String(data.message) });
                 e.currentTarget.reset();
@@ -63,6 +64,9 @@ const ContactForm = ({name, email, subject, message, btn, success, emailError, f
             }
             return (false) //Invalid
         }
+    
+    //Use state for checkbox
+    const [isChecked, setIsChecked] = useState(false);
 
     return (
         <form onSubmit={submitContact} action="submit" className="md:w-[45%] w-full grid gap-6 items-start h-fit">
@@ -81,6 +85,10 @@ const ContactForm = ({name, email, subject, message, btn, success, emailError, f
             <div className="flex flex-col gap-2">
                 <InputLabel pos="04" text={message}></InputLabel>
                 <textarea name="message" className="w-full resize-none bg-transparent outline-none border-b border-black/30"/>
+            </div>
+            <div onClick={() => {setIsChecked(!isChecked)}} className="flex gap-2 text-xs font-light text-black/70">
+                <input name="check" type="checkbox" checked={isChecked} />
+                <h3 className='cursor-default'>{accept}</h3>
             </div>
             <div className="w-full flex justify-start">
                 <button type="submit" className={`bg-accent-orange py-3 px-7 rounded-md w-28`}>{btn}</button>

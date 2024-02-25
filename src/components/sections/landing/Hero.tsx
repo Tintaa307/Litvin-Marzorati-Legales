@@ -53,9 +53,9 @@ const Hero = ({head1, head2, type1, type2, type3, type4, type5, type6, fact1, fa
                     <CtaButton locale={locale} text={cta}></CtaButton>
                 </div>
                 <div className="3xl:mt-40 mt-24 flex flex-wrap justify-around">
-                    <HeroFact num={21500} title={fact1}></HeroFact>
-                    <HeroFact num={3700} title={fact2}></HeroFact>
-                    <HeroFact num={90} title={fact3}></HeroFact>
+                    <HeroFact num={"21,500"} title={fact1}></HeroFact>
+                    <HeroFact num={"3,700"} title={fact2}></HeroFact>
+                    <HeroFact num={"90"} title={fact3}></HeroFact>
                 </div>
             </div>
         </div>

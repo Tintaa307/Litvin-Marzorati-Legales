@@ -8,15 +8,15 @@
   },
   "Hero": 
   {
-    "head1": "Get advice from experts,",
-    "head2": "we give value to your",
+    "head1": "Get advice from legal experts,",
+    "head2": "we bring value to your",
     "type1": "ideas.",
     "type2": "brands.",
     "type3": "domains.",
     "type4": "patents.",
     "type5": "utility models.",
     "type6": "software.",
-    "fact1": "Cases",
+    "fact1": "Case Files",
     "fact2": "Clients",
     "fact3": "Specialized correspondents",
     "cta": "Contact us"
@@ -24,7 +24,7 @@
   "ServiceLand":    
   {
     "title": "Our Services",
-    "subtitle": "Our experience sets us apart, providing efficient solutions while minimizing resource usage.",
+    "subtitle": "Our services set us apart. We deliver effective solutions while optimizing resource utilization.",
     "learn": "Learn more"
   },
   "Media":
@@ -73,7 +73,8 @@
     "email": "Email Address*",
     "subject": "Subject",
     "message": "Message*",
-    "btn": "Submit"
+    "btn": "Submit",
+    "accept": "I accept the privacy policy"
   },
   "ServiceGeneral":
   {
@@ -93,7 +94,7 @@
   "Metaverse":
   {
     "title": "Legal Advice on Metaverse and Artificial Intelligence",
-    "subtitle": "We are a leading and visionary firm in the field of intellectual property and artificial intelligence."
+    "subtitle": "We are a pioneering and visionary firm specializing in intellectual property and artificial intelligence."
   },
   "Intelectual":
   {
