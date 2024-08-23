@@ -13,7 +13,7 @@ const Footer = () => {
     const t = useTranslations("Footer");
     const tToast = useTranslations("Toast");
     const locale = useLocale()
-    
+
     return (
         <div className="bg-footer text-white md:text-xl text-base flex flex-col gap-20 main-padding py-28 pb-12">
             <div className="flex md:flex-row flex-col md:gap-0 gap-16 justify-between items-start">
@@ -33,6 +33,7 @@ const Footer = () => {
                         <Link href={'/' + (locale || '') + '/' + '#inicio'}>{t("inicio")}</Link>
                         <Link href={'/' + (locale || '') + '/about'}>{t("sobreNos")}</Link>
                         <Link href={'/' + (locale || '') + '/contacto'}>{t("contact")}</Link>
+                        <Link href="https://calendly.com/ip-lmlegales" target="_blank" className="text-[#FFBE41]">{t("reunion")}</Link>
                     </div>
                 </div>
                 <div className="flex flex-col gap-6">
@@ -61,7 +62,7 @@ const Footer = () => {
                     <div className="flex flex-col gap-3 text-sm w-72">
                         <h3>Tel: +54 11 4782-9952</h3>
                         <h3>Mail: info@lmlegales.com.ar</h3>
-                        <h3>Avenida del Libertador 5990, piso 3, Buenos Aires, Argentina</h3>
+                        <h3>Avenida del Libertador 5990, piso 3, Buenos Aires, Argentina</h3>
                     </div>
                 </div>
                 <div className="flex items-center justify-center text-xs gap-2 text-white/50">

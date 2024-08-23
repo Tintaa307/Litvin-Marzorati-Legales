@@ -1,6 +1,7 @@
 import CtaButton from "@/components/inputs/Button";
 import Heading from "@/components/text/Heading";
 import { useLocale, useTranslations } from "next-intl";
+import Link from "next/link";
 
 const FinalCTA = () => {
     const t = useTranslations("FinalCTA");
@@ -9,7 +10,10 @@ const FinalCTA = () => {
     return (
         <div className="flex flex-col gap-8 items-center justify-center bg-center bg-no-repeat bg-cover bg-[url('/assets/finalCTA.png')] main-padding h-96 py-16">
             <Heading title={t("title")}></Heading>
-            <CtaButton locale={locale} text={t("cta")}></CtaButton>
+            <div className="w-full h-max flex justify-center items-center gap-3">
+                <CtaButton locale={locale} text={t("cta")}></CtaButton>
+            </div>
+
         </div>
     );
 };

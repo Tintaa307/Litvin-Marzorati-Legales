@@ -1,6 +1,8 @@
 'use client';
 import HeroFact from "@/components/cards/HeroFact";
 import CtaButton from "@/components/inputs/Button";
+import MeetingButton from "@/components/inputs/MeetingsButton";
+import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
 
 interface Props {
@@ -15,11 +17,12 @@ interface Props {
     fact1: string,
     fact2: string,
     fact3: string,
-    cta: string,
+    cta1: string,
+    cta2: string,
     locale: string
 }
 
-const Hero = ({head1, head2, type1, type2, type3, type4, type5, type6, fact1, fact2, fact3, cta, locale}: Props) => {
+const Hero = ({ head1, head2, type1, type2, type3, type4, type5, type6, fact1, fact2, fact3, cta1, cta2, locale }: Props) => {
     return (
         <div id="inicio" className="bg-cover sm:bg-center bg-[center_right_-38rem] bg-[url('/assets/heroBg.png')] pb-10">
             <div className="main-padding pt-64">
@@ -50,7 +53,13 @@ const Hero = ({head1, head2, type1, type2, type3, type4, type5, type6, fact1, fa
                             repeat={Infinity}
                         />
                     </div>
-                    <CtaButton locale={locale} text={cta}></CtaButton>
+                    <div className="w-full h-max flex sm:flex-row flex-col  justify-center items-center gap-5">
+                        <MeetingButton locale={locale} text={cta2} />
+                        <CtaButton locale={locale} text={cta1}></CtaButton>
+                        {/* <div className="button p-[2px] rounded-md ">
+                            <Link href="https://calendly.com/ip-lmlegales" target="_blank" className="button-body rounded-md sm:px-7 sm:py-2.5 px-5 bg-transparent"><h3 className="font-medium sm:text-lg sm:text-md">Reservá una reunión</h3></Link>
+                        </div> */}
+                    </div>
                 </div>
                 <div className="3xl:mt-40 mt-24 flex flex-wrap justify-around">
                     <HeroFact num={"21,500"} title={fact1}></HeroFact>

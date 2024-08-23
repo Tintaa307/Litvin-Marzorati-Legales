@@ -1,13 +1,11 @@
 {
-  "Nav":
-  {
+  "Nav": {
     "inicio": "Home",
     "sobreNos": "About us",
     "servicios": "Services",
     "contacto": "Contact"
   },
-  "Hero": 
-  {
+  "Hero": {
     "head1": "Get advice from legal experts,",
     "head2": "we bring value to your",
     "type1": "ideas.",
@@ -19,26 +17,23 @@
     "fact1": "Case Files",
     "fact2": "Clients",
     "fact3": "Specialized correspondents",
-    "cta": "Contact us"
+    "cta1": "Contact us",
+    "cta2": "Book a meeting"
   },
-  "ServiceLand":    
-  {
+  "ServiceLand": {
     "title": "Our Services",
     "subtitle": "Our services set us apart. We deliver effective solutions while optimizing resource utilization.",
     "learn": "Learn more"
   },
-  "Media":
-  {
+  "Media": {
     "title": "Elevating Presence Across Media Platforms",
     "subtitle": "We are one of the most renowned Intellectual Property law firms in Latin America."
   },
-  "FinalCTA":
-  {
+  "FinalCTA": {
     "title": "Don't hesitate, get in touch with us.",
     "cta": "Contact us"
   },
-  "Footer":
-  {
+  "Footer": {
     "services": "Services",
     "intelectual": "Legal Advice on Intellectual Property",
     "general": "General Legal Advice",
@@ -48,6 +43,7 @@
     "inicio": "Home",
     "sobreNos": "About us",
     "contact": "Contact",
+    "reunion": "Book a meeting",
     "newsletter": "Newsletter",
     "enterEmail": "Enter your email",
     "accept": "I accept the privacy policy",
@@ -56,18 +52,15 @@
     "condiciones": "Terms of Use",
     "disclaimer": "Legal Disclaimer"
   },
-  "AboutCards":
-  {
+  "AboutCards": {
     "title": "About Us",
     "subtitle": "We are convinced that the success of our clients will be our own success."
   },
-  "Team":
-  {
+  "Team": {
     "title": "Our Team",
     "subtitle": "We forge a collective path towards shared goals, where each member plays an essential role."
   },
-  "Contact":
-  {
+  "Contact": {
     "title": "We work to provide you with a prompt response.",
     "name": "Full Name*",
     "email": "Email Address*",
@@ -76,45 +69,36 @@
     "btn": "Submit",
     "accept": "I accept the privacy policy"
   },
-  "ServiceGeneral":
-  {
+  "ServiceGeneral": {
     "title": "General Legal Advice",
     "subtitle": "We focus on businesses. From simple daily consultations to large international agreements and trials"
   },
-  "Emprendedores":
-  {
+  "Emprendedores": {
     "title": "Entrepreneurs and New Projects",
     "subtitle": "We focus on businesses. From simple daily consultations to large international agreements and trials."
   },
-  "Internet":
-  {
+  "Internet": {
     "title": "Legal Advice on the Internet",
     "subtitle": "Pioneers in providing assistance to our clients to navigate the legal world of technology and the Internet."
   },
-  "Metaverse":
-  {
+  "Metaverse": {
     "title": "Legal Advice on Metaverse and Artificial Intelligence",
     "subtitle": "We are a pioneering and visionary firm specializing in intellectual property and artificial intelligence."
   },
-  "Intelectual":
-  {
+  "Intelectual": {
     "title": "Legal Advice on Intellectual Property",
     "subtitle": "Our legal advice is characterized by being innovative, personalized, and efficient."
   },
-  "Privacidad":
-  {
+  "Privacidad": {
     "title": "Privacy Policy"
   },
-  "Terms":
-  {
+  "Terms": {
     "title": "Terms of Use"
   },
-  "Disclaimer":
-  {
+  "Disclaimer": {
     "title": "Legal Disclaimer"
   },
-  "Toast":
-  {
+  "Toast": {
     "emailSuccess": "Your email has been sent! You will receive a response shortly.",
     "emailError": "Please enter a valid email.",
     "newsletterSuccess": "You have subscribed to the Newsletter!",

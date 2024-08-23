@@ -14,10 +14,13 @@
   --accent-orange: #FFBE41;
   --accent-brown: #E77D43;
   --color-footer: #090909;
+  --border-color: linear-gradient(to right, #FFBE41 0%, #E77D43 100%);
+  --button-body: #FCEFE8;
 }
 
 html {
-  color-scheme: light !important;;
+  color-scheme: light !important;
+  ;
   color: black;
 }
 
@@ -25,4 +28,22 @@ html {
   .main-padding {
     @apply 2xl:px-72 lg:px-32 px-3;
   }
+}
+
+.button {
+  background: var(--border-color);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-body {
+  background-color: var(--button-body);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }

@@ -14,7 +14,7 @@ interface Props {
     formError: string
 }
 
-const Newsletter = ({label, accept, submit, emailError, formError, success}: Props) => {
+const Newsletter = ({ label, accept, submit, emailError, formError, success }: Props) => {
     //Toast notifications
     const toastSuccess = () => toast.success(success);
     const toastEmailError = () => toast.error(emailError);
@@ -26,9 +26,9 @@ const Newsletter = ({label, accept, submit, emailError, formError, success}: Pro
         const formData = new FormData(e.currentTarget)
         const data = Object.fromEntries(formData.entries())
 
-        if(data.email && data.check) {
-            if(ValidateEmail(String(data.email))){
-                submitEmail({ email: String(data.email)});
+        if (data.email && data.check) {
+            if (ValidateEmail(String(data.email))) {
+                submitEmail({ email: String(data.email) });
                 e.currentTarget.reset();
                 void toastSuccess();
                 return;
@@ -40,21 +40,20 @@ const Newsletter = ({label, accept, submit, emailError, formError, success}: Pro
     }
 
     //Function for calling email api
-    const submitEmail = async ({email}: {email: string}) => {
-        await sendEmail({email})
-        .then((res) => {
-            console.log(res);
-        })
-        .catch((err) => {
-            console.log('Error', err)
-            throw new Error('Network error.')
-        })
+    const submitEmail = async ({ email }: { email: string }) => {
+        await sendEmail({ email })
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((err) => {
+                console.log('Error', err)
+                throw new Error('Network error.')
+            })
     }
 
     //Function for validating email adress
     const ValidateEmail = (mail: string) => {
-        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail))
-        {
+        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
             return (true) //Valid email
         }
         return (false) //Invalid
@@ -67,10 +66,10 @@ const Newsletter = ({label, accept, submit, emailError, formError, success}: Pro
         <form onSubmit={submitNewsletter} action="submit" className="flex flex-col gap-4 text-sm">
             <div className="w-full flex flex-col gap-2">
                 <h3>{label}</h3>
-                <input name="email" type="text" className="bg-transparent outline-none border-b border-white/30 text-sm"/>
+                <input name="email" type="text" className="bg-transparent outline-none border-b border-white/30 text-sm p-1" />
             </div>
-            <div onClick={() => {setIsChecked(!isChecked)}} className="flex gap-2 text-xs font-light text-white/70">
-                <input onChange={() => {}} name="check" type="checkbox" checked={isChecked} />
+            <div onClick={() => { setIsChecked(!isChecked) }} className="flex gap-2 text-xs font-light text-white/70">
+                <input onChange={() => { }} name="check" type="checkbox" checked={isChecked} />
                 <h3 className="cursor-default">{accept}</h3>
             </div>
             <div className="w-full flex justify-start">

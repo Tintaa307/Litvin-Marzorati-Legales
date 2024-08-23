@@ -1,13 +1,11 @@
 {
-  "Nav":
-  {
+  "Nav": {
     "inicio": "Inicio",
     "sobreNos": "Sobre Nosotros",
     "servicios": "Servicios",
     "contacto": "Contacto"
   },
-  "Hero": 
-  {
+  "Hero": {
     "head1": "Asesorate con expertos,",
     "head2": "le damos valor a tus",
     "type1": "ideas.",
@@ -19,26 +17,23 @@
     "fact1": "Expedientes",
     "fact2": "Clientes",
     "fact3": "Corresponsales especializados",
-    "cta": "Contactános"
+    "cta1": "Contactános",
+    "cta2": "Reservar una reunión"
   },
-  "ServiceLand":
-  {
+  "ServiceLand": {
     "title": "Nuestros Servicios",
     "subtitle": "Nos caracteriza nuestra experiencia, brindando soluciones eficientes minimizando el uso de recursos.",
     "learn": "Aprende más"
   },
-  "Media":
-  {
+  "Media": {
     "title": "Trascendiendo en los medios",
-    "subtitle":"Somos uno de los más reconocidos estudios de servicios de Propiedad Intelectual en América Latina."
+    "subtitle": "Somos uno de los más reconocidos estudios de servicios de Propiedad Intelectual en América Latina."
   },
-  "FinalCTA":
-  {
+  "FinalCTA": {
     "title": "Sabemos como ayudarte, contactános.",
     "cta": "Contactános"
   },
-  "Footer":
-  {
+  "Footer": {
     "services": "Servicios",
     "intelectual": "Asesoramiento en propiedad intelectual",
     "general": "Asesoramiento General",
@@ -48,27 +43,25 @@
     "inicio": "Inicio",
     "sobreNos": "Sobre Nosotros",
     "contact": "Contacto",
+    "reunion": "Reservar una reunión",
     "newsletter": "Newsletter",
     "enterEmail": "Ingrese su email",
-    "accept": "Accepto la política de privacidad",
+    "accept": "Acepto la política de privacidad",
     "submit": "Enviar",
     "aviso": "Aviso Legal",
     "privacy": "Política de Privacidad",
     "condiciones": "Condiciones de uso",
     "disclaimer": "Descargo de responsabilidad"
   },
-  "AboutCards":
-  {
+  "AboutCards": {
     "title": "Sobre nosotros",
     "subtitle": "Estamos convencidos que el éxito de nuestros clientes, será nuestro propio éxito."
   },
-  "Team":
-  {
+  "Team": {
     "title": "Nuestro equipo",
     "subtitle": "Forjamos un camino conjunto hacia metas compartidas, donde cada integrante juega un papel esencial."
   },
-  "Contact":
-  {
+  "Contact": {
     "title": "Trabajamos para darle una respuesta pronto.",
     "name": "Nombre completo*",
     "email": "Correo electrónico*",
@@ -77,45 +70,36 @@
     "btn": "Enviar",
     "accept": "Accepto la política de privacidad"
   },
-  "ServiceGeneral":
-  {
+  "ServiceGeneral": {
     "title": "Asesoramiento legal general",
     "subtitle": "Nos enfocamos en negocios. Desde simples consultas diarias hasta grandes acuerdos y juicios internacionales."
   },
-  "Emprendedores":
-  {
+  "Emprendedores": {
     "title": "Emprendedores y nuevos proyectos",
     "subtitle": "Nos enfocamos en negocios. Desde simples consultas diarias hasta grandes acuerdos y juicios internacionales."
   },
-  "Internet":
-  {
+  "Internet": {
     "title": "Asesoramiento legal en Internet",
     "subtitle": "Pioneros en brindar asistencia a nuestros clientes para navegar en el mundo legal de la tecnología y el Internet."
   },
-  "Metaverse":
-  {
+  "Metaverse": {
     "title": "Asesoramiento legal en Metaverso e Inteligencia Artificial",
     "subtitle": "Somos un estudio líder y visionario en el ámbito de la propiedad intelectual e inteligencia artificial."
   },
-  "Intelectual":
-  {
+  "Intelectual": {
     "title": "Asesoramiento legal en Propiedad Intelectual",
     "subtitle": "Nuestro asesoramiento legal se caracteriza por ser innovador, personalizado y eficiente"
   },
-  "Privacidad":
-  {
+  "Privacidad": {
     "title": "Política de privacidad"
   },
-  "Terms":
-  {
+  "Terms": {
     "title": "Condiciones de uso"
   },
-  "Disclaimer":
-  {
+  "Disclaimer": {
     "title": "Descargo de responsabilidad"
   },
-  "Toast":
-  {
+  "Toast": {
     "emailSuccess": "Su email ha sido enviado! Recibirá una respuesta en breve.",
     "emailError": "Ingrese un email válido.",
     "newsletterSuccess": "Se ha anotado al Newsletter!",

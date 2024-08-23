@@ -25,7 +25,7 @@ interface Props {
     locale: string
 }
 
-const Nav = ({white, tInicio, tAbout, tContacto, tServicios, locale}: Props) => {   
+const Nav = ({ white, tInicio, tAbout, tContacto, tServicios, locale }: Props) => {
 
     const scrollPosition = useScrollPosition()
     const [isOpen, setIsOpen] = useState(false);
@@ -40,11 +40,11 @@ const Nav = ({white, tInicio, tAbout, tContacto, tServicios, locale}: Props) => 
 
     //Handle lang pathname
     const pathname = usePathname();
-    
+
     return (
-        <div className={`w-screen h-20 fixed top-0 z-50 main-padding flex items-center justify-between duration-200 border-b ${scrollPosition > 20 ? 'bg-background text-black border-transparent' : `${white && 'text-white'} ${isOpen ? 'bg-background border-[#1E1E1E]/30' : 'bg-transparent border-transparent'}` }`}>
+        <div className={`w-screen h-20 fixed top-0 z-50 main-padding flex items-center justify-between duration-200 border-b ${scrollPosition > 20 ? 'bg-background text-black border-transparent' : `${white && 'text-white'} ${isOpen ? 'bg-background border-[#1E1E1E]/30' : 'bg-transparent border-transparent'}`}`}>
             <Link href={'/' + (locale || '')}>
-                <Image src={Logo} alt="Logo" className={`w-32 ${scrollPosition > 20 ? 'filter-none' : `${(white && !isOpen) && 'filter invert-[100%]'}` }`}></Image>
+                <Image src={Logo} alt="Logo" className={`w-32 ${scrollPosition > 20 ? 'filter-none' : `${(white && !isOpen) && 'filter invert-[100%]'}`}`}></Image>
             </Link>
             {/* For Desktop */}
             <div className="md:flex hidden items-center gap-6">
@@ -60,8 +60,8 @@ const Nav = ({white, tInicio, tAbout, tContacto, tServicios, locale}: Props) => 
                         <h3 className={`transition-all ${!isHovering ? 'rotate-0' : 'rotate-90'}`}>{">"}</h3>
                     </div>
                     <AnimatePresence>
-                        {isHovering && 
-                            <motion.div 
+                        {isHovering &&
+                            <motion.div
                                 initial={{ x: -30, opacity: 0 }}
                                 animate={{ x: 0, opacity: 1 }}
                                 exit={{ x: 0, opacity: 0 }}
@@ -78,24 +78,24 @@ const Nav = ({white, tInicio, tAbout, tContacto, tServicios, locale}: Props) => 
             <div className="md:flex hidden items-center justify-center gap-2 w-40">
                 <div className="flex gap-2 items-center justify-center mr-4">
                     <Link href={pathname.replace('/en', '/es')} className={`${locale === 'es' ? 'font-semibold' : 'font-medium'}`}>ES</Link>
-                    <span className={`w-[1px] h-5 ${scrollPosition > 20 ? 'bg-black/70' : `${white ? 'bg-white/70' : 'bg-black/70'}` } `}></span>
+                    <span className={`w-[1px] h-5 ${scrollPosition > 20 ? 'bg-black/70' : `${white ? 'bg-white/70' : 'bg-black/70'}`} `}></span>
                     <Link href={pathname.replace('/es', '/en')} className={`${locale === 'en' ? 'font-semibold' : 'font-medium'}`}>EN</Link>
                 </div>
                 <Link href={'https://www.instagram.com/lmlegales/'} target="_blank">
-                    <Image src={Insta} alt="Instagram socials" className={`${scrollPosition > 20 ? 'filter-none' : `${white && 'filter invert-[100%]'}` }`}></Image>
+                    <Image src={Insta} alt="Instagram socials" className={`${scrollPosition > 20 ? 'filter-none' : `${white && 'filter invert-[100%]'}`}`}></Image>
                 </Link>
                 <Link href={'https://www.linkedin.com/company/litvin-marzorati-legales/?originalSubdomain=ar'} target="_blank">
-                    <Image src={Linked} alt="LinkedIn socials" className={`${scrollPosition > 20 ? 'filter-none' : `${white && 'filter invert-[100%]'}` }`}></Image>
+                    <Image src={Linked} alt="LinkedIn socials" className={`${scrollPosition > 20 ? 'filter-none' : `${white && 'filter invert-[100%]'}`}`}></Image>
                 </Link>
                 <Link href={'https://www.facebook.com/Lmlegales'} target="_blank">
-                    <Image src={Facebook} alt="LinkedIn socials" className={`${scrollPosition > 20 ? 'filter-none' : `${white && 'filter invert-[100%]'}` }`}></Image>
+                    <Image src={Facebook} alt="LinkedIn socials" className={`${scrollPosition > 20 ? 'filter-none' : `${white && 'filter invert-[100%]'}`}`}></Image>
                 </Link>
             </div>
             {/* For mobile */}
             <button onClick={handleClick} className="md:hidden flex flex-col justify-center items-center">
-                <span className={`bg-black ${scrollPosition > 20 ? 'bg-black' : `${(white && !isOpen) && 'bg-white'}` } block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isOpen ? 'rotate-45 translate-y-1' : '-translate-y-1'}`}></span>
-                <span className={`bg-black ${scrollPosition > 20 ? 'bg-black' : `${(white && !isOpen) && 'bg-white'}` } block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isOpen ? 'opacity-0' : 'opacity-100'}`}></span>
-                <span className={`bg-black ${scrollPosition > 20 ? 'bg-black' : `${(white && !isOpen) && 'bg-white'}` } block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isOpen ? '-rotate-45' : 'translate-y-1'}`}></span>
+                <span className={`bg-black ${scrollPosition > 20 ? 'bg-black' : `${(white && !isOpen) && 'bg-white'}`} block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isOpen ? 'rotate-45 translate-y-1' : '-translate-y-1'}`}></span>
+                <span className={`bg-black ${scrollPosition > 20 ? 'bg-black' : `${(white && !isOpen) && 'bg-white'}`} block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+                <span className={`bg-black ${scrollPosition > 20 ? 'bg-black' : `${(white && !isOpen) && 'bg-white'}`} block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isOpen ? '-rotate-45' : 'translate-y-1'}`}></span>
             </button>
             <div className={`absolute md:hidden h-screen top-20 z-10 bg-background border-l border-[#1E1E1E]/30 transition-all ease-out duration-300 ${isOpen ? 'right-0 sm:w-[50%] w-[70%]' : '-right-[16rem] sm:-right-[26rem] w-[40%]'}`}>
                 <MobileMenu scrollPosition={scrollPosition} white={white} isOpen={isOpen} tInicio={tInicio} tAbout={tAbout} tContacto={tContacto} tServicios={tServicios} locale={locale}></MobileMenu>
