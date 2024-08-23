@@ -33,7 +33,7 @@ const Footer = () => {
                         <Link href={'/' + (locale || '') + '/' + '#inicio'}>{t("inicio")}</Link>
                         <Link href={'/' + (locale || '') + '/about'}>{t("sobreNos")}</Link>
                         <Link href={'/' + (locale || '') + '/contacto'}>{t("contact")}</Link>
-                        <Link href="https://calendly.com/ip-lmlegales" target="_blank" className="text-[#FFBE41]">{t("reunion")}</Link>
+                        <Link href={'https://calendly.com/ip-lmlegales'} target="_blank" className="text-[#FFBE41]">{t("reunion")}</Link>
                     </div>
                 </div>
                 <div className="flex flex-col gap-6">
