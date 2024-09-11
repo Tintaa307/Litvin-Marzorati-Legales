@@ -37,6 +37,10 @@ html {
   align-items: center;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
 @layer base {
   :root {
     --color-background: #fcefe8;

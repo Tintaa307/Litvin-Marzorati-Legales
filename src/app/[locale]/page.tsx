@@ -1,4 +1,5 @@
 import Nav from "@/components/Nav"
+import Chat from "@/components/sections/chatbot/Chatbot"
 import Eventos from "@/components/sections/eventos/Eventos"
 import InstagramFeed from "@/components/sections/feed/InstagramFeed"
 import FinalCTA from "@/components/sections/landing/FinalCTA"
@@ -47,6 +48,7 @@ export default function Home() {
       />
       <Eventos />
       <InstagramFeed />
+      <Chat />
       <FinalCTA />
     </div>
   )
