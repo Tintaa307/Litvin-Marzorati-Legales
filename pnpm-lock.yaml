@@ -53,6 +53,9 @@ importers:
       react-dom:
         specifier: ^18
         version: 18.3.1(react@18.3.1)
+      react-gtm-module:
+        specifier: ^2.0.11
+        version: 2.0.11
       react-markdown:
         specifier: ^9.0.1
         version: 9.0.1(@types/react@18.3.5)(react@18.3.1)
@@ -84,6 +87,9 @@ importers:
       '@types/react-dom':
         specifier: ^18
         version: 18.3.0
+      '@types/react-gtm-module':
+        specifier: ^2.0.3
+        version: 2.0.3
       autoprefixer:
         specifier: ^10.0.1
         version: 10.4.20(postcss@8.4.45)
@@ -544,6 +550,9 @@ packages:
 
   '@types/react-dom@18.3.0':
     resolution: {integrity: sha512-EhwApuTmMBmXuFOikhQLIBUn6uFg81SwLMOAUgodJF14SOBOCMdU04gDoYi0WOJJHD144TL32z4yDqCW3dnkQg==}
+
+  '@types/react-gtm-module@2.0.3':
+    resolution: {integrity: sha512-fL2zKdDFN5LckSsVBXEhhm9M4tFTM9oHJfGcfZJzktQkzpOTGtDM8oXIP9d9UBDxO4xLNZhS22dlgRVv6wgK9w==}
 
   '@types/react@18.3.5':
     resolution: {integrity: sha512-WeqMfGJLGuLCqHGYRGHxnKrXcTitc6L/nBUWfWPcTarG3t9PsquqUMuVeXZeca+mglY4Vo5GZjCi0A3Or2lnxA==}
@@ -1922,6 +1931,9 @@ packages:
     peerDependencies:
       react: ^18.3.1
 
+  react-gtm-module@2.0.11:
+    resolution: {integrity: sha512-8gyj4TTxeP7eEyc2QKawEuQoAZdjKvMY4pgWfycGmqGByhs17fR+zEBs0JUDq4US/l+vbTl+6zvUIx27iDo/Vw==}
+
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
@@ -2769,6 +2781,8 @@ snapshots:
   '@types/react-dom@18.3.0':
     dependencies:
       '@types/react': 18.3.5
+
+  '@types/react-gtm-module@2.0.3': {}
 
   '@types/react@18.3.5':
     dependencies:
@@ -4517,6 +4531,8 @@ snapshots:
       loose-envify: 1.4.0
       react: 18.3.1
       scheduler: 0.23.2
+
+  react-gtm-module@2.0.11: {}
 
   react-is@16.13.1: {}
 

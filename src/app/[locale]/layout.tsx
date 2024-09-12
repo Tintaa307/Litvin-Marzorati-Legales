@@ -1,8 +1,9 @@
-import type { Metadata } from 'next'
-import clsx from "clsx";
-import localFont from 'next/font/local';
-import './globals.css'
-import Footer from '@/components/sections/Footer';
+import type { Metadata } from "next"
+import clsx from "clsx"
+import localFont from "next/font/local"
+import "./globals.css"
+import Footer from "@/components/sections/Footer"
+import TagManager from "react-gtm-module"
 
 const poppins = localFont({
   variable: "--font-poppins",
@@ -18,10 +19,10 @@ const poppins = localFont({
       style: "normal",
     },
   ],
-});
+})
 
 const meshedDisplay = localFont({
-  variable: '--font-meshedDisplay',
+  variable: "--font-meshedDisplay",
   src: [
     {
       path: "./fonts/MeshedDisplay-Regular.otf",
@@ -38,22 +39,22 @@ const meshedDisplay = localFont({
       weight: "600",
       style: "normal",
     },
-  ]
-});
+  ],
+})
 
 const dmSerif = localFont({
-  variable: '--font-dmSerif',
+  variable: "--font-dmSerif",
   src: [
     {
       path: "./fonts/DMSerifDisplay-Regular.ttf",
       weight: "400",
       style: "normal",
-    }
-  ]
-});
+    },
+  ],
+})
 
 const ubuntu = localFont({
-  variable: '--font-ubuntu',
+  variable: "--font-ubuntu",
   src: [
     {
       path: "./fonts/Ubuntu-Regular.ttf",
@@ -69,32 +70,39 @@ const ubuntu = localFont({
       path: "./fonts/Ubuntu-Bold.ttf",
       weight: "700",
       style: "normal",
-    }
-  ]
-});
+    },
+  ],
+})
 
 export const metadata: Metadata = {
-  title: 'Litvin Marzorati Legales',
-  description: 'Estudio de legales',
+  title: "Litvin Marzorati Legales",
+  description: "Estudio de legales",
 }
+
+const tagManagerArgs = {
+  gtmId: "GTM-W8W92435",
+}
+
+TagManager.initialize(tagManagerArgs)
 
 export default function LocaleLayout({
   children,
-  params: {locale}
+  params: { locale },
 }: {
-  children: React.ReactNode,
-  params: {locale: string};
-}) 
-{
+  children: React.ReactNode
+  params: { locale: string }
+}) {
   return (
     <html lang={locale}>
-      <body className={clsx(
+      <body
+        className={clsx(
           poppins.variable,
           meshedDisplay.variable,
           dmSerif.variable,
-          'bg-background',
-          'font-poppins',
-        )}>
+          "bg-background",
+          "font-poppins"
+        )}
+      >
         <main className="flex flex-col overflow-hidden">
           {children}
           <Footer />
