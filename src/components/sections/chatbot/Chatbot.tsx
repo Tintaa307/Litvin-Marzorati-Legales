@@ -2,11 +2,19 @@
 
 import { cn } from "@/lib/utils"
 import { useChat } from "ai/react"
-import { useState } from "react"
+import Link from "next/link"
+import { useEffect, useState } from "react"
+import ReactMarkdown from "react-markdown"
 
 export default function Chat() {
   const { messages, input, handleInputChange, handleSubmit } = useChat()
   const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    messages.map((m) => {
+      console.log(m)
+    })
+  }, [messages])
 
   return (
     <div
@@ -51,7 +59,7 @@ export default function Chat() {
                   }
                 )}
               >
-                {m.content}
+                <ReactMarkdown>{m.content}</ReactMarkdown>
               </span>
             </div>
           ))}
