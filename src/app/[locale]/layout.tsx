@@ -3,7 +3,7 @@ import clsx from "clsx"
 import localFont from "next/font/local"
 import "./globals.css"
 import Footer from "@/components/sections/Footer"
-import TagManager from "react-gtm-module"
+import { TagManagerProvider } from "@/context/TagManager"
 
 const poppins = localFont({
   variable: "--font-poppins",
@@ -53,39 +53,10 @@ const dmSerif = localFont({
   ],
 })
 
-const ubuntu = localFont({
-  variable: "--font-ubuntu",
-  src: [
-    {
-      path: "./fonts/Ubuntu-Regular.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "./fonts/Ubuntu-Medium.ttf",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "./fonts/Ubuntu-Bold.ttf",
-      weight: "700",
-      style: "normal",
-    },
-  ],
-})
-
 export const metadata: Metadata = {
   title: "Litvin Marzorati Legales",
   description: "Estudio de legales",
 }
-
-const tagManagerArgs = {
-  gtmId: "GTM-N98L8NKH",
-}
-
-TagManager.initialize(tagManagerArgs)
-
-
 
 export default function LocaleLayout({
   children,
@@ -105,10 +76,12 @@ export default function LocaleLayout({
           "font-poppins"
         )}
       >
-        <main className="flex flex-col overflow-hidden">
-          {children}
-          <Footer />
-        </main>
+        <TagManagerProvider>
+          <main className="flex flex-col overflow-hidden">
+            {children}
+            <Footer />
+          </main>
+        </TagManagerProvider>
       </body>
     </html>
   )
