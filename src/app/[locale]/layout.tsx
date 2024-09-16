@@ -80,10 +80,12 @@ export const metadata: Metadata = {
 }
 
 const tagManagerArgs = {
-  gtmId: "GTM-W8W92435",
+  gtmId: "GTM-N98L8NKH",
 }
 
 TagManager.initialize(tagManagerArgs)
+
+
 
 export default function LocaleLayout({
   children,
