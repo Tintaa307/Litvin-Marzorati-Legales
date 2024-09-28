@@ -17,6 +17,12 @@ export async function POST(request: Request) {
         - Facebook: https://www.facebook.com/Lmlegales
         - Instagram: https://www.instagram.com/lmlegales/
         - LinkedIn: https://www.linkedin.com/company/litvin-marzorati-legales/?originalSubdomain=ar
+
+        Correo electrónico:
+        - info@lmlegales.com.ar
+
+        Teléfono:
+        - +54 9 11 4081-4887
         ." 
       `,
       maxTokens: 100,
