@@ -38,6 +38,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "instagram.faep8-1.fna.fbcdn.net",
       },
+      {
+        protocol: "https",
+        hostname: "litvin-marzorati-legales.vercel.app",
+      },
     ],
   },
 }

@@ -58,7 +58,7 @@ export default function InstagramFeed() {
       <div className="grid grid-cols-3 place-items-center gap-y-8 gap-x-24">
         {loading
           ? Array.from({ length: 6 }).map((_, index) => (
-              <Skeleton key={index} className="size-64 bg-gray-300" />
+              <Skeleton key={index} className="size-64 bg-accent-orange" />
             ))
           : feed &&
             feed.map((post, index) => (
