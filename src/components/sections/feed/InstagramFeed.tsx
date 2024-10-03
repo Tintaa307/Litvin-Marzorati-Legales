@@ -51,11 +51,11 @@ export default function InstagramFeed() {
       <h2 className={`sm:text-[42px] text-[2rem] font-dmSerif font-normal`}>
         Conéctate con Nosotros
       </h2>
-      <p className="text-center mb-12 max-w-2xl mx-auto">
+      <p className="text-center mb-12 max-w-2xl mx-auto min_feed:text-xs">
         Descubre nuestras últimas publicaciones, logros y eventos. Mantente
         informado.
       </p>
-      <div className="grid grid-cols-3 place-items-center gap-y-8 gap-x-24">
+      <div className="grid grid-cols-3 place-items-center gap-y-8 gap-x-24 feed:gap-x-12 feed:grid-cols-2 min_feed:grid-cols-1">
         {loading
           ? Array.from({ length: 6 }).map((_, index) => (
               <Skeleton key={index} className="size-64 bg-accent-orange" />

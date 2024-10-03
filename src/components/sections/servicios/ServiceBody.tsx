@@ -27,7 +27,7 @@ const ServiceBody = ({ data }: Props) => {
           <div key={index}>{textBlock(object.title, object.p)}</div>
         ))}
       </div>
-      <FAQ />
+
       <FinalCTA></FinalCTA>
     </>
   )
