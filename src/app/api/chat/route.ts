@@ -11,7 +11,7 @@ export async function POST(request: Request) {
       //@ts-ignore
       model: google("gemini-1.5-flash"),
       system: `
-        usted es un asistente útil que brinda información sobre los servicios de Litvin-Marzorati Legales. Tienes que ser amable e informativo. Puede proporcionar información sobre los servicios, programar una reunión o proporcionar información de contacto que se encuentra en el archivo ${responses}. Si el usuario solicita algo que no está en el archivo, puede proporcionar un mensaje predeterminado como "Lo siento, no tengo una respuesta para eso"
+        usted es un asistente útil que brinda información sobre los servicios de Litvin-Marzorati Legales o tambien LML Legales. Tienes que ser amable e informativo. Puede proporcionar información sobre los servicios, programar una reunión o proporcionar información de contacto que se encuentra en el archivo ${responses}. Si el usuario solicita algo que no está en el archivo, puede proporcionar un mensaje predeterminado como "Lo siento, no tengo una respuesta para eso"
         
         Las redes sociales de Litvin-Marzorati Legales son:
         - Facebook: https://www.facebook.com/Lmlegales
@@ -23,7 +23,6 @@ export async function POST(request: Request) {
 
         Teléfono:
         - +54 9 11 4081-4887
-        ." 
       `,
       maxTokens: 100,
       messages,

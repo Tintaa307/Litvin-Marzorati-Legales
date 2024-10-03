@@ -13,17 +13,56 @@ export default function Eventos() {
       id: 1,
       image: "/media/media1.png",
       date: "22 MAYO",
-      name: "Nombre del evento",
+      name: "Ben Elsztain - Fireside chat on Corporate VC with Rodrigo Benzaquen",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis lectus.",
+        "Regulation Day surge en el marco de Aleph, la Pop Up City de Crecimiento, una comunidad global de desarrolladores y emprendedores de Web3 en colaboración con la Cámara Argentina Fintech con el objetivo de utilizar la tecnología blockchain para impulsar el desarrollo económico.",
     },
     {
       id: 2,
       image: "/media/media1.png",
       date: "23 MAYO",
-      name: "Nombre del evento",
+      name: "Regulation day: Jornada de regulación público privada en web3",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis lectus.",
+        "Regulation Day surge en el marco de Aleph, la Pop Up City de Crecimiento, una comunidad global de desarrolladores y emprendedores de Web3 en colaboración con la Cámara Argentina Fintech con el objetivo de utilizar la tecnología blockchain para impulsar el desarrollo económico.",
+    },
+    {
+      id: 3,
+      image: "/media/media1.png",
+      date: "23 MAYO",
+      name: "Experiencia Endeavor Bs As | 2024",
+      description:
+        "Formulario de confirmacion de asistencia al Cocktail, Experiencia Endeavor Buenos Aires y VIP Launch.",
+    },
+    {
+      id: 4,
+      image: "/media/media1.png",
+      date: "23 MAYO",
+      name: "Inernacional Trademark Association (INTA) Annual Meeting",
+      description:
+        "Regulation Day surge en el marco de Aleph, la Pop Up City de Crecimiento, una comunidad global de desarrolladores y emprendedores de Web3 en colaboración con la Cámara Argentina Fintech con el objetivo de utilizar la tecnología blockchain para impulsar el desarrollo económico.",
+    },
+    {
+      id: 5,
+      image: "/media/media1.png",
+      date: "23 MAYO",
+      name: "2024 Leadership Metting - International Trademark Association (INTA)",
+      description:
+        "Unetenos a la reunión de liderazgo de la Asociación Internacional de Marcas (INTA) para discutir los desafíos y oportunidades que enfrentan los profesionales de marcas en todo el mundo.",
+    },
+    {
+      id: 6,
+      image: "/media/media1.png",
+      date: "23 MAYO",
+      name: "Luxury Law Summit",
+      description:
+        "Regulation Day surge en el marco de Aleph, la Pop Up City de Crecimiento, una comunidad global de desarrolladores y emprendedores de Web3 en colaboración con la Cámara Argentina Fintech con el objetivo de utilizar la tecnología blockchain para impulsar el desarrollo económico.",
+    },
+    {
+      id: 7,
+      image: "/media/media1.png",
+      date: "23 MAYO",
+      name: "WLA PROMINENT INTERNATIONAL WOMAN LAWYER AWARD - NOMINEES",
+      description: "Nuestras abogadas nominadas al premio WLA Prom.",
     },
   ]
 
@@ -57,15 +96,13 @@ export default function Eventos() {
                       <span className="text-accent-brown font-poppins">
                         Tipo de evento
                       </span>{" "}
-                      / Tema del evento
+                      / {event.date}
                     </small>
-                    <h4 className="text-black font-medium text-xl">
-                      Nombre del evento
+                    <h4 className="max-w-5xl text-black font-medium text-xl">
+                      {event.name}
                     </h4>
-                    <p className="text-sm font-thin">
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Cum, doloribus! Consequuntur quae corporis accusamus, non
-                      veniam id harum blanditiis nisi?
+                    <p className="max-w-5xl text-sm font-thin">
+                      {event.description}
                     </p>
                     <button className="bg-gradient-to-r from-accent-brown from-[-39.43%] to-accent-orange to-162% text-black text-sm w-36 h-10 rounded-md">
                       Ver más

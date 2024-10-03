@@ -2,7 +2,7 @@ import { NextResponse } from "next/server"
 
 const INSTAGRAM_TOKEN = process.env.INSTAGRAM_TOKEN
 
-export async function POST(req: Request) {
+export async function GET() {
   try {
     const response = await fetch(
       `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,timestamp&access_token=${INSTAGRAM_TOKEN}&limit=6`
@@ -11,11 +11,13 @@ export async function POST(req: Request) {
     const data = await response.json()
 
     if (data.error) {
-      return NextResponse.json({ error: data.error.message, status: 500 })
+      console.log(data.error)
+      return NextResponse.json({ error: data.error, status: 500 })
     }
 
-    return NextResponse.json({ error: data.error.message, status: 200 })
+    return NextResponse.json(data)
   } catch (error) {
-    NextResponse.json({ error: "Internal Server Error", status: 500 })
+    console.log(error)
+    return NextResponse.json({ error: "Internal Server Error", status: 500 })
   }
 }
