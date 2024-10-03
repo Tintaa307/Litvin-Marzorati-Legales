@@ -21,7 +21,7 @@ export default function Chat() {
       className={cn(
         "fixed bottom-7 right-7 max-w-[200px] h-12 rounded-md flex flex-col gap-1 bg-[#FCEFE8] shadow-2xl border border-border z-40",
         {
-          "min-h-[603px] min-w-[465px] transition-all duration-200 chatbot_sm:min-w-[365px] chatbot_xs:right-4 chatbot_xs:min-w-[280px]":
+          "min-h-[603px] min-w-[465px] transition-all duration-200 chatbot_sm:min-w-[365px] chatbot_sm:min-h-[498px] chatbot_xs:right-4 chatbot_xs:min-w-[280px]":
             open,
         }
       )}
@@ -31,7 +31,7 @@ export default function Chat() {
         className={cn(
           "w-full h-12 flex items-center justify-center cursor-pointer px-6 bg-gradient-to-r from-accent-brown from-[-39.43%] to-accent-orange to-162% rounded-md",
           {
-            "border-b-[1px] border-b-black/20 px-0": open,
+            "border-b-[1px] border-b-black/20 px-0 py-2": open,
           }
         )}
       >
@@ -42,7 +42,7 @@ export default function Chat() {
           block: open,
         })}
       >
-        <div className="w-full h-[470px] flex flex-col gap-2 overflow-y-auto">
+        <div className="w-full h-[470px] chatbot_sm:h-[365px] flex flex-col gap-2 overflow-y-auto">
           {messages.map((m) => (
             <div
               key={m.id}
