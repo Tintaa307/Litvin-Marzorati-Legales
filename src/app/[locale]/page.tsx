@@ -47,7 +47,7 @@ export default function Home() {
       <Media
         header={{ title: tMedia("title"), subtitle: tMedia("subtitle") }}
       />
-      <Eventos />
+      {/* <Eventos /> */}
       <InstagramFeed />
       <FAQ />
       <Chat />
