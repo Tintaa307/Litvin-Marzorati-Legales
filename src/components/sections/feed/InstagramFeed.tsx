@@ -44,7 +44,7 @@ export default function InstagramFeed() {
         }
       })
       .catch((err) => console.error("Error:", err))
-  }, [feed])
+  }, [])
 
   return (
     <section className="max-w-3xl mx-auto px-4 py-16 text-center space-y-6">
@@ -60,7 +60,7 @@ export default function InstagramFeed() {
           ? Array.from({ length: 6 }).map((_, index) => (
               <Skeleton key={index} className="size-64 bg-accent-orange" />
             ))
-          : feed.length > 0 &&
+          : feed &&
             feed.map((post, index) => (
               <div key={index} className="size-64 rounded-md">
                 {post.media_type === "IMAGE" ? (
