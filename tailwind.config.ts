@@ -89,6 +89,8 @@ const config: Config = {
         "3xl": "1600px",
         feed: { max: "930px" },
         min_feed: { max: "630px" },
+        chatbot_sm: { max: "560px" },
+        chatbot_xs: { max: "400px" },
       },
     },
   },
