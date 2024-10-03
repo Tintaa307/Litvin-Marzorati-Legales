@@ -21,7 +21,7 @@ export default function Chat() {
       className={cn(
         "fixed bottom-7 right-7 max-w-[200px] h-12 rounded-md flex flex-col gap-1 bg-[#FCEFE8] shadow-2xl border border-border z-40",
         {
-          "min-h-[603px] min-w-[465px] transition-all duration-200 chatbot_sm:min-w-[365px] chatbot_xs:right-4 chatbot_xs:min-w-[340px]":
+          "min-h-[603px] min-w-[465px] transition-all duration-200 chatbot_sm:min-w-[365px] chatbot_xs:right-4 chatbot_xs:min-w-[280px]":
             open,
         }
       )}
