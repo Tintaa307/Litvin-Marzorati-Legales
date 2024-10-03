@@ -60,7 +60,7 @@ export default function InstagramFeed() {
           ? Array.from({ length: 6 }).map((_, index) => (
               <Skeleton key={index} className="size-64 bg-accent-orange" />
             ))
-          : feed &&
+          : feed.length > 0 &&
             feed.map((post, index) => (
               <div key={index} className="size-64 rounded-md">
                 {post.media_type === "IMAGE" ? (
