@@ -27,7 +27,7 @@ export default function InstagramFeed() {
     const response = await axios.get("/api/instagram")
 
     if (response.status !== 200) {
-      console.log(response)
+      console.log("error: ", response)
     }
 
     return response
@@ -44,7 +44,7 @@ export default function InstagramFeed() {
         }
       })
       .catch((err) => console.error("Error:", err))
-  }, [])
+  }, [feed])
 
   return (
     <section className="max-w-3xl mx-auto px-4 py-16 text-center space-y-6">
