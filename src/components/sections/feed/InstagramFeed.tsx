@@ -76,6 +76,7 @@ export default function InstagramFeed() {
                     src={post.media_url}
                     muted
                     autoPlay
+                    loop
                     className="relative size-64 rounded-md object-fill"
                   />
                 )}
