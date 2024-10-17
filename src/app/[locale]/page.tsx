@@ -1,14 +1,13 @@
 import Nav from "@/components/Nav"
 import Chat from "@/components/sections/chatbot/Chatbot"
 import Eventos from "@/components/sections/eventos/Eventos"
-import FAQ from "@/components/sections/faq/FAQ"
+import FAQ, { Question } from "@/components/sections/faq/FAQ"
 import InstagramFeed from "@/components/sections/feed/InstagramFeed"
 import FinalCTA from "@/components/sections/landing/FinalCTA"
 import Hero from "@/components/sections/landing/Hero"
 import LogoMarquee from "@/components/sections/landing/LogoMarquee"
 import Media from "@/components/sections/landing/Media"
 import Services from "@/components/sections/landing/Services"
-
 import { useLocale, useTranslations } from "next-intl"
 
 export default function Home() {
@@ -16,6 +15,8 @@ export default function Home() {
   const tHero = useTranslations("Hero")
   const tMedia = useTranslations("Media")
   const locale = useLocale()
+  const tInstagram = useTranslations("InstagramFeed")
+  const tFAQ = useTranslations("FAQ")
 
   return (
     <div>
@@ -48,8 +49,12 @@ export default function Home() {
         header={{ title: tMedia("title"), subtitle: tMedia("subtitle") }}
       />
       {/* <Eventos /> */}
-      <InstagramFeed />
-      <FAQ />
+      <InstagramFeed
+        title={tInstagram("title")}
+        subtitle={tInstagram("subtitle")}
+        cta={tInstagram("cta")}
+      />
+      <FAQ title={tFAQ("title")} subtitle={tFAQ("subtitle")} questions={tFAQ} />
       <Chat />
       <FinalCTA />
     </div>
