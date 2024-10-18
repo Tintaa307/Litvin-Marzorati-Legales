@@ -115,48 +115,48 @@
     "subtitle": "Respondemos a las preguntas más comunes sobre el registro de marcas y la protección de la propiedad intelectual.",
     "questions": {
       "question1": {
-        "q": "What is a trademark and why is it important to register it?",
-        "a": "A trademark is a distinctive sign that allows a product or service to be differentiated from others on the market. Registering your trademark is essential because it gives you ownership and exclusive use of it, allowing you to protect your business against imitations or unauthorized uses. At Litvin Marzorati Legales, we use the latest technology in management software to make this process quick, efficient and with reduced costs, ensuring the best protection for your brand."
+        "q": "¿Qué es una marca y por qué es importante registrarla?",
+        "a": "Una marca es un signo distintivo que permite diferenciar un producto o servicio de otros en el mercado. Registrar tu marca es esencial porque te otorga la propiedad y el uso exclusivo de la misma, permitiéndote proteger tu negocio frente a imitaciones o usos no autorizados. En Litvin Marzorati Legales, utilizamos la última tecnología en software de gestión para hacer este proceso rápido, eficiente y con costos reducidos, asegurando la mejor protección para tu marca."
       },
       "question2": {
-        "q": "What rights do I have when registering a trademark?",
-        "a": "By registering your trademark, you obtain the exclusive right to use it and to defend against any unauthorized use by third parties. In addition, you can license its use, sell it in whole or in part, and exercise all necessary legal actions to protect your intellectual property. With our innovative services, we ensure quick and hassle-free registration."
+        "q": "¿Qué tipos de signos pueden registrarse como marca?",
+        "a": "Se pueden registrar una amplia variedad de signos, siempre que tengan capacidad distintiva: palabras, imágenes, logotipos, combinaciones de colores, entre otros. Nuestro equipo te guiará para identificar el mejor signo distintivo para proteger tus productos o servicios de manera efectiva."
       },
       "question3": {
-        "q": "Who can apply for trademark registration?",
-        "a": "Any natural or legal person can apply for the registration of a trademark. Additionally, certain sectors require brand registration accreditation for operations, such as the National Customs Directorate in Argentina. Our team advises you to comply with all the necessary legal requirements."
+        "q": "¿Qué derechos obtengo al registrar una marca?",
+        "a": "Al registrar tu marca, obtienes el derecho exclusivo a usarla y a defenderte contra cualquier uso no autorizado por terceros. Además, puedes licenciar su uso, venderla total o parcialmente, y ejercer todas las acciones legales necesarias para proteger tu propiedad intelectual. Con nuestros servicios innovadores, aseguramos un registro ágil y sin complicaciones."
       },
       "question4": {
-        "q": "How long does trademark protection last?",
-        "a": "A trademark registration is valid for 10 years from the date of grant and can be renewed indefinitely in successive 10-year periods. Our automated management system will alert you when it's time to renew, so you never lose your brand protection."
+        "q": "¿Puedo proteger todos mis productos y servicios con una sola solicitud de marca?",
+        "a": "No, cada solicitud de marca debe estar dirigida a una clase específica de productos o servicios según la Clasificación de Niza. Existen 34 clases de productos y 11 de servicios. En Litvin Marzorati Legales, optimizamos tu registro para que sea lo más eficiente posible, utilizando tecnología avanzada que reduce costos y tiempos de espera."
       },
       "question5": {
-        "q": "What happens if someone tries to register a trademark similar to mine?",
-        "a": "You can oppose any application for registration of a similar or identical trademark within 30 days of its publication. We accompany you throughout the opposition process and in the defense of your rights, using advanced legal tools to ensure a favorable result."
+        "q": "¿Quién puede solicitar el registro de una marca?",
+        "a": "Cualquier persona física o jurídica puede solicitar el registro de una marca. Además, ciertos sectores requieren acreditación de registro de marca para operaciones, como la Dirección Nacional de Aduanas en Argentina. Nuestro equipo te asesora para cumplir con todos los requisitos legales necesarios."
       },
       "question6": {
-        "q": "Why choose Litvin Marzorati Legales to register my trademark?",
-        "a": "At Litvin Marzorati Legales, we stand out for our innovation and efficiency in brand protection. We use the latest technologies to offer fast and affordable registration solutions, ensuring your brand is protected effectively and without complications."
+        "q": "¿Cuánto tiempo lleva obtener el registro de una marca?",
+        "a": "El proceso de registro, en caso de no haber oposiciones, generalmente toma alrededor de 18 meses. Sin embargo, con nuestra gestión eficiente y el uso de software de última generación, trabajamos para minimizar los tiempos y costos involucrados."
       },
       "question7": {
-        "q": "What types of signs can be registered as a trademark?",
-        "a": "A wide variety of signs can be registered, as long as they have distinctive capacity: words, images, logos, color combinations, among others. Our team will guide you to identify the best distinctive sign to protect your products or services effectively."
+        "q": "¿Cuánto tiempo dura la protección de una marca registrada?",
+        "a": "El registro de una marca es válido por 10 años desde la fecha de concesión y puede renovarse indefinidamente en períodos sucesivos de 10 años. Nuestro sistema de gestión automatizado te alertará cuando sea momento de renovar, para que nunca pierdas la protección de tu marca."
       },
       "question8": {
-        "q": "I can protect all my products and services with a single trademark application?",
-        "a": "No, each trademark application must be directed to a specific class of goods or services according to the Nice Classification. There are 34 classes of products and 11 of services. At Litvin Marzorati Legales, we optimize your registration to make it as efficient as possible, using advanced technology that reduces costs and waiting times."
-      },
-      "question9": {
-        "q": "How long does it take to get a trademark registered?",
-        "a": "The registration process, in the absence of oppositions, generally takes around 18 months. However, with our efficient management and the use of cutting-edge software, we work to minimize the times and costs involved."
-      },
-      "question10": {
-        "q": "When is it advisable to start using my brand?",
+        "q": "¿Cuándo es recomendable comenzar a usar mi marca?",
         "a": "Es aconsejable empezar a usar la marca una vez obtenida su registro para asegurar la protección legal total. En Litvin Marzorati Legales, te ayudamos a planificar una estrategia de uso que maximice la protección de tu marca desde el primer día."
       },
+      "question9": {
+        "q": "¿Qué sucede si alguien intenta registrar una marca similar a la mía?",
+        "a": "Puedes oponerte a cualquier solicitud de registro de una marca similar o idéntica dentro de los 30 días de su publicación. Nosotros te acompañamos en todo el proceso de oposición y en la defensa de tus derechos, utilizando herramientas legales avanzadas para asegurar un resultado favorable."
+      },
+      "question10": {
+        "q": "¿El registro de mi marca es válido en otros países?",
+        "a": "No, el registro de marcas tiene validez territorial. Si necesitas protección internacional, te ayudamos a gestionar el registro en cada país donde desees proteger tu marca."
+      },
       "question11": {
-        "q": "My trademark registration is valid for other countries?",
-        "a": "No, trademark registration has territorial validity. If you need international protection, we help you manage the registration in each country where you want to protect your brand."
+        "q": "¿Por qué elegir Litvin Marzorati Legales para registrar mi marca?",
+        "a": "En Litvin Marzorati Legales, nos destacamos por nuestra innovación y eficiencia en la protección de marcas. Utilizamos las últimas tecnologías para ofrecer soluciones de registro rápidas y económicas, asegurando que tu marca esté protegida de manera efectiva y sin complicaciones."
       }
     }
   }
