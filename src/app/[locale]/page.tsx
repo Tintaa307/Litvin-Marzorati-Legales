@@ -1,7 +1,7 @@
 import Nav from "@/components/Nav"
 import Chat from "@/components/sections/chatbot/Chatbot"
 import Eventos from "@/components/sections/eventos/Eventos"
-import FAQ, { Question } from "@/components/sections/faq/FAQ"
+import FAQ from "@/components/sections/faq/FAQ"
 import InstagramFeed from "@/components/sections/feed/InstagramFeed"
 import FinalCTA from "@/components/sections/landing/FinalCTA"
 import Hero from "@/components/sections/landing/Hero"

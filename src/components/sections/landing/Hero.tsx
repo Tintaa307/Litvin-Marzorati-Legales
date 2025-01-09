@@ -1,8 +1,8 @@
 "use client"
+
 import HeroFact from "@/components/cards/HeroFact"
 import CtaButton from "@/components/inputs/Button"
 import MeetingButton from "@/components/inputs/MeetingsButton"
-import Link from "next/link"
 import { TypeAnimation } from "react-type-animation"
 
 interface Props {
@@ -71,10 +71,7 @@ const Hero = ({
           </div>
           <div className="w-full h-max flex sm:flex-row flex-col  justify-center items-center gap-5">
             <MeetingButton locale={locale} text={cta2} />
-            <CtaButton locale={locale} text={cta1}></CtaButton>
-            {/* <div className="button p-[2px] rounded-md ">
-                            <Link href="https://calendly.com/ip-lmlegales" target="_blank" className="button-body rounded-md sm:px-7 sm:py-2.5 px-5 bg-transparent"><h3 className="font-medium sm:text-lg sm:text-md">Reservá una reunión</h3></Link>
-                        </div> */}
+            <CtaButton locale={locale} text={cta1} />
           </div>
         </div>
         <div className="3xl:mt-40 mt-24 flex flex-wrap justify-around">
