@@ -46,6 +46,7 @@ export default function InstagramFeed({
   useEffect(() => {
     fetchInstagramFeed()
       .then((res) => {
+        console.log(res)
         if (res.status === 200) {
           setFeed(res.data.data)
           setLoading(false)
