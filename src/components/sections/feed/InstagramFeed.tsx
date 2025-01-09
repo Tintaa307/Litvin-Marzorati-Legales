@@ -31,7 +31,6 @@ export default function InstagramFeed({
 
   useEffect(() => {
     feed.map((post) => console.log(post.media_url))
-    console.log(feed)
   }, [feed])
 
   const fetchInstagramFeed = async () => {
