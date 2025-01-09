@@ -49,11 +49,11 @@ export default function Home() {
         header={{ title: tMedia("title"), subtitle: tMedia("subtitle") }}
       />
       {/* <Eventos /> */}
-      {/* <InstagramFeed
+      <InstagramFeed
         title={tInstagram("title")}
         subtitle={tInstagram("subtitle")}
         cta={tInstagram("cta")}
-      /> */}
+      />
       <FAQ title={tFAQ("title")} subtitle={tFAQ("subtitle")} questions={tFAQ} />
       <Chat />
       <FinalCTA />
