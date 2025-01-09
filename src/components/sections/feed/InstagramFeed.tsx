@@ -31,6 +31,7 @@ export default function InstagramFeed({
 
   useEffect(() => {
     feed.map((post) => console.log(post.media_url))
+    console.log(feed)
   }, [feed])
 
   const fetchInstagramFeed = async () => {
@@ -65,37 +66,34 @@ export default function InstagramFeed({
         {subtitle}
       </p>
       <div className="grid grid-cols-3 place-items-center gap-y-8 gap-x-24 feed:gap-x-12 feed:grid-cols-2 min_feed:grid-cols-1">
-        {loading ? (
-          Array.from({ length: 6 }).map((_, index) => (
-            <Skeleton key={index} className="size-64 bg-accent-orange" />
-          ))
-        ) : feed ? (
-          feed.map((post, index) => (
-            <Link href={post.permalink} key={index} target="_blank">
-              <div className="size-64 rounded-md">
-                {post.media_type === "IMAGE" ? (
-                  <Image
-                    src={post.media_url}
-                    alt={"imagen de instagram"}
-                    width={400}
-                    height={400}
-                    className="w-full h-auto rounded-md aspect-[256px]"
-                  />
-                ) : (
-                  <video
-                    src={post.media_url}
-                    muted
-                    autoPlay
-                    loop
-                    className="relative size-64 rounded-md object-fill"
-                  />
-                )}
-              </div>
-            </Link>
-          ))
-        ) : (
-          <p>No hay publicaciones recientes</p>
-        )}
+        {loading
+          ? Array.from({ length: 6 }).map((_, index) => (
+              <Skeleton key={index} className="size-64 bg-accent-orange" />
+            ))
+          : feed &&
+            feed.map((post, index) => (
+              <Link href={post.permalink} key={index} target="_blank">
+                <div className="size-64 rounded-md">
+                  {post.media_type === "IMAGE" ? (
+                    <Image
+                      src={post.media_url}
+                      alt={"imagen de instagram"}
+                      width={400}
+                      height={400}
+                      className="w-full h-auto rounded-md aspect-[256px]"
+                    />
+                  ) : (
+                    <video
+                      src={post.media_url}
+                      muted
+                      autoPlay
+                      loop
+                      className="relative size-64 rounded-md object-fill"
+                    />
+                  )}
+                </div>
+              </Link>
+            ))}
       </div>
       <Link href={"https://www.instagram.com/lmlegales/"}>
         <button className="bg-gradient-to-r from-accent-brown from-[-39.43%] to-accent-orange to-162% text-black text-sm w-max px-6 py-4 mt-7 font-medium rounded-md">
