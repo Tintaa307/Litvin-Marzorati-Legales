@@ -31,6 +31,7 @@ export async function GET(request: NextRequest) {
 
   // 2. Generar un "state" aleatorio
   const state = base64URLEncode(crypto.randomBytes(16))
+  console.log(state)
 
   // 3. Construimos la URL de autorización
   const authUrl = new URL("https://auth.mercadopago.com/authorization")
@@ -45,15 +46,14 @@ export async function GET(request: NextRequest) {
   // 4. Preparamos la respuesta de redirección
   const response = NextResponse.redirect(authUrl.toString())
 
-  // 5. Guardamos codeVerifier y state en cookies
-  // - Puedes ajustar secure: true, httpOnly: true, etc. según tu caso
-  response.cookies.set("myapp_code_verifier", codeVerifier, {
+  response.cookies.set("myapp_state", state, {
     path: "/",
     httpOnly: true,
     sameSite: "none",
     secure: true,
   })
-  response.cookies.set("myapp_state", state, {
+
+  response.cookies.set("myapp_code_verifier", codeVerifier, {
     path: "/",
     httpOnly: true,
     sameSite: "none",
