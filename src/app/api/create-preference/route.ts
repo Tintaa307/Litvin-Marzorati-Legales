@@ -1,17 +1,17 @@
 // app/api/create-preference/route.ts
 import { NextRequest, NextResponse } from "next/server"
 
-// Diccionario global de tokens (desde callback)
+// Diccionario global DEMO
 const USER_ACCESS_TOKENS: Record<string, string> = {}
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const userId = body.userId // el ID que decidiste asignarle
+    const userId = body.userId
 
     if (!userId) {
       return NextResponse.json(
-        { error: "No se recibió userId en el body" },
+        { error: "No se recibió userId" },
         { status: 400 }
       )
     }
@@ -24,7 +24,6 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Armamos la preferencia
     const preferenceData = {
       items: [
         {

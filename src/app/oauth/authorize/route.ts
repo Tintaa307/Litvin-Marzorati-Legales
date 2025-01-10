@@ -2,10 +2,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import crypto from "crypto"
 
-// Diccionario global de code_verifiers asociados a un "state"
-const CODE_VERIFIERS: Record<string, string> = {}
-
-// Helpers para PKCE
 function base64URLEncode(buffer: Buffer) {
   return buffer
     .toString("base64")
@@ -20,7 +16,7 @@ function sha256(buffer: string) {
 
 export async function GET(request: NextRequest) {
   const clientId = process.env.CLIENT_MP_ID
-  const redirectUri = process.env.MP_REDIRECT_URI // p.ej. "https://tusitio.com/oauth/callback"
+  const redirectUri = process.env.MP_REDIRECT_URI // p.ej: "https://tusitio.com/oauth/callback"
 
   if (!clientId || !redirectUri) {
     return NextResponse.json(
@@ -33,24 +29,34 @@ export async function GET(request: NextRequest) {
   const codeVerifier = base64URLEncode(crypto.randomBytes(32))
   const codeChallenge = base64URLEncode(sha256(codeVerifier))
 
-  // 2. Generar un "state" aleatorio para correlacionar la respuesta
+  // 2. Generar un "state" aleatorio
   const state = base64URLEncode(crypto.randomBytes(16))
 
-  // 3. Guardamos el codeVerifier en un diccionario global (DEMO)
-  CODE_VERIFIERS[state] = codeVerifier
-
-  // 4. Construimos la URL de autorización con PKCE
+  // 3. Construimos la URL de autorización
   const authUrl = new URL("https://auth.mercadopago.com/authorization")
   authUrl.searchParams.set("response_type", "code")
   authUrl.searchParams.set("client_id", clientId)
   authUrl.searchParams.set("redirect_uri", redirectUri)
   authUrl.searchParams.set("code_challenge", codeChallenge)
   authUrl.searchParams.set("code_challenge_method", "S256")
-  // El param platform_id es frecuente incluirlo
   authUrl.searchParams.set("platform_id", "mp")
-  // state para identificar la respuesta
   authUrl.searchParams.set("state", state)
 
-  // 5. Redirigimos
-  return NextResponse.redirect(authUrl.toString())
+  // 4. Preparamos la respuesta de redirección
+  const response = NextResponse.redirect(authUrl.toString())
+
+  // 5. Guardamos codeVerifier y state en cookies
+  // - Puedes ajustar secure: true, httpOnly: true, etc. según tu caso
+  response.cookies.set("myapp_code_verifier", codeVerifier, {
+    path: "/",
+    httpOnly: true,
+    sameSite: "strict",
+  })
+  response.cookies.set("myapp_state", state, {
+    path: "/",
+    httpOnly: true,
+    sameSite: "strict",
+  })
+
+  return response
 }
