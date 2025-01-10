@@ -22,8 +22,8 @@ export async function GET(request: NextRequest) {
     )
   }
 
-  const clientId = process.env.MP_CLIENT_ID
-  const clientSecret = process.env.MP_CLIENT_SECRET
+  const clientId = process.env.CLIENT_MP_ID
+  const clientSecret = process.env.CLIENT_MP_SECRET
   const redirectUri = process.env.MP_REDIRECT_URI
 
   if (!clientId || !clientSecret || !redirectUri) {

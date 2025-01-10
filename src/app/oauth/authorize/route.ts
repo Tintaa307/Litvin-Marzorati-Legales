@@ -19,7 +19,7 @@ function sha256(buffer: string) {
 }
 
 export async function GET(request: NextRequest) {
-  const clientId = process.env.MP_CLIENT_ID
+  const clientId = process.env.CLIENT_MP_ID
   const redirectUri = process.env.MP_REDIRECT_URI // p.ej. "https://tusitio.com/oauth/callback"
 
   if (!clientId || !redirectUri) {
