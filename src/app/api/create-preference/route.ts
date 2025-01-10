@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
           title: "Mi Producto",
           quantity: 1,
           currency_id: "ARS",
-          unit_price: 100,
+          unit_price: 1,
         },
       ],
       back_urls: {

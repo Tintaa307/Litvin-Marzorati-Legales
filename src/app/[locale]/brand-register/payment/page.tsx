@@ -1,7 +1,6 @@
 "use client"
 
 import { Check } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import {
   Card,
   CardContent,
@@ -11,9 +10,16 @@ import {
 } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
 import { useSearchParams } from "next/navigation"
+import { initMercadoPago, Wallet } from "@mercadopago/sdk-react"
+import { useState } from "react"
+import axios from "axios"
+import { toast } from "react-toastify"
+
+initMercadoPago(process.env.PUBLIC_KEY_MP || "")
 
 export default function CheckoutSummary() {
   const searchParams = useSearchParams()
+  const [preferenceId, setPreferenceId] = useState("")
 
   const name = searchParams.get("name")
   const email = searchParams.get("email")
@@ -22,8 +28,27 @@ export default function CheckoutSummary() {
   const price = JSON.parse(localStorage.getItem("brand")!).price
 
   const handlePayment = async () => {
-    // Aquí iría la lógica de pago
-    console.log("Procesando pago...")
+    try {
+      await axios
+        .post("/api/create-preference", {
+          title: "prueba",
+          quantity: "1",
+          price: "1",
+        })
+        .then((response) => {
+          if (!response.data.id)
+            return toast.warning("Error al procesar el pago")
+
+          setPreferenceId(response.data.preference)
+        })
+        .catch((error) => {
+          console.error(error)
+          toast.warning("Error al procesar el pago")
+        })
+    } catch (error) {
+      console.error(error)
+      toast.warning("Error al procesar el pago")
+    }
   }
 
   return (
@@ -113,12 +138,19 @@ export default function CheckoutSummary() {
           </div>
         </CardContent>
         <CardFooter className="p-6 bg-gray-50">
-          <Button
-            onClick={handlePayment}
-            className="w-full text-base px-2 py-6 rounded-md bg-gradient-to-r from-accent-brown from-[-39.43%] to-accent-orange to-162%"
-          >
-            Confirma Compra
-          </Button>
+          <button onClick={handlePayment}>
+            <Wallet
+              initialization={{ preferenceId }}
+              customization={{
+                visual: {
+                  buttonBackground: "black",
+                  horizontalPadding: "20px",
+                },
+                texts: { valueProp: "smart_option" },
+              }}
+              locale="es-AR"
+            />
+          </button>
         </CardFooter>
       </Card>
     </div>
