@@ -31,8 +31,9 @@ export async function GET(request: NextRequest) {
 
   // 1. Leer cookies
   const cookieStore = cookies()
-  const codeVerifier = cookieStore.get("code_verifier")?.value
-  const stateFromCookie = cookieStore.get("myapp_state")?.value
+  const body = cookieStore.get("code_verifier&state")?.value.split("&")
+  const codeVerifier = body?.[0]
+  const stateFromCookie = body?.[1]
   console.log("codeVerifier", codeVerifier)
   console.log("stateFromCookie", stateFromCookie)
 
