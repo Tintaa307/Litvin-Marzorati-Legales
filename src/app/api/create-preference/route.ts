@@ -1,17 +1,21 @@
 // app/api/create-preference/route.ts
 import { NextRequest, NextResponse } from "next/server"
 
-// Reutilizamos el diccionario del ejemplo anterior (ojo con la importación)
-const USER_ACCESS_TOKENS: Record<string, string> = {} // <--- Mismo warning de DEMO
+// Diccionario global de tokens (desde callback)
+const USER_ACCESS_TOKENS: Record<string, string> = {}
 
 export async function POST(request: NextRequest) {
   try {
-    // En la vida real, obtén el userId del contexto (ej: session) o
-    // recíbelo en el body: e.g. { "userId": "..." }
     const body = await request.json()
-    const userId = body.userId
+    const userId = body.userId // el ID que decidiste asignarle
 
-    // Validamos si tenemos el access_token de ese user
+    if (!userId) {
+      return NextResponse.json(
+        { error: "No se recibió userId en el body" },
+        { status: 400 }
+      )
+    }
+
     const userAccessToken = USER_ACCESS_TOKENS[userId]
     if (!userAccessToken) {
       return NextResponse.json(
@@ -20,7 +24,7 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Construimos la preferencia
+    // Armamos la preferencia
     const preferenceData = {
       items: [
         {
@@ -58,7 +62,6 @@ export async function POST(request: NextRequest) {
     }
 
     const createdPreference = await mpResponse.json()
-    // createdPreference contendrá la información de la preferencia, incluido el init_point, sandbox_init_point, etc.
     return NextResponse.json({
       message: "Preferencia creada correctamente",
       preference: createdPreference,
