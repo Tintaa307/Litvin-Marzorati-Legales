@@ -46,14 +46,14 @@ export async function GET(request: NextRequest) {
   // 4. Preparamos la respuesta de redirección
   const response = NextResponse.redirect(authUrl.toString())
 
-  response.cookies.set("myapp_state", state, {
+  response.cookies.set("code_verifier", codeVerifier, {
     path: "/",
     httpOnly: true,
     sameSite: "none",
     secure: true,
   })
 
-  response.cookies.set("myapp_code_verifier", codeVerifier, {
+  response.cookies.set("myapp_state", state, {
     path: "/",
     httpOnly: true,
     sameSite: "none",
