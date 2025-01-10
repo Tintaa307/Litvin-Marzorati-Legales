@@ -50,12 +50,14 @@ export async function GET(request: NextRequest) {
   response.cookies.set("myapp_code_verifier", codeVerifier, {
     path: "/",
     httpOnly: true,
-    sameSite: "strict",
+    sameSite: "none",
+    secure: true,
   })
   response.cookies.set("myapp_state", state, {
     path: "/",
     httpOnly: true,
-    sameSite: "strict",
+    sameSite: "none",
+    secure: true,
   })
 
   return response
