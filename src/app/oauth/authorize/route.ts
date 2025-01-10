@@ -51,7 +51,6 @@ export async function GET(request: NextRequest) {
     httpOnly: true,
     sameSite: "none",
     secure: true,
-    domain: "lmlegales.vercel.app",
   })
 
   response.cookies.set("myapp_code_verifier", codeVerifier, {
@@ -59,8 +58,9 @@ export async function GET(request: NextRequest) {
     httpOnly: true,
     sameSite: "none",
     secure: true,
-    domain: "lmlegales.vercel.app",
   })
+
+  console.log("codeVerifier", codeVerifier)
 
   return response
 }
