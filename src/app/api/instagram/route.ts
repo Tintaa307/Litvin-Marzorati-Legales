@@ -5,10 +5,12 @@ const INSTAGRAM_TOKEN = process.env.INSTAGRAM_TOKEN
 export async function GET() {
   try {
     const response = await fetch(
-      `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,timestamp&access_token=${INSTAGRAM_TOKEN}&limit=6`
+      `https://graph.instagram.com/me/media?fields=id,media_type,media_url,permalink&access_token=${INSTAGRAM_TOKEN}&limit=6`
     )
 
     const data = await response.json()
+
+    console.log(data)
 
     if (data.error) {
       console.log(data.error)

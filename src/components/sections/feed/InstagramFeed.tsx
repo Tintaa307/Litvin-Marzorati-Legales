@@ -79,6 +79,7 @@ export default function InstagramFeed({
                       src={post.media_url}
                       alt={"imagen de instagram"}
                       width={400}
+                      unoptimized
                       height={400}
                       className="w-full h-auto rounded-md aspect-[256px]"
                     />
