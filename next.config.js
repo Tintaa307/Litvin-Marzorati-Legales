@@ -44,7 +44,11 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "litvin-marzorati-legales.vercel.app",
+        hostname: "lmlegales.com.ar",
+      },
+      {
+        protocol: "https",
+        hostname: "lmlegales.vercel.app",
       },
     ],
   },

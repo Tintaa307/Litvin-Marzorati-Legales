@@ -15,7 +15,7 @@ import { useState } from "react"
 import axios from "axios"
 import { toast } from "react-toastify"
 
-initMercadoPago(process.env.PUBLIC_KEY_MP || "")
+initMercadoPago("APP_USR-73718d29-a160-48a4-be32-fa8d5fa3196f")
 
 export default function CheckoutSummary() {
   const searchParams = useSearchParams()
@@ -138,7 +138,7 @@ export default function CheckoutSummary() {
           </div>
         </CardContent>
         <CardFooter className="p-6 bg-gray-50">
-          <button onClick={handlePayment}>
+          <button onClick={handlePayment} className="w-full">
             <Wallet
               initialization={{ preferenceId }}
               customization={{

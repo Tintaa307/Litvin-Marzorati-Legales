@@ -7,7 +7,7 @@ const USER_ACCESS_TOKENS: Record<string, string> = {}
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const userId = body.userId
+    const userId = "347512470" //body.userId
 
     if (!userId) {
       return NextResponse.json(
