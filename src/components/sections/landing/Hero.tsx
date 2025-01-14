@@ -70,7 +70,7 @@ const Hero = ({
             />
           </div>
           <div className="w-full h-max flex sm:flex-row flex-col  justify-center items-center gap-5">
-            <MeetingButton locale={locale} text={cta2} />
+            {/* <MeetingButton locale={locale} text={cta2} /> */}
             <CtaButton locale={locale} text={cta1} />
           </div>
         </div>
