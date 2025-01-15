@@ -1,6 +1,7 @@
 // app/api/create-preference/route.ts
 import { createClient } from "@/lib/supabase/server"
 import { NextRequest, NextResponse } from "next/server"
+import { MercadoPagoConfig, Preference } from "mercadopago"
 
 // Endpoint principal
 export async function POST(request: NextRequest) {
@@ -50,28 +51,17 @@ export async function POST(request: NextRequest) {
 
     const access_token = oauthData[0].access_token
 
-    console.log(access_token)
+    const client = new MercadoPagoConfig({
+      accessToken: access_token,
+    })
 
-    // Llamar al endpoint de Mercado Pago para crear la preferencia
-    const response = await fetch(
-      "https://api.mercadopago.com/checkout/preferences",
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${access_token}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(preferenceBody),
-      }
-    )
+    const preference = new Preference(client)
+    const result = await preference.create({ body: preferenceBody })
 
-    const result = await response.json()
-
-    if (!response.ok) {
-      console.error("Error al crear preferencia:", result)
+    if (!result.id) {
       return NextResponse.json(
-        { error: "Error al crear la preferencia", details: result },
-        { status: 400 }
+        { error: "Error al crear la preferencia" },
+        { status: 500 }
       )
     }
 
