@@ -34,14 +34,17 @@ const ContactForm = ({
   //Use state for checkbox
   const [isChecked, setIsChecked] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const formRef = React.useRef<HTMLFormElement>(null)
 
   const FormAction = async (formData: FormData) => {
     setIsLoading(true)
+
     const res = await handleSubmit(formData)
     switch (res.status) {
       case 200:
         toast.success(res.message)
         setIsLoading(false)
+        formRef?.current?.reset()
         break
       case 500:
         toast.error(res.message)
@@ -56,6 +59,7 @@ const ContactForm = ({
 
   return (
     <form
+      ref={formRef}
       action={FormAction}
       className="md:w-[45%] w-full grid gap-6 items-start h-fit"
     >
@@ -102,7 +106,7 @@ const ContactForm = ({
       <div className="w-full flex justify-start">
         <button
           type="submit"
-          className={`bg-accent-orange py-3 px-7 rounded-md w-28`}
+          className={`bg-accent-orange py-3 px-7 rounded-md w-28 flex items-center justify-center`}
         >
           {isLoading ? (
             <Loader2 className="w-6 h-6 text-white animate-spin" />

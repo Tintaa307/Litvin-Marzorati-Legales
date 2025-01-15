@@ -11,6 +11,7 @@ import { PaidmentFormSchema } from "@/lib/validations/Forms"
 import { toast } from "react-toastify"
 import { ZodError } from "zod"
 import { useRouter } from "next/navigation"
+import { useLocale } from "next-intl"
 
 type PaidmentFormProps = {
   isOpen: boolean
@@ -20,6 +21,8 @@ type PaidmentFormProps = {
 export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
   const [personType, setPersonType] = React.useState("fisica")
   const router = useRouter()
+  const locale = useLocale()
+  const [isChecked, setIsChecked] = React.useState<boolean>(false)
   const [formData, setFormData] = React.useState({
     name: "",
     email: "",
@@ -46,8 +49,12 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
 
       PaidmentFormSchema.parse(values)
 
+      if (!isChecked) {
+        return toast.warning("Por favor acepte los términos y condiciones")
+      }
+
       router.push(
-        `/brand-register/payment?name=${formData.name}&email=${formData.email}&phone=${formData.phone}&enterprisePhone=${formData.enterprisePhone}&registration=${formData.registration}&rent=${formData.rent}&address=${formData.address}&postalCode=${formData.postalCode}&locality=${formData.locality}&website=${formData.website}&instutionalEmail=${formData.instutionalEmail}&enterpriseName=${formData.enterpriseName}&client=${personType}`
+        `/${locale}/payment?name=${formData.name}&email=${formData.email}&phone=${formData.phone}&enterprisePhone=${formData.enterprisePhone}&registration=${formData.registration}&rent=${formData.rent}&address=${formData.address}&postalCode=${formData.postalCode}&locality=${formData.locality}&website=${formData.website}&instutionalEmail=${formData.instutionalEmail}&enterpriseName=${formData.enterpriseName}&client=${personType}`
       )
 
       return toast.success("Datos guardados correctamente")
@@ -283,7 +290,11 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
 
             <div className="flex flex-col gap-6">
               <div className="flex flex-row space-x-2">
-                <Checkbox id="accept-terms" className="border-black/20" />
+                <Checkbox
+                  id="accept-terms"
+                  className="border-black/20"
+                  onCheckedChange={() => setIsChecked(!isChecked)}
+                />
                 <div className="grid gap-1.5 leading-none">
                   <Label
                     htmlFor="accept-terms"
