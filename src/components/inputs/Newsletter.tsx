@@ -1,4 +1,5 @@
 "use client"
+import { handleSubmit } from "@/actions/newsletter-action"
 import { useState } from "react"
 
 import { toast } from "react-toastify"
@@ -13,19 +14,27 @@ interface Props {
   formError: string
 }
 
-const Newsletter = ({
-  label,
-  accept,
-  submit,
-  emailError,
-  formError,
-  success,
-}: Props) => {
+const Newsletter = ({ label, accept, submit }: Props) => {
   //Use state for checkbox
   const [isChecked, setIsChecked] = useState(false)
 
+  const FormAction = async (formData: FormData) => {
+    const res = await handleSubmit(formData)
+    switch (res.status) {
+      case 200:
+        toast.success(res.message)
+        break
+      case 500:
+        toast.error(res.message)
+        break
+      default:
+        toast.info("Error al enviar el mensaje")
+        break
+    }
+  }
+
   return (
-    <form action="submit" className="flex flex-col gap-4 text-sm">
+    <form action={FormAction} className="flex flex-col gap-4 text-sm">
       <div className="w-full flex flex-col gap-2">
         <h3>{label}</h3>
         <input

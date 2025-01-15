@@ -46,3 +46,7 @@ export const ContactSchema = z.object({
     .string()
     .min(2, { message: "El asunto debe tener al menos 2 caracteres" }),
 })
+
+export const NewsletterSchema = z.object({
+  email: z.string().email(),
+})
