@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
     if (error) {
       console.error(error)
       return NextResponse.json(
-        { error: "Error al obtener el token de Mercado Pago" },
+        { error: "Error al obtener el token de Mercado Pago", details: error },
         { status: 500 }
       )
     }
