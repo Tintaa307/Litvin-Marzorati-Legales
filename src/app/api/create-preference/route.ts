@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
     }
 
     const { data: oauthData, error } = await (await supabase)
-      .from("oauth_tokens")
+      .from("oauth-tokens")
       .select("access_token")
 
     if (error) {
