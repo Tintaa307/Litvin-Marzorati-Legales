@@ -34,6 +34,7 @@ export default function InstagramFeed({
   }, [feed])
 
   const fetchInstagramFeed = async () => {
+    "use cache"
     const response = await axios.get("/api/instagram")
 
     if (response.status !== 200) {
