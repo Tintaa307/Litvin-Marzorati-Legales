@@ -31,7 +31,6 @@ export async function GET(request: NextRequest) {
 
   // 2. Generar un "state" aleatorio
   const state = base64URLEncode(crypto.randomBytes(16))
-  console.log(state)
 
   // 3. Construimos la URL de autorización
   const authUrl = new URL("https://auth.mercadopago.com/authorization")
@@ -54,8 +53,6 @@ export async function GET(request: NextRequest) {
     sameSite: "none",
     secure: true,
   })
-
-  console.log("codeVerifier", codeVerifier)
 
   return response
 }

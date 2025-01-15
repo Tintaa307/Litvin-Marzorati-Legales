@@ -1,9 +1,6 @@
 // app/api/create-preference/route.ts
 import { NextRequest, NextResponse } from "next/server"
 
-// Cargar tokens desde JSON o entorno (para múltiples usuarios, usar BD)
-import paymentData from "../../../../payment.json"
-
 // Endpoint principal
 export async function POST(request: NextRequest) {
   try {
@@ -19,13 +16,13 @@ export async function POST(request: NextRequest) {
     }
 
     // Cargar el access_token desde payment.json (mejor usar DB en producción)
-    const userAccessToken = paymentData.account.access_token
-    if (!userAccessToken) {
-      return NextResponse.json(
-        { error: "Access token no encontrado o inválido" },
-        { status: 400 }
-      )
-    }
+    // const userAccessToken = paymentData.account.access_token
+    // if (!userAccessToken) {
+    //   return NextResponse.json(
+    //     { error: "Access token no encontrado o inválido" },
+    //     { status: 400 }
+    //   )
+    // }
 
     // Construir la preferencia
     const preferenceBody = {
@@ -52,7 +49,7 @@ export async function POST(request: NextRequest) {
       {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${userAccessToken}`,
+          Authorization: `Bearer ${""}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify(preferenceBody),

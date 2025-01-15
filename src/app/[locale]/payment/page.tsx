@@ -34,8 +34,8 @@ export default function CheckoutSummary() {
         .post("/api/create-preference", {
           id: UUIDv4(),
           title: "prueba",
-          quantity: "1",
-          price: "1",
+          quantity: 1,
+          price: 1,
         })
         .then((response) => {
           if (!response.data.preference)

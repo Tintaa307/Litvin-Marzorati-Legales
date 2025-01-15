@@ -1,15 +1,13 @@
 // app/oauth/callback/route.ts
+import { createClient } from "@/lib/supabase/server"
 import { cookies } from "next/headers" // para leer/escribir cookies en App Router
 import { NextRequest, NextResponse } from "next/server"
-
-// Aquí almacenamos tokens en memoria solo para DEMO
-// En producción, usa BD o un servicio KV
-const USER_ACCESS_TOKENS: Record<string, string> = {}
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url)
   const code = searchParams.get("code")
   const stateFromQuery = searchParams.get("state")
+  const supabase = createClient()
 
   if (!code || !stateFromQuery) {
     return NextResponse.json(
@@ -77,17 +75,25 @@ export async function GET(request: NextRequest) {
   const data = await tokenResponse.json()
   // data = { access_token, token_type, expires_in, scope, user_id, refresh_token? }
 
-  const userId = data.user_id ? data.user_id.toString() : `mpuser_${Date.now()}`
-  USER_ACCESS_TOKENS[userId] = data.access_token
-
-  // 4. Opcional: Borrar/limpiar las cookies (para no dejar codeVerifier a la vista)
-  //    Sencillamente las sobreescribimos con un valor vacío o la expiración en el pasado
-  const response = NextResponse.json({
-    message: "Autorización exitosa.",
-    user_id: userId,
+  const { error } = await (await supabase).from("oauth-tokens").insert({
+    user_id: data.user_id,
     access_token: data.access_token,
     refresh_token: data.refresh_token,
     token_type: data.token_type,
+  })
+
+  if (error) {
+    return NextResponse.json(
+      {
+        error: "Error al guardar el token en la base de datos",
+        details: error,
+      },
+      { status: 500 }
+    )
+  }
+
+  const response = NextResponse.json({
+    message: "Autorización exitosa.",
   })
   response.cookies.set("myapp_code_verifier", "", { maxAge: 0 })
   response.cookies.set("myapp_state", "", { maxAge: 0 })
