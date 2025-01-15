@@ -1,4 +1,5 @@
 // app/api/create-preference/route.ts
+import { createClient } from "@/lib/supabase/server"
 import { NextRequest, NextResponse } from "next/server"
 
 // Endpoint principal
@@ -6,6 +7,7 @@ export async function POST(request: NextRequest) {
   try {
     // Leer el body de la request
     const body = await request.json()
+    const supabase = createClient()
 
     // Validar los campos requeridos
     if (!body.id || !body.title || !body.quantity || !body.price) {
@@ -14,15 +16,6 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       )
     }
-
-    // Cargar el access_token desde payment.json (mejor usar DB en producción)
-    // const userAccessToken = paymentData.account.access_token
-    // if (!userAccessToken) {
-    //   return NextResponse.json(
-    //     { error: "Access token no encontrado o inválido" },
-    //     { status: 400 }
-    //   )
-    // }
 
     // Construir la preferencia
     const preferenceBody = {
@@ -43,13 +36,29 @@ export async function POST(request: NextRequest) {
       auto_return: "approved",
     }
 
+    const { data: oauthData, error } = await (await supabase)
+      .from("oauth_tokens")
+      .select("access_token")
+
+    if (error) {
+      console.error(error)
+      return NextResponse.json(
+        { error: "Error al obtener el token de Mercado Pago" },
+        { status: 500 }
+      )
+    }
+
+    const access_token = oauthData[0].access_token
+
+    console.log(access_token)
+
     // Llamar al endpoint de Mercado Pago para crear la preferencia
     const response = await fetch(
       "https://api.mercadopago.com/checkout/preferences",
       {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${""}`,
+          Authorization: `Bearer ${access_token}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify(preferenceBody),
