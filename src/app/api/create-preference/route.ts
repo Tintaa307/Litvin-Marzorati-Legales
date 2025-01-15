@@ -1,7 +1,6 @@
-// app/api/create-preference/route.ts
 import { createClient } from "@/lib/supabase/server"
 import { NextRequest, NextResponse } from "next/server"
-import { MercadoPagoConfig, Preference } from "mercadopago"
+import mercadopago from "mercadopago"
 
 // Endpoint principal
 export async function POST(request: NextRequest) {
@@ -17,6 +16,32 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       )
     }
+
+    // Obtener el access_token desde la base de datos
+    const { data: oauthData, error } = await (await supabase)
+      .from("oauth-tokens")
+      .select("access_token")
+
+    if (
+      error ||
+      !oauthData ||
+      oauthData.length === 0 ||
+      !oauthData[0].access_token
+    ) {
+      console.error("Error al obtener el token de Mercado Pago:", error)
+      return NextResponse.json(
+        { error: "No se encontró un access_token válido" },
+        { status: 500 }
+      )
+    }
+
+    const access_token = oauthData[0].access_token
+
+    // Configurar el SDK de Mercado Pago
+    // @ts-ignore
+    mercadopago.configure({
+      access_token: access_token,
+    })
 
     // Construir la preferencia
     const preferenceBody = {
@@ -37,30 +62,14 @@ export async function POST(request: NextRequest) {
       auto_return: "approved",
     }
 
-    const { data: oauthData, error } = await (await supabase)
-      .from("oauth-tokens")
-      .select("access_token")
+    // Crear la preferencia
+    // @ts-ignore
+    const result = await mercadopago.preferences.create(preferenceBody)
 
-    if (error) {
-      console.error(error)
+    if (!result || !result.body || !result.body.id) {
+      console.error("Error al crear la preferencia:", result)
       return NextResponse.json(
-        { error: "Error al obtener el token de Mercado Pago", details: error },
-        { status: 500 }
-      )
-    }
-
-    const access_token = oauthData[0].access_token
-
-    const client = new MercadoPagoConfig({
-      accessToken: access_token,
-    })
-
-    const preference = new Preference(client)
-    const result = await preference.create({ body: preferenceBody })
-
-    if (!result.id) {
-      return NextResponse.json(
-        { error: "Error al crear la preferencia" },
+        { error: "Error al crear la preferencia", details: result },
         { status: 500 }
       )
     }
@@ -68,7 +77,7 @@ export async function POST(request: NextRequest) {
     // Respuesta exitosa
     return NextResponse.json({
       message: "Preferencia creada correctamente",
-      preference: result.id,
+      preference: result.body.id,
     })
   } catch (error) {
     console.error("Error interno al crear la preferencia:", error)
