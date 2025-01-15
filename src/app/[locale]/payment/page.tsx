@@ -14,6 +14,7 @@ import { initMercadoPago, Wallet } from "@mercadopago/sdk-react"
 import { useState } from "react"
 import axios from "axios"
 import { toast } from "react-toastify"
+import { v4 as UUIDv4 } from "uuid"
 
 initMercadoPago("APP_USR-73718d29-a160-48a4-be32-fa8d5fa3196f")
 
@@ -25,24 +26,25 @@ export default function CheckoutSummary() {
   const email = searchParams.get("email")
   const registration = searchParams.get("registration")
   const enterprisePhone = searchParams.get("enterprisePhone")
-  const price = JSON.parse(localStorage.getItem("brand")!).price
+  //const price = JSON.parse(localStorage.getItem("brand")!).price
 
   const handlePayment = async () => {
     try {
       await axios
         .post("/api/create-preference", {
+          id: UUIDv4(),
           title: "prueba",
           quantity: "1",
           price: "1",
         })
         .then((response) => {
-          if (!response.data.id)
+          if (!response.data.preference)
             return toast.warning("Error al procesar el pago")
 
           setPreferenceId(response.data.preference)
         })
         .catch((error) => {
-          console.error(error)
+          console.log(error)
           toast.warning("Error al procesar el pago")
         })
     } catch (error) {
@@ -117,7 +119,7 @@ export default function CheckoutSummary() {
                 <div className="text-right">
                   <p className="text-sm text-gray-500">Precio</p>
                   <p className="text-2xl font-semibold text-[#1A1A1A]">
-                    {price}$
+                    {"aaa"}$
                   </p>
                 </div>
               </div>
@@ -130,7 +132,7 @@ export default function CheckoutSummary() {
           <div className="flex justify-between items-center pt-4">
             <div>
               <p className="text-gray-500">Total a pagar</p>
-              <p className="text-3xl font-semibold text-[#1A1A1A]">{price}$</p>
+              <p className="text-3xl font-semibold text-[#1A1A1A]">{"aaa"}$</p>
             </div>
             <div className="text-right text-sm text-gray-500">
               <p>IVA incluido</p>

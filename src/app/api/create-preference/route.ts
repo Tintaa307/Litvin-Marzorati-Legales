@@ -1,36 +1,33 @@
 // app/api/create-preference/route.ts
 import { NextRequest, NextResponse } from "next/server"
+
+// Cargar tokens desde JSON o entorno (para múltiples usuarios, usar BD)
 import paymentData from "../../../../payment.json"
-import { MercadoPagoConfig, Preference } from "mercadopago"
 
-// Diccionario global DEMO
-const USER_ACCESS_TOKENS = paymentData.account.access_token
-const USER_ID = paymentData.account.user_id
-
-const client = new MercadoPagoConfig({
-  accessToken: USER_ACCESS_TOKENS,
-})
-
+// Endpoint principal
 export async function POST(request: NextRequest) {
   try {
+    // Leer el body de la request
     const body = await request.json()
-    const userId = "347512470" //body.userId
 
-    if (!userId) {
+    // Validar los campos requeridos
+    if (!body.id || !body.title || !body.quantity || !body.price) {
       return NextResponse.json(
-        { error: "No se recibió userId" },
+        { error: "Faltan campos obligatorios en la solicitud" },
         { status: 400 }
       )
     }
 
-    const userAccessToken = USER_ACCESS_TOKENS
+    // Cargar el access_token desde payment.json (mejor usar DB en producción)
+    const userAccessToken = paymentData.account.access_token
     if (!userAccessToken) {
       return NextResponse.json(
-        { error: `No tenemos un access_token para el usuario ${USER_ID}` },
+        { error: "Access token no encontrado o inválido" },
         { status: 400 }
       )
     }
 
+    // Construir la preferencia
     const preferenceBody = {
       items: [
         {
@@ -42,31 +39,46 @@ export async function POST(request: NextRequest) {
         },
       ],
       back_urls: {
-        success: `http://localhost:3000/orders/success?price=${body.price}`,
-        failure: `http://localhost:3000/orders/failure?price=${body.price}`,
-        pending: "http://localhost:3000/orders/pending",
+        success: `https://lmlegales.com.ar/orders/success?price=${body.price}`,
+        failure: `https://lmlegales.com.ar/orders/failure?price=${body.price}`,
+        pending: `https://lmlegales.com.ar/orders/pending`,
       },
       auto_return: "approved",
     }
 
-    const preference = new Preference(client)
-    const result = await preference.create({ body: preferenceBody })
+    // Llamar al endpoint de Mercado Pago para crear la preferencia
+    const response = await fetch(
+      "https://api.mercadopago.com/checkout/preferences",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${userAccessToken}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(preferenceBody),
+      }
+    )
 
-    if (!result) {
+    const result = await response.json()
+
+    if (!response.ok) {
+      console.error("Error al crear preferencia:", result)
       return NextResponse.json(
-        { error: "Error al crear preferencia" },
+        { error: "Error al crear la preferencia", details: result },
         { status: 400 }
       )
     }
 
+    // Respuesta exitosa
     return NextResponse.json({
       message: "Preferencia creada correctamente",
       preference: result.id,
     })
   } catch (error) {
-    console.error("Error al crear la preferencia:", error)
+    console.error("Error interno al crear la preferencia:", error)
     return NextResponse.json(
-      { error: "Error interno del servidor" },
+      // @ts-ignore
+      { error: "Error interno del servidor", details: error.message },
       { status: 500 }
     )
   }

@@ -86,6 +86,8 @@ export async function GET(request: NextRequest) {
     message: "Autorización exitosa.",
     user_id: userId,
     access_token: data.access_token,
+    refresh_token: data.refresh_token,
+    token_type: data.token_type,
   })
   response.cookies.set("myapp_code_verifier", "", { maxAge: 0 })
   response.cookies.set("myapp_state", "", { maxAge: 0 })
