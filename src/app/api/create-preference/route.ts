@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
     const access_token = oauthData[0].access_token
 
     const client = new MercadoPagoConfig({
-      accessToken: my_access_token,
+      accessToken: access_token,
     })
 
     const preference = new Preference(client)
