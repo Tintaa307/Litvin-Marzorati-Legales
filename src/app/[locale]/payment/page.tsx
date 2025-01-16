@@ -11,7 +11,7 @@ import {
 import { Separator } from "@/components/ui/separator"
 import { useSearchParams } from "next/navigation"
 import { initMercadoPago, Wallet } from "@mercadopago/sdk-react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import axios from "axios"
 import { toast } from "react-toastify"
 import { v4 as UUIDv4 } from "uuid"
@@ -26,7 +26,7 @@ export default function CheckoutSummary() {
   const email = searchParams.get("email")
   const registration = searchParams.get("registration")
   const enterprisePhone = searchParams.get("enterprisePhone")
-  //const price = JSON.parse(localStorage.getItem("brand")!).price
+  const [price, setPrice] = useState("")
 
   const handlePayment = async () => {
     try {
@@ -52,6 +52,14 @@ export default function CheckoutSummary() {
       toast.warning("Error al procesar el pago")
     }
   }
+
+  useEffect(() => {
+    if (localStorage.getItem("brand")) {
+      const price = JSON.parse(localStorage.getItem("brand")!).price
+
+      setPrice(price)
+    }
+  }, [])
 
   return (
     <div className="min-h-screen bg-[#F5F5F3] flex items-center justify-center p-4">
@@ -119,7 +127,7 @@ export default function CheckoutSummary() {
                 <div className="text-right">
                   <p className="text-sm text-gray-500">Precio</p>
                   <p className="text-2xl font-semibold text-[#1A1A1A]">
-                    {"aaa"}$
+                    {price}$
                   </p>
                 </div>
               </div>
@@ -132,7 +140,7 @@ export default function CheckoutSummary() {
           <div className="flex justify-between items-center pt-4">
             <div>
               <p className="text-gray-500">Total a pagar</p>
-              <p className="text-3xl font-semibold text-[#1A1A1A]">{"aaa"}$</p>
+              <p className="text-3xl font-semibold text-[#1A1A1A]">{price}$</p>
             </div>
             <div className="text-right text-sm text-gray-500">
               <p>IVA incluido</p>
