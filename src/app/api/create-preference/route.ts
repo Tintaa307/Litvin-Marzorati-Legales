@@ -3,6 +3,8 @@ import { createClient } from "@/lib/supabase/server"
 import { NextRequest, NextResponse } from "next/server"
 import { MercadoPagoConfig, Preference } from "mercadopago"
 
+const my_access_token = process.env.ACCESS_TOKEN_MP as string
+
 // Endpoint principal
 export async function POST(request: NextRequest) {
   try {
@@ -52,7 +54,7 @@ export async function POST(request: NextRequest) {
     const access_token = oauthData[0].access_token
 
     const client = new MercadoPagoConfig({
-      accessToken: access_token,
+      accessToken: my_access_token,
     })
 
     const preference = new Preference(client)
