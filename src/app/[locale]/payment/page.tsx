@@ -1,6 +1,6 @@
 "use client"
 
-import { Check } from "lucide-react"
+import { ArrowLeft, Check } from "lucide-react"
 import {
   Card,
   CardContent,
@@ -15,13 +15,16 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { toast } from "react-toastify"
 import { v4 as UUIDv4 } from "uuid"
+import Link from "next/link"
+import { useLocale } from "next-intl"
+import { Button } from "@/components/ui/button"
 
 initMercadoPago("APP_USR-73718d29-a160-48a4-be32-fa8d5fa3196f")
 
 export default function CheckoutSummary() {
   const searchParams = useSearchParams()
   const [preferenceId, setPreferenceId] = useState("")
-
+  const locale = useLocale()
   const name = searchParams.get("name")
   const email = searchParams.get("email")
   const registration = searchParams.get("registration")
@@ -63,6 +66,14 @@ export default function CheckoutSummary() {
 
   return (
     <div className="min-h-screen bg-[#F5F5F3] flex items-center justify-center p-4">
+      <div className="absolute top-3 left-3">
+        <Link href={`/${locale}/brand-register`} passHref>
+          <Button variant="default" className="shadow-md">
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            Volver
+          </Button>
+        </Link>
+      </div>
       <Card className="w-full max-w-xl bg-white shadow-lg">
         <CardHeader className="text-center space-y-4 pb-6">
           <CardTitle className="font-meshedDisplay text-4xl font-bold text-black">
