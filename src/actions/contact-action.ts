@@ -17,6 +17,8 @@ export const handleSubmit = async (formData: FormData) => {
     message: message as string,
   }
 
+  console.log(values)
+
   if (Object.values(values).some((value) => value === "")) {
     return { status: 500, message: "Por favor, complete todos los campos" }
   }
