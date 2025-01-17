@@ -1,9 +1,11 @@
 "use client"
-import { handleSubmit } from "@/actions/newsletter-action"
+
+import { NewsletterSchema } from "@/lib/validations/Forms"
+import axios from "axios"
 import { useState } from "react"
 
-import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import { z } from "zod"
 
 interface Props {
   label: string
@@ -19,17 +21,34 @@ const Newsletter = ({ label, accept, submit }: Props) => {
   const [isChecked, setIsChecked] = useState(false)
 
   const FormAction = async (formData: FormData) => {
-    const res = await handleSubmit(formData)
-    switch (res.status) {
-      case 200:
-        toast.success(res.message)
-        break
-      case 500:
-        toast.error(res.message)
-        break
-      default:
-        toast.info("Error al enviar el mensaje")
-        break
+    const email = formData.get("email")
+
+    const values = {
+      email: email as string,
+    }
+
+    if (Object.values(values).some((value) => value === "")) {
+      return { status: 500, message: "Por favor, complete todos los campos" }
+    }
+
+    try {
+      const result = NewsletterSchema.parse(values)
+      const res = await axios.post(
+        process.env.NODE_ENV === "development"
+          ? "http://localhost:3000/api/newsletter"
+          : "https://lmlegales.com.ar/api/newsletter",
+        result
+      )
+
+      return res.data
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const errors = error.errors.map((err) => err.message)
+        return { status: 500, message: errors }
+      } else {
+        console.log(error)
+        return error
+      }
     }
   }
 
