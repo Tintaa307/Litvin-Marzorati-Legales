@@ -49,7 +49,10 @@ const ContactForm = ({
           setIsLoading(false)
           break
         default:
-          toast.info("Error al enviar el mensaje")
+          toast.info(res.message)
+          toast.error(
+            "Error al enviar el mensaje, por favor intente nuevamente."
+          )
           setIsLoading(false)
           break
       }
