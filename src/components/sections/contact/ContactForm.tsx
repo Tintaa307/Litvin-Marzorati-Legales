@@ -36,22 +36,28 @@ const ContactForm = ({
   const formRef = React.useRef<HTMLFormElement>(null)
 
   const FormAction = async (formData: FormData) => {
-    const res = await handleSubmit(formData)
-    console.log(res)
-    switch (res.status) {
-      case 200:
-        toast.success(res.message)
-        setIsLoading(false)
-        formRef?.current?.reset()
-        break
-      case 500:
-        toast.error(res.message)
-        setIsLoading(false)
-        break
-      default:
-        toast.info("Error al enviar el mensaje")
-        setIsLoading(false)
-        break
+    try {
+      const res = await handleSubmit(formData)
+      console.log(res)
+      switch (res.status) {
+        case 200:
+          toast.success(res.message)
+          setIsLoading(false)
+          formRef?.current?.reset()
+          break
+        case 500:
+          toast.error(res.message)
+          setIsLoading(false)
+          break
+        default:
+          toast.info("Error al enviar el mensaje")
+          setIsLoading(false)
+          break
+      }
+    } catch (error) {
+      console.log(error)
+      toast.error("Error al enviar el mensaje")
+      setIsLoading(false)
     }
   }
 
