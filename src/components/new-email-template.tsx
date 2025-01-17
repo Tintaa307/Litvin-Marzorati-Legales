@@ -1,3 +1,4 @@
+import { BodyEmail } from "@/types"
 import {
   Body,
   Container,
@@ -13,21 +14,9 @@ import {
 } from "@react-email/components"
 import * as React from "react"
 
-interface EmailTemplateProps {
-  name: string
-  message: string
-  email: string
-  subject: string
-}
-
 const baseUrl = "https://lmlegales.com.ar"
 
-export const EmailTemplate = ({
-  email,
-  message,
-  name,
-  subject,
-}: EmailTemplateProps) => {
+export const EmailTemplate = ({ email, message, name, subject }: BodyEmail) => {
   return (
     <Html>
       <Head />

@@ -1,6 +1,7 @@
 import { Resend } from "resend"
 import { NextResponse } from "next/server"
 import { EmailTemplate } from "@/components/new-email-template"
+import { BodyEmail } from "@/types"
 
 export async function POST(req: Request) {
   if (req.method !== "POST") {
@@ -8,7 +9,7 @@ export async function POST(req: Request) {
   }
 
   try {
-    const resend = new Resend(process.env.RESEND_API_KEY)
+    const resend = new Resend(process.env.RESEND_API_KEY as string)
 
     const data = await req.json()
 
@@ -19,7 +20,7 @@ export async function POST(req: Request) {
       })
     }
 
-    const { name, email, message, subject } = data
+    const { name, email, message, subject } = data as BodyEmail
 
     if (!name || !email || !message || !subject) {
       return NextResponse.json({
@@ -44,11 +45,9 @@ export async function POST(req: Request) {
     if (error) {
       console.error(error)
       return NextResponse.json({
-        message: "Error al enviar el mensaje.",
+        message: "Error al enviar el email",
         status: 500,
       })
-    } else {
-      console.log(emailData)
     }
 
     return NextResponse.json({

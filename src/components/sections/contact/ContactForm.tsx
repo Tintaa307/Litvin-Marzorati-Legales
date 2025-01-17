@@ -38,7 +38,6 @@ const ContactForm = ({
   const FormAction = async (formData: FormData) => {
     try {
       const res = await handleSubmit(formData)
-      console.log(res)
       switch (res.status) {
         case 200:
           toast.success(res.message)

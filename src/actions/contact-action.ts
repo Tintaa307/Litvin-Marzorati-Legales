@@ -1,6 +1,7 @@
 "use server"
 
 import { ContactSchema } from "@/lib/validations/Forms"
+import { BodyEmail } from "@/types"
 import axios from "axios"
 import { z } from "zod"
 
@@ -15,23 +16,21 @@ export const handleSubmit = async (formData: FormData) => {
     email: email as string,
     subject: subject as string,
     message: message as string,
-  }
+  } as BodyEmail
 
   if (Object.values(values).some((value) => value === "")) {
     return { status: 500, message: "Por favor, complete todos los campos" }
   }
 
   try {
-    ContactSchema.parse(values)
+    const result = ContactSchema.parse(values)
 
     const res = await axios.post(
       process.env.NODE_ENV === "development"
         ? "http://localhost:3000/api/emails"
         : "https://lmlegales.com.ar/api/emails",
-      values
+      result
     )
-
-    console.log(res.data)
 
     return res.data
   } catch (error) {
