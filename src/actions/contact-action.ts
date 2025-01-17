@@ -23,12 +23,17 @@ export const handleSubmit = async (formData: FormData) => {
 
   try {
     const result = ContactSchema.parse(values)
+
+    console.log(result)
+
     const res = await axios.post(
       process.env.NODE_ENV === "development"
         ? "http://localhost:3000/api/emails"
-        : "https://lmlegales.vercel.app/api/emails",
+        : "https://lmlegales.com.ar/api/emails",
       result
     )
+
+    console.log(res.data)
 
     return res.data
   } catch (error) {
