@@ -1,7 +1,6 @@
 import { Resend } from "resend"
 import { NextResponse } from "next/server"
 import { EmailTemplate } from "@/components/new-email-template"
-import { EmailTemplateOld } from "@/components/email-template"
 
 export async function POST(req: Request) {
   if (req.method !== "POST") {
@@ -30,10 +29,10 @@ export async function POST(req: Request) {
     }
 
     const { data: emailData, error } = await resend.emails.send({
-      from: "LMLegales <contacto@lmlegales.com.ar>",
-      to: ["info@lmlegales.com.ar", "ip@lmlegales.com.ar"],
+      from: "LMLegales <website@lmlegales.com.ar>",
+      to: ["valentinta@icloud.com"],
       subject: "Nuevo mensaje desde LMLegales Website",
-      react: EmailTemplateOld({
+      react: EmailTemplate({
         name: name,
         message: message,
         email: email,

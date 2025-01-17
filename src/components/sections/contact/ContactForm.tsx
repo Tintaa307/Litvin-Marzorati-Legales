@@ -1,9 +1,8 @@
 "use client"
-import React, { useState } from "react"
 
+import React, { useState } from "react"
 import { toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
-
 import InputLabel from "./InputLabel"
 import { handleSubmit } from "@/actions/contact-action"
 import { Loader2 } from "lucide-react"
