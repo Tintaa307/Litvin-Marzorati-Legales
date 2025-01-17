@@ -45,7 +45,7 @@ export async function POST(req: Request) {
     if (error) {
       console.log(error)
       return NextResponse.json({
-        message: "Error al enviar el mensaje",
+        message: "Error al enviar el email",
         status: 500,
       })
     }
