@@ -33,12 +33,9 @@ export async function POST(req: Request) {
       from: "LMLegales <contacto@lmlegales.com.ar>",
       to: ["valentinta@icloud.com"], //["info@lmlegales.com.ar", "ip@lmlegales.com.ar"],
       subject: "Nuevo mensaje desde LMLegales Website",
-      react: EmailTemplate({
-        name: name,
-        message: message,
-        email: email,
-        subject: subject,
-      }),
+      html: `<div>
+        hola
+      </div>`,
       text: "",
     })
 
