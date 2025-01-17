@@ -38,22 +38,29 @@ const ContactForm = ({
 
   const FormAction = async (formData: FormData) => {
     setIsLoading(true)
-
-    const res = await handleSubmit(formData)
-    switch (res.status) {
-      case 200:
-        toast.success(res.message)
-        setIsLoading(false)
-        formRef?.current?.reset()
-        break
-      case 500:
-        toast.error(res.message)
-        setIsLoading(false)
-        break
-      default:
-        toast.info("Error al enviar el mensaje")
-        setIsLoading(false)
-        break
+    try {
+      const res = await handleSubmit(formData)
+      switch (res.status) {
+        case 200:
+          toast.success(res.message)
+          setIsLoading(false)
+          formRef?.current?.reset()
+          break
+        case 500:
+          toast.error(res.message)
+          setIsLoading(false)
+          break
+        default:
+          toast.info("Error al enviar el mensaje")
+          setIsLoading(false)
+          break
+      }
+    } catch (error) {
+      console.log(error)
+      toast.error("Error al enviar el mensaje")
+      setIsLoading(false)
+    } finally {
+      setIsLoading(false)
     }
   }
 
