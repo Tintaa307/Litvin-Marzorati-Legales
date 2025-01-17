@@ -42,7 +42,7 @@ const ContactForm = ({
         case 200:
           toast.success(res.message)
           setIsLoading(false)
-          //formRef?.current?.reset()
+          formRef?.current?.reset()
           break
         case 500:
           toast.error(res.message)
@@ -65,8 +65,12 @@ const ContactForm = ({
 
   return (
     <form
-      action={FormAction}
-      //ref={formRef}
+      ref={formRef}
+      onSubmit={(e) => {
+        e.preventDefault()
+        const formData = new FormData(formRef.current!)
+        FormAction(formData)
+      }}
       className="md:w-[45%] w-full grid gap-6 items-start h-fit"
     >
       <div className="flex flex-col gap-2">
