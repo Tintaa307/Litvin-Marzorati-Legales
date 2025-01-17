@@ -6,6 +6,9 @@ import "react-toastify/dist/ReactToastify.css"
 import InputLabel from "./InputLabel"
 import { handleSubmit } from "@/actions/contact-action"
 import { Loader2 } from "lucide-react"
+import { ContactSchema } from "@/lib/validations/Forms"
+import { BodyEmail } from "@/types"
+import axios from "axios"
 
 interface Props {
   name: string
@@ -37,24 +40,55 @@ const ContactForm = ({
 
   const FormAction = async (formData: FormData) => {
     try {
-      const res = await handleSubmit(formData)
-      switch (res.status) {
-        case 200:
-          toast.success(res.message)
-          setIsLoading(false)
-          formRef?.current?.reset()
-          break
-        case 500:
-          toast.error(res.message)
-          setIsLoading(false)
-          break
-        default:
-          toast.info(res.message)
-          toast.error(
-            "Error al enviar el mensaje, por favor intente nuevamente."
-          )
-          setIsLoading(false)
-          break
+      // const res = await handleSubmit(formData)
+      // switch (res.status) {
+      //   case 200:
+      //     toast.success(res.message)
+      //     setIsLoading(false)
+      //     formRef?.current?.reset()
+      //     break
+      //   case 500:
+      //     toast.error(res.message)
+      //     setIsLoading(false)
+      //     break
+      //   default:
+      //     toast.info(res.message)
+      //     toast.error(
+      //       "Error al enviar el mensaje, por favor intente nuevamente."
+      //     )
+      //     setIsLoading(false)
+      //     break
+      // }
+
+      const name = formData.get("name")
+      const email = formData.get("email")
+      const subject = formData.get("subject")
+      const message = formData.get("message")
+
+      const values = {
+        name: name as string,
+        email: email as string,
+        subject: subject as string,
+        message: message as string,
+      } as BodyEmail
+
+      const result = ContactSchema.parse(values)
+
+      const res = await axios.post(
+        process.env.NODE_ENV === "development"
+          ? "http://localhost:3000/api/emails"
+          : "https://lmlegales.com.ar/api/emails",
+        result
+      )
+
+      if (res.status === 200) {
+        toast.success(success)
+        setIsLoading(false)
+        formRef?.current?.reset()
+      } else {
+        console.log(res)
+        toast.error("Error al enviar el mensaje, por favor intente mas tarde.")
+        setIsLoading(false)
       }
     } catch (error) {
       console.log(error)
