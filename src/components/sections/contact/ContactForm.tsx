@@ -20,11 +20,11 @@ interface Props {
 }
 
 const ContactForm = ({
-  //name,
-  //email,
-  //subject,
-  //message,
-  //btn,
+  name,
+  email,
+  subject,
+  message,
+  btn,
   success,
   emailError,
   formError,
@@ -42,7 +42,7 @@ const ContactForm = ({
         case 200:
           toast.success(res.message)
           setIsLoading(false)
-          formRef?.current?.reset()
+          //formRef?.current?.reset()
           break
         case 500:
           toast.error(res.message)
@@ -65,12 +65,12 @@ const ContactForm = ({
 
   return (
     <form
-      ref={formRef}
       action={FormAction}
+      //ref={formRef}
       className="md:w-[45%] w-full grid gap-6 items-start h-fit"
     >
       <div className="flex flex-col gap-2">
-        <InputLabel pos="01" text={"Nombre completo"}></InputLabel>
+        <InputLabel pos="01" text={name}></InputLabel>
         <input
           name="name"
           type="text"
@@ -78,7 +78,7 @@ const ContactForm = ({
         />
       </div>
       <div className="flex flex-col gap-2">
-        <InputLabel pos="02" text={"Correo Electronico"}></InputLabel>
+        <InputLabel pos="02" text={email}></InputLabel>
         <input
           name="email"
           type="text"
@@ -86,7 +86,7 @@ const ContactForm = ({
         />
       </div>
       <div className="flex flex-col gap-2">
-        <InputLabel pos="03" text={"Asunto"}></InputLabel>
+        <InputLabel pos="03" text={subject}></InputLabel>
         <input
           name="subject"
           type="text"
@@ -94,7 +94,7 @@ const ContactForm = ({
         />
       </div>
       <div className="flex flex-col gap-2">
-        <InputLabel pos="04" text={"Mensaje"}></InputLabel>
+        <InputLabel pos="04" text={message}></InputLabel>
         <textarea
           name="message"
           className="w-full resize-none bg-transparent outline-none border-b border-black/30"
@@ -118,7 +118,7 @@ const ContactForm = ({
           {isLoading ? (
             <Loader2 className="w-6 h-6 text-white animate-spin" />
           ) : (
-            "Enviar"
+            btn
           )}
         </button>
       </div>
