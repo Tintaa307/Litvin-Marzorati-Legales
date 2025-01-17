@@ -31,8 +31,6 @@ export const handleSubmit = async (formData: FormData) => {
       result
     )
 
-    console.log(res.data)
-
     return res.data
   } catch (error) {
     if (error instanceof z.ZodError) {

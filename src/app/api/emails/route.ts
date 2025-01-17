@@ -1,6 +1,7 @@
 import { Resend } from "resend"
 import { NextResponse } from "next/server"
 import { EmailTemplate } from "@/components/new-email-template"
+import { EmailTemplateOld } from "@/components/email-template"
 
 export async function POST(req: Request) {
   if (req.method !== "POST") {
@@ -21,11 +22,18 @@ export async function POST(req: Request) {
 
     const { name, email, message, subject } = data
 
+    if (!name || !email || !message || !subject) {
+      return NextResponse.json({
+        message: "Por favor, complete todos los campos",
+        status: 400,
+      })
+    }
+
     const { data: emailData, error } = await resend.emails.send({
       from: "LMLegales <contacto@lmlegales.com.ar>",
       to: ["info@lmlegales.com.ar", "ip@lmlegales.com.ar"],
       subject: "Nuevo mensaje desde LMLegales Website",
-      react: EmailTemplate({
+      react: EmailTemplateOld({
         name: name,
         message: message,
         email: email,
