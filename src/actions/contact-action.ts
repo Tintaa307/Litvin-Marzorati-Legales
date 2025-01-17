@@ -17,20 +17,21 @@ export const handleSubmit = async (formData: FormData) => {
     message: message as string,
   }
 
-  console.log(values)
-
   if (Object.values(values).some((value) => value === "")) {
     return { status: 500, message: "Por favor, complete todos los campos" }
   }
 
   try {
     const result = ContactSchema.parse(values)
+    console.log(result)
     const res = await axios.post(
       process.env.NODE_ENV === "development"
         ? "http://localhost:3000/api/emails"
         : "https://lmlegales.com.ar/api/emails",
       result
     )
+
+    console.log(res.data)
 
     return res.data
   } catch (error) {
