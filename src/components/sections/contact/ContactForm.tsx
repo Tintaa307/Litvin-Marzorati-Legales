@@ -59,7 +59,7 @@ const ContactForm = ({
     } catch (error) {
       console.log(error)
       toast.info(error as string)
-      toast.error("Error al enviar el mensaje")
+      toast.error("Error al enviar el mensaje, por favor intente mas tarde.")
       setIsLoading(false)
     }
   }
