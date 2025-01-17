@@ -36,7 +36,6 @@ const ContactForm = ({
   const formRef = React.useRef<HTMLFormElement>(null)
 
   const FormAction = async (formData: FormData) => {
-    setIsLoading(true)
     const res = await handleSubmit(formData)
     switch (res.status) {
       case 200:
@@ -103,6 +102,7 @@ const ContactForm = ({
       </div>
       <div className="w-full flex justify-start">
         <button
+          onClick={() => setIsLoading(true)}
           type="submit"
           className={`bg-accent-orange py-3 px-7 rounded-md w-28 flex items-center justify-center`}
         >
