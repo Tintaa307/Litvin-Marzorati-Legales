@@ -31,7 +31,7 @@ export async function POST(req: Request) {
 
     const { data: emailData, error } = await resend.emails.send({
       from: "LMLegales <contacto@lmlegales.com.ar>",
-      to: ["valentinta@icloud.com"], //["info@lmlegales.com.ar", "ip@lmlegales.com.ar"],
+      to: ["info@lmlegales.com.ar", "ip@lmlegales.com.ar"],
       subject: "Nuevo mensaje desde LMLegales Website",
       react: EmailTemplate({
         name,

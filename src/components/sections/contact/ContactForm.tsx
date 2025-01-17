@@ -40,26 +40,6 @@ const ContactForm = ({
 
   const FormAction = async (formData: FormData) => {
     try {
-      // const res = await handleSubmit(formData)
-      // switch (res.status) {
-      //   case 200:
-      //     toast.success(res.message)
-      //     setIsLoading(false)
-      //     formRef?.current?.reset()
-      //     break
-      //   case 500:
-      //     toast.error(res.message)
-      //     setIsLoading(false)
-      //     break
-      //   default:
-      //     toast.info(res.message)
-      //     toast.error(
-      //       "Error al enviar el mensaje, por favor intente nuevamente."
-      //     )
-      //     setIsLoading(false)
-      //     break
-      // }
-
       const name = formData.get("name")
       const email = formData.get("email")
       const subject = formData.get("subject")
