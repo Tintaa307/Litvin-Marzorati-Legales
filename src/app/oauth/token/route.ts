@@ -1,7 +1,7 @@
 import { createClient } from "@/lib/supabase/server"
 import { NextResponse } from "next/server"
 
-async function refreshAccessToken() {
+export async function GET() {
   const clientId = process.env.CLIENT_MP_ID // Tu client_id de Mercado Pago
   const clientSecret = process.env.CLIENT_MP_SECRET // Tu client_secret de Mercado Pago
 
@@ -51,12 +51,13 @@ async function refreshAccessToken() {
   }
 
   const data = await response.json()
-  console.log("Nuevo token obtenido:", data)
 
-  return data // Contiene access_token y refresh_token
+  await (await supabase).from("oauth-tokens").update({
+    access_token: data.access_token,
+  })
+
+  return NextResponse.json({
+    message: "Token refrescado correctamente",
+    data,
+  })
 }
-
-// Ejemplo de uso
-refreshAccessToken()
-  .then((data) => console.log("Nuevo access token:", data.access_token))
-  .catch((error) => console.error(error))

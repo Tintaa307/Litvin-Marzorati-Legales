@@ -18,6 +18,7 @@ import { v4 as UUIDv4 } from "uuid"
 import Link from "next/link"
 import { useLocale } from "next-intl"
 import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 
 initMercadoPago("APP_USR-73718d29-a160-48a4-be32-fa8d5fa3196f")
 
@@ -30,6 +31,7 @@ export default function CheckoutSummary() {
   const registration = searchParams.get("registration")
   const enterprisePhone = searchParams.get("enterprisePhone")
   const [price, setPrice] = useState("")
+  const [ready, setReady] = useState(false)
 
   const handlePayment = async () => {
     try {
@@ -54,6 +56,29 @@ export default function CheckoutSummary() {
       console.error(error)
       toast.warning("Error al procesar el pago")
     }
+  }
+
+  const handleReady = () => {
+    setReady(true)
+  }
+
+  const renderCheckoutButton = (preferenceId: string) => {
+    if (!preferenceId) return null
+
+    return (
+      <Wallet
+        initialization={{ preferenceId }}
+        customization={{
+          visual: {
+            buttonBackground: "black",
+            horizontalPadding: "20px",
+          },
+          texts: { valueProp: "smart_option" },
+        }}
+        onReady={handleReady}
+        locale="es-AR"
+      />
+    )
   }
 
   useEffect(() => {
@@ -159,18 +184,14 @@ export default function CheckoutSummary() {
           </div>
         </CardContent>
         <CardFooter className="p-6 bg-gray-50">
-          <button onClick={handlePayment} className="w-full">
-            <Wallet
-              initialization={{ preferenceId }}
-              customization={{
-                visual: {
-                  buttonBackground: "black",
-                  horizontalPadding: "20px",
-                },
-                texts: { valueProp: "smart_option" },
-              }}
-              locale="es-AR"
-            />
+          <button
+            onClick={handlePayment}
+            className={cn("w-full", {
+              "shadow-md h-11 border border-gray-500 rounded-md": !ready,
+            })}
+          >
+            {renderCheckoutButton(preferenceId)}
+            {ready ? "" : "Continuar con el pago"}
           </button>
         </CardFooter>
       </Card>
