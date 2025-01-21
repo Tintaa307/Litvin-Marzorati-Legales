@@ -71,7 +71,7 @@ const Hero = ({
           </div>
           <div className="w-full h-max flex sm:flex-row flex-col  justify-center items-center gap-5">
             {/* <MeetingButton locale={locale} text={cta2} /> */}
-            <CtaButton locale={locale} text={cta1} />
+            <CtaButton url="/brand-register" locale={locale} text={cta1} />
           </div>
         </div>
         <div className="3xl:mt-40 mt-24 flex flex-wrap justify-around">

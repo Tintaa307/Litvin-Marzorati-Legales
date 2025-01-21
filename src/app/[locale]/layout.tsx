@@ -4,6 +4,8 @@ import localFont from "next/font/local"
 import "./globals.css"
 import Footer from "@/components/sections/Footer"
 import { TagManagerProvider } from "@/context/TagManager"
+import { NextIntlClientProvider } from "next-intl"
+import { getMessages } from "next-intl/server"
 
 const poppins = localFont({
   variable: "--font-poppins",
@@ -58,13 +60,14 @@ export const metadata: Metadata = {
   description: "Estudio de legales",
 }
 
-export default function LocaleLayout({
+export default async function LocaleLayout({
   children,
   params: { locale },
 }: {
   children: React.ReactNode
   params: { locale: string }
 }) {
+  const messages = await getMessages()
   return (
     <html lang={locale}>
       <body
@@ -76,12 +79,14 @@ export default function LocaleLayout({
           "font-poppins"
         )}
       >
-        <TagManagerProvider>
-          <main className="flex flex-col overflow-hidden">
-            {children}
-            <Footer />
-          </main>
-        </TagManagerProvider>
+        <NextIntlClientProvider messages={messages}>
+          <TagManagerProvider>
+            <main className="flex flex-col overflow-hidden">
+              {children}
+              <Footer />
+            </main>
+          </TagManagerProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   )

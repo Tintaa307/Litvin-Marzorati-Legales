@@ -1,3 +1,5 @@
+"use client"
+
 import * as React from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -11,7 +13,7 @@ import { PaidmentFormSchema } from "@/lib/validations/Forms"
 import { toast } from "react-toastify"
 import { ZodError } from "zod"
 import { useRouter } from "next/navigation"
-import { useLocale } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 
 type PaidmentFormProps = {
   isOpen: boolean
@@ -21,6 +23,7 @@ type PaidmentFormProps = {
 export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
   const [personType, setPersonType] = React.useState("fisica")
   const router = useRouter()
+  const tBrandRegister = useTranslations("client-form")
   const locale = useLocale()
   const [isChecked, setIsChecked] = React.useState<boolean>(false)
   const [formData, setFormData] = React.useState({
@@ -79,7 +82,7 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
               <InputLabel
                 className="text-base font-medium"
                 pos="01"
-                text="Seleccione el tipo de cliente"
+                text={tBrandRegister("section1-title")}
               />
               <Separator className="bg-black/60 mb-6" />
               <RadioGroup
@@ -94,7 +97,7 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
                     id="fisica"
                   />
                   <Label className="text-sm" htmlFor="fisica">
-                    Persona Física
+                    {tBrandRegister("option1")}
                   </Label>
                 </div>
                 <div className="flex items-center space-x-2">
@@ -104,7 +107,7 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
                     id="juridica"
                   />
                   <Label className="text-sm" htmlFor="juridica">
-                    Persona Jurídica
+                    {tBrandRegister("option2")}
                   </Label>
                 </div>
               </RadioGroup>
@@ -114,12 +117,14 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
               <InputLabel
                 className="text-base font-medium"
                 pos="02"
-                text="Datos del cliente"
+                text={tBrandRegister("section2-title")}
               />
               <Separator className="bg-black/60" />
               <div className="grid gap-4">
                 <div className="space-y-2">
-                  <Label htmlFor="client-question">Nombre completo</Label>
+                  <Label htmlFor="client-question">
+                    {tBrandRegister("label1")}
+                  </Label>
                   <input
                     name="name"
                     type="text"
@@ -130,7 +135,9 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="signature-email">Ingrese su email *</Label>
+                  <Label htmlFor="signature-email">
+                    {tBrandRegister("label2")}
+                  </Label>
                   <input
                     name="email"
                     type="email"
@@ -142,7 +149,7 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="signature-phone">
-                    Ingrese su número celular *
+                    {tBrandRegister("label3")}
                   </Label>
                   <input
                     name="phone"
@@ -160,13 +167,13 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
               <InputLabel
                 className="text-base font-medium"
                 pos="03"
-                text="Datos de facturación"
+                text={tBrandRegister("section3-title")}
               />
               <Separator className="bg-black/60" />
               <div className="grid gap-4">
                 <div className="grid grid-cols-3 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="telefono">Teléfono *</Label>
+                    <Label htmlFor="telefono">{tBrandRegister("label4")}</Label>
                     <input
                       name="phone"
                       type="tel"
@@ -180,9 +187,7 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="registro">
-                      Registro CUIT, CIF, o NIF *
-                    </Label>
+                    <Label htmlFor="registro">{tBrandRegister("label5")}</Label>
                     <input
                       name="registration"
                       type="text"
@@ -196,7 +201,9 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="id-registro">N° registro Renta</Label>
+                    <Label htmlFor="id-registro">
+                      {tBrandRegister("label6")}
+                    </Label>
                     <input
                       name="id-registration"
                       type="text"
@@ -209,7 +216,9 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
                 </div>
                 <div className="grid grid-cols-3 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="domicilio">Domicilio Fiscal</Label>
+                    <Label htmlFor="domicilio">
+                      {tBrandRegister("label7")}
+                    </Label>
                     <input
                       name="address"
                       type="text"
@@ -220,7 +229,9 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="localidad">Localidad</Label>
+                    <Label htmlFor="localidad">
+                      {tBrandRegister("label8")}
+                    </Label>
                     <input
                       name="locality"
                       type="text"
@@ -231,7 +242,9 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="codigo-postal">Código Postal</Label>
+                    <Label htmlFor="codigo-postal">
+                      {tBrandRegister("label9")}
+                    </Label>
                     <input
                       name="postal-code"
                       type="text"
@@ -244,7 +257,9 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
                 </div>
                 <div className="grid grid-cols-3 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="razon-social">Razón Social</Label>
+                    <Label htmlFor="razon-social">
+                      {tBrandRegister("label10")}
+                    </Label>
                     <input
                       name="social-reason"
                       type="text"
@@ -258,7 +273,9 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="pagina-web">Página Web</Label>
+                    <Label htmlFor="pagina-web">
+                      {tBrandRegister("label11")}
+                    </Label>
                     <input
                       name="website"
                       type="url"
@@ -270,7 +287,7 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="mail-institucional">
-                      Mail Institucional
+                      {tBrandRegister("label12")}
                     </Label>
                     <input
                       name="email"
@@ -300,7 +317,7 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
                     htmlFor="accept-terms"
                     className="text-sm text-muted-foreground"
                   >
-                    Acepto los términos y condiciones del servicio
+                    {tBrandRegister("terms")}
                   </Label>
                 </div>
               </div>
@@ -309,7 +326,7 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
                 className="text-base px-2 py-6 rounded-md bg-gradient-to-r from-accent-brown from-[-39.43%] to-accent-orange to-162%"
                 type="submit"
               >
-                Confirmar Solicitud
+                {tBrandRegister("button")}
               </Button>
             </div>
           </CollapsibleContent>

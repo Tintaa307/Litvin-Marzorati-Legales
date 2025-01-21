@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 import { BrandFormSchema } from "@/lib/validations/Forms"
 import { ZodError } from "zod"
 import { toast } from "react-toastify"
+import { useTranslations } from "next-intl"
 
 type BrandFormProps = {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
@@ -16,6 +17,7 @@ type BrandFormProps = {
 const BrandForm = ({ setIsOpen }: BrandFormProps) => {
   const [numberOfProducts, setNumberOfProducts] = useState(1)
   const [price, setPrice] = useState(145000)
+  const tBrandRegister = useTranslations("brand-register")
   const [formData, setFormData] = useState({
     name: "",
     type: "",
@@ -56,7 +58,7 @@ const BrandForm = ({ setIsOpen }: BrandFormProps) => {
             <InputLabel
               className="text-base"
               pos="01"
-              text="¿Cómo es el nombre de la marca?"
+              text={tBrandRegister("label1")}
             />
             <input
               name="name"
@@ -71,7 +73,7 @@ const BrandForm = ({ setIsOpen }: BrandFormProps) => {
             <InputLabel
               className="text-base"
               pos="02"
-              text="¿Que tipo clase/rubro desea proteger?"
+              text={tBrandRegister("label2")}
             />
             <input
               name="name"
@@ -86,7 +88,7 @@ const BrandForm = ({ setIsOpen }: BrandFormProps) => {
             <InputLabel
               className="text-base"
               pos="03"
-              text="¿Que cantidad de productos/servicios desea proteger?"
+              text={tBrandRegister("label3")}
             />
             <SliderComponent
               numberOfProducts={numberOfProducts}
@@ -101,22 +103,24 @@ const BrandForm = ({ setIsOpen }: BrandFormProps) => {
           <CardContent className="px-6">
             <div className="space-y-6">
               <div>
-                <h3 className="text-xl font-medium mb-6">Su solicitud</h3>
+                <h3 className="text-xl font-medium mb-6">
+                  {tBrandRegister("checkout-title")}
+                </h3>
                 <Separator className="bg-black/60 mb-6" />
                 <div className="space-y-4">
                   <div className="flex justify-between items-start">
                     <div className="space-y-1">
                       <p className="text-base font-medium">
-                        Informe de Viabilidad en Argentina
+                        {tBrandRegister("info1")}
                       </p>
                       <p className="text-sm text-muted-foreground">
-                        - Tarifa base por 1 clase/s inicial/es
+                        {tBrandRegister("info2")}
                       </p>
                     </div>
                     <div className="text-right">
                       <p className="font-medium text-base">$145.000,00</p>
                       <p className="text-sm text-muted-foreground">
-                        más IVA más TASAS
+                        {tBrandRegister("info3")}
                       </p>
                     </div>
                   </div>
@@ -130,11 +134,13 @@ const BrandForm = ({ setIsOpen }: BrandFormProps) => {
               </div>
               <Separator className="bg-black/60" />
               <div className="flex justify-between items-center pt-2">
-                <p className="text-xl font-medium mb-12">Total a pagar:</p>
+                <p className="text-xl font-medium mb-12">
+                  {tBrandRegister("pay")}
+                </p>
                 <div className="text-right">
                   <p className="text-xl font-semibold">${price}</p>
                   <p className="text-sm text-muted-foreground">
-                    más IVA más TASAS
+                    {tBrandRegister("info3")}
                   </p>
                 </div>
               </div>
@@ -142,7 +148,7 @@ const BrandForm = ({ setIsOpen }: BrandFormProps) => {
                 onClick={handleNextStep}
                 className="w-full text-base px-6 py-6 rounded-md bg-gradient-to-r from-accent-brown from-[-39.43%] to-accent-orange to-162%"
               >
-                Continuar
+                {tBrandRegister("button")}
               </Button>
             </div>
           </CardContent>

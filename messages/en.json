@@ -17,7 +17,7 @@
     "fact1": "Case Files",
     "fact2": "Clients",
     "fact3": "Specialized correspondents",
-    "cta1": "Register your brand online",
+    "cta1": "Register your trademark now",
     "cta2": "Book a meeting"
   },
   "ServiceLand": {
@@ -158,5 +158,66 @@
         "a": "No, trademark registration has territorial validity. If you need international protection, we help you manage the registration in each country where you want to protect your brand."
       }
     }
+  },
+  "brand-register": {
+    "title": "Register your brand online",
+    "label1": "What is the brand name?",
+    "label2": "What type of class/industry do you want to protect?",
+    "label3": "How many products/services do you want to protect?",
+    "popup": "What does a brand registration include?",
+    "checkout-title": "Your request",
+    "info1": "Viability Report in Argentina",
+    "info2": "- Base fee for 1 initial class/es",
+    "info3": "plus VAT plus FEES",
+    "pay": "Total to pay:",
+    "button": "Continue",
+    "bullet1": "Official fees of the National Institute of Industrial Property",
+    "bullet2": "Preparation and submission of the application",
+    "bullet3": "Monitoring of the process",
+    "bullet4": "Notice of brand publication in the official gazette",
+    "bullet5": "Notices of possible oppositions filed by third parties for 10 years",
+    "bullet6": "Brand custody",
+    "bullet7": "Notice of brand usage declaration and renewal",
+    "bullet8": "Professional fees",
+    "close-btn": "Close"
+  },
+  "client-form": {
+    "section1-title": "Select the type of client",
+    "option1": "Individual",
+    "option2": "Legal Entity",
+    "section2-title": "Client information",
+    "label1": "Full name",
+    "label2": "Enter your email *",
+    "label3": "Enter your phone number *",
+    "section3-title": "Billing information",
+    "label4": "Phone *",
+    "label5": "CUIT, CIF, or NIF registration *",
+    "label6": "Tax registration number",
+    "label7": "Fiscal address",
+    "label8": "City",
+    "label9": "Postal Code",
+    "label10": "Company Name",
+    "label11": "Website",
+    "label12": "Institutional Email",
+    "terms": "I accept the terms and conditions of the service",
+    "button": "Submit Request"
+  },
+  "confirm-purchase": {
+    "title": "Confirm Purchase",
+    "subtitle": "Please review the details before proceeding",
+    "client-info-title": "Client Information",
+    "client-name": "Name",
+    "client-email": "Email",
+    "client-id": "CUIT, CUIL, or NIF",
+    "client-phone": "Phone",
+    "service-details-title": "Service Details",
+    "service-item1": "Personalized advice",
+    "service-item2": "Complete procedure management",
+    "service-item3": "Process tracking",
+    "price-label": "Price",
+    "total-label": "Total to pay",
+    "total-note": "VAT included",
+    "button": "Proceed to payment",
+    "link": "Back"
   }
 }
