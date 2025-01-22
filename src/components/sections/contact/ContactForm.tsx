@@ -8,6 +8,7 @@ import { Loader2 } from "lucide-react"
 import { ContactSchema } from "@/lib/validations/Forms"
 import { BodyEmail } from "@/types"
 import axios from "axios"
+import { ZodError } from "zod"
 
 interface Props {
   name: string
@@ -70,8 +71,10 @@ const ContactForm = ({
         setIsLoading(false)
       }
     } catch (error) {
+      if (error instanceof ZodError) {
+        error.errors.map((err) => toast.info(err.message))
+      }
       console.log(error)
-      toast.error("Error al enviar el mensaje, por favor intente mas tarde.")
       setIsLoading(false)
     }
   }

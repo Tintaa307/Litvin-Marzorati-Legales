@@ -9,7 +9,7 @@ export async function POST(request: Request) {
 
     const stream = await streamText({
       //@ts-ignore
-      model: google("gemini-1.5-flash"),
+      model: google("gemini-1.5-pro"),
       system: `
         Usted es un asistente útil que brinda información sobre los servicios de Litvin-Marzorati Legales o tambien LML Legales. Tienes que ser amable e informativo. Puede proporcionar información sobre los servicios, programar una reunión o proporcionar información de contacto que se encuentra en el archivo ${responses}. Si el usuario solicita algo que no está en el archivo, puede proporcionar un mensaje predeterminado como "Lo siento, no tengo una respuesta para eso."
 
