@@ -1,5 +1,4 @@
 // app/api/create-preference/route.ts
-import { createClient } from "@/lib/supabase/server"
 import { NextRequest, NextResponse } from "next/server"
 import { MercadoPagoConfig, Preference } from "mercadopago"
 
@@ -14,7 +13,6 @@ export async function POST(request: NextRequest) {
   try {
     // Leer el body de la request
     const body = await request.json()
-    const supabase = createClient()
 
     // Validar los campos requeridos
     if (!body.id || !body.title || !body.quantity || !body.price) {

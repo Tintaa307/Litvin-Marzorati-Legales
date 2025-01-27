@@ -20,7 +20,7 @@ import { NextIntlClientProvider, useLocale, useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
-initMercadoPago("APP_USR-73718d29-a160-48a4-be32-fa8d5fa3196f")
+initMercadoPago("APP_USR-8a64f5d3-fd86-4481-83d8-308c4bddf649")
 
 export default function CheckoutSummary() {
   const tPayment = useTranslations("confirm-purchase")
