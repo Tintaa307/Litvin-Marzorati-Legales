@@ -5,6 +5,10 @@ import { MercadoPagoConfig, Preference } from "mercadopago"
 
 const my_access_token = process.env.ACCESS_TOKEN_MP as string
 
+const client = new MercadoPagoConfig({
+  accessToken: my_access_token,
+})
+
 // Endpoint principal
 export async function POST(request: NextRequest) {
   try {
@@ -38,25 +42,6 @@ export async function POST(request: NextRequest) {
       },
       auto_return: "approved",
     }
-
-    const { data: oauthData, error } = await (await supabase)
-      .from("oauth-tokens")
-      .select("access_token")
-
-    if (error) {
-      console.error(error)
-      return NextResponse.json(
-        { error: "Error al obtener el token de Mercado Pago", details: error },
-        { status: 500 }
-      )
-    }
-
-    const access_token = oauthData[0].access_token
-
-    const client = new MercadoPagoConfig({
-      accessToken: access_token,
-    })
-
     const preference = new Preference(client)
     const result = await preference.create({ body: preferenceBody })
 
