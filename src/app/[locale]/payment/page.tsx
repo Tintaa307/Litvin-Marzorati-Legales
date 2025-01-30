@@ -16,7 +16,7 @@ import axios from "axios"
 import { toast } from "react-toastify"
 import { v4 as UUIDv4 } from "uuid"
 import Link from "next/link"
-import { NextIntlClientProvider, useLocale, useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
@@ -34,30 +34,7 @@ export default function CheckoutSummary() {
   const [price, setPrice] = useState("")
   const [ready, setReady] = useState(false)
 
-  const handlePayment = async () => {
-    try {
-      await axios
-        .post("/api/create-preference", {
-          id: UUIDv4(),
-          title: "prueba",
-          quantity: 1,
-          price: 1,
-        })
-        .then((response) => {
-          if (!response.data.preference)
-            return toast.warning("Error al procesar el pago")
-
-          setPreferenceId(response.data.preference)
-        })
-        .catch((error) => {
-          console.log(error)
-          toast.warning("Error al procesar el pago")
-        })
-    } catch (error) {
-      console.error(error)
-      toast.warning("Error al procesar el pago")
-    }
-  }
+  const preference = useSearchParams().get("preferenceId")
 
   const handleReady = () => {
     setReady(true)
@@ -92,9 +69,9 @@ export default function CheckoutSummary() {
 
   return (
     <div className="min-h-screen bg-[#F5F5F3] flex items-center justify-center p-4">
-      <div className="absolute top-3 left-3">
+      <div className="absolute top-3 left-3 z-10">
         <Link href={`/${locale}/brand-register`} passHref>
-          <Button variant="default" className="shadow-md">
+          <Button variant="default" className="shadow-md text-sm">
             <ArrowLeft className="h-4 w-4 mr-2" />
             {tPayment("link")}
           </Button>
@@ -102,64 +79,59 @@ export default function CheckoutSummary() {
       </div>
       <Card className="w-full max-w-xl bg-white shadow-lg">
         <CardHeader className="text-center space-y-4 pb-6">
-          <CardTitle className="font-meshedDisplay text-4xl font-bold text-black">
+          <CardTitle className="font-meshedDisplay text-3xl sm:text-4xl font-bold text-black">
             {tPayment("title")}
           </CardTitle>
-          <p className="text-gray-500">{tPayment("subtitle")}</p>
+          <p className="text-gray-500 text-sm sm:text-base">
+            {tPayment("subtitle")}
+          </p>
         </CardHeader>
         <CardContent className="space-y-6">
-          {/* Detalles del Usuario */}
+          {/* Client Details */}
           <div className="space-y-4">
             <h3 className="font-semibold text-lg text-black">
               {tPayment("client-info-title")}
             </h3>
-            <div className="grid grid-cols-2 gap-4 text-sm">
-              <div>
-                <p className="text-gray-500">{tPayment("client-name")}</p>
-                <p className="font-medium">{name}</p>
-              </div>
-              <div>
-                <p className="text-gray-500">{tPayment("client-email")}</p>
-                <p className="font-medium">{email}</p>
-              </div>
-              <div>
-                <p className="text-gray-500">{tPayment("client-id")}</p>
-                <p className="font-medium">{registration}</p>
-              </div>
-              <div>
-                <p className="text-gray-500">{tPayment("client-phone")}</p>
-                <p className="font-medium">{enterprisePhone}</p>
-              </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+              {[
+                { label: "client-name", value: name },
+                { label: "client-email", value: email },
+                { label: "client-id", value: registration },
+                { label: "client-phone", value: enterprisePhone },
+              ].map((item, index) => (
+                <div key={index} className="space-y-1">
+                  <p className="text-gray-500">{tPayment(item.label)}</p>
+                  <p className="font-medium">{item.value}</p>
+                </div>
+              ))}
             </div>
           </div>
 
           <Separator />
 
-          {/* Detalles del Servicio */}
+          {/* Service Details */}
           <div className="space-y-4">
             <h3 className="font-semibold text-lg text-[#1A1A1A]">
               {tPayment("service-details-title")}
             </h3>
             <div className="bg-[#F5F5F3] p-4 rounded-lg">
-              <div className="flex items-start justify-between">
-                <div>
-                  <p className="font-medium">{""}</p>
-                  <ul className="mt-2 space-y-2">
-                    <li className="flex items-center text-sm text-gray-600">
-                      <Check className="h-4 w-4 mr-2 text-[#F4A261]" />
-                      {tPayment("service-item1")}
-                    </li>
-                    <li className="flex items-center text-sm text-gray-600">
-                      <Check className="h-4 w-4 mr-2 text-[#F4A261]" />
-                      {tPayment("service-item2")}
-                    </li>
-                    <li className="flex items-center text-sm text-gray-600">
-                      <Check className="h-4 w-4 mr-2 text-[#F4A261]" />
-                      {tPayment("service-item3")}
-                    </li>
+              <div className="flex flex-col sm:flex-row items-start justify-between">
+                <div className="mb-4 sm:mb-0">
+                  <ul className="space-y-2">
+                    {["service-item1", "service-item2", "service-item3"].map(
+                      (item, index) => (
+                        <li
+                          key={index}
+                          className="flex items-center text-sm text-gray-600"
+                        >
+                          <Check className="h-4 w-4 mr-2 text-[#F4A261] flex-shrink-0" />
+                          <span>{tPayment(item)}</span>
+                        </li>
+                      )
+                    )}
                   </ul>
                 </div>
-                <div className="text-right">
+                <div className="text-left sm:text-right mt-4 sm:mt-0">
                   <p className="text-sm text-gray-500">
                     {tPayment("price-label")}
                   </p>
@@ -174,26 +146,22 @@ export default function CheckoutSummary() {
           <Separator />
 
           {/* Total */}
-          <div className="flex justify-between items-center pt-4">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center pt-4 gap-4 sm:gap-0">
             <div>
               <p className="text-gray-500">{tPayment("total-label")}</p>
-              <p className="text-3xl font-semibold text-[#1A1A1A]">{price}$</p>
+              <p className="text-2xl sm:text-3xl font-semibold text-[#1A1A1A]">
+                {price}$
+              </p>
             </div>
-            <div className="text-right text-sm text-gray-500">
+            <div className="text-left sm:text-right text-sm text-gray-500">
               <p>{tPayment("total-note")}</p>
             </div>
           </div>
         </CardContent>
         <CardFooter className="p-6 bg-gray-50">
-          <button
-            onClick={handlePayment}
-            className={cn("w-full", {
-              "shadow-md h-11 border border-gray-500 rounded-md": !ready,
-            })}
-          >
-            {renderCheckoutButton(preferenceId)}
-            {ready ? "" : tPayment("button")}
-          </button>
+          <div className="w-full">
+            {preference ? renderCheckoutButton(preference) : ""}
+          </div>
         </CardFooter>
       </Card>
     </div>
