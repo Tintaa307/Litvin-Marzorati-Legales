@@ -75,6 +75,30 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
     }
   }
 
+  const sendBillingData = async (result: any) => {
+    try {
+      const res = await axios.post(
+        process.env.NODE_ENV === "development"
+          ? "http://localhost:3000/api/billing"
+          : "https://lmlegales.com.ar/api/billing",
+        result
+      )
+
+      if (res.status === 200) {
+        console.log(res)
+      } else {
+        console.log(res)
+      }
+
+      return toast.success("Datos guardados correctamente")
+    } catch (error) {
+      if (error instanceof ZodError) {
+        error.errors.map((err) => toast.info(err.message))
+      }
+      console.log(error)
+    }
+  }
+
   const handleNextStep = async (e: React.FormEvent) => {
     e.preventDefault()
 
@@ -84,11 +108,13 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
         client: personType,
       }
 
-      PaidmentFormSchema.parse(values)
+      const result = PaidmentFormSchema.parse(values)
 
       if (!isChecked) {
         return toast.warning("Por favor acepte los términos y condiciones")
       }
+
+      sendBillingData(result)
 
       // Obtener preferenceId antes de continuar
       const newPreferenceId = await handlePayment()
