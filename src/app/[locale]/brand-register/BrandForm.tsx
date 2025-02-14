@@ -1,6 +1,6 @@
 import InputLabel from "@/components/sections/contact/InputLabel"
 import React, { useEffect, useState } from "react"
-import SliderComponent from "./Slider"
+import CheckboxGrid from "./CheckboxGrid"
 import DialogBrand from "./DialogBrand"
 import { Card, CardContent } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
@@ -91,7 +91,7 @@ const BrandForm = ({ setIsOpen }: BrandFormProps) => {
                 pos="03"
                 text={tBrandRegister("label3")}
               />
-              <SliderComponent
+              <CheckboxGrid
                 numberOfProducts={numberOfProducts}
                 setNumberOfProducts={setNumberOfProducts}
               />

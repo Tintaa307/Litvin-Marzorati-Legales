@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import Image from "next/image"
 import { Skeleton } from "@/components/ui/skeleton"
+import { useQuery } from "@tanstack/react-query"
 
 type InstagramPost = {
   id: string
@@ -35,6 +36,7 @@ export default function InstagramFeed({
 
   const fetchInstagramFeed = async () => {
     "use cache"
+
     const response = await axios.get("/api/instagram")
 
     if (response.status !== 200) {

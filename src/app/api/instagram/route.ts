@@ -10,8 +10,6 @@ export async function GET() {
 
     const data = await response.json()
 
-    console.log(data)
-
     if (data.error) {
       console.log(data.error)
       return NextResponse.json({ error: data.error, status: 500 })

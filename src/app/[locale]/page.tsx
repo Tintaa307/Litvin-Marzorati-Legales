@@ -1,6 +1,5 @@
 import Nav from "@/components/Nav"
 import Chat from "@/components/sections/chatbot/Chatbot"
-import Eventos from "@/components/sections/eventos/Eventos"
 import FAQ from "@/components/sections/faq/FAQ"
 import InstagramFeed from "@/components/sections/feed/InstagramFeed"
 import FinalCTA from "@/components/sections/landing/FinalCTA"
@@ -8,6 +7,7 @@ import Hero from "@/components/sections/landing/Hero"
 import LogoMarquee from "@/components/sections/landing/LogoMarquee"
 import Media from "@/components/sections/landing/Media"
 import Services from "@/components/sections/landing/Services"
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { useLocale, useTranslations } from "next-intl"
 
 export default function Home() {
@@ -17,6 +17,7 @@ export default function Home() {
   const locale = useLocale()
   const tInstagram = useTranslations("InstagramFeed")
   const tFAQ = useTranslations("FAQ")
+  const queryClient = new QueryClient()
 
   return (
     <div>
