@@ -26,7 +26,7 @@ export async function POST(request: Request) {
         Teléfono:
         - +54 9 11 4081-4887
       `,
-      maxTokens: 100,
+      maxTokens: 300,
       messages,
       tools: {},
     })
