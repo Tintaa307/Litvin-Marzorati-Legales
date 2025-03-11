@@ -7,6 +7,8 @@ import { TagManagerProvider } from "@/context/TagManager"
 import { NextIntlClientProvider } from "next-intl"
 import { getMessages } from "next-intl/server"
 
+import FacebookPixel from "@/components/facebook-pixel/facebook-pixel"
+
 const poppins = localFont({
   variable: "--font-poppins",
   src: [
@@ -79,6 +81,8 @@ export default async function LocaleLayout({
           "font-poppins"
         )}
       >
+        <FacebookPixel />
+
         <NextIntlClientProvider messages={messages}>
           <TagManagerProvider>
             <main className="flex flex-col overflow-hidden">

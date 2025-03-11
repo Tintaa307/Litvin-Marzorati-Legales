@@ -30,10 +30,6 @@ export default function InstagramFeed({
   const [feed, setFeed] = useState<InstagramPost[]>([])
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    feed.map((post) => console.log(post))
-  }, [feed])
-
   const fetchInstagramFeed = async () => {
     "use cache"
 
