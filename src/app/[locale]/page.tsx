@@ -7,7 +7,7 @@ import Hero from "@/components/sections/landing/Hero"
 import LogoMarquee from "@/components/sections/landing/LogoMarquee"
 import Media from "@/components/sections/landing/Media"
 import Services from "@/components/sections/landing/Services"
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import { QueryProvider } from "@/context/query-client-provider"
 import { useLocale, useTranslations } from "next-intl"
 
 export default function Home() {
@@ -15,9 +15,7 @@ export default function Home() {
   const tHero = useTranslations("Hero")
   const tMedia = useTranslations("Media")
   const locale = useLocale()
-  const tInstagram = useTranslations("InstagramFeed")
   const tFAQ = useTranslations("FAQ")
-  const queryClient = new QueryClient()
 
   return (
     <div>
@@ -50,11 +48,9 @@ export default function Home() {
         header={{ title: tMedia("title"), subtitle: tMedia("subtitle") }}
       />
       {/* <Eventos /> */}
-      <InstagramFeed
-        title={tInstagram("title")}
-        subtitle={tInstagram("subtitle")}
-        cta={tInstagram("cta")}
-      />
+      <QueryProvider>
+        <InstagramFeed />
+      </QueryProvider>
       <FAQ title={tFAQ("title")} subtitle={tFAQ("subtitle")} questions={tFAQ} />
       <Chat />
       <FinalCTA />
