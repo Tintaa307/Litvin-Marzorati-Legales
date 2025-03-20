@@ -8,6 +8,7 @@ import { NextIntlClientProvider } from "next-intl"
 import { getMessages } from "next-intl/server"
 
 import FacebookPixel from "@/components/facebook-pixel/facebook-pixel"
+import Chat from "@/components/sections/chatbot/Chatbot"
 
 const poppins = localFont({
   variable: "--font-poppins",
@@ -87,6 +88,7 @@ export default async function LocaleLayout({
           <TagManagerProvider>
             <main className="flex flex-col overflow-hidden">
               {children}
+              <Chat />
               <Footer />
             </main>
           </TagManagerProvider>

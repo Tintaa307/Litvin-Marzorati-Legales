@@ -52,7 +52,6 @@ export default function Home() {
         <InstagramFeed />
       </QueryProvider>
       <FAQ title={tFAQ("title")} subtitle={tFAQ("subtitle")} questions={tFAQ} />
-      <Chat />
       <FinalCTA />
     </div>
   )

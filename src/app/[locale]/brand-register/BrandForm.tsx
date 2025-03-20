@@ -15,7 +15,7 @@ type BrandFormProps = {
 }
 
 const BrandForm = ({ setIsOpen }: BrandFormProps) => {
-  const [numberOfProducts, setNumberOfProducts] = useState(1)
+  const [numberOfProducts, setNumberOfProducts] = useState(0)
   const [price, setPrice] = useState(145000)
   const tBrandRegister = useTranslations("brand-register")
   const [formData, setFormData] = useState({
@@ -91,6 +91,10 @@ const BrandForm = ({ setIsOpen }: BrandFormProps) => {
                 pos="03"
                 text={tBrandRegister("label3")}
               />
+              <p className="text-sm text-black/60">
+                Si no sabes cuántos productos necesitas, puedes acudir a nuestro
+                chatbot.
+              </p>
               <CheckboxGrid
                 numberOfProducts={numberOfProducts}
                 setNumberOfProducts={setNumberOfProducts}
