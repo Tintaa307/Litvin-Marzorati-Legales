@@ -24,7 +24,7 @@ export async function POST(request: Request) {
         - info@lmlegales.com.ar
 
         Teléfono:
-        - +54 9 11 4081-4887
+        - +54 9 11 6360-6526
       `,
       maxTokens: 300,
       messages,
