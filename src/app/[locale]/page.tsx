@@ -48,9 +48,11 @@ export default function Home() {
         header={{ title: tMedia("title"), subtitle: tMedia("subtitle") }}
       />
       {/* <Eventos /> */}
+        {/*
       <QueryProvider>
-        <InstagramFeed />
+         <InstagramFeed /> 
       </QueryProvider>
+         */}
       <FAQ title={tFAQ("title")} subtitle={tFAQ("subtitle")} questions={tFAQ} />
       <FinalCTA />
     </div>
