@@ -1,5 +1,4 @@
 import Nav from "@/components/Nav"
-import Chat from "@/components/sections/chatbot/Chatbot"
 import FAQ from "@/components/sections/faq/FAQ"
 import InstagramFeed from "@/components/sections/feed/InstagramFeed"
 import FinalCTA from "@/components/sections/landing/FinalCTA"
@@ -7,7 +6,6 @@ import Hero from "@/components/sections/landing/Hero"
 import LogoMarquee from "@/components/sections/landing/LogoMarquee"
 import Media from "@/components/sections/landing/Media"
 import Services from "@/components/sections/landing/Services"
-import { QueryProvider } from "@/context/query-client-provider"
 import { useLocale, useTranslations } from "next-intl"
 
 export default function Home() {
@@ -48,11 +46,9 @@ export default function Home() {
         header={{ title: tMedia("title"), subtitle: tMedia("subtitle") }}
       />
       {/* <Eventos /> */}
-        {/*
-      <QueryProvider>
-         <InstagramFeed /> 
-      </QueryProvider>
-         */}
+
+      <InstagramFeed />
+
       <FAQ title={tFAQ("title")} subtitle={tFAQ("subtitle")} questions={tFAQ} />
       <FinalCTA />
     </div>
