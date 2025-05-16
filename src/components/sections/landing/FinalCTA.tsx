@@ -1,7 +1,6 @@
 import CtaButton from "@/components/inputs/Button"
 import Heading from "@/components/text/Heading"
 import { useLocale, useTranslations } from "next-intl"
-import Link from "next/link"
 
 const FinalCTA = () => {
   const t = useTranslations("FinalCTA")

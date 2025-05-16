@@ -9,6 +9,7 @@ import { getMessages } from "next-intl/server"
 
 import FacebookPixel from "@/components/facebook-pixel/facebook-pixel"
 import Chat from "@/components/sections/chatbot/Chatbot"
+import FloatingButton from "@/components/sections/FloatingButton"
 
 const poppins = localFont({
   variable: "--font-poppins",
@@ -90,6 +91,7 @@ export default async function LocaleLayout({
               {children}
               <Chat />
               <Footer />
+              <FloatingButton phoneNumber="5491163606526" />
             </main>
           </TagManagerProvider>
         </NextIntlClientProvider>

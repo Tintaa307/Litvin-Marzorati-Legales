@@ -2,7 +2,6 @@
 
 import { cn } from "@/lib/utils"
 import { useChat } from "ai/react"
-import Link from "next/link"
 import { useEffect, useState } from "react"
 import ReactMarkdown from "react-markdown"
 
