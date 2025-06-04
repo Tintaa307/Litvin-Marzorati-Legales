@@ -46,13 +46,6 @@ export default function CheckoutSummary() {
     return (
       <Wallet
         initialization={{ preferenceId }}
-        customization={{
-          visual: {
-            buttonBackground: "black",
-            horizontalPadding: "20px",
-          },
-          texts: { valueProp: "smart_option" },
-        }}
         onReady={handleReady}
         locale="es-AR"
       />
