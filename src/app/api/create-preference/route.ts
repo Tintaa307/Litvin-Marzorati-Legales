@@ -8,10 +8,8 @@ const client = new MercadoPagoConfig({
   accessToken: my_access_token,
 })
 
-// Endpoint principal
 export async function POST(request: NextRequest) {
   try {
-    // Leer el body de la request
     const body = await request.json()
 
     // Validar los campos requeridos
@@ -50,7 +48,6 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Respuesta exitosa
     return NextResponse.json({
       message: "Preferencia creada correctamente",
       preference: result.id,

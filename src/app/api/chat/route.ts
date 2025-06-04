@@ -1,39 +1,49 @@
-import { streamText } from "ai"
-import { openai } from "@ai-sdk/openai"
-import { NextResponse } from "next/server"
+import { convertToCoreMessages, Message, streamText } from "ai"
 import { responses } from "@/lib/chat/responses"
 
+// Se utiliza el modelo openai
+import { openai } from "@ai-sdk/openai"
+
 export async function POST(request: Request) {
-  try {
-    const { messages } = await request.json()
+  const { messages }: { messages: Array<Message> } = await request.json()
 
-    const stream = await streamText({
-      //@ts-ignore
-      model: openai("gpt-4o"),
-      system: `
-        Usted es un asistente útil que brinda información sobre los servicios de Litvin-Marzorati Legales o tambien LML Legales. Tienes que ser amable e informativo. Puede proporcionar información sobre los servicios, programar una reunión o proporcionar información de contacto que se encuentra en el archivo ${responses}. Si el usuario solicita algo que no está en el archivo, puede proporcionar un mensaje predeterminado como "Lo siento, no tengo una respuesta para eso. Tambien puedes proporcionar informacion acerca de los numeros de clases del 1 al 45. Que numero representa la clase que desea registrar el usuario etc."
+  const coreMessages = convertToCoreMessages(messages).filter(
+    (message) => message.content.length > 0
+  )
 
-        You are a useful assistant who provides information about the services of Litvin-Marzorati Legales or also LML Legales. You have to be friendly and informative. You can provide information about services, schedule a meeting, or provide contact information found in the ${responses} file. If the user requests something that is not in the file, you can provide a default message such as "Sorry, I don't have an answer for that. You can also provide information about the numbers of classes from 1 to 45. Which number represents the class that the user wants to register etc."
+  const result = await streamText({
+    model: openai("gpt-4o-mini"),
+    system: `Usted es un asistente útil que brinda información sobre los servicios de Litvin-Marzorati Legales o tambien LML Legales.
+              Tienes que ser amable e informativo. Puedes proporcionar información sobre los servicios, programar una reunión
+              o proporcionar información de contacto que se encuentra en el archivo ${responses}. Si el usuario solicita
+              algo que no está en el archivo, puedes proporcionar un mensaje predeterminado como
+              "Lo siento, no tengo una respuesta para eso. También puedes proporcionar información acerca de los números
+              de clases del 1 al 45. ¿Qué número representa la clase que desea registrar el usuario, etc.?"
 
-        Las redes sociales de Litvin-Marzorati Legales son:
-        - Facebook: https://www.facebook.com/Lmlegales
-        - Instagram: https://www.instagram.com/lmlegales/
-        - LinkedIn: https://www.linkedin.com/company/litvin-marzorati-legales/?originalSubdomain=ar
+              You are a useful assistant who provides information about the services of Litvin-Marzorati Legales
+              or also LML Legales. You have to be friendly and informative. You can provide information about services,
+              schedule a meeting, or provide contact information found in the ${responses} file.
+              If the user requests something that is not in the file, you can provide a default message such as
+              "Sorry, I don't have an answer for that. You can also provide information about the numbers of classes
+              from 1 to 45. Which number represents the class that the user wants to register etc.?"
 
-        Correo electrónico:
-        - info@lmlegales.com.ar
+              Las redes sociales de Litvin-Marzorati Legales son:
+              - Facebook: https://www.facebook.com/Lmlegales
+              - Instagram: https://www.instagram.com/lmlegales/
+              - LinkedIn: https://www.linkedin.com/company/litvin-marzorati-legales/?originalSubdomain=ar
 
-        Teléfono:
-        - +54 9 11 6360-6526
-      `,
-      maxTokens: 300,
-      messages,
-      tools: {},
-    })
+              Correo electrónico:
+              - info@lmlegales.com.ar
 
-    return stream.toAIStreamResponse()
-  } catch (error) {
-    console.log(error)
-    return NextResponse.json({ error: "Something went wrong" }, { status: 500 })
-  }
+              Teléfono:
+              - +54 9 11 6360-6526
+            `,
+    messages: coreMessages,
+    maxTokens: 300,
+    tools: {},
+  })
+
+  const dataStreamResponse = await result.toDataStreamResponse({})
+
+  return dataStreamResponse
 }
