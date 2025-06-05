@@ -219,6 +219,7 @@
     "total-label": "Total a pagar",
     "total-note": "IVA incluido",
     "button": "Continuar con el pago",
+    "confirm-purchase": "Confirmar compra",
     "link": "Volver"
   }
 }

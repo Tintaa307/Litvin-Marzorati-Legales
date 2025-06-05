@@ -218,6 +218,7 @@
     "total-label": "Total to pay",
     "total-note": "VAT included",
     "button": "Proceed to payment",
+    "confirm-purchase": "Confirm purchase",
     "link": "Back"
   }
 }

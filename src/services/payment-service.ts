@@ -11,9 +11,9 @@ export class PaymentService {
   private readonly client: Preference
 
   constructor() {
-    const accessToken = process.env.MERCADO_PAGO_ACCESS_TOKEN as string
+    const accessToken = process.env.ACCESS_TOKEN_MP as string
     if (!accessToken) {
-      throw new Error("MERCADO_PAGO_ACCESS_TOKEN is not set")
+      throw new Error("ACCESS_TOKEN_MP is not set")
     }
 
     const config = new MercadoPagoConfig({ accessToken })

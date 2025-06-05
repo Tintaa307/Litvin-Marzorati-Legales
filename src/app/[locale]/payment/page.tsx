@@ -9,56 +9,44 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
-import { useSearchParams } from "next/navigation"
-import { initMercadoPago, Wallet } from "@mercadopago/sdk-react"
-import { useEffect, useState } from "react"
-import axios from "axios"
-import { toast } from "react-toastify"
-import { v4 as UUIDv4 } from "uuid"
+import { useRouter, useSearchParams } from "next/navigation"
 import Link from "next/link"
 import { useLocale, useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
-
-initMercadoPago("APP_USR-8a64f5d3-fd86-4481-83d8-308c4bddf649")
+import { createPayment } from "@/controller/payment-controller"
+import { toast } from "react-toastify"
 
 export default function CheckoutSummary() {
   const tPayment = useTranslations("confirm-purchase")
   const searchParams = useSearchParams()
-  const [preferenceId, setPreferenceId] = useState("")
   const locale = useLocale()
   const name = searchParams.get("name")
   const email = searchParams.get("email")
   const registration = searchParams.get("registration")
   const enterprisePhone = searchParams.get("enterprisePhone")
-  const [price, setPrice] = useState("")
-  const [ready, setReady] = useState(false)
+  const price = searchParams.get("price")
+  const router = useRouter()
 
-  const preference = useSearchParams().get("preferenceId")
+  const handleCreatePayment = async () => {
+    try {
+      const result = await createPayment({
+        title: "Registro de marca",
+        quantity: 1,
+        price: Number(price),
+      })
 
-  const handleReady = () => {
-    setReady(true)
-  }
+      if (!("init_point" in result)) {
+        return toast.error(result.userMessage)
+      }
 
-  const renderCheckoutButton = (preferenceId: string) => {
-    if (!preferenceId) return null
-
-    return (
-      <Wallet
-        initialization={{ preferenceId }}
-        onReady={handleReady}
-        locale="es-AR"
-      />
-    )
-  }
-
-  useEffect(() => {
-    if (localStorage.getItem("brand")) {
-      const price = JSON.parse(localStorage.getItem("brand")!).price
-
-      setPrice(price)
+      if ("init_point" in result) {
+        router.push(result.init_point)
+      }
+    } catch (error) {
+      console.log(error)
+      return toast.error("Hubo un error al crear el pago")
     }
-  }, [])
+  }
 
   return (
     <div className="min-h-screen bg-[#F5F5F3] flex items-center justify-center p-4">
@@ -152,9 +140,12 @@ export default function CheckoutSummary() {
           </div>
         </CardContent>
         <CardFooter className="p-6 bg-gray-50">
-          <div className="w-full">
-            {preference ? renderCheckoutButton(preference) : ""}
-          </div>
+          <Button
+            className="w-full text-base px-2 py-4 sm:py-6 rounded-md bg-gradient-to-r from-accent-brown from-[-39.43%] to-accent-orange to-162%"
+            onClick={handleCreatePayment}
+          >
+            {tPayment("confirm-purchase")}
+          </Button>
         </CardFooter>
       </Card>
     </div>

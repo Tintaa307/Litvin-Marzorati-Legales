@@ -15,7 +15,6 @@ import { useRouter } from "next/navigation"
 import { useLocale, useTranslations } from "next-intl"
 import axios from "axios"
 import { toast } from "react-toastify"
-import { v4 as UUIDv4 } from "uuid"
 
 type PaidmentFormProps = {
   isOpen: boolean
@@ -29,7 +28,6 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
   const locale = useLocale()
   const [isChecked, setIsChecked] = React.useState<boolean>(false)
   const [price, setPrice] = React.useState("")
-  const [preferenceId, setPreferenceId] = React.useState("")
   const [formData, setFormData] = React.useState({
     name: "",
     email: "",
@@ -53,49 +51,22 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
     }
   }, [])
 
-  const handlePayment = async (): Promise<string | null> => {
-    try {
-      const response = await axios.post("/api/create-preference", {
-        id: UUIDv4(),
-        title: "Registro de marca",
-        quantity: 1,
-        price: price,
-      })
-
-      if (!response.data.preference) {
-        toast.warning("Error al procesar el pago")
-        return null
-      }
-
-      return response.data.preference
-    } catch (error) {
-      console.log(error)
-      toast.warning("Error al procesar el pago")
-      return null
-    }
-  }
-
   const sendBillingData = async (result: any) => {
     try {
-      const res = await axios.post(
+      await axios.post(
         process.env.NODE_ENV === "development"
           ? "http://localhost:3000/api/billing"
           : "https://lmlegales.com.ar/api/billing",
         result
       )
 
-      if (res.status === 200) {
-        console.log(res)
-      } else {
-        console.log(res)
-      }
-
       return toast.success("Datos guardados correctamente")
     } catch (error) {
       if (error instanceof ZodError) {
         error.errors.map((err) => toast.info(err.message))
+      } else {
+        return toast.error("Error al enviar los datos")
       }
-      console.log(error)
     }
   }
 
@@ -116,23 +87,13 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
 
       sendBillingData(result)
 
-      // Obtener preferenceId antes de continuar
-      const newPreferenceId = await handlePayment()
-
-      if (!newPreferenceId) {
-        return toast.warning("Ha ocurrido un error, intente nuevamente")
-      }
-
-      setPreferenceId(newPreferenceId)
-
       router.push(
-        `/${locale}/payment?name=${formData.name}&email=${formData.email}&phone=${formData.phone}&enterprisePhone=${formData.enterprisePhone}&registration=${formData.registration}&rent=${formData.rent}&address=${formData.address}&postalCode=${formData.postalCode}&locality=${formData.locality}&website=${formData.website}&instutionalEmail=${formData.instutionalEmail}&enterpriseName=${formData.enterpriseName}&client=${personType}&preferenceId=${newPreferenceId}`
+        `/${locale}/payment?name=${formData.name}&email=${formData.email}&phone=${formData.phone}&enterprisePhone=${formData.enterprisePhone}&registration=${formData.registration}&rent=${formData.rent}&address=${formData.address}&postalCode=${formData.postalCode}&locality=${formData.locality}&website=${formData.website}&instutionalEmail=${formData.instutionalEmail}&enterpriseName=${formData.enterpriseName}&client=${personType}&price=${price}`
       )
 
       return toast.success("Datos guardados correctamente")
     } catch (error) {
       if (error instanceof ZodError) {
-        console.log(error.errors)
         error.errors.map((err) => toast.warning(err.message))
       }
     }
@@ -201,8 +162,8 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
                         field === "email"
                           ? "email"
                           : field === "phone"
-                            ? "tel"
-                            : "text"
+                          ? "tel"
+                          : "text"
                       }
                       onChange={(e) =>
                         setFormData({ ...formData, [field]: e.target.value })
@@ -242,10 +203,10 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
                             field.includes("email")
                               ? "email"
                               : field === "website"
-                                ? "url"
-                                : field === "enterprisePhone"
-                                  ? "tel"
-                                  : "text"
+                              ? "url"
+                              : field === "enterprisePhone"
+                              ? "tel"
+                              : "text"
                           }
                           onChange={(e) =>
                             setFormData({
