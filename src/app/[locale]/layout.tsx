@@ -61,8 +61,8 @@ const dmSerif = localFont({
 export const metadata = ({ locale }: { locale: string }) => ({
   title:
     locale === "es"
-      ? "Litvin Marzorati Legales | Propiedad Intelectual & Asesoría Legal"
-      : "Litvin Marzorati Legales | Intellectual Property & Legal Advice",
+      ? "Litvin Marzorati Legales | Estudio especializado en PI | Registro de Marcas y Patentes"
+      : "Litvin Marzorati Legales | IP law firm in Argentina | Trademark & Patent",
   description:
     locale === "es"
       ? "LMLegales es un estudio jurídico líder en propiedad intelectual, asesoría legal para emprendedores, startups y proyectos innovadores. Ofrecemos servicios legales expertos en marcas, patentes, derechos de autor, metaverso, inteligencia artificial, derecho de internet y consultoría empresarial. Protege tus ideas, marcas y activos digitales con nuestras soluciones legales innovadoras y personalizadas."
