@@ -5,16 +5,17 @@ import { useChat } from "@ai-sdk/react"
 import { useEffect, useRef, useState } from "react"
 import ReactMarkdown from "react-markdown"
 import { Send, X, Loader2 } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 export default function Chat() {
+  const t = useTranslations("chatbot")
   const { messages, input, handleInputChange, handleSubmit, status } = useChat({
     api: "/api/chat",
     initialMessages: [
       {
         id: "welcome",
         role: "assistant",
-        content:
-          "Hola, soy el asistente virtual de Lmlegales. Dime en que puedo ayudarte.",
+        content: t("welcome"),
       },
     ],
   })
@@ -99,7 +100,7 @@ export default function Chat() {
               <div className="relative w-max h-max px-4 py-3 rounded-2xl rounded-bl-md bg-[#F9AD42] text-black text-sm shadow-sm">
                 <div className="flex items-center gap-2">
                   <Loader2 className="w-4 h-4 animate-spin" />
-                  <span>Pensando...</span>
+                  <span>{t("loader")}</span>
                 </div>
               </div>
             </div>
@@ -114,7 +115,7 @@ export default function Chat() {
           <div className="w-[90%] flex items-center gap-2 bg-white/50 rounded-full px-4 py-2 border border-black/10 focus-within:border-accent-orange/50 transition-colors duration-200">
             <input
               value={input}
-              placeholder="Tu mensaje..."
+              placeholder={t("placeholder")}
               className="flex-1 h-8 text-black bg-transparent font-normal text-sm outline-none placeholder:text-black/60"
               onChange={handleInputChange}
               disabled={status === "streaming" || status === "submitted"}

@@ -108,6 +108,7 @@
   "InstagramFeed": {
     "title": "Conectate con nosotros",
     "subtitle": "Mantenete al tanto de las últimas novedades y noticias de nuestro estudio.",
+    "alt": "imagen de instagram",
     "cta": "Ver mas publicaciones"
   },
   "FAQ": {
@@ -221,5 +222,10 @@
     "button": "Continuar con el pago",
     "confirm-purchase": "Confirmar compra",
     "link": "Volver"
+  },
+  "chatbot": {
+    "welcome": "Hola, soy el asistente virtual de LM Legales. ¿En qué puedo ayudarte?",
+    "loader": "Pensando...",
+    "placeholder": "Tu mensaje..."
   }
 }

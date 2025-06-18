@@ -39,7 +39,7 @@
     "general": "General Legal Advice",
     "internet": "Legal Advice on Internet",
     "projects": "Entrepreneurs and New Projects",
-    "meta": "Legal Advice on Metaverse and AI",
+    "meta": "Legal advice on the metaverse and AI",
     "inicio": "Home",
     "sobreNos": "About us",
     "contact": "Contact",
@@ -107,6 +107,7 @@
   "InstagramFeed": {
     "title": "Connect with us",
     "subtitle": "Discover our latest publications, achievements and events. Stay informed.",
+    "alt": "instagram image",
     "cta": "See more posts"
   },
   "FAQ": {
@@ -220,5 +221,10 @@
     "button": "Proceed to payment",
     "confirm-purchase": "Confirm purchase",
     "link": "Back"
+  },
+  "chatbot": {
+    "welcome": "Hello, I am the LM Legales virtual assistant. How may I help you?",
+    "loader": "Thinking...",
+    "placeholder": "Your message..."
   }
 }
