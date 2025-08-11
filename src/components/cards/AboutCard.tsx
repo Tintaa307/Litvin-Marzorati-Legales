@@ -1,24 +1,38 @@
-import Image from "next/image";
+import type React from "react"
+import Image from "next/image"
 
-interface Props {
-    title: string,
-    text: string,
-    image: string
+interface AboutCardProps {
+  title: string
+  text: string
+  image: string
+  index: number
 }
 
-const AboutCard = ({title, text, image}: Props) => {
-    return (
-        <div className="sm:w-[22rem] w-[20rem] sm:h-[14rem] h-[12rem] bg-[#F4E6DE] rounded-2xl group relative overflow-hidden">
-            <div className="absolute w-full h-full duration-300 bg-gradient-to-br from-accent-orange to-accent-brown opacity-0 group-hover:opacity-100"></div>
-            <div className="absolute w-full h-full flex justify-center items-center text-center p-4 duration-[400ms] -bottom-48 group-hover:-bottom-2">
-                <h2 className="text-white">{text}</h2>
-            </div>
-            <div className="flex flex-col justify-center items-center gap-5 h-full opacity-100 duration-300 group-hover:opacity-0">
-                <Image src={image} alt={title + ' card icon'}></Image>
-                <h2 className="text-[1.4rem]">{title}</h2>
-            </div>
+const AboutCard: React.FC<AboutCardProps> = ({ title, text, image }) => {
+  return (
+    <div className="group relative bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 hover:border-orange-200">
+      <div className="flex items-start gap-4">
+        <div className="flex-shrink-0 w-12 h-12 bg-orange-50 rounded-lg flex items-center justify-center group-hover:bg-orange-100 transition-colors duration-300">
+          <Image
+            src={image || "/placeholder.svg"}
+            alt={`${title} icon`}
+            width={24}
+            height={24}
+            className="text-orange-500"
+          />
         </div>
-    );
-};
 
-export default AboutCard;
+        <div className="flex-1 min-w-0">
+          <h3 className="font-semibold text-gray-900 text-lg mb-2 group-hover:text-orange-600 transition-colors duration-300">
+            {title}
+          </h3>
+          <p className="text-gray-600 text-sm leading-relaxed">{text}</p>
+        </div>
+      </div>
+
+      <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-orange-400 to-orange-600 rounded-l-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+    </div>
+  )
+}
+
+export default AboutCard

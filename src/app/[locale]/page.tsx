@@ -1,4 +1,5 @@
 import Nav from "@/components/Nav"
+import AboutSection from "@/components/sections/about/AboutSection"
 import FAQ from "@/components/sections/faq/FAQ"
 import InstagramFeed from "@/components/sections/feed/InstagramFeed"
 import FinalCTA from "@/components/sections/landing/FinalCTA"
@@ -42,6 +43,7 @@ export default function Home() {
       />
       <Services />
       <LogoMarquee />
+      <AboutSection />
       <Media
         header={{ title: tMedia("title"), subtitle: tMedia("subtitle") }}
       />

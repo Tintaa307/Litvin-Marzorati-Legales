@@ -14,8 +14,8 @@ export default function About() {
         tContacto={tNav("contacto")}
         tServicios={tNav("servicios")}
       />
-      <AboutCards></AboutCards>
-      <Team></Team>
+      <AboutCards />
+      <Team />
     </>
   )
 }

@@ -5,7 +5,6 @@ import Footer from "@/components/sections/Footer"
 import { TagManagerProvider } from "@/context/TagManager"
 import { NextIntlClientProvider } from "next-intl"
 import { getMessages } from "next-intl/server"
-
 import FacebookPixel from "@/components/facebook-pixel/facebook-pixel"
 import Chat from "@/components/sections/chatbot/Chatbot"
 import FloatingButton from "@/components/sections/FloatingButton"
