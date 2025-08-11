@@ -67,7 +67,7 @@ export default function FAQ({ questions, subtitle, title }: FAQProps) {
               >
                 {questions(`questions.${key}.q`)}
               </AccordionTrigger>
-              <AccordionContent className="text-gray-700 leading-relaxed pb-4">
+              <AccordionContent className="text-gray-900 leading-relaxed pb-4">
                 {questions(`questions.${key}.a`)}
               </AccordionContent>
             </AccordionItem>
