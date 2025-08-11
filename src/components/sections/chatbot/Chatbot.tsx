@@ -4,10 +4,9 @@ import { cn } from "@/lib/utils"
 import { useChat } from "@ai-sdk/react"
 import { useEffect, useRef, useState } from "react"
 import ReactMarkdown from "react-markdown"
-import { Send, X, Loader2, MessageCircle, Sparkles, User } from "lucide-react"
+import { Send, X, Loader2, User } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { motion, AnimatePresence } from "framer-motion"
-import { AnimateIcon } from "@/components/animate-ui/icons/icon"
 import { Bot } from "@/components/animate-ui/icons/bot"
 
 export default function Chat() {
@@ -60,13 +59,6 @@ export default function Chat() {
             className="group relative w-16 h-16 bg-gradient-to-r from-accent-brown from-[-39.43%] to-accent-orange to-162% rounded-full shadow-xl hover:shadow-2xl transition-shadow duration-300 flex items-center justify-center"
           >
             <Bot animateOnHover size={34} className="text-white" />
-            <motion.div
-              className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center"
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
-            >
-              <Sparkles className="w-2.5 h-2.5 text-white" />
-            </motion.div>
           </motion.button>
         ) : (
           <motion.div

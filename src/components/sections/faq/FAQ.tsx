@@ -53,7 +53,7 @@ export default function FAQ({ questions, subtitle, title }: FAQProps) {
             <AccordionItem
               key={key}
               className={cn(
-                "border border-gray-300 shadow-md rounded-lg px-6 py-2 bg-[#fcefe8] hover:shadow-md transition-shadow duration-200",
+                "border border-black/20 shadow-md rounded-lg px-6 py-2 bg-[#fcefe8] hover:shadow-md transition-shadow duration-200",
                 {
                   "col-span-2": index === keys.length - 1,
                 }
