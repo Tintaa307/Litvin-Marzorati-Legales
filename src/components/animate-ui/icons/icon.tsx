@@ -1,14 +1,14 @@
-'use client';
+"use client"
 
-import * as React from 'react';
+import * as React from "react"
 import {
   SVGMotionProps,
   useAnimation,
   type LegacyAnimationControls,
   type Variants,
-} from 'motion/react';
+} from "motion/react"
 
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils"
 
 const staticAnimations = {
   path: {
@@ -18,82 +18,82 @@ const staticAnimations = {
       opacity: [0, 1],
       transition: {
         duration: 0.8,
-        ease: 'easeInOut',
+        ease: "easeInOut",
         opacity: { duration: 0.01 },
       },
     },
   } as Variants,
-  'path-loop': {
+  "path-loop": {
     initial: { pathLength: 1, opacity: 1 },
     animate: {
       pathLength: [1, 0.05, 1],
       opacity: [1, 0, 1],
       transition: {
         duration: 1.6,
-        ease: 'easeInOut',
+        ease: "easeInOut",
         opacity: { duration: 0.01 },
       },
     },
   } as Variants,
-} as const;
+} as const
 
-type StaticAnimations = keyof typeof staticAnimations;
-type TriggerProp<T = string> = boolean | StaticAnimations | T;
+type StaticAnimations = keyof typeof staticAnimations
+type TriggerProp<T = string> = boolean | StaticAnimations | T
 
 interface AnimateIconContextValue {
-  controls: LegacyAnimationControls | undefined;
-  animation: StaticAnimations | string;
-  loop: boolean;
-  loopDelay: number;
+  controls: LegacyAnimationControls | undefined
+  animation: StaticAnimations | string
+  loop: boolean
+  loopDelay: number
 }
 
 interface DefaultIconProps<T = string> {
-  animate?: TriggerProp<T>;
+  animate?: TriggerProp<T>
   onAnimateChange?: (
     value: boolean,
-    animation: StaticAnimations | string,
-  ) => void;
-  animateOnHover?: TriggerProp<T>;
-  animateOnTap?: TriggerProp<T>;
-  animation?: T | StaticAnimations;
-  loop?: boolean;
-  loopDelay?: number;
-  onAnimateStart?: () => void;
-  onAnimateEnd?: () => void;
+    animation: StaticAnimations | string
+  ) => void
+  animateOnHover?: TriggerProp<T>
+  animateOnTap?: TriggerProp<T>
+  animation?: T | StaticAnimations
+  loop?: boolean
+  loopDelay?: number
+  onAnimateStart?: () => void
+  onAnimateEnd?: () => void
 }
 
 interface AnimateIconProps<T = string> extends DefaultIconProps<T> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  children: React.ReactElement<any, any>;
+  children: React.ReactElement<any, any>
 }
 
 interface IconProps<T>
   extends DefaultIconProps<T>,
     Omit<
       SVGMotionProps<SVGSVGElement>,
-      'animate' | 'onAnimationStart' | 'onAnimationEnd'
+      "animate" | "onAnimationStart" | "onAnimationEnd"
     > {
-  size?: number;
+  size?: number
 }
 
 interface IconWrapperProps<T> extends IconProps<T> {
-  icon: React.ComponentType<IconProps<T>>;
+  icon: React.ComponentType<IconProps<T>>
 }
 
 const AnimateIconContext = React.createContext<AnimateIconContextValue | null>(
-  null,
-);
+  null
+)
 
 function useAnimateIconContext() {
-  const context = React.useContext(AnimateIconContext);
+  const context = React.useContext(AnimateIconContext)
   if (!context)
     return {
       controls: undefined,
-      animation: 'default',
+      animation: "default",
       loop: false,
       loopDelay: 0,
-    };
-  return context;
+    }
+  return context
 }
 
 function AnimateIcon({
@@ -101,73 +101,72 @@ function AnimateIcon({
   onAnimateChange,
   animateOnHover,
   animateOnTap,
-  animation = 'default',
+  animation = "default",
   loop = false,
   loopDelay = 0,
   onAnimateStart,
   onAnimateEnd,
   children,
 }: AnimateIconProps) {
-  const controls = useAnimation();
-  const [localAnimate, setLocalAnimate] = React.useState(!!animate);
-  const currentAnimation = React.useRef(animation);
+  const controls = useAnimation()
+  const [localAnimate, setLocalAnimate] = React.useState(!!animate)
+  const currentAnimation = React.useRef(animation)
 
   const startAnimation = React.useCallback(
     (trigger: TriggerProp) => {
       currentAnimation.current =
-        typeof trigger === 'string' ? trigger : animation;
-      setLocalAnimate(true);
+        typeof trigger === "string" ? trigger : animation
+      setLocalAnimate(true)
     },
-    [animation],
-  );
+    [animation]
+  )
 
   const stopAnimation = React.useCallback(() => {
-    setLocalAnimate(false);
-  }, []);
+    setLocalAnimate(false)
+  }, [])
 
   React.useEffect(() => {
-    currentAnimation.current =
-      typeof animate === 'string' ? animate : animation;
-    setLocalAnimate(!!animate);
+    currentAnimation.current = typeof animate === "string" ? animate : animation
+    setLocalAnimate(!!animate)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [animate]);
+  }, [animate])
 
   React.useEffect(
     () => onAnimateChange?.(localAnimate, currentAnimation.current),
-    [localAnimate, onAnimateChange],
-  );
+    [localAnimate, onAnimateChange]
+  )
 
   React.useEffect(() => {
-    if (localAnimate) onAnimateStart?.();
-    controls.start(localAnimate ? 'animate' : 'initial').then(() => {
-      if (localAnimate) onAnimateEnd?.();
-    });
-  }, [localAnimate, controls, onAnimateStart, onAnimateEnd]);
+    if (localAnimate) onAnimateStart?.()
+    controls.start(localAnimate ? "animate" : "initial").then(() => {
+      if (localAnimate) onAnimateEnd?.()
+    })
+  }, [localAnimate, controls, onAnimateStart, onAnimateEnd])
 
   const handleMouseEnter = (e: MouseEvent) => {
-    if (animateOnHover) startAnimation(animateOnHover);
-    children.props?.onMouseEnter?.(e);
-  };
+    if (animateOnHover) startAnimation(animateOnHover)
+    children.props?.onMouseEnter?.(e)
+  }
   const handleMouseLeave = (e: MouseEvent) => {
-    if (animateOnHover || animateOnTap) stopAnimation();
-    children.props?.onMouseLeave?.(e);
-  };
+    if (animateOnHover || animateOnTap) stopAnimation()
+    children.props?.onMouseLeave?.(e)
+  }
   const handlePointerDown = (e: PointerEvent) => {
-    if (animateOnTap) startAnimation(animateOnTap);
-    children.props?.onPointerDown?.(e);
-  };
+    if (animateOnTap) startAnimation(animateOnTap)
+    children.props?.onPointerDown?.(e)
+  }
   const handlePointerUp = (e: PointerEvent) => {
-    if (animateOnTap) stopAnimation();
-    children.props?.onPointerUp?.(e);
-  };
+    if (animateOnTap) stopAnimation()
+    children.props?.onPointerUp?.(e)
+  }
 
-  const child = React.Children.only(children);
+  const child = React.Children.only(children)
   const cloned = React.cloneElement(child, {
     onMouseEnter: handleMouseEnter,
     onMouseLeave: handleMouseLeave,
     onPointerDown: handlePointerDown,
     onPointerUp: handlePointerUp,
-  });
+  })
 
   return (
     <AnimateIconContext.Provider
@@ -180,11 +179,11 @@ function AnimateIcon({
     >
       {cloned}
     </AnimateIconContext.Provider>
-  );
+  )
 }
 
 const pathClassName =
-  "[&_[stroke-dasharray='1px_1px']]:![stroke-dasharray:1px_0px]";
+  "[&_[stroke-dasharray='1px_1px']]:![stroke-dasharray:1px_0px]"
 
 function IconWrapper<T extends string>({
   size = 28,
@@ -201,7 +200,7 @@ function IconWrapper<T extends string>({
   className,
   ...props
 }: IconWrapperProps<T>) {
-  const context = React.useContext(AnimateIconContext);
+  const context = React.useContext(AnimateIconContext)
 
   if (context) {
     const {
@@ -209,10 +208,10 @@ function IconWrapper<T extends string>({
       animation: parentAnimation,
       loop: parentLoop,
       loopDelay: parentLoopDelay,
-    } = context;
-    const animationToUse = animationProp ?? parentAnimation;
-    const loopToUse = loop || parentLoop;
-    const loopDelayToUse = loopDelay || parentLoopDelay;
+    } = context
+    const animationToUse = animationProp ?? parentAnimation
+    const loopToUse = loop || parentLoop
+    const loopDelayToUse = loopDelay || parentLoopDelay
 
     return (
       <AnimateIconContext.Provider
@@ -227,13 +226,13 @@ function IconWrapper<T extends string>({
           size={size}
           className={cn(
             className,
-            (animationToUse === 'path' || animationToUse === 'path-loop') &&
-              pathClassName,
+            (animationToUse === "path" || animationToUse === "path-loop") &&
+              pathClassName
           )}
           {...props}
         />
       </AnimateIconContext.Provider>
-    );
+    )
   }
 
   if (
@@ -259,13 +258,13 @@ function IconWrapper<T extends string>({
           size={size}
           className={cn(
             className,
-            (animationProp === 'path' || animationProp === 'path-loop') &&
-              pathClassName,
+            (animationProp === "path" || animationProp === "path-loop") &&
+              pathClassName
           )}
           {...props}
         />
       </AnimateIcon>
-    );
+    )
   }
 
   return (
@@ -273,76 +272,76 @@ function IconWrapper<T extends string>({
       size={size}
       className={cn(
         className,
-        (animationProp === 'path' || animationProp === 'path-loop') &&
-          pathClassName,
+        (animationProp === "path" || animationProp === "path-loop") &&
+          pathClassName
       )}
       {...props}
     />
-  );
+  )
 }
 
 function getVariants<
   V extends { default: T; [key: string]: T },
-  T extends Record<string, Variants>,
+  T extends Record<string, Variants>
 >(animations: V): T {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { animation: animationType, loop, loopDelay } = useAnimateIconContext();
+  const { animation: animationType, loop, loopDelay } = useAnimateIconContext()
 
-  let result: T;
+  let result: T
 
   if (animationType in staticAnimations) {
-    const variant = staticAnimations[animationType as StaticAnimations];
-    result = {} as T;
+    const variant = staticAnimations[animationType as StaticAnimations]
+    result = {} as T
     for (const key in animations.default) {
       if (
-        (animationType === 'path' || animationType === 'path-loop') &&
-        key.includes('group')
+        (animationType === "path" || animationType === "path-loop") &&
+        key.includes("group")
       )
-        continue;
-      result[key] = variant as T[Extract<keyof T, string>];
+        continue
+      result[key] = variant as T[Extract<keyof T, string>]
     }
   } else {
-    result = (animations[animationType as keyof V] as T) ?? animations.default;
+    result = (animations[animationType as keyof V] as T) ?? animations.default
   }
 
   if (loop) {
     for (const key in result) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const state = result[key] as any;
-      const transition = state.animate?.transition;
-      if (!transition) continue;
+      const state = result[key] as any
+      const transition = state.animate?.transition
+      if (!transition) continue
 
       const hasNestedKeys = Object.values(transition).some(
         (v) =>
-          typeof v === 'object' &&
+          typeof v === "object" &&
           v !== null &&
-          ('ease' in v || 'duration' in v || 'times' in v),
-      );
+          ("ease" in v || "duration" in v || "times" in v)
+      )
 
       if (hasNestedKeys) {
         for (const prop in transition) {
-          const subTrans = transition[prop];
-          if (typeof subTrans === 'object' && subTrans !== null) {
+          const subTrans = transition[prop]
+          if (typeof subTrans === "object" && subTrans !== null) {
             transition[prop] = {
               ...subTrans,
               repeat: Infinity,
-              repeatType: 'loop',
+              repeatType: "loop",
               repeatDelay: loopDelay,
-            };
+            }
           }
         }
       } else {
         state.animate.transition = {
           ...transition,
           repeat: Infinity,
-          repeatType: 'loop',
+          repeatType: "loop",
           repeatDelay: loopDelay,
-        };
+        }
       }
     }
   }
 
-  return result;
+  return result
 }
 
 export {
@@ -356,4 +355,4 @@ export {
   type IconWrapperProps,
   type AnimateIconProps,
   type AnimateIconContextValue,
-};
+}
