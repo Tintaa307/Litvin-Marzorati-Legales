@@ -2,7 +2,7 @@
 
 import HeroFact from "@/components/cards/HeroFact"
 import CtaButton from "@/components/inputs/Button"
-import MeetingButton from "@/components/inputs/MeetingsButton"
+import Link from "next/link"
 import { TypeAnimation } from "react-type-animation"
 
 interface Props {
@@ -71,12 +71,13 @@ const Hero = ({
           </div>
           <div className="w-full h-max flex sm:flex-row flex-col  justify-center items-center gap-5">
             {/* <MeetingButton locale={locale} text={cta2} /> */}
-            <CtaButton
-              className="flex text-center p-0 justify-center items-center"
-              url="/brand-register"
-              locale={locale}
-              text={cta2}
-            />
+            <Link
+              href={"https://calendly.com/ip-lmlegales"}
+              target="_blank"
+              className="sm:px-8 sm:py-4 px-6 py-3 rounded-md bg-gradient-to-r from-accent-brown from-[-39.43%] to-accent-orange to-162% text-black"
+            >
+              <p className="font-medium sm:text-md">{cta2}</p>
+            </Link>
             <CtaButton
               className="bg-[#fcefe8] border-black/20 border-[1px]"
               url="/brand-register"
