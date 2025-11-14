@@ -16,7 +16,7 @@ type BrandFormProps = {
 
 const BrandForm = ({ setIsOpen }: BrandFormProps) => {
   const [numberOfProducts, setNumberOfProducts] = useState(0)
-  const [price, setPrice] = useState(145000)
+  const [price, setPrice] = useState(150000)
   const tBrandRegister = useTranslations("brand-register")
   const [formData, setFormData] = useState({
     name: "",
@@ -25,7 +25,15 @@ const BrandForm = ({ setIsOpen }: BrandFormProps) => {
   })
 
   useEffect(() => {
-    setPrice(numberOfProducts * 145000 + numberOfProducts * 145000 * 0.21)
+    // Base price: 150000 per class + VAT (21%)
+    // Feasibility report is free, so only charge for brand application
+    if (numberOfProducts > 0) {
+      const basePrice = numberOfProducts * 150000
+      const priceWithVAT = basePrice + basePrice * 0.21
+      setPrice(priceWithVAT)
+    } else {
+      setPrice(0)
+    }
   }, [numberOfProducts])
 
   const handleNextStep = (e: React.FormEvent) => {
@@ -92,8 +100,7 @@ const BrandForm = ({ setIsOpen }: BrandFormProps) => {
                 text={tBrandRegister("label3")}
               />
               <p className="text-sm text-black/60">
-                Si no sabes cuántos productos necesitas, puedes acudir a nuestro
-                chatbot.
+                {tBrandRegister("chatbot-help")}
               </p>
               <CheckboxGrid
                 numberOfProducts={numberOfProducts}
@@ -123,16 +130,36 @@ const BrandForm = ({ setIsOpen }: BrandFormProps) => {
                         </p>
                       </div>
                       <div className="text-left sm:text-right">
-                        <p className="font-medium text-base">$145.000,00</p>
+                        <p className="font-medium text-base">{tBrandRegister("free")}</p>
                         <p className="text-sm text-muted-foreground">
-                          {tBrandRegister("info3")}
+                          {tBrandRegister("info2")}
                         </p>
                       </div>
                     </div>
+                    {numberOfProducts > 0 && (
+                      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center pt-2">
+                        <div className="space-y-1 mb-2 sm:mb-0">
+                          <p className="text-base font-medium">
+                            {tBrandRegister("brand-application")} ({numberOfProducts} {numberOfProducts === 1 ? tBrandRegister("class") : tBrandRegister("classes")})
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            {tBrandRegister("base-price")}
+                          </p>
+                        </div>
+                        <div className="text-left sm:text-right">
+                          <p className="font-medium text-base">
+                            ${numberOfProducts * 150000}
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            {tBrandRegister("plus-official-fees")}
+                          </p>
+                        </div>
+                      </div>
+                    )}
                     <div className="flex justify-between items-center pt-2">
                       <p className="text-base">Subtotal:</p>
                       <p className="font-medium text-base">
-                        ${numberOfProducts * 145000}
+                        ${numberOfProducts * 150000}
                       </p>
                     </div>
                   </div>
