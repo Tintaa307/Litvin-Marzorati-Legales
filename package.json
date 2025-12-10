@@ -37,7 +37,7 @@
     "lucide-react": "^0.513.0",
     "mercadopago": "^2.7.0",
     "motion": "^12.23.12",
-    "next": "15.3.3",
+    "next": "15.3.6",
     "next-intl": "^4.1.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
