@@ -59,7 +59,17 @@
   },
   "Team": {
     "title": "Nuestro equipo",
-    "subtitle": "Forjamos un camino conjunto hacia metas compartidas, donde cada integrante juega un papel esencial."
+    "subtitle": "Forjamos un camino conjunto hacia metas compartidas, donde cada integrante juega un papel esencial.",
+    "positions": {
+      "melisa": "Abogada - Socia Fundadora y Directora General",
+      "osvaldo": "Abogado - Socio",
+      "constanza": "Abogada",
+      "antonio": "Abogado",
+      "gladis": "Agente de Propiedad Intelectual",
+      "paula": "Gerente de oficina",
+      "camila": "Secretaria administrativa",
+      "kiara": "Asistente Administrativa"
+    }
   },
   "Contact": {
     "title": "Trabajamos para darle una respuesta pronto.",
@@ -68,7 +78,7 @@
     "subject": "Asunto",
     "message": "Mensaje*",
     "btn": "Enviar",
-    "accept": "Accepto la política de privacidad"
+    "accept": "Acepto la política de privacidad"
   },
   "ServiceGeneral": {
     "title": "Asesoramiento legal general",

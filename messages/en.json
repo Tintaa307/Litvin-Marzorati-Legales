@@ -58,7 +58,17 @@
   },
   "Team": {
     "title": "Our Team",
-    "subtitle": "We forge a collective path towards shared goals, where each member plays an essential role."
+    "subtitle": "We forge a collective path towards shared goals, where each member plays an essential role.",
+    "positions": {
+      "melisa": "Lawyer - Founding Partner and CEO",
+      "osvaldo": "Lawyer - Partner",
+      "constanza": "Lawyer",
+      "antonio": "Lawyer",
+      "gladis": "Intellectual Property Agent",
+      "paula": "Office Manager",
+      "camila": "Administrative Secretary",
+      "kiara": "Administrative Assistant"
+    }
   },
   "Contact": {
     "title": "We work to provide you with a prompt response.",
