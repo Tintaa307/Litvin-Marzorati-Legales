@@ -1,7 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-
-import insta from "../../../public/socials/insta.svg"
+import insta from "../../../public/socials/insta.png"
 import linkedin from "../../../public/socials/linkedin.svg"
 import facebook from "../../../public/socials/facebook.svg"
 
@@ -78,7 +77,11 @@ const Footer = () => {
         <span className="w-full h-[1px] bg-[#868686]"></span>
         <div className="flex gap-3 invert w-80 justify-center items-center opacity-70">
           <Link href={"https://www.instagram.com/lmlegales/"} target="_blank">
-            <Image src={insta} alt="instagram link"></Image>
+            <Image
+              src={insta}
+              alt="instagram link"
+              className="w-6 h-6 object-contain"
+            ></Image>
           </Link>
           <Link
             href={
@@ -86,10 +89,18 @@ const Footer = () => {
             }
             target="_blank"
           >
-            <Image src={linkedin} alt="linkedin link"></Image>
+            <Image
+              src={linkedin}
+              alt="linkedin link"
+              className="w-6 h-6 object-contain"
+            ></Image>
           </Link>
           <Link href={"https://www.facebook.com/Lmlegales"} target="_blank">
-            <Image src={facebook} alt="facebook socials"></Image>
+            <Image
+              src={facebook}
+              alt="facebook socials"
+              className="w-6 h-6 object-contain"
+            ></Image>
           </Link>
         </div>
         <span className="w-full h-[1px] bg-[#868686]"></span>

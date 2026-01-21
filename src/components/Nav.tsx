@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import MobileMenu from "./navigation/MobileMenu"
 
 import Logo from "../../public/logo.svg"
-import Insta from "../../public/socials/insta.svg"
+import Insta from "../../public/socials/insta.png"
 import Linked from "../../public/socials/linkedin.svg"
 import Facebook from "../../public/socials/facebook.svg"
 import useScrollPosition from "@/hooks/useScrollPosition"
@@ -34,15 +34,12 @@ const Nav = ({
   const scrollPosition = useScrollPosition()
   const [isOpen, setIsOpen] = useState(false)
 
-  //Handles opening and closing of mobile hamburger menu
   const handleClick = () => {
     setIsOpen(!isOpen)
   }
 
-  //Handle service option hovering
   const [isHovering, setIsHovering] = useState(false)
 
-  //Handle lang pathname
   const pathname = usePathname()
 
   return (
@@ -140,7 +137,7 @@ const Nav = ({
           <Image
             src={Insta}
             alt="Instagram socials"
-            className={`${
+            className={`w-6 h-6 object-contain ${
               scrollPosition > 20
                 ? "filter-none"
                 : `${white && "filter invert-[100%]"}`
@@ -156,7 +153,7 @@ const Nav = ({
           <Image
             src={Linked}
             alt="LinkedIn socials"
-            className={`${
+            className={`w-6 h-6 object-contain ${
               scrollPosition > 20
                 ? "filter-none"
                 : `${white && "filter invert-[100%]"}`
@@ -166,8 +163,8 @@ const Nav = ({
         <Link href={"https://www.facebook.com/Lmlegales"} target="_blank">
           <Image
             src={Facebook}
-            alt="LinkedIn socials"
-            className={`${
+            alt="Facebook socials"
+            className={`w-6 h-6 object-contain ${
               scrollPosition > 20
                 ? "filter-none"
                 : `${white && "filter invert-[100%]"}`
