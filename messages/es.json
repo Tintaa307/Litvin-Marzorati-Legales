@@ -16,7 +16,7 @@
     "type6": "software.",
     "fact1": "Expedientes",
     "fact2": "Clientes",
-    "fact3": "Corresponsales especializados",
+    "fact3": "Consulta sin cargo",
     "cta1": "Registra tu marca",
     "cta2": "Reservá una reunión"
   },
@@ -54,12 +54,13 @@
     "disclaimer": "Descargo de responsabilidad"
   },
   "AboutCards": {
-    "title": "Sobre nosotros",
-    "subtitle": "Estamos convencidos que el éxito de nuestros clientes, será nuestro propio éxito."
+
+    "title": "Nuestro equipo",
+    "subtitle": "Forjamos un camino conjunto hacia metas compartidas, donde cada integrante juega un papel esencial."
   },
   "Team": {
-    "title": "Nuestro equipo",
-    "subtitle": "Forjamos un camino conjunto hacia metas compartidas, donde cada integrante juega un papel esencial.",
+    "title": "Un estudio jurídico boutique con visión global",
+    "subtitle": "Nos especializamos en propiedad intelectual, derecho digital y nuevas tecnologías, con sede en Buenos Aires y alcance internacional.",
     "positions": {
       "melisa": "Abogada - Socia Fundadora y Directora General",
       "osvaldo": "Abogado - Socio",

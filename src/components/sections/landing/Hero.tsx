@@ -87,9 +87,12 @@ const Hero = ({
           </div>
         </div>
         <div className="3xl:mt-40 mt-24 flex flex-wrap justify-around">
-          <HeroFact num={"21,500"} title={fact1}></HeroFact>
-          <HeroFact num={"3,700"} title={fact2}></HeroFact>
-          <HeroFact num={"90"} title={fact3}></HeroFact>
+          <HeroFact num={"+21,500"} title={fact1}></HeroFact>
+          <HeroFact num={"+3,700"} title={fact2}></HeroFact>
+          <HeroFact
+            num={locale === "es" ? "1.ª" : "1st"}
+            title={fact3}
+          ></HeroFact>
         </div>
       </div>
     </div>

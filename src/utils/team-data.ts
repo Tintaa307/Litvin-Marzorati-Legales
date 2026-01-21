@@ -4,7 +4,8 @@ import constanza from "../../public/team/constanza.png"
 import antonio from "../../public/team/antonio.png"
 import gladis from "../../public/team/gladis.png"
 import paula from "../../public/team/paula.png"
-import camila from "../../public/team/camila.png"
+import camila from "../../public/team/camila.jpeg"
+import kiara from "../../public/team/kiara.jpeg"
 
 const teamData = [
   {
@@ -49,12 +50,12 @@ const teamData = [
     image: camila,
     linkedIn: "https://www.linkedin.com/in/gralattocamila/",
   },
-  //   {
-  //     name: "Kiara Herscovich",
-  //     positionKey: "kiara",
-  //     image: "/",
-  //     linkedIn: "https://www.linkedin.com/in/kiaraherscovich/",
-  //   },
+  {
+    name: "Kiara Herscovich",
+    positionKey: "kiara",
+    image: kiara,
+    linkedIn: "https://www.linkedin.com/in/kiaraherscovich/",
+  },
 ]
 
 export { teamData }
