@@ -125,6 +125,12 @@ export default async function LocaleLayout({
   const messages = await getMessages()
   return (
     <html lang={locale}>
+      <head>
+        <meta
+          name="facebook-domain-verification"
+          content="fgq8xipe10elrapblrnyhtyevriw09"
+        />
+      </head>
       <body
         className={clsx(
           poppins.variable,
