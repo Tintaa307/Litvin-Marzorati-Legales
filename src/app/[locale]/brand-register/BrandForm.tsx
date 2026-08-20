@@ -14,9 +14,14 @@ type BrandFormProps = {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
+// Base price charged per each selected Nice class
+const PRICE_PER_CLASS = 300000
+
 const BrandForm = ({ setIsOpen }: BrandFormProps) => {
-  const [numberOfProducts, setNumberOfProducts] = useState(0)
-  const [price, setPrice] = useState(150000)
+  // Each number of the grid is a class number (1 to 45), not an amount.
+  // The quantity of classes is how many of them are checked.
+  const [selectedClasses, setSelectedClasses] = useState<number[]>([])
+  const [price, setPrice] = useState(0)
   const tBrandRegister = useTranslations("brand-register")
   const [formData, setFormData] = useState({
     name: "",
@@ -24,17 +29,18 @@ const BrandForm = ({ setIsOpen }: BrandFormProps) => {
     quantity: 1,
   })
 
+  const numberOfClasses = selectedClasses.length
+  const basePrice = numberOfClasses * PRICE_PER_CLASS
+
   useEffect(() => {
-    // Base price: 150000 per class + VAT (21%)
+    // Base price: PRICE_PER_CLASS per selected class + VAT (21%)
     // Feasibility report is free, so only charge for brand application
-    if (numberOfProducts > 0) {
-      const basePrice = numberOfProducts * 150000
-      const priceWithVAT = basePrice + basePrice * 0.21
-      setPrice(priceWithVAT)
+    if (basePrice > 0) {
+      setPrice(basePrice + basePrice * 0.21)
     } else {
       setPrice(0)
     }
-  }, [numberOfProducts])
+  }, [basePrice])
 
   const handleNextStep = (e: React.FormEvent) => {
     e.preventDefault()
@@ -42,7 +48,8 @@ const BrandForm = ({ setIsOpen }: BrandFormProps) => {
     try {
       const values = {
         ...formData,
-        quantity: numberOfProducts,
+        quantity: numberOfClasses,
+        classes: selectedClasses,
         price: price,
       }
 
@@ -103,9 +110,14 @@ const BrandForm = ({ setIsOpen }: BrandFormProps) => {
                 {tBrandRegister("chatbot-help")}
               </p>
               <CheckboxGrid
-                numberOfProducts={numberOfProducts}
-                setNumberOfProducts={setNumberOfProducts}
+                selectedClasses={selectedClasses}
+                setSelectedClasses={setSelectedClasses}
               />
+              {numberOfClasses > 0 && (
+                <p className="text-sm text-black/60">
+                  {tBrandRegister("selected-classes")}: {selectedClasses.join(", ")}
+                </p>
+              )}
             </div>
             <DialogBrand />
           </form>
@@ -136,11 +148,15 @@ const BrandForm = ({ setIsOpen }: BrandFormProps) => {
                         </p>
                       </div>
                     </div>
-                    {numberOfProducts > 0 && (
+                    {numberOfClasses > 0 && (
                       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center pt-2">
                         <div className="space-y-1 mb-2 sm:mb-0">
                           <p className="text-base font-medium">
-                            {tBrandRegister("brand-application")} ({numberOfProducts} {numberOfProducts === 1 ? tBrandRegister("class") : tBrandRegister("classes")})
+                            {tBrandRegister("brand-application")} ({numberOfClasses}{" "}
+                            {numberOfClasses === 1
+                              ? tBrandRegister("class")
+                              : tBrandRegister("classes")}
+                            )
                           </p>
                           <p className="text-sm text-muted-foreground">
                             {tBrandRegister("base-price")}
@@ -148,7 +164,7 @@ const BrandForm = ({ setIsOpen }: BrandFormProps) => {
                         </div>
                         <div className="text-left sm:text-right">
                           <p className="font-medium text-base">
-                            ${numberOfProducts * 150000}
+                            ${basePrice}
                           </p>
                           <p className="text-sm text-muted-foreground">
                             {tBrandRegister("plus-official-fees")}
@@ -159,7 +175,7 @@ const BrandForm = ({ setIsOpen }: BrandFormProps) => {
                     <div className="flex justify-between items-center pt-2">
                       <p className="text-base">Subtotal:</p>
                       <p className="font-medium text-base">
-                        ${numberOfProducts * 150000}
+                        ${basePrice}
                       </p>
                     </div>
                   </div>
