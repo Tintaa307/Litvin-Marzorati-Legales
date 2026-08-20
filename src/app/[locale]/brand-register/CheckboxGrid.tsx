@@ -5,20 +5,26 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
 
 const CheckboxGrid = ({
-  numberOfProducts,
-  setNumberOfProducts,
+  selectedClasses,
+  setSelectedClasses,
 }: {
-  numberOfProducts: number
-  setNumberOfProducts: Dispatch<SetStateAction<number>>
+  selectedClasses: number[]
+  setSelectedClasses: Dispatch<SetStateAction<number[]>>
 }) => {
-  // Create array of numbers from 1 to 45
+  // Nice classification: classes 1 to 45
   const numbers = Array.from({ length: 45 }, (_, i) => i + 1)
 
   const handleCheckboxChange = (
     checked: boolean | "indeterminate",
     value: number
   ) => {
-    setNumberOfProducts(checked ? value : 0)
+    setSelectedClasses((prev) =>
+      checked === true
+        ? prev.includes(value)
+          ? prev
+          : [...prev, value].sort((a, b) => a - b)
+        : prev.filter((n) => n !== value)
+    )
   }
 
   return (
@@ -31,7 +37,7 @@ const CheckboxGrid = ({
           >
             <Checkbox
               id={`class-${number}`}
-              checked={numberOfProducts === number}
+              checked={selectedClasses.includes(number)}
               onCheckedChange={(checked) =>
                 handleCheckboxChange(checked, number)
               }

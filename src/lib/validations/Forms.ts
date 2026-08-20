@@ -10,7 +10,8 @@ export const BrandFormSchema = z.object({
   quantity: z
     .number()
     .int()
-    .min(1, { message: "La cantidad debe ser mayor a 0" }),
+    .min(1, { message: "Debe seleccionar al menos una clase" }),
+  classes: z.array(z.number().int().min(1).max(45)).optional(),
 })
 
 export const PaidmentFormSchema = z.object({
