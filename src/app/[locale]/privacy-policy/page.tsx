@@ -6,7 +6,7 @@ const PrivacyPolicy = () => {
   const tNav = useTranslations("Nav")
   const t = useTranslations("Privacidad")
   const locale = useLocale()
-  let txt = {
+  const txt = {
     txt1: "At Litvin Marzorati Legales, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Litvin Marzorati Legales and how we use it. This Privacy Policy aims to comply with the terms set out in the General Data Protection Regulation (GDPR).",
     txt2: "COLLECTION OF DATA",
     txt3: "Personal Data refers to the information that identifies you as an individual, which can include both personal and professional information.",

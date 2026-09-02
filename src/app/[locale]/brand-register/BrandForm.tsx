@@ -1,5 +1,5 @@
 import InputLabel from "@/components/sections/contact/InputLabel"
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import CheckboxGrid from "./CheckboxGrid"
 import DialogBrand from "./DialogBrand"
 import { Card, CardContent } from "@/components/ui/card"
@@ -21,7 +21,6 @@ const BrandForm = ({ setIsOpen }: BrandFormProps) => {
   // Each number of the grid is a class number (1 to 45), not an amount.
   // The quantity of classes is how many of them are checked.
   const [selectedClasses, setSelectedClasses] = useState<number[]>([])
-  const [price, setPrice] = useState(0)
   const tBrandRegister = useTranslations("brand-register")
   const [formData, setFormData] = useState({
     name: "",
@@ -31,16 +30,9 @@ const BrandForm = ({ setIsOpen }: BrandFormProps) => {
 
   const numberOfClasses = selectedClasses.length
   const basePrice = numberOfClasses * PRICE_PER_CLASS
-
-  useEffect(() => {
-    // Base price: PRICE_PER_CLASS per selected class + VAT (21%)
-    // Feasibility report is free, so only charge for brand application
-    if (basePrice > 0) {
-      setPrice(basePrice + basePrice * 0.21)
-    } else {
-      setPrice(0)
-    }
-  }, [basePrice])
+  // Base price: PRICE_PER_CLASS per selected class + VAT (21%)
+  // Feasibility report is free, so only charge for brand application
+  const price = basePrice > 0 ? basePrice + basePrice * 0.21 : 0
 
   const handleNextStep = (e: React.FormEvent) => {
     e.preventDefault()
@@ -59,8 +51,8 @@ const BrandForm = ({ setIsOpen }: BrandFormProps) => {
       return setIsOpen(true)
     } catch (error) {
       if (error instanceof ZodError) {
-        console.log(error.errors)
-        error.errors.map((err) => toast.warning(err.message))
+        console.log(error.issues)
+        error.issues.map((err) => toast.warning(err.message))
       }
     }
   }

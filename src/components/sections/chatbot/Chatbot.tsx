@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils"
 import { useChat } from "@ai-sdk/react"
+import { DefaultChatTransport, UIMessage } from "ai"
 import { useEffect, useRef, useState } from "react"
 import ReactMarkdown from "react-markdown"
 import { Send, X, Loader2, User } from "lucide-react"
@@ -11,16 +12,24 @@ import { Bot } from "@/components/animate-ui/icons/bot"
 
 export default function Chat() {
   const t = useTranslations("chatbot")
-  const { messages, input, handleInputChange, handleSubmit, status } = useChat({
-    api: "/api/chat",
-    initialMessages: [
+  const [input, setInput] = useState("")
+  const { messages, sendMessage, status } = useChat<UIMessage>({
+    transport: new DefaultChatTransport({ api: "/api/chat" }),
+    messages: [
       {
         id: "welcome",
         role: "assistant",
-        content: t("welcome"),
+        parts: [{ type: "text", text: t("welcome") }],
       },
     ],
   })
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!input.trim()) return
+    sendMessage({ text: input })
+    setInput("")
+  }
 
   const [open, setOpen] = useState(false)
 
@@ -141,7 +150,12 @@ export default function Chat() {
                         </div>
                       )}
                       <div className="text-sm leading-relaxed font-medium">
-                        <ReactMarkdown>{m.content}</ReactMarkdown>
+                        <ReactMarkdown>
+                          {m.parts
+                            .filter((part) => part.type === "text")
+                            .map((part) => part.text)
+                            .join("")}
+                        </ReactMarkdown>
                       </div>
                     </div>
                     <div
@@ -220,7 +234,7 @@ export default function Chat() {
                     value={input}
                     placeholder={t("placeholder")}
                     className="flex-1 bg-transparent text-black text-sm outline-none placeholder:text-black/50 font-medium"
-                    onChange={handleInputChange}
+                    onChange={(e) => setInput(e.target.value)}
                     disabled={status === "streaming" || status === "submitted"}
                   />
                   <motion.button
