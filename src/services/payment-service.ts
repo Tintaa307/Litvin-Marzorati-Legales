@@ -24,7 +24,7 @@ export class PaymentService {
   async createPreference(
     body: CreatePreferenceValues
   ): Promise<CreatePreferenceResponse | ErrorResponse> {
-    const { price, title, quantity } = body
+    const { price, title, quantity, locale } = body
 
     if (!price || !title || !quantity) {
       return {
@@ -37,6 +37,8 @@ export class PaymentService {
     const id = `${title}-${UUIDv4()}-${Date.now()}`
 
     const request_id = `${id}-${Date.now()}`
+    const siteUrl =
+      process.env.NEXT_PUBLIC_SITE_URL ?? "https://lmlegales.com.ar"
     try {
       const result = (await this.client.create({
         body: {
@@ -50,10 +52,11 @@ export class PaymentService {
             },
           ],
           back_urls: {
-            success: `https://lmlegales.com.ar/payment/success`,
-            failure: `https://lmlegales.com.ar/payment/failure`,
-            pending: `https://lmlegales.com.ar/payment/pending`,
+            success: `${siteUrl}/${locale}/payment/success`,
+            failure: `${siteUrl}/${locale}/payment/failure`,
+            pending: `${siteUrl}/${locale}/payment/pending`,
           },
+          notification_url: `${siteUrl}/api/webhooks/mercadopago`,
           auto_return: "approved",
           external_reference: request_id,
           metadata: { request_id },

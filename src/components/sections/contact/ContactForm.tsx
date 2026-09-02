@@ -72,7 +72,7 @@ const ContactForm = ({
       }
     } catch (error) {
       if (error instanceof ZodError) {
-        error.errors.map((err) => toast.info(err.message))
+        error.issues.map((err) => toast.info(err.message))
       }
       console.log(error)
       setIsLoading(false)

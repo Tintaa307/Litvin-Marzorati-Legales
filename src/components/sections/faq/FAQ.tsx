@@ -5,6 +5,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { cn } from "@/lib/utils"
+import { useTranslations } from "next-intl"
 
 export type Question = {
   q: string
@@ -14,7 +15,7 @@ export type Question = {
 interface FAQProps {
   title: string
   subtitle: string
-  questions: any
+  questions: ReturnType<typeof useTranslations>
 }
 
 export default function FAQ({ questions, subtitle, title }: FAQProps) {

@@ -43,7 +43,7 @@ const Newsletter = ({ label, accept, submit }: Props) => {
       return res.data
     } catch (error) {
       if (error instanceof z.ZodError) {
-        const errors = error.errors.map((err) => err.message)
+        const errors = error.issues.map((err) => err.message)
         return { status: 500, message: errors }
       } else {
         console.log(error)

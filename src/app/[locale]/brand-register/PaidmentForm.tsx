@@ -10,7 +10,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import InputLabel from "@/components/sections/contact/InputLabel"
 import { Separator } from "@/components/ui/separator"
 import { PaidmentFormSchema } from "@/lib/validations/Forms"
-import { ZodError } from "zod"
+import { z, ZodError } from "zod"
 import { useRouter } from "next/navigation"
 import { useLocale, useTranslations } from "next-intl"
 import axios from "axios"
@@ -27,7 +27,11 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
   const tBrandRegister = useTranslations("client-form")
   const locale = useLocale()
   const [isChecked, setIsChecked] = React.useState<boolean>(false)
-  const [price, setPrice] = React.useState("")
+  const [price] = React.useState(() => {
+    if (typeof window === "undefined") return ""
+    const stored = localStorage.getItem("brand")
+    return stored ? JSON.parse(stored).price : ""
+  })
   const [formData, setFormData] = React.useState({
     name: "",
     email: "",
@@ -43,15 +47,7 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
     enterpriseName: "",
   })
 
-  React.useEffect(() => {
-    if (localStorage.getItem("brand")) {
-      const price = JSON.parse(localStorage.getItem("brand")!).price
-
-      setPrice(price)
-    }
-  }, [])
-
-  const sendBillingData = async (result: any) => {
+  const sendBillingData = async (result: z.infer<typeof PaidmentFormSchema>) => {
     try {
       await axios.post(
         process.env.NODE_ENV === "development"
@@ -63,7 +59,7 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
       return toast.success("Datos guardados correctamente")
     } catch (error) {
       if (error instanceof ZodError) {
-        error.errors.map((err) => toast.info(err.message))
+        error.issues.map((err) => toast.info(err.message))
       } else {
         return toast.error("Error al enviar los datos")
       }
@@ -94,7 +90,7 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
       return toast.success("Datos guardados correctamente")
     } catch (error) {
       if (error instanceof ZodError) {
-        error.errors.map((err) => toast.warning(err.message))
+        error.issues.map((err) => toast.warning(err.message))
       }
     }
   }

@@ -127,6 +127,8 @@ function AnimateIcon({
 
   React.useEffect(() => {
     currentAnimation.current = typeof animate === "string" ? animate : animation
+    // Syncs internal state with the controlled `animate` prop from the caller.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setLocalAnimate(!!animate)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [animate])
@@ -172,6 +174,7 @@ function AnimateIcon({
     <AnimateIconContext.Provider
       value={{
         controls,
+        // eslint-disable-next-line react-hooks/refs -- read outside the render commit is fine here
         animation: currentAnimation.current,
         loop,
         loopDelay,

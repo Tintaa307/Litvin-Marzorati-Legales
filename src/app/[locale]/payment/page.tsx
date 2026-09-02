@@ -33,6 +33,7 @@ export default function CheckoutSummary() {
         title: "Registro de marca",
         quantity: 1,
         price: Number(price),
+        locale,
       })
 
       if (!("init_point" in result)) {

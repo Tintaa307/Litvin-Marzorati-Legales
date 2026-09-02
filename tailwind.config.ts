@@ -94,7 +94,7 @@ const config: Config = {
       },
     },
   },
-  // @ts-ignore
+  // @ts-expect-error - non-standard darkMode value kept for compatibility
   darkMode: ["false", "class"],
   plugins: [],
 }

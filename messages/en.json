@@ -244,5 +244,20 @@
     "welcome": "Hello, I am the LM Legales virtual assistant. How may I help you?",
     "loader": "Thinking...",
     "placeholder": "Your message..."
+  },
+  "payment-status": {
+    "back-home": "Back to home",
+    "success": {
+      "title": "Payment successful!",
+      "description": "Your payment was confirmed. We'll be in touch shortly to continue with the process."
+    },
+    "failure": {
+      "title": "Payment couldn't be processed",
+      "description": "There was a problem processing your payment. You can try again or contact us if the problem persists."
+    },
+    "pending": {
+      "title": "Payment pending",
+      "description": "Your payment is being processed. We'll email you as soon as it's confirmed."
+    }
   }
 }

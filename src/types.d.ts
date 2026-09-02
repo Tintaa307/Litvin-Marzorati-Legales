@@ -25,6 +25,7 @@ export interface CreatePreferenceValues {
   price: number
   title: string
   quantity: number
+  locale: string
 }
 
 export type CreatePreferenceResponse = {

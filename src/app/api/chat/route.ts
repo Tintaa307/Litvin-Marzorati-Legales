@@ -1,17 +1,13 @@
-import { convertToCoreMessages, Message, streamText } from "ai"
+import { convertToModelMessages, streamText, UIMessage } from "ai"
 import { responses } from "@/lib/chat/responses"
 
 // Se utiliza el modelo openai
 import { openai } from "@ai-sdk/openai"
 
 export async function POST(request: Request) {
-  const { messages }: { messages: Array<Message> } = await request.json()
+  const { messages }: { messages: Array<UIMessage> } = await request.json()
 
-  const coreMessages = convertToCoreMessages(messages).filter(
-    (message) => message.content.length > 0
-  )
-
-  const result = await streamText({
+  const result = streamText({
     model: openai("gpt-4o-mini"),
     system: `Usted es un asistente útil que brinda información sobre los servicios de Litvin-Marzorati Legales o tambien LML Legales.
               Tienes que ser amable e informativo. Puedes proporcionar información sobre los servicios, programar una reunión
@@ -38,12 +34,10 @@ export async function POST(request: Request) {
               Teléfono:
               - +54 9 11 6360-6526
             `,
-    messages: coreMessages,
-    maxTokens: 300,
+    messages: await convertToModelMessages(messages),
+    maxOutputTokens: 300,
     tools: {},
   })
 
-  const dataStreamResponse = await result.toDataStreamResponse({})
-
-  return dataStreamResponse
+  return result.toUIMessageStreamResponse()
 }
