@@ -9,6 +9,14 @@
     "start": "next start",
     "lint": "eslint ."
   },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "@swc/core",
+      "sharp",
+      "unrs-resolver"
+    ]
+  },
   "dependencies": {
     "@ai-sdk/google": "^4.0.59",
     "@ai-sdk/openai": "^4.0.53",
