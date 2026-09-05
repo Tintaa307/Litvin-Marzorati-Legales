@@ -43,7 +43,7 @@ const Newsletter = ({ label, accept, submit }: Props) => {
       return res.data
     } catch (error) {
       if (error instanceof z.ZodError) {
-        const errors = error.errors.map((err) => err.message)
+        const errors = error.issues.map((err) => err.message)
         return { status: 500, message: errors }
       } else {
         console.log(error)
@@ -59,7 +59,7 @@ const Newsletter = ({ label, accept, submit }: Props) => {
         <input
           name="email"
           type="text"
-          className="bg-transparent outline-none border-b border-white/30 text-sm p-1"
+          className="bg-transparent outline-hidden border-b border-white/30 text-sm p-1"
         />
       </div>
       <div

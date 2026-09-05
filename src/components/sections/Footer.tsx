@@ -74,7 +74,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="flex gap-2 items-center justify-center">
-        <span className="w-full h-[1px] bg-[#868686]"></span>
+        <span className="w-full h-px bg-[#868686]"></span>
         <div className="flex gap-3 invert w-80 justify-center items-center opacity-70">
           <Link href={"https://www.instagram.com/lmlegales/"} target="_blank">
             <Image
@@ -103,7 +103,7 @@ const Footer = () => {
             ></Image>
           </Link>
         </div>
-        <span className="w-full h-[1px] bg-[#868686]"></span>
+        <span className="w-full h-px bg-[#868686]"></span>
       </div>
       <div className="flex flex-col gap-16">
         <div className="flex md:flex-row flex-col md:gap-0 gap-16 md:items-center justify-between">

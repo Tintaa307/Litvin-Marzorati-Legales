@@ -10,9 +10,9 @@ interface AboutCardProps {
 
 const AboutCard: React.FC<AboutCardProps> = ({ title, text, image }) => {
   return (
-    <div className="group relative bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 hover:border-orange-200">
+    <div className="group relative bg-white rounded-xl p-6 shadow-xs hover:shadow-md transition-all duration-300 border border-gray-100 hover:border-orange-200">
       <div className="flex items-start gap-4">
-        <div className="flex-shrink-0 w-12 h-12 bg-orange-50 rounded-lg flex items-center justify-center group-hover:bg-orange-100 transition-colors duration-300">
+        <div className="shrink-0 w-12 h-12 bg-orange-50 rounded-lg flex items-center justify-center group-hover:bg-orange-100 transition-colors duration-300">
           <Image
             src={image || "/placeholder.svg"}
             alt={`${title} icon`}
@@ -30,7 +30,7 @@ const AboutCard: React.FC<AboutCardProps> = ({ title, text, image }) => {
         </div>
       </div>
 
-      <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-orange-400 to-orange-600 rounded-l-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      <div className="absolute left-0 top-0 w-1 h-full bg-linear-to-b from-orange-400 to-orange-600 rounded-l-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
     </div>
   )
 }

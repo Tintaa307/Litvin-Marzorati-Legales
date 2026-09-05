@@ -72,7 +72,7 @@ const ContactForm = ({
       }
     } catch (error) {
       if (error instanceof ZodError) {
-        error.errors.map((err) => toast.info(err.message))
+        error.issues.map((err) => toast.info(err.message))
       }
       console.log(error)
       setIsLoading(false)
@@ -94,7 +94,7 @@ const ContactForm = ({
         <input
           name="name"
           type="text"
-          className="bg-transparent outline-none border-b border-black/30"
+          className="bg-transparent outline-hidden border-b border-black/30"
         />
       </div>
       <div className="flex flex-col gap-2">
@@ -102,7 +102,7 @@ const ContactForm = ({
         <input
           name="email"
           type="text"
-          className="bg-transparent outline-none border-b border-black/30"
+          className="bg-transparent outline-hidden border-b border-black/30"
         />
       </div>
       <div className="flex flex-col gap-2">
@@ -110,14 +110,14 @@ const ContactForm = ({
         <input
           name="subject"
           type="text"
-          className="bg-transparent outline-none border-b border-black/30"
+          className="bg-transparent outline-hidden border-b border-black/30"
         />
       </div>
       <div className="flex flex-col gap-2">
         <InputLabel pos="04" text={message}></InputLabel>
         <textarea
           name="message"
-          className="w-full resize-none bg-transparent outline-none border-b border-black/30"
+          className="w-full resize-none bg-transparent outline-hidden border-b border-black/30"
         />
       </div>
       <div

@@ -105,7 +105,7 @@ export default function CheckoutSummary() {
                           key={index}
                           className="flex items-center text-sm text-gray-600"
                         >
-                          <Check className="h-4 w-4 mr-2 text-[#F4A261] flex-shrink-0" />
+                          <Check className="h-4 w-4 mr-2 text-[#F4A261] shrink-0" />
                           <span>{tPayment(item)}</span>
                         </li>
                       )
@@ -141,7 +141,7 @@ export default function CheckoutSummary() {
         </CardContent>
         <CardFooter className="p-6 bg-gray-50">
           <Button
-            className="w-full text-base px-2 py-4 sm:py-6 rounded-md bg-gradient-to-r from-accent-brown from-[-39.43%] to-accent-orange to-162%"
+            className="w-full text-base px-2 py-4 sm:py-6 rounded-md bg-linear-to-r from-accent-brown from-[-39.43%] to-accent-orange to-162%"
             onClick={handleCreatePayment}
           >
             {tPayment("confirm-purchase")}

@@ -27,7 +27,7 @@ const ArrowButton = ({left, swiperRef, handleClick, clicks, maxClicks}: Props) =
     }
 
     return (
-       <button onClick={handleArrowClick} className={`w-[4rem] h-[4rem] flex items-center justify-center rounded-[100px] duration-100 ${!left && (clicks !== (maxClicks + 1) ? 'bg-accent-orange' : 'bg-transparent opacity-50')} ${left && (clicks !== 0 ? 'bg-accent-orange' : 'bg-transparent opacity-50')}`}>
+       <button onClick={handleArrowClick} className={`w-16 h-16 flex items-center justify-center rounded-[100px] duration-100 ${!left && (clicks !== (maxClicks + 1) ? 'bg-accent-orange' : 'bg-transparent opacity-50')} ${left && (clicks !== 0 ? 'bg-accent-orange' : 'bg-transparent opacity-50')}`}>
             <Image src={arrow} alt="arrow" width={36} className={`${left && 'rotate-180'}`}></Image>
        </button>
     );

@@ -69,27 +69,27 @@ const MobileMenu = ({scrollPosition, isOpen, white, tAbout, tContacto, tInicio, 
     
 
     return (
-    <div className="w-full h-full flex flex-col gap-[1.25rem] p-[0.62rem] text-base font-medium text-black">
+    <div className="w-full h-full flex flex-col gap-5 p-[0.62rem] text-base font-medium text-black">
         <Link href={'/' + (locale || '') + '/'}>{tInicio}</Link>
         <Link href={'/' + (locale || '') + '/about'}>{tAbout}</Link>
         <ListDisplay heading={tServicios} options={useLocale() === 'es' ? Services : ServicesEng}/>
         <Link href={'/' + (locale || '') + '/contacto'}>{tContacto}</Link>
-        <span className="w-full h-[1px] bg-black/15"></span>
+        <span className="w-full h-px bg-black/15"></span>
         <div className="flex gap-2 items-center justify-start mr-4">
             <Link href={pathname.replace('/en', '/es')} className={`${locale === 'es' ? 'font-semibold' : 'font-medium'}`}>ES</Link>
-            <span className={`w-[1px] h-5 ${scrollPosition > 20 ? 'bg-black/70' : `${white ? 'bg-white/70' : 'bg-black/70'}` } `}></span>
+            <span className={`w-px h-5 ${scrollPosition > 20 ? 'bg-black/70' : `${white ? 'bg-white/70' : 'bg-black/70'}` } `}></span>
             <Link href={pathname.replace('/es', '/en')} className={`${locale === 'en' ? 'font-semibold' : 'font-medium'}`}>EN</Link>
         </div>
-        <span className="w-full h-[1px] bg-black/15"></span>
+        <span className="w-full h-px bg-black/15"></span>
         <div className="flex gap-2">
         <Link href={'https://www.instagram.com/lmlegales/'} target="_blank">
-            <Image src={Insta} alt="Instagram socials" className={`w-6 h-6 object-contain ${scrollPosition > 20 ? 'filter-none' : `${(white && !isOpen) && 'filter invert-[100%]'}` }`}></Image>
+            <Image src={Insta} alt="Instagram socials" className={`w-6 h-6 object-contain ${scrollPosition > 20 ? 'filter-none' : `${(white && !isOpen) && 'filter invert-100'}` }`}></Image>
         </Link>
         <Link href={'https://www.linkedin.com/company/litvin-marzorati-legales/?originalSubdomain=ar'} target="_blank">
-            <Image src={Linked} alt="LinkedIn socials" className={`w-6 h-6 object-contain ${scrollPosition > 20 ? 'filter-none' : `${(white && !isOpen) && 'filter invert-[100%]'}` }`}></Image>
+            <Image src={Linked} alt="LinkedIn socials" className={`w-6 h-6 object-contain ${scrollPosition > 20 ? 'filter-none' : `${(white && !isOpen) && 'filter invert-100'}` }`}></Image>
         </Link>
         <Link href={'https://www.facebook.com/Lmlegales'} target="_blank">
-            <Image src={Facebook} alt="LinkedIn socials" className={`w-6 h-6 object-contain ${scrollPosition > 20 ? 'filter-none' : `${(white && !isOpen) && 'filter invert-[100%]'}` }`}></Image>
+            <Image src={Facebook} alt="LinkedIn socials" className={`w-6 h-6 object-contain ${scrollPosition > 20 ? 'filter-none' : `${(white && !isOpen) && 'filter invert-100'}` }`}></Image>
         </Link>
         </div>
     </div>

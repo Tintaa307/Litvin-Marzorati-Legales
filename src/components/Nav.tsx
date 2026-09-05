@@ -61,7 +61,7 @@ const Nav = ({
           className={`w-32 ${
             scrollPosition > 20
               ? "filter-none"
-              : `${white && !isOpen && "filter invert-[100%]"}`
+              : `${white && !isOpen && "filter invert-100"}`
           }`}
         ></Image>
       </Link>
@@ -120,7 +120,7 @@ const Nav = ({
             ES
           </Link>
           <span
-            className={`w-[1px] h-5 ${
+            className={`w-px h-5 ${
               scrollPosition > 20
                 ? "bg-black/70"
                 : `${white ? "bg-white/70" : "bg-black/70"}`
@@ -140,7 +140,7 @@ const Nav = ({
             className={`w-6 h-6 object-contain ${
               scrollPosition > 20
                 ? "filter-none"
-                : `${white && "filter invert-[100%]"}`
+                : `${white && "filter invert-100"}`
             }`}
           ></Image>
         </Link>
@@ -156,7 +156,7 @@ const Nav = ({
             className={`w-6 h-6 object-contain ${
               scrollPosition > 20
                 ? "filter-none"
-                : `${white && "filter invert-[100%]"}`
+                : `${white && "filter invert-100"}`
             }`}
           ></Image>
         </Link>
@@ -167,7 +167,7 @@ const Nav = ({
             className={`w-6 h-6 object-contain ${
               scrollPosition > 20
                 ? "filter-none"
-                : `${white && "filter invert-[100%]"}`
+                : `${white && "filter invert-100"}`
             }`}
           ></Image>
         </Link>
@@ -182,7 +182,7 @@ const Nav = ({
             scrollPosition > 20
               ? "bg-black"
               : `${white && !isOpen && "bg-white"}`
-          } block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${
+          } block transition-all duration-300 ease-out h-0.5 w-6 rounded-xs ${
             isOpen ? "rotate-45 translate-y-1" : "-translate-y-1"
           }`}
         ></span>
@@ -191,7 +191,7 @@ const Nav = ({
             scrollPosition > 20
               ? "bg-black"
               : `${white && !isOpen && "bg-white"}`
-          } block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${
+          } block transition-all duration-300 ease-out h-0.5 w-6 rounded-xs ${
             isOpen ? "opacity-0" : "opacity-100"
           }`}
         ></span>
@@ -200,7 +200,7 @@ const Nav = ({
             scrollPosition > 20
               ? "bg-black"
               : `${white && !isOpen && "bg-white"}`
-          } block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${
+          } block transition-all duration-300 ease-out h-0.5 w-6 rounded-xs ${
             isOpen ? "-rotate-45" : "translate-y-1"
           }`}
         ></span>
@@ -209,7 +209,7 @@ const Nav = ({
         className={`absolute md:hidden h-screen top-20 z-10 bg-background border-l border-[#1E1E1E]/30 transition-all ease-out duration-300 ${
           isOpen
             ? "right-0 sm:w-[50%] w-[70%]"
-            : "-right-[16rem] sm:-right-[26rem] w-[40%]"
+            : "-right-64 sm:-right-104 w-[40%]"
         }`}
       >
         <MobileMenu

@@ -18,7 +18,7 @@ const ServiceCard = ({title, icon, redirect, tBorder, bBorder, lBorder, rBorder}
     return (
         <Link href={redirect}>
             <div className={`sm:w-[23.8rem] w-[20rem] sm:h-[17.6rem] h-fit p-4 sm:py-4 py-6 bg-transparent flex flex-col sm:gap-8 gap-4 group hover:cursor-pointer border-black ${tBorder && 'service:border-t'} ${bBorder ? 'border-b' : 'border-b service:border-b-0'} ${rBorder && 'service:border-r'} ${lBorder && 'service:border-l'}`}>
-                <div className="flex flex-col gap-6 w-[19rem]">
+                <div className="flex flex-col gap-6 w-76">
                     <Image src={icon} alt={title} className="duration-150 group-hover:rotate-12 sm:w-fit w-10"></Image>
                     <h2 className="sm:text-[1.5rem] text-[1.25rem]">{title}</h2>
                 </div>

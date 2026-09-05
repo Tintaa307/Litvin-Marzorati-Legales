@@ -8,7 +8,7 @@ interface Props {
 const Heading = ({ title, subtitle, notCentered, poppins }: Props) => {
   return (
     <div
-      className={`flex flex-col gap-5 max-w-[36rem] ${
+      className={`flex flex-col gap-5 max-w-xl ${
         notCentered ? "lg:text-left text-center" : "text-center"
       }`}
     >

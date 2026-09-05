@@ -46,7 +46,7 @@ const Media = ({ header }: Props) => {
           />
         </div>
       </div>
-      <div className="lg:w-[36rem] w-[24rem]">
+      <div className="lg:w-xl w-[24rem]">
         <Swiper
           modules={[Navigation, Pagination, A11y]}
           slidesPerView={1.2}

@@ -41,11 +41,11 @@ const Hero = ({
   return (
     <div
       id="inicio"
-      className="bg-cover sm:bg-center bg-[center_right_-38rem] bg-[url('/assets/heroBg.png')] pb-10"
+      className="bg-cover sm:bg-center bg-position-[center_right_-38rem] bg-[url('/assets/heroBg.png')] pb-10"
     >
       <div className="main-padding pt-64">
         <div className="flex flex-col items-center justify-start gap-12">
-          <div className="font-meshedDisplay font-bold 2xl:text-[3.75rem] sm:text-[2.75rem] text-[1.9rem] text-center px-0 max-w-[50rem]">
+          <div className="font-meshedDisplay font-bold 2xl:text-[3.75rem] sm:text-[2.75rem] text-[1.9rem] text-center px-0 max-w-200">
             <h1 className="sm:whitespace-nowrap">{head1}</h1>
             <h1 className="sm:whitespace-nowrap">{head2}</h1>
             <TypeAnimation
@@ -74,12 +74,12 @@ const Hero = ({
             <Link
               href={"https://calendly.com/ip-lmlegales"}
               target="_blank"
-              className="sm:px-8 sm:py-4 px-6 py-3 rounded-md bg-gradient-to-r from-accent-brown from-[-39.43%] to-accent-orange to-162% text-black"
+              className="sm:px-8 sm:py-4 px-6 py-3 rounded-md bg-linear-to-r from-accent-brown from-[-39.43%] to-accent-orange to-162% text-black"
             >
               <p className="font-medium sm:text-md">{cta2}</p>
             </Link>
             <CtaButton
-              className="bg-[#fcefe8] border-black/20 border-[1px]"
+              className="bg-none bg-[#fcefe8] border-black/20 border"
               url="/brand-register"
               locale={locale}
               text={cta1}

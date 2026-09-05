@@ -5,11 +5,11 @@ interface Props {
 
 const ServiceHero = ({title, subtitle}: Props) => {
     return (
-        <div className="sm:pb-[24rem] pb-[18rem]">
+        <div className="sm:pb-96 pb-72">
             <div className="main-padding mt-64">
                 <div className="flex gap-3 h-max">
-                    <span className="w-[0.5rem] bg-gradient-to-b from-accent-orange to-accent-brown"></span>
-                    <div className="text-white flex flex-col gap-3 max-w-[50rem]">
+                    <span className="w-2 bg-linear-to-b from-accent-orange to-accent-brown"></span>
+                    <div className="text-white flex flex-col gap-3 max-w-200">
                         <h1 className="font-dmSerif font-normal 3xl:text-[4.75rem] 2xl:text-[4rem] sm:text-[3rem] text-[2.75rem] text-left">
                             {title}
                         </h1>

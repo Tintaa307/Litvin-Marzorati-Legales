@@ -59,8 +59,8 @@ const BrandForm = ({ setIsOpen }: BrandFormProps) => {
       return setIsOpen(true)
     } catch (error) {
       if (error instanceof ZodError) {
-        console.log(error.errors)
-        error.errors.map((err) => toast.warning(err.message))
+        console.log(error.issues)
+        error.issues.map((err) => toast.warning(err.message))
       }
     }
   }
@@ -82,7 +82,7 @@ const BrandForm = ({ setIsOpen }: BrandFormProps) => {
                 onChange={(e) =>
                   setFormData({ ...formData, name: e.target.value })
                 }
-                className="w-full bg-transparent outline-none border-b border-black/30 focus:border-accent-orange transition-colors duration-150"
+                className="w-full bg-transparent outline-hidden border-b border-black/30 focus:border-accent-orange transition-colors duration-150"
               />
             </div>
             <div className="space-y-4 sm:space-y-6">
@@ -97,7 +97,7 @@ const BrandForm = ({ setIsOpen }: BrandFormProps) => {
                 onChange={(e) =>
                   setFormData({ ...formData, type: e.target.value })
                 }
-                className="w-full bg-transparent outline-none border-b border-black/30 focus:border-accent-orange transition-colors duration-150"
+                className="w-full bg-transparent outline-hidden border-b border-black/30 focus:border-accent-orange transition-colors duration-150"
               />
             </div>
             <div className="space-y-4 sm:space-y-6">
@@ -194,7 +194,7 @@ const BrandForm = ({ setIsOpen }: BrandFormProps) => {
                 </div>
                 <Button
                   onClick={handleNextStep}
-                  className="w-full text-base px-6 py-6 rounded-md bg-gradient-to-r from-accent-brown from-[-39.43%] to-accent-orange to-162%"
+                  className="w-full text-base px-6 py-6 rounded-md bg-linear-to-r from-accent-brown from-[-39.43%] to-accent-orange to-162%"
                 >
                   {tBrandRegister("button")}
                 </Button>

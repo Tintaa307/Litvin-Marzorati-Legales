@@ -71,7 +71,7 @@ export default function Eventos() {
       <h2 className={`sm:text-[42px] text-[2rem] font-dmSerif font-normal`}>
         Eventos
       </h2>
-      <p className="text-center mb-12 max-w-2xl mx-auto">
+      <p className="text-center max-w-2xl mx-auto">
         Participamos activamente en conferencias y seminarios clave,
         compartiendo nuestro conocimiento y fortaleciendo nuestra red.
       </p>
@@ -104,7 +104,7 @@ export default function Eventos() {
                     <p className="max-w-5xl text-sm font-thin">
                       {event.description}
                     </p>
-                    <button className="bg-gradient-to-r from-accent-brown from-[-39.43%] to-accent-orange to-162% text-black text-sm w-36 h-10 rounded-md">
+                    <button className="bg-linear-to-r from-accent-brown from-[-39.43%] to-accent-orange to-162% text-black text-sm w-36 h-10 rounded-md">
                       Ver más
                     </button>
                   </main>

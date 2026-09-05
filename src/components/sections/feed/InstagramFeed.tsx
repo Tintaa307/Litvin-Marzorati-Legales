@@ -58,7 +58,7 @@ export default function InstagramFeed() {
       <h2 className="sm:text-[42px] text-[2rem] font-dmSerif font-normal">
         {tInstagram("title")}
       </h2>
-      <p className="text-center mb-12 max-w-2xl mx-auto min_feed:text-xs">
+      <p className="text-center max-w-2xl mx-auto min_feed:text-xs">
         {tInstagram("subtitle")}
       </p>
       <div className="grid grid-cols-3 place-items-center gap-y-8 gap-x-24 feed:gap-x-12 feed:grid-cols-2 min_feed:grid-cols-1">
@@ -82,7 +82,7 @@ export default function InstagramFeed() {
         ))}
       </div>
       <Link href="https://www.instagram.com/lmlegales/">
-        <button className="bg-gradient-to-r from-accent-brown from-[-39.43%] to-accent-orange to-162% text-black text-sm w-max px-6 py-4 mt-7 font-medium rounded-md">
+        <button className="bg-linear-to-r from-accent-brown from-[-39.43%] to-accent-orange to-162% text-black text-sm w-max px-6 py-4 font-medium rounded-md">
           {tInstagram("cta")}
         </button>
       </Link>

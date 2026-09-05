@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils"
 import { useChat } from "@ai-sdk/react"
+import { DefaultChatTransport, UIMessage } from "ai"
 import { useEffect, useRef, useState } from "react"
 import ReactMarkdown from "react-markdown"
 import { Send, X, Loader2, User } from "lucide-react"
@@ -11,16 +12,24 @@ import { Bot } from "@/components/animate-ui/icons/bot"
 
 export default function Chat() {
   const t = useTranslations("chatbot")
-  const { messages, input, handleInputChange, handleSubmit, status } = useChat({
-    api: "/api/chat",
-    initialMessages: [
+  const [input, setInput] = useState("")
+  const { messages, sendMessage, status } = useChat<UIMessage>({
+    transport: new DefaultChatTransport({ api: "/api/chat" }),
+    messages: [
       {
         id: "welcome",
         role: "assistant",
-        content: t("welcome"),
+        parts: [{ type: "text", text: t("welcome") }],
       },
     ],
   })
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!input.trim()) return
+    sendMessage({ text: input })
+    setInput("")
+  }
 
   const [open, setOpen] = useState(false)
 
@@ -56,7 +65,7 @@ export default function Chat() {
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
             onClick={() => setOpen(true)}
-            className="group relative w-16 h-16 bg-gradient-to-r from-accent-brown from-[-39.43%] to-accent-orange to-162% rounded-full shadow-xl hover:shadow-2xl transition-shadow duration-300 flex items-center justify-center"
+            className="group relative w-16 h-16 bg-linear-to-r from-accent-brown from-[-39.43%] to-accent-orange to-162% rounded-full shadow-xl hover:shadow-2xl transition-shadow duration-300 flex items-center justify-center"
           >
             <Bot animateOnHover size={34} className="text-white" />
           </motion.button>
@@ -67,16 +76,16 @@ export default function Chat() {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0, opacity: 0, y: 100 }}
             transition={{ type: "spring", stiffness: 500, damping: 35 }}
-            className="w-[480px] h-[680px] chatbot_sm:w-[400px] chatbot_sm:h-[600px] chatbot_xs:w-[360px] chatbot_xs:h-[560px] bg-[#FCEFE8] rounded-3xl shadow-2xl border border-black/5 flex flex-col overflow-hidden backdrop-blur-sm"
+            className="w-[480px] h-[680px] chatbot_sm:w-[400px] chatbot_sm:h-[600px] chatbot_xs:w-[360px] chatbot_xs:h-[560px] bg-[#FCEFE8] rounded-3xl shadow-2xl border border-black/5 flex flex-col overflow-hidden backdrop-blur-xs"
           >
             <motion.header
-              className="relative bg-gradient-to-r from-accent-brown from-[-39.43%] to-accent-orange to-162% px-6 py-5 flex items-center justify-between"
+              className="relative bg-linear-to-r from-accent-brown from-[-39.43%] to-accent-orange to-162% px-6 py-5 flex items-center justify-between"
               initial={{ y: -50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.05 }}
             >
               <div className="flex items-center gap-4">
-                <motion.div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                <motion.div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-xs">
                   <Bot
                     size={24}
                     animation="blink"
@@ -98,7 +107,7 @@ export default function Chat() {
               </div>
               <motion.button
                 onClick={() => setOpen(false)}
-                className="w-9 h-9 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors duration-200 group backdrop-blur-sm"
+                className="w-9 h-9 bg-white/10 hover:bg-white/20 rounded-full flex items-center justify-center transition-colors duration-200 group backdrop-blur-xs"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
@@ -121,7 +130,7 @@ export default function Chat() {
                   >
                     <div
                       className={cn(
-                        "max-w-[80%] px-5 py-4 rounded-2xl shadow-lg relative backdrop-blur-sm",
+                        "max-w-[80%] px-5 py-4 rounded-2xl shadow-lg relative backdrop-blur-xs",
                         {
                           "bg-[#FCEFE8] text-black rounded-br-md border border-black/10":
                             m.role === "user",
@@ -131,17 +140,22 @@ export default function Chat() {
                       )}
                     >
                       {m.role !== "user" && (
-                        <div className="absolute -left-4 top-2 w-8 h-8 bg-gradient-to-r from-accent-brown to-accent-orange rounded-full flex items-center justify-center shadow-lg border-2 border-white">
+                        <div className="absolute -left-4 top-2 w-8 h-8 bg-linear-to-r from-accent-brown to-accent-orange rounded-full flex items-center justify-center shadow-lg border-2 border-white">
                           <Bot className="w-4 h-4 text-white" />
                         </div>
                       )}
                       {m.role === "user" && (
-                        <div className="absolute -right-4 top-2 w-8 h-8 bg-gradient-to-r from-accent-brown to-accent-orange rounded-full flex items-center justify-center shadow-lg border-2 border-white">
+                        <div className="absolute -right-4 top-2 w-8 h-8 bg-linear-to-r from-accent-brown to-accent-orange rounded-full flex items-center justify-center shadow-lg border-2 border-white">
                           <User className="w-4 h-4 text-white" />
                         </div>
                       )}
                       <div className="text-sm leading-relaxed font-medium">
-                        <ReactMarkdown>{m.content}</ReactMarkdown>
+                        <ReactMarkdown>
+                          {m.parts
+                            .filter((part) => part.type === "text")
+                            .map((part) => part.text)
+                            .join("")}
+                        </ReactMarkdown>
                       </div>
                     </div>
                     <div
@@ -161,8 +175,8 @@ export default function Chat() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                   >
-                    <div className="max-w-[80%] px-5 py-4 rounded-2xl rounded-bl-md bg-[#F9AD42] text-black shadow-lg relative backdrop-blur-sm border border-orange-300/20">
-                      <div className="absolute -left-4 top-2 w-8 h-8 bg-gradient-to-r from-accent-brown to-accent-orange rounded-full flex items-center justify-center shadow-lg border-2 border-white">
+                    <div className="max-w-[80%] px-5 py-4 rounded-2xl rounded-bl-md bg-[#F9AD42] text-black shadow-lg relative backdrop-blur-xs border border-orange-300/20">
+                      <div className="absolute -left-4 top-2 w-8 h-8 bg-linear-to-r from-accent-brown to-accent-orange rounded-full flex items-center justify-center shadow-lg border-2 border-white">
                         <Loader2 className="w-4 h-4 text-white animate-spin" />
                       </div>
                       <div className="flex items-center gap-3 text-sm">
@@ -209,7 +223,7 @@ export default function Chat() {
               </div>
 
               <motion.form
-                className="p-6 border-t border-black/10 bg-[#FCEFE8]/80 backdrop-blur-sm"
+                className="p-6 border-t border-black/10 bg-[#FCEFE8]/80 backdrop-blur-xs"
                 onSubmit={handleSubmit}
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -219,8 +233,8 @@ export default function Chat() {
                   <input
                     value={input}
                     placeholder={t("placeholder")}
-                    className="flex-1 bg-transparent text-black text-sm outline-none placeholder:text-black/50 font-medium"
-                    onChange={handleInputChange}
+                    className="flex-1 bg-transparent text-black text-sm outline-hidden placeholder:text-black/50 font-medium"
+                    onChange={(e) => setInput(e.target.value)}
                     disabled={status === "streaming" || status === "submitted"}
                   />
                   <motion.button
@@ -229,7 +243,7 @@ export default function Chat() {
                     className={cn(
                       "w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200 relative overflow-hidden shadow-md",
                       {
-                        "bg-gradient-to-r from-accent-brown to-accent-orange text-white hover:shadow-lg":
+                        "bg-linear-to-r from-accent-brown to-accent-orange text-white hover:shadow-lg":
                           status !== "streaming" &&
                           status !== "submitted" &&
                           input.trim(),

@@ -33,7 +33,7 @@ const CheckboxGrid = ({
         {numbers.map((number) => (
           <Label
             key={number}
-            className="flex items-center space-x-2 cursor-pointer hover:bg-black/5 p-1 rounded"
+            className="flex items-center space-x-2 cursor-pointer hover:bg-black/5 p-1 rounded-sm"
           >
             <Checkbox
               id={`class-${number}`}

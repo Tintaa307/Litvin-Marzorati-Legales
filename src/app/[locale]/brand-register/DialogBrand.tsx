@@ -44,7 +44,7 @@ const DialogBrand = () => {
             <Button
               onClick={() => setIsOpen(false)}
               variant="default"
-              className="text-sm px-8 py-5 rounded-md bg-gradient-to-r from-accent-brown from-[-39.43%] to-accent-orange to-162%"
+              className="text-sm px-8 py-5 rounded-md bg-linear-to-r from-accent-brown from-[-39.43%] to-accent-orange to-162%"
             >
               {tBrandRegister("close-btn")}
             </Button>

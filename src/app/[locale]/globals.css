@@ -1,44 +1,87 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+@config '../../../tailwind.config.ts';
+
+/*
+  Tailwind 4 define los line-height de text-* como proporcion sin unidad, asi que
+  un hijo con font-size distinto los recalcula en lugar de heredar el valor fijo.
+  Tailwind 3 los definia en rem absolutos. Se restauran esos valores para que la
+  tipografia herede igual que antes de la migracion.
+*/
+@theme {
+  --text-xs--line-height: 1rem;
+  --text-sm--line-height: 1.25rem;
+  --text-base--line-height: 1.5rem;
+  --text-lg--line-height: 1.75rem;
+  --text-xl--line-height: 1.75rem;
+  --text-2xl--line-height: 2rem;
+  --text-3xl--line-height: 2.25rem;
+  --text-4xl--line-height: 2.5rem;
+  --text-5xl--line-height: 1;
+  --text-6xl--line-height: 1;
+  --text-7xl--line-height: 1;
+  --text-8xl--line-height: 1;
+  --text-9xl--line-height: 1;
 }
 
-html {
-  color-scheme: light !important;
-  color: black;
-}
 
-@layer components {
-  .main-padding {
-    @apply 2xl:px-72 lg:px-32 px-3;
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
   }
 }
 
-.button {
-  background: var(--border-color);
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@utility main-padding {
+  @apply 2xl:px-72 lg:px-32 px-3;
 }
 
-.button-body {
-  background-color: var(--button-body);
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+
+  html {
+    color-scheme: light !important;
+    color: black;
+  }
 }
 
-::-webkit-scrollbar {
-  width: 10px;
+@layer utilities {
+  .button {
+    background: var(--border-color);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .button-body {
+    background-color: var(--button-body);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
 }
 
 @layer base {

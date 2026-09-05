@@ -63,7 +63,7 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
       return toast.success("Datos guardados correctamente")
     } catch (error) {
       if (error instanceof ZodError) {
-        error.errors.map((err) => toast.info(err.message))
+        error.issues.map((err) => toast.info(err.message))
       } else {
         return toast.error("Error al enviar los datos")
       }
@@ -94,7 +94,7 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
       return toast.success("Datos guardados correctamente")
     } catch (error) {
       if (error instanceof ZodError) {
-        error.errors.map((err) => toast.warning(err.message))
+        error.issues.map((err) => toast.warning(err.message))
       }
     }
   }
@@ -168,7 +168,7 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
                       onChange={(e) =>
                         setFormData({ ...formData, [field]: e.target.value })
                       }
-                      className="w-full bg-transparent outline-none border-b border-black/30 focus:border-accent-orange transition-colors duration-150"
+                      className="w-full bg-transparent outline-hidden border-b border-black/30 focus:border-accent-orange transition-colors duration-150"
                     />
                   </div>
                 ))}
@@ -214,7 +214,7 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
                               [field]: e.target.value,
                             })
                           }
-                          className="w-full bg-transparent outline-none border-b border-black/30 focus:border-accent-orange transition-colors duration-150"
+                          className="w-full bg-transparent outline-hidden border-b border-black/30 focus:border-accent-orange transition-colors duration-150"
                         />
                       </div>
                     ))}
@@ -241,7 +241,7 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
               </div>
               <Button
                 onClick={handleNextStep}
-                className="w-full text-base px-2 py-4 sm:py-6 rounded-md bg-gradient-to-r from-accent-brown from-[-39.43%] to-accent-orange to-162%"
+                className="w-full text-base px-2 py-4 sm:py-6 rounded-md bg-linear-to-r from-accent-brown from-[-39.43%] to-accent-orange to-162%"
                 type="submit"
               >
                 {tBrandRegister("button")}
