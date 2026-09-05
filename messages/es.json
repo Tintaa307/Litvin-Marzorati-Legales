@@ -246,5 +246,20 @@
     "welcome": "Hola, soy el asistente virtual de LM Legales. ¿En qué puedo ayudarte?",
     "loader": "Pensando...",
     "placeholder": "Tu mensaje..."
+  },
+  "payment-status": {
+    "back-home": "Volver al inicio",
+    "success": {
+      "title": "¡Pago exitoso!",
+      "description": "Tu pago fue confirmado. En breve nos pondremos en contacto para continuar con el trámite."
+    },
+    "failure": {
+      "title": "El pago no se pudo procesar",
+      "description": "Hubo un problema al procesar tu pago. Podés intentarlo nuevamente o contactarnos si el problema persiste."
+    },
+    "pending": {
+      "title": "Pago pendiente",
+      "description": "Tu pago está siendo procesado. Te notificaremos por email en cuanto se confirme."
+    }
   }
 }

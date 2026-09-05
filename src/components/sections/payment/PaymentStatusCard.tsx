@@ -1,0 +1,52 @@
+"use client"
+
+import { CheckCircle2, Clock, XCircle, LucideIcon } from "lucide-react"
+import Link from "next/link"
+import { useLocale, useTranslations } from "next-intl"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+
+const ICONS: Record<"success" | "failure" | "pending", LucideIcon> = {
+  success: CheckCircle2,
+  failure: XCircle,
+  pending: Clock,
+}
+
+const ICON_COLORS: Record<"success" | "failure" | "pending", string> = {
+  success: "text-green-600",
+  failure: "text-red-600",
+  pending: "text-yellow-600",
+}
+
+type PaymentStatusCardProps = {
+  status: "success" | "failure" | "pending"
+}
+
+export default function PaymentStatusCard({ status }: PaymentStatusCardProps) {
+  const t = useTranslations("payment-status")
+  const locale = useLocale()
+  const Icon = ICONS[status]
+
+  return (
+    <div className="min-h-screen bg-[#F5F5F3] flex items-center justify-center p-4">
+      <Card className="w-full max-w-md bg-white shadow-lg">
+        <CardHeader className="text-center space-y-4 pb-2">
+          <Icon className={`h-14 w-14 mx-auto ${ICON_COLORS[status]}`} />
+          <CardTitle className="font-meshedDisplay text-2xl sm:text-3xl font-bold text-black">
+            {t(`${status}.title`)}
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="text-center space-y-6 pb-6">
+          <p className="text-gray-500 text-sm sm:text-base">
+            {t(`${status}.description`)}
+          </p>
+          <Link href={`/${locale}`}>
+            <Button className="w-full bg-linear-to-r from-accent-brown from-[-39.43%] to-accent-orange to-162%">
+              {t("back-home")}
+            </Button>
+          </Link>
+        </CardContent>
+      </Card>
+    </div>
+  )
+}
