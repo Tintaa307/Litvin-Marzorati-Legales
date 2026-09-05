@@ -1,14 +1,64 @@
 @import 'tailwindcss';
 
-@config '../../../tailwind.config.ts';
-
 /*
-  Tailwind 4 define los line-height de text-* como proporcion sin unidad, asi que
-  un hijo con font-size distinto los recalcula en lugar de heredar el valor fijo.
-  Tailwind 3 los definia en rem absolutos. Se restauran esos valores para que la
-  tipografia herede igual que antes de la migracion.
+  Fuentes de next/font: se inyectan como variables CSS sobre el elemento, por eso
+  van en `@theme inline`. Sin `inline`, Tailwind las emitiria tambien en :root y
+  quedaria una referencia circular (--font-poppins: var(--font-poppins)).
 */
+@theme inline {
+  --font-poppins: var(--font-poppins);
+  --font-meshedDisplay: var(--font-meshedDisplay);
+  --font-dmSerif: var(--font-dmSerif);
+}
+
 @theme {
+  /* Colores de marca */
+  --color-background: #fcefe8;
+  --color-accent-orange: #ffbe41;
+  --color-accent-brown: #e77d43;
+  --color-footer: #090909;
+
+  /* Breakpoints propios (min-width) */
+  --breakpoint-service: 1370px;
+  --breakpoint-3xl: 1600px;
+
+  /* Animaciones */
+  --animate-marquee: marquee 30s linear infinite;
+  --animate-marquee2: marquee2 30s linear infinite;
+  --animate-moveBg: moveBg 10s linear infinite;
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+  }
+  @keyframes marquee2 {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0%); }
+  }
+  @keyframes moveBg {
+    0% { background-position: 100%; }
+    25% { background-position: 100%; }
+    50% { background-position: 0%; }
+    75% { background-position: 0%; }
+    100% { background-position: 100%; }
+  }
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+  }
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
+
+  /*
+    Tailwind 4 define los line-height de text-* como proporcion sin unidad, asi que
+    un hijo con font-size distinto los recalcula en lugar de heredar el valor fijo.
+    Tailwind 3 los definia en rem absolutos. Se restauran esos valores para que la
+    tipografia herede igual que antes de la migracion.
+  */
   --text-xs--line-height: 1rem;
   --text-sm--line-height: 1.25rem;
   --text-base--line-height: 1.5rem;
@@ -23,6 +73,15 @@
   --text-8xl--line-height: 1;
   --text-9xl--line-height: 1;
 }
+
+/* Breakpoints de max-width: en v4 se expresan como variantes propias */
+@custom-variant feed (@media (max-width: 930px));
+@custom-variant min_feed (@media (max-width: 630px));
+@custom-variant chatbot_sm (@media (max-width: 560px));
+@custom-variant chatbot_xs (@media (max-width: 400px));
+
+/* Modo oscuro por clase, como declaraba darkMode: [_, "class"] del config anterior */
+@custom-variant dark (&:where(.dark, .dark *));
 
 
 /*
@@ -86,10 +145,6 @@
 
 @layer base {
   :root {
-    --color-background: #fcefe8;
-    --accent-orange: #ffbe41;
-    --accent-brown: #e77d43;
-    --color-footer: #090909;
     --border-color: linear-gradient(to right, #ffbe41 0%, #e77d43 100%);
     --button-body: #fcefe8;
     --background: 0 0% 100%;

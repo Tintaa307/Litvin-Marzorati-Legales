@@ -10,7 +10,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 import InputLabel from "@/components/sections/contact/InputLabel"
 import { Separator } from "@/components/ui/separator"
 import { PaidmentFormSchema } from "@/lib/validations/Forms"
-import { ZodError } from "zod"
+import { z, ZodError } from "zod"
 import { useRouter } from "next/navigation"
 import { useLocale, useTranslations } from "next-intl"
 import axios from "axios"
@@ -47,11 +47,14 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
     if (localStorage.getItem("brand")) {
       const price = JSON.parse(localStorage.getItem("brand")!).price
 
+      // localStorage solo existe en el cliente: leerlo tras el montaje evita
+      // un desajuste de hidratacion. La regla apunta a estado derivado, no a este caso.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setPrice(price)
     }
   }, [])
 
-  const sendBillingData = async (result: any) => {
+  const sendBillingData = async (result: z.infer<typeof PaidmentFormSchema>) => {
     try {
       await axios.post(
         process.env.NODE_ENV === "development"

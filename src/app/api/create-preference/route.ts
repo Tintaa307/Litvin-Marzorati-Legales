@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error("Error interno al crear la preferencia:", error)
     return NextResponse.json(
-      // @ts-ignore
+      // @ts-expect-error - el tipo del SDK no contempla este campo
       { error: "Error interno del servidor", details: error.message },
       { status: 500 }
     )

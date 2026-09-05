@@ -111,6 +111,8 @@ const Carousel = React.forwardRef<
         return
       }
 
+      // Inicializa el estado desde el snapshot de embla y luego se suscribe a sus eventos.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       onSelect(api)
       api.on("reInit", onSelect)
       api.on("select", onSelect)
