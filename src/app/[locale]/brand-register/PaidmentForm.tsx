@@ -103,7 +103,7 @@ export default function PaidmentForm({ isOpen, setIsOpen }: PaidmentFormProps) {
   }
 
   return (
-    <Card className="w-full max-w-7xl border-none shadow-none">
+    <Card className="w-full max-w-7xl border-none shadow-none bg-transparent">
       <CardContent className="p-4 sm:p-6">
         <Collapsible
           open={isOpen}
