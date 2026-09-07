@@ -21,7 +21,7 @@ const TeamCard = ({ name, position, image, linkedIn }: Props) => {
             <div className="w-[80%] h-4 bg-surface-inverse -z-10 opacity-70 -right-3 top-5 absolute"></div>
           </h1>
         </div>
-        <Link href={linkedIn} target="_blank">
+        <Link href={linkedIn} target="_blank" className="focus-visible:outline-focus-ring-on-dark">
           <Image
             src={linkedInIcon}
             alt="linkedin"

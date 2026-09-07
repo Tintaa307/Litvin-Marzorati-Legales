@@ -274,13 +274,19 @@
     color: var(--color-fg-placeholder-on-dark);
   }
 
-  /* Foco visible universal: outline 2px + offset. Nunca outline: none sin reemplazo. */
-  :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  /*
+    Foco visible universal: outline 2px + offset. Nunca outline: none sin reemplazo.
+    El color se fija tambien en reposo para que transition-colors no lo anime desde currentcolor.
+  */
+  :where(a, button, input, select, textarea, summary, iframe, [tabindex]) {
+    outline-color: var(--color-focus-ring);
+  }
+  :where(a, button, input, select, textarea, summary, iframe, [tabindex]):focus-visible {
     outline: 2px solid var(--color-focus-ring);
     outline-offset: 2px;
   }
   :where(.bg-surface-inverse, .bg-surface-brand)
-    :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+    :where(a, button, input, select, textarea, summary, iframe, [tabindex]) {
     outline-color: var(--color-focus-ring-on-dark);
   }
 

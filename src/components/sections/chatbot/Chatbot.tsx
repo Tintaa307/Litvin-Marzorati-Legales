@@ -65,7 +65,7 @@ export default function Chat() {
             whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 400, damping: 25 }}
             onClick={() => setOpen(true)}
-            className="group relative w-16 h-16 bg-action-bg hover:bg-action-bg-hover rounded-full shadow-lg motion-safe:transition-colors duration-300 flex items-center justify-center"
+            className="group relative w-16 h-16 bg-action-bg hover:bg-action-bg-hover rounded-full shadow-lg motion-safe:transition-colors duration-300 flex items-center justify-center focus-visible:ring-2 focus-visible:ring-focus-ring-on-dark"
           >
             <Bot animateOnHover size={34} className="text-action-fg" />
           </motion.button>
