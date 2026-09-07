@@ -281,7 +281,8 @@
   :where(a, button, input, select, textarea, summary, iframe, [tabindex]) {
     outline-color: var(--color-focus-ring);
   }
-  :where(a, button, input, select, textarea, summary, iframe, [tabindex]):focus-visible {
+  :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible,
+  iframe:focus {
     outline-style: solid;
     outline-width: 2px;
     outline-offset: 2px;
