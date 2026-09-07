@@ -59,7 +59,7 @@ Todos se consumen como `--color-<nombre>` y, en Tailwind, como `bg-<nombre>`, `t
 | | `surface-raised` | white | Cards, dropdowns, inputs, items de FAQ |
 | | `surface-sunken` | sand | Burbuja del asistente, hover ghost, tiles de icono |
 | | `surface-brand` | espresso | Header del chatbot |
-| | `surface-inverse` | ink | Footer, CTA final |
+| | `surface-inverse` | ink | Footer |
 | Texto claro | `fg-primary` | ink | Body, titulares, números |
 | | `fg-secondary` | espresso | Subtítulos, labels, links, FAQ cerrado |
 | | `fg-muted` | leather | Numeración de labels, timestamps, texto atenuado. Mínimo permitido. |
