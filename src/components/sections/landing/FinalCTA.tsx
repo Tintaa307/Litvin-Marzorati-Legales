@@ -7,15 +7,10 @@ const FinalCTA = () => {
   const locale = useLocale()
 
   return (
-    <div className="flex flex-col gap-8 items-center justify-center bg-surface-inverse text-fg-on-dark border-b border-border-hairline-on-dark main-padding h-96 py-16">
+    <div className="flex flex-col gap-8 items-center justify-center bg-surface-page bg-center bg-no-repeat bg-cover bg-[url('/assets/finalCTA.png')] text-fg-primary main-padding h-96 py-16">
       <Heading title={t("title")}></Heading>
       <div className="w-full h-max flex justify-center items-center gap-3">
-        <CtaButton
-          className="bg-action-inverse-bg text-action-inverse-fg hover:bg-action-inverse-bg-hover active:bg-action-inverse-bg-active"
-          url="/contacto"
-          locale={locale}
-          text={t("cta")}
-        ></CtaButton>
+        <CtaButton url="/contacto" locale={locale} text={t("cta")}></CtaButton>
       </div>
     </div>
   )

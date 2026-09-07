@@ -123,6 +123,7 @@ Sobre crema `#f0e9d9`:
 | camel / stone | 2.15:1 | Solo decorativo. **Nunca texto** |
 
 Sobre negro: cream 17.36 · sand 11.43 · camel 8.09 · stone 8.08 · leather 3.35 (solo UI) · **espresso 2.43, prohibido**.
+Sobre la foto del CTA final (compuesta sobre crema, zona del texto): ink 16.03:1 de media y 13.23:1 en el peor 5 %; el botón espresso 5.42:1 contra la foto en el peor caso.
 Sobre espresso: white 8.63 · cream 7.14 · sand 4.70 · camel y stone 3.32 (solo UI).
 Sobre blanco: espresso 8.63 · leather 6.27 · camel y stone 2.60 (nunca texto).
 
@@ -132,7 +133,7 @@ Pisos: 4.5:1 texto normal, 3:1 texto ≥ 24 px o ≥ 19 px bold, 3:1 componentes
 
 1. **60/30/10 por área.** Crema dominante, blanco y arena como superficies, espresso y negro como acento de peso. Camel y stone son condimento decorativo, menos del 5 % combinado.
 2. **La jerarquía se construye por valor, no por matiz.** El botón primario es la mancha más oscura de su zona. Si en una sección hay dos manchas oscuras del mismo peso, hay un error de jerarquía. Por eso hay un solo botón lleno por sección y el resto son ghost.
-3. **Ritmo de bandas.** Hoy: hero crema → servicios con cards blancas → marquee blanco → equipo crema (leído como bloque oscuro por las fotos) → medios crema → instagram crema → FAQ con items blancos → CTA final negro → footer negro. El negro aparece solo en el cierre, dos veces contiguas, separadas por un hairline espresso.
+3. **Ritmo de bandas.** Hoy: hero con foto lavada sobre crema → servicios con cards blancas → marquee blanco → equipo crema (leído como bloque oscuro por las fotos) → medios crema → instagram crema → FAQ con items blancos → CTA final con foto lavada sobre crema → footer negro. El negro aparece una sola vez, en el footer.
 4. **Negro puro y blanco puro** como colores plenos. No `#0b0b0b`, no `#fafafa`.
 5. **Camel y stone nunca llevan texto encima ni son texto.**
 6. **Sin gradientes decorativos.** Los 27 gradientes CTA, los 5 SVG con gradiente propios y los 2 PNG-gradiente fueron reemplazados por colores planos. La única excepción es el barrido del título de contacto.
@@ -154,9 +155,9 @@ Pisos: 4.5:1 texto normal, 3:1 texto ≥ 24 px o ≥ 19 px bold, 3:1 componentes
 | Tema | Decisión | Estado |
 |---|---|---|
 | WhatsApp | Se mantiene el verde oficial `#25d366` en el flotante y en el botón de contacto, tokenizado como `brand-whatsapp`. El glifo blanco sobre verde (1.98:1) es un logotipo, exento por WCAG. Alternativa descartada: monocromo espresso. | Hecho |
-| Logos de premios | Los 9 PNG ya venían teñidos con el naranja viejo. Mientras no se regeneren, van en `grayscale` permanente al 60 % de opacidad, 100 % en hover, sobre banda blanca. El hover **no** revela color para no mostrar la paleta anterior. | Regeneración pendiente |
-| Fondo del hero | `heroBg.png` conserva su viñeta rosada del crema anterior. Se nota un leve desfasaje contra el crema nuevo. | Re-teñido pendiente |
-| CTA final | Banda negra pura con botón invertido crema. Se eliminó `finalCTA.png`. | Hecho |
+| Logos de premios | El cliente entregó los 9 logos regenerados en ink y espresso con fondo transparente. Van a color pleno sobre banda blanca, sin filtros. Se mapearon por identidad para conservar el orden del marquee. | Hecho |
+| Fondo del hero | El cliente entregó `heroBg.png` re-teñido al crema nuevo. Hero claro, titular ink. | Hecho |
+| CTA final | El cliente entregó la foto de la firma lavada en crema y pidió recuperarla. La sección vuelve a ser clara: fondo `surface-page` con la foto encima (se desvanece hacia abajo), titular `fg-primary` y botón primario espresso. El titular mide 16.03:1 de media y 13.23:1 en el peor 5 % de la zona del texto. | Hecho |
 | Sección Medios | Se eliminó `mediaBg.png`, gradiente decorativo. | Hecho |
 | Título de contacto | Se conserva la animación `moveBg` con un barrido leather → ink en CSS. Se eliminaron `plainAccent.png` y `plainAccentBig.png`. | Hecho |
 | Nombres sobre foto (Equipo) | Nombres cream y cargos sand con respaldo ink al 70 %. Garantiza 4.5:1 aun sobre una foto blanca. | Hecho |
@@ -176,7 +177,7 @@ Pisos: 4.5:1 texto normal, 3:1 texto ≥ 24 px o ≥ 19 px bold, 3:1 componentes
 
 1. `src/app/[locale]/layout.tsx`: `viewport.themeColor = "#f0e9d9"`. La metadata de Next no puede leer CSS. Es el crema de la paleta y hay que actualizarlo a mano si cambia `--lm-cream`.
 2. Los tres templates de email (diferidos, ver arriba).
-3. Assets: `icons/about/*.svg`, `icons/about/linkedin.svg` y `socials/whatsapp.svg` conservan sus colores por decisión del cliente. Los 9 PNG de premios y `heroBg.png` esperan regeneración.
+3. Assets: `icons/about/*.svg`, `icons/about/linkedin.svg` y `socials/whatsapp.svg` conservan sus colores por decisión del cliente. `heroBg.png`, `finalCTA.png` y los 9 PNG de premios fueron regenerados por el cliente en la paleta nueva.
 
 ## 8. Pendientes y zonas ambiguas para decidir
 
@@ -186,7 +187,6 @@ Pisos: 4.5:1 texto normal, 3:1 texto ≥ 24 px o ≥ 19 px bold, 3:1 componentes
 - **LinkedIn del equipo.** El icono está fuera del área visible hasta el hover, así que un usuario de teclado lo focaliza sin verlo. Es un problema preexistente de interacción, no de color. En `keyboard-report.md` estos 7 links figuran con ring 1.00:1: es un falso positivo del medidor, que compara el outline crema contra el fondo crema del body porque la foto no es un color de fondo. El outline real cae sobre el retrato.
 - **Iframes de Google Maps.** Reciben foco por Tab pero Chromium no les aplica `:focus`, `:focus-visible` ni `:focus-within` al elemento `iframe` cuando el foco entra al documento embebido (verificado con `focus()` programático). La regla `iframe:focus` queda en `globals.css` para los navegadores que sí la aplican. Los controles internos del mapa tienen su propio indicador de foco.
 - **Newsletter del footer.** Dispara toasts pero no hay `ToastContainer` en el layout, así que nunca se muestran. Preexistente.
-- **Regeneración de assets** con la paleta nueva: 9 logos de premios y fondo del hero. Se puede hacer con `sharp`, ya disponible en el store de pnpm.
 
 ## 9. Cómo verificar
 

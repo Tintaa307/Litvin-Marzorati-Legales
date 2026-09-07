@@ -2,7 +2,7 @@
 
 Calculado con la formula de luminancia relativa sRGB de WCAG 2.2. Pisos aplicados: **4.5:1** texto normal, **3:1** texto >= 24px / 19px bold y componentes de interfaz (1.4.11). Los pares marcados como *exentos* son controles inactivos o logotipos, exentos por la norma y documentados en `docs/color-system.md`.
 
-**Resultado: 57 pares evaluados · 0 por debajo del piso.**
+**Resultado: 58 pares evaluados · 0 por debajo del piso.**
 
 ## Texto
 
@@ -22,7 +22,18 @@ Calculado con la formula de luminancia relativa sRGB de WCAG 2.2. Pisos aplicado
 
 | Uso | Frente | Fondo | Ratio | Piso | Veredicto |
 |---|---|---|---|---|---|
-| Footer, CTA final, heroes de servicio: fg-on-dark sobre surface-inverse | `#f0e9d9` | `#000000` | 17.36:1 | 4.5 | ✅ AAA |
+| Footer, heroes de servicio: fg-on-dark sobre surface-inverse | `#f0e9d9` | `#000000` | 17.36:1 | 4.5 | ✅ AAA |
+
+## Texto
+
+| Uso | Frente | Fondo | Ratio | Piso | Veredicto |
+|---|---|---|---|---|---|
+| Titular del CTA final (42px) sobre la foto lavada: fg-primary, percentil 5 de luminancia en la zona del texto | `#000000` | `#cccccc` | 13.08:1 | 3.0 | ✅ AAA · medido sobre public/assets/finalCTA.png compuesto sobre crema; media 16.03:1 |
+
+## Texto oscuro
+
+| Uso | Frente | Fondo | Ratio | Piso | Veredicto |
+|---|---|---|---|---|---|
 | Links del footer: fg-on-dark-2 sobre surface-inverse | `#cabea6` | `#000000` | 11.43:1 | 4.5 | ✅ AAA |
 | Links legales: fg-on-dark-muted sobre surface-inverse | `#a6a094` | `#000000` | 8.08:1 | 4.5 | ✅ AAA |
 | Placeholder newsletter: fg-placeholder-on-dark sobre surface-inverse | `#a6a094` | `#000000` | 8.08:1 | 4.5 | ✅ AAA |
@@ -43,7 +54,7 @@ Calculado con la formula de luminancia relativa sRGB de WCAG 2.2. Pisos aplicado
 | Ghost hover: action-ghost-fg sobre action-ghost-bg-hover | `#5b483a` | `#cabea6` | 4.70:1 | 4.5 | ✅ AA |
 | Ghost borde: action-ghost-border sobre surface-page | `#7b5942` | `#f0e9d9` | 5.18:1 | 3.0 | ✅ AA |
 | Ghost sobre foto oscura (nav de servicios): cream sobre surface-inverse (peor caso aproximado) | `#f0e9d9` | `#000000` | 17.36:1 | 4.5 | ✅ AAA |
-| Boton invertido (CTA final, newsletter): action-inverse-fg sobre action-inverse-bg | `#5b483a` | `#f0e9d9` | 7.14:1 | 4.5 | ✅ AAA |
+| Boton invertido (newsletter del footer): action-inverse-fg sobre action-inverse-bg | `#5b483a` | `#f0e9d9` | 7.14:1 | 4.5 | ✅ AAA |
 | Boton invertido hover: action-inverse-fg sobre action-inverse-bg-hover | `#5b483a` | `#cabea6` | 4.70:1 | 4.5 | ✅ AA |
 | Boton invertido active: action-inverse-fg sobre action-inverse-bg-active | `#5b483a` | `#ffffff` | 8.63:1 | 4.5 | ✅ AAA |
 | Boton invertido vs banda: action-inverse-bg sobre surface-inverse | `#f0e9d9` | `#000000` | 17.36:1 | 3.0 | ✅ AAA |
