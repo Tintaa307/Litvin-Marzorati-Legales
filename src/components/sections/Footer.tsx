@@ -4,7 +4,7 @@ import insta from "../../../public/socials/insta.png"
 import linkedin from "../../../public/socials/linkedin.svg"
 import facebook from "../../../public/socials/facebook.svg"
 
-import logo from "../../../public/logo.svg"
+import logo from "../../../public/logo-cream.svg"
 import { useTranslations, useLocale } from "next-intl"
 import Newsletter from "../inputs/Newsletter"
 
@@ -110,8 +110,7 @@ const Footer = () => {
           <Image
             src={logo}
             alt="Litvin Marzorati Legales logo"
-            width={224}
-            className="invert"
+            width={200}
           ></Image>
           <div className="flex flex-col gap-3 text-sm w-72">
             <h3>Tel: +54 11 4782-9952</h3>

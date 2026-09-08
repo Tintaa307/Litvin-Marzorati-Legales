@@ -161,7 +161,7 @@ Pisos: 4.5:1 texto normal, 3:1 texto ≥ 24 px o ≥ 19 px bold, 3:1 componentes
 | Sección Medios | Se eliminó `mediaBg.png`, gradiente decorativo. | Hecho |
 | Título de contacto | Se conserva la animación `moveBg` con un barrido leather → ink en CSS. Se eliminaron `plainAccent.png` y `plainAccentBig.png`. | Hecho |
 | Nombres sobre foto (Equipo) | Nombres cream y cargos sand con respaldo ink al 70 %. Garantiza 4.5:1 aun sobre una foto blanca. | Hecho |
-| Logo | Se mantiene negro; se sigue invirtiendo con `filter` para el footer y el nav sobre foto. | Hecho |
+| Logo | Logo nuevo del cliente (monograma LM + wordmark en Sherborne). El wordmark venia como texto vivo; se convirtio a trazados con la fuente activada por Adobe Fonts, respetando posiciones y variacion (wght 250, opsz 12). Dos SVG: `logo.svg` en ink para el header sobre crema y `logo-cream.svg` para el footer y el nav sobre foto. Sin filtros de inversion. `logo.png` (emails) regenerado desde el SVG ink. | Hecho |
 | Flechas de servicios y carrusel | Siguen como `<Image>` con SVG negro. El hover del carrusel invierte el glifo con `filter` sobre espresso. | Hecho |
 | Iconos de /about y LinkedIn del equipo | Se conservan tal cual: los 5 SVG con gradiente naranja y el azul de LinkedIn. Son los únicos restos de la paleta anterior en el sitio. | Por decisión del cliente |
 | Tokens shadcn | Alias a la capa semántica. | Hecho |

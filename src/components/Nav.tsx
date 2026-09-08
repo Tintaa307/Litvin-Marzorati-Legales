@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion"
 import MobileMenu from "./navigation/MobileMenu"
 
 import Logo from "../../public/logo.svg"
+import LogoCream from "../../public/logo-cream.svg"
 import Insta from "../../public/socials/insta.png"
 import Linked from "../../public/socials/linkedin.svg"
 import Facebook from "../../public/socials/facebook.svg"
@@ -58,13 +59,9 @@ const Nav = ({
     >
       <Link href={"/" + (locale || "")}>
         <Image
-          src={Logo}
-          alt="Logo"
-          className={`w-32 ${
-            scrollPosition > 20
-              ? "filter-none"
-              : `${white && !isOpen && "filter invert-100"}`
-          }`}
+          src={onDark ? LogoCream : Logo}
+          alt="Litvin Marzorati Legales"
+          className="h-14 w-auto"
         ></Image>
       </Link>
       {/* For Desktop */}
