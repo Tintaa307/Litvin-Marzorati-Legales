@@ -18,7 +18,7 @@ const TeamCard = ({ name, position, image, linkedIn }: Props) => {
         <div className="relative right-3 group-hover:right-12 duration-300">
           <h1 className="absolute whitespace-nowrap right-0 z-10 text-[1.35rem] font-medium">
             {name}
-            <div className="w-[80%] h-4 bg-surface-inverse -z-10 opacity-70 -right-3 top-5 absolute"></div>
+            <div className="absolute -inset-x-3 -inset-y-1 bg-surface-inverse -z-10 opacity-70"></div>
           </h1>
         </div>
         <Link href={linkedIn} target="_blank" className="focus-visible:outline-focus-ring-on-dark">
@@ -33,7 +33,7 @@ const TeamCard = ({ name, position, image, linkedIn }: Props) => {
         <div className="relative -right-64 group-hover:right-3 duration-500 text-right">
           <h2 className="absolute whitespace-normal right-0 z-10 text-base text-fg-on-dark-2">
             {position}
-            <div className="w-[80%] h-[90%] bg-surface-inverse -z-10 opacity-70 -right-3 top-3 absolute"></div>
+            <div className="absolute -inset-x-3 -inset-y-1 bg-surface-inverse -z-10 opacity-70"></div>
           </h2>
         </div>
       </div>

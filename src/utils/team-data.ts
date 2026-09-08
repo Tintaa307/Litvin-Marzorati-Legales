@@ -33,18 +33,6 @@ const teamData = [
     image: antonio,
     linkedIn: "https://www.linkedin.com/in/antonio-lopez-forastier-5a949814b/",
   },
-  {
-    name: "Federico Ilan Ostrovsky",
-    positionKey: "federico",
-    image: federico,
-    linkedIn: "https://www.linkedin.com/in/federico-ostrovsky-944a87300/",
-  },
-  {
-    name: "Nicole Pessaj",
-    positionKey: "nicole",
-    image: nicole,
-    linkedIn: "https://www.linkedin.com/in/nicole-pessaj-457931268/",
-  },
   // {
   //     name: 'Gladis Martina Ozorio',
   //     positionKey: 'gladis',
@@ -62,6 +50,18 @@ const teamData = [
     positionKey: "kiara",
     image: kiara,
     linkedIn: "https://www.linkedin.com/in/kiaraherscovich/",
+  },
+  {
+    name: "Federico Ilan Ostrovsky",
+    positionKey: "federico",
+    image: federico,
+    linkedIn: "https://www.linkedin.com/in/federico-ostrovsky-944a87300/",
+  },
+  {
+    name: "Nicole Pessaj",
+    positionKey: "nicole",
+    image: nicole,
+    linkedIn: "https://www.linkedin.com/in/nicole-pessaj-457931268/",
   },
 ]
 
