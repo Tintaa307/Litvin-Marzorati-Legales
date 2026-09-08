@@ -56,7 +56,7 @@ Todos se consumen como `--color-<nombre>` y, en Tailwind, como `bg-<nombre>`, `t
 | Grupo | Token | Primitivo | Uso |
 |---|---|---|---|
 | Superficies | `surface-page` | cream | Fondo base del sitio |
-| | `surface-raised` | white | Cards, dropdowns, inputs, items de FAQ |
+| | `surface-raised` | white | Cards de about y pago, dropdowns, inputs, items de FAQ, marquee |
 | | `surface-sunken` | sand | Burbuja del asistente, hover ghost, tiles de icono |
 | | `surface-brand` | espresso | Header del chatbot |
 | | `surface-inverse` | ink | Footer |
@@ -133,7 +133,7 @@ Pisos: 4.5:1 texto normal, 3:1 texto ≥ 24 px o ≥ 19 px bold, 3:1 componentes
 
 1. **60/30/10 por área.** Crema dominante, blanco y arena como superficies, espresso y negro como acento de peso. Camel y stone son condimento decorativo, menos del 5 % combinado.
 2. **La jerarquía se construye por valor, no por matiz.** El botón primario es la mancha más oscura de su zona. Si en una sección hay dos manchas oscuras del mismo peso, hay un error de jerarquía. Por eso hay un solo botón lleno por sección y el resto son ghost.
-3. **Ritmo de bandas.** Hoy: hero con foto lavada sobre crema → servicios con cards blancas → marquee blanco → equipo crema (leído como bloque oscuro por las fotos) → medios crema → instagram crema → FAQ con items blancos → CTA final con foto lavada sobre crema → footer negro. El negro aparece una sola vez, en el footer.
+3. **Ritmo de bandas.** Hoy: hero con foto lavada sobre crema → servicios en crema con grilla espresso → marquee blanco → equipo crema (leído como bloque oscuro por las fotos) → medios crema → instagram crema → FAQ con items blancos → CTA final con foto lavada sobre crema → footer negro. El negro aparece una sola vez, en el footer.
 4. **Negro puro y blanco puro** como colores plenos. No `#0b0b0b`, no `#fafafa`.
 5. **Camel y stone nunca llevan texto encima ni son texto.**
 6. **Sin gradientes decorativos.** Los 27 gradientes CTA, los 5 SVG con gradiente propios y los 2 PNG-gradiente fueron reemplazados por colores planos. La única excepción es el barrido del título de contacto.
@@ -169,6 +169,7 @@ Pisos: 4.5:1 texto normal, 3:1 texto ≥ 24 px o ≥ 19 px bold, 3:1 componentes
 | Templates de email | `billing-email-template`, `new-email-template` y `newsletter-template` siguen con hex literales del naranja viejo. Son HTML de correo, no consumen CSS del sitio. | Diferido |
 | Assets huérfanos | Se borraron solo los que quedaron sin uso por la migración. `finalCTA2.png`, `accentHighliter.png`, `next.svg`, `vercel.svg` y las banderas ya estaban huérfanos y no se tocaron. | Hecho |
 | Jerarquía del hero | "Reservá una reunión" primario, "Registrá tu marca" ghost. | Hecho |
+| Cards de servicios | El cliente pidió que no fueran blancas. Fondo transparente sobre el crema de la página, grilla en `border-strong` (espresso, el equivalente de las líneas negras del diseño original), sin sombra. Hover: subrayado de "Aprende más". | Hecho |
 | Nav "Contacto" | Ghost; cream sobre las fotos de servicios, espresso en el resto. | Hecho |
 | FAQ abierto | Item en `surface-raised` con borde `border-control` y pregunta en `fg-primary`. | Hecho |
 | Burbuja del asistente | Arena con texto ink. | Hecho |
