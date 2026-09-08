@@ -178,7 +178,7 @@ Pisos: 4.5:1 texto normal, 3:1 texto ≥ 24 px o ≥ 19 px bold, 3:1 componentes
 
 1. `src/app/[locale]/layout.tsx`: `viewport.themeColor = "#f0e9d9"`. La metadata de Next no puede leer CSS. Es el crema de la paleta y hay que actualizarlo a mano si cambia `--lm-cream`.
 2. Los tres templates de email (diferidos, ver arriba).
-3. Assets: `icons/about/*.svg`, `icons/about/linkedin.svg` y `socials/whatsapp.svg` conservan sus colores por decisión del cliente. `heroBg.png`, `finalCTA.png` y los 9 PNG de premios fueron regenerados por el cliente en la paleta nueva.
+3. Assets: `icons/about/*.svg`, `icons/about/linkedin.svg` y `socials/whatsapp.svg` conservan sus colores por decisión del cliente. `heroBg.png`, `finalCTA.png`, los 9 PNG de premios y los 5 fondos de los heroes de servicios (`generalBg`, `emprendedoresBg`, `internetBg`, `metaversoBg`, `propInelectualBg`) fueron regenerados por el cliente en la paleta nueva. Los de servicios conservan la misma luminosidad que los originales en la zona del titulo, asi que el texto crema mantiene su contraste: entre 4.2:1 y 13.3:1 de media segun la pagina, con el de asesoramiento general como el mas claro.
 
 ## 8. Pendientes y zonas ambiguas para decidir
 
