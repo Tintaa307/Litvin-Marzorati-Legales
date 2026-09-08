@@ -84,12 +84,14 @@ const Media = ({ header }: Props) => {
           maxClicks={swiperLen - 1}
           handleClick={handleClick}
           swiperRef={swiperRef}
+          alwaysActive
         />
         <ArrowButton
           clicks={clicks}
           maxClicks={swiperLen - 1}
           handleClick={handleClick}
           swiperRef={swiperRef}
+          alwaysActive
         />
       </div>
     </div>
