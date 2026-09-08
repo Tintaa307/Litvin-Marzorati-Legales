@@ -46,7 +46,7 @@ const Media = ({ header }: Props) => {
           />
         </div>
       </div>
-      <div className="lg:w-xl w-[24rem]">
+      <div className="lg:w-xl w-[24rem] relative">
         <Swiper
           modules={[Navigation, Pagination, A11y]}
           slidesPerView={1.2}
@@ -64,6 +64,15 @@ const Media = ({ header }: Props) => {
             </SwiperSlide>
           ))}
         </Swiper>
+        {/* Fundido a crema sobre los bordes: la nota que asoma se desvanece en vez de cortarse */}
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-[12%] bg-linear-to-l from-surface-page to-transparent"
+        ></span>
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-[12%] bg-linear-to-r from-surface-page to-transparent"
+        ></span>
       </div>
       <div className="gap-[0.85rem] lg:hidden flex">
         <ArrowButton
