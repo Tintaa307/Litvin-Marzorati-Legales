@@ -170,7 +170,7 @@ Pisos: 4.5:1 texto normal, 3:1 texto ≥ 24 px o ≥ 19 px bold, 3:1 componentes
 | Assets huérfanos | Se borraron solo los que quedaron sin uso por la migración. `finalCTA2.png`, `accentHighliter.png`, `next.svg`, `vercel.svg` y las banderas ya estaban huérfanos y no se tocaron. | Hecho |
 | Jerarquía del hero | "Reservá una reunión" primario, "Registrá tu marca" ghost. | Hecho |
 | Cards de servicios | El cliente pidió que no fueran blancas. Fondo transparente sobre el crema de la página, grilla en `border-strong` (espresso, el equivalente de las líneas negras del diseño original), sin sombra. Hover: subrayado de "Aprende más". | Hecho |
-| Nav "Contacto" | Ghost; cream sobre las fotos de servicios, espresso en el resto. | Hecho |
+| Nav "Contacto" | Primero fue ghost segun el brief; el 2026-09-08 el cliente pidio que sea siempre lleno. Sobre crema: `action-bg` con texto `action-fg`. Sobre las fotos de servicios: relleno invertido (`action-inverse-*`, crema con texto espresso) para que no se funda con la foto oscura. Convive con el primario del hero en el primer viewport por decision del cliente. | Hecho |
 | FAQ abierto | Item en `surface-raised` con borde `border-control` y pregunta en `fg-primary`. | Hecho |
 | Burbuja del asistente | Arena con texto ink. | Hecho |
 

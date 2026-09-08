@@ -103,10 +103,10 @@ const Nav = ({
         </div>
         <Link href={"/" + (locale || "") + "/contacto"}>
           <h3
-            className={`text-base font-medium py-1 px-3 rounded-xl border motion-safe:transition-colors ${
+            className={`text-base font-medium py-1 px-3 rounded-xl border border-transparent motion-safe:transition-colors ${
               onDark
-                ? "border-fg-on-dark text-fg-on-dark hover:bg-fg-on-dark/15"
-                : "border-action-ghost-border text-action-ghost-fg hover:bg-action-ghost-bg-hover active:bg-action-bg active:text-action-fg"
+                ? "bg-action-inverse-bg text-action-inverse-fg hover:bg-action-inverse-bg-hover active:bg-action-inverse-bg-active"
+                : "bg-action-bg text-action-fg hover:bg-action-bg-hover active:bg-action-bg-active"
             } ${!white && "duration-200"}}`}
           >
             {tContacto}
