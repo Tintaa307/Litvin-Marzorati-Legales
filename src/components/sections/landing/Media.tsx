@@ -54,8 +54,9 @@ const Media = ({ header }: Props) => {
           slidesPerView={1.2}
           centeredSlides={true}
           loop={true}
-          // En desktop el slide mide lo mismo que la imagen (426px): la nota vecina asoma ~75px de cada lado.
-          breakpoints={{ 1024: { slidesPerView: 1.35 } }}
+          // En desktop: 24px de aire entre notas y el slide mide lo mismo que la imagen (426px),
+          // asi la nota vecina asoma ~50px de cada lado sin recortarse. (576 - 24/3) / (4/3) = 426
+          breakpoints={{ 1024: { slidesPerView: 4 / 3, spaceBetween: 24 } }}
           onSwiper={(swiper) => {
             swiperRef.current = swiper
           }}
