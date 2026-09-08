@@ -37,12 +37,14 @@ const Media = ({ header }: Props) => {
             maxClicks={swiperLen - 1}
             handleClick={handleClick}
             swiperRef={swiperRef}
+            alwaysActive
           />
           <ArrowButton
             clicks={clicks}
             maxClicks={swiperLen - 1}
             handleClick={handleClick}
             swiperRef={swiperRef}
+            alwaysActive
           />
         </div>
       </div>
@@ -51,6 +53,7 @@ const Media = ({ header }: Props) => {
           modules={[Navigation, Pagination, A11y]}
           slidesPerView={1.2}
           centeredSlides={true}
+          loop={true}
           onSwiper={(swiper) => {
             swiperRef.current = swiper
           }}

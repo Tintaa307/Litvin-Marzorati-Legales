@@ -10,9 +10,10 @@ interface Props {
     handleClick: (dirrection: string) => void,
     clicks: number,
     maxClicks: number,
+    alwaysActive?: boolean,
 }
 
-const ArrowButton = ({left, swiperRef, handleClick, clicks, maxClicks}: Props) => {
+const ArrowButton = ({left, swiperRef, handleClick, clicks, maxClicks, alwaysActive}: Props) => {
     const handleArrowClick = () => {
         if(swiperRef.current) {
             if(!left){
@@ -27,7 +28,8 @@ const ArrowButton = ({left, swiperRef, handleClick, clicks, maxClicks}: Props) =
     }
 
     // Estado visual del control: activo si hay slides en esa direccion, inactivo si no.
-    const isActive = left ? clicks !== 0 : clicks !== (maxClicks + 1);
+    // En carrusel circular las flechas nunca se desactivan.
+    const isActive = alwaysActive || (left ? clicks !== 0 : clicks !== (maxClicks + 1));
 
     return (
        <button onClick={handleArrowClick} className={`group w-16 h-16 flex items-center justify-center rounded-[100px] border duration-100 motion-safe:transition-colors ${isActive ? 'bg-surface-raised border-border-control hover:bg-action-bg active:bg-action-bg-active' : 'bg-surface-raised border-border-hairline cursor-not-allowed'}`}>
