@@ -62,6 +62,7 @@ const Nav = ({
           src={onDark ? LogoCream : Logo}
           alt="Litvin Marzorati Legales"
           className="h-14 w-auto"
+          priority
         ></Image>
       </Link>
       {/* For Desktop */}
