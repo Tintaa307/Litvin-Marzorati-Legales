@@ -119,7 +119,7 @@ const Nav = ({
         <div className="flex gap-2 items-center justify-center mr-4">
           <Link
             href={pathname.replace("/en", "/es")}
-            className={`${locale === "es" ? `font-semibold ${onDark ? "text-fg-on-dark" : "text-fg-primary"}` : `font-medium ${onDark ? "text-fg-on-dark-muted" : "text-fg-muted"}`}`}
+            className={`${locale === "es" ? `font-semibold ${onDark ? "text-fg-on-dark" : "text-fg-primary"}` : `font-medium ${onDark ? "text-fg-on-dark-2" : "text-fg-muted"}`}`}
           >
             ES
           </Link>
@@ -132,7 +132,7 @@ const Nav = ({
           ></span>
           <Link
             href={pathname.replace("/es", "/en")}
-            className={`${locale === "en" ? `font-semibold ${onDark ? "text-fg-on-dark" : "text-fg-primary"}` : `font-medium ${onDark ? "text-fg-on-dark-muted" : "text-fg-muted"}`}`}
+            className={`${locale === "en" ? `font-semibold ${onDark ? "text-fg-on-dark" : "text-fg-primary"}` : `font-medium ${onDark ? "text-fg-on-dark-2" : "text-fg-muted"}`}`}
           >
             EN
           </Link>

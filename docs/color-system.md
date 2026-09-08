@@ -65,7 +65,7 @@ Todos se consumen como `--color-<nombre>` y, en Tailwind, como `bg-<nombre>`, `t
 | | `fg-muted` | leather | Numeración de labels, timestamps, texto atenuado. Mínimo permitido. |
 | | `fg-placeholder` | leather | `::placeholder` sobre claro |
 | Texto oscuro | `fg-on-dark` | cream | Texto sobre negro o espresso |
-| | `fg-on-dark-2` | sand | Links del footer, cargos del equipo |
+| | `fg-on-dark-2` | sand | Links del footer, cargos del equipo, idioma inactivo del nav sobre foto |
 | | `fg-on-dark-muted` | stone | Links legales |
 | | `fg-placeholder-on-dark` | stone | `::placeholder` sobre oscuro |
 | Bordes | `border-hairline` | sand | Separadores decorativos, borde de cards en reposo |
