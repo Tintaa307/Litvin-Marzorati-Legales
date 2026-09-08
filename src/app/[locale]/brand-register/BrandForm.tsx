@@ -117,7 +117,7 @@ const BrandForm = ({ setIsOpen }: BrandFormProps) => {
         </article>
         <article className="w-full lg:w-3/4 mx-auto mt-8 lg:mt-0">
           <Card className="w-full shadow-none border-none">
-            <CardContent className="px-4 sm:px-6">
+            <CardContent className="px-4 sm:px-6 py-6">
               <div className="space-y-6">
                 <div>
                   <h3 className="text-xl font-medium mb-6">
