@@ -56,7 +56,7 @@ Todos se consumen como `--color-<nombre>` y, en Tailwind, como `bg-<nombre>`, `t
 | Grupo | Token | Primitivo | Uso |
 |---|---|---|---|
 | Superficies | `surface-page` | cream | Fondo base del sitio |
-| | `surface-raised` | white | Cards de about y pago, dropdowns, inputs, items de FAQ, marquee |
+| | `surface-raised` | white | Cards de about y pago, dropdowns, inputs, items de FAQ |
 | | `surface-sunken` | sand | Burbuja del asistente, hover ghost, tiles de icono |
 | | `surface-brand` | espresso | Header del chatbot |
 | | `surface-inverse` | ink | Footer |
@@ -133,7 +133,7 @@ Pisos: 4.5:1 texto normal, 3:1 texto ≥ 24 px o ≥ 19 px bold, 3:1 componentes
 
 1. **60/30/10 por área.** Crema dominante, blanco y arena como superficies, espresso y negro como acento de peso. Camel y stone son condimento decorativo, menos del 5 % combinado.
 2. **La jerarquía se construye por valor, no por matiz.** El botón primario es la mancha más oscura de su zona. Si en una sección hay dos manchas oscuras del mismo peso, hay un error de jerarquía. Por eso hay un solo botón lleno por sección y el resto son ghost.
-3. **Ritmo de bandas.** Hoy: hero con foto lavada sobre crema → servicios en crema con grilla espresso → marquee blanco → equipo crema (leído como bloque oscuro por las fotos) → medios crema → instagram crema → FAQ con items blancos → CTA final con foto lavada sobre crema → footer negro. El negro aparece una sola vez, en el footer.
+3. **Ritmo de bandas.** Hoy: hero con foto lavada sobre crema → servicios en crema con grilla espresso → marquee de premios sobre crema → equipo crema (leído como bloque oscuro por las fotos) → medios crema → instagram crema → FAQ con items blancos → CTA final con foto lavada sobre crema → footer negro. El negro aparece una sola vez, en el footer.
 4. **Negro puro y blanco puro** como colores plenos. No `#0b0b0b`, no `#fafafa`.
 5. **Camel y stone nunca llevan texto encima ni son texto.**
 6. **Sin gradientes decorativos.** Los 27 gradientes CTA, los 5 SVG con gradiente propios y los 2 PNG-gradiente fueron reemplazados por colores planos. La única excepción es el barrido del título de contacto.
@@ -155,7 +155,7 @@ Pisos: 4.5:1 texto normal, 3:1 texto ≥ 24 px o ≥ 19 px bold, 3:1 componentes
 | Tema | Decisión | Estado |
 |---|---|---|
 | WhatsApp | Se mantiene el verde oficial `#25d366` en el flotante y en el botón de contacto, tokenizado como `brand-whatsapp`. El glifo blanco sobre verde (1.98:1) es un logotipo, exento por WCAG. Alternativa descartada: monocromo espresso. | Hecho |
-| Logos de premios | El cliente entregó los 9 logos regenerados en ink y espresso con fondo transparente. Van a color pleno sobre banda blanca, sin filtros. Se mapearon por identidad para conservar el orden del marquee. | Hecho |
+| Logos de premios | El cliente entregó los 9 logos regenerados en ink y espresso con fondo transparente. Van a color pleno directamente sobre el crema de la pagina, sin banda ni filtros; el componente los limita a 80 px de alto y 160 px de ancho para aceptar assets a 2x. Se mapearon por identidad para conservar el orden del marquee. | Hecho |
 | Fondo del hero | El cliente entregó `heroBg.png` re-teñido al crema nuevo. Hero claro, titular ink. | Hecho |
 | CTA final | El cliente entregó la foto de la firma lavada en crema y pidió recuperarla. La sección vuelve a ser clara: fondo `surface-page` con la foto encima (se desvanece hacia abajo), titular `fg-primary` y botón primario espresso. El titular mide 16.03:1 de media y 13.23:1 en el peor 5 % de la zona del texto. | Hecho |
 | Sección Medios | Se eliminó `mediaBg.png`, gradiente decorativo. | Hecho |
