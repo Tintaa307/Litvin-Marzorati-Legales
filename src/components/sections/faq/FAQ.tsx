@@ -41,7 +41,7 @@ export default function FAQ({ questions, subtitle, title }: FAQProps) {
               className={cn(
                 "border border-border-hairline rounded-lg px-6 py-2 bg-surface-raised hover:border-border-control data-[state=open]:border-border-control motion-safe:transition-colors duration-200",
                 {
-                  "col-span-2": index === keys.length - 1,
+                  "lg:col-span-2": index === keys.length - 1,
                 }
               )}
               value={index.toString()}
