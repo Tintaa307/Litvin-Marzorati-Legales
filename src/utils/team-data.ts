@@ -2,9 +2,10 @@ import meli from "../../public/team/meli.png"
 import osvaldo from "../../public/team/osvaldo.png"
 import constanza from "../../public/team/constanza.png"
 import antonio from "../../public/team/antonio.png"
+import federico from "../../public/team/federico.jpeg"
+import nicole from "../../public/team/nicole.jpeg"
 import gladis from "../../public/team/gladis.png"
 import paula from "../../public/team/paula.png"
-import camila from "../../public/team/camila.jpeg"
 import kiara from "../../public/team/kiara.jpeg"
 
 const teamData = [
@@ -32,6 +33,18 @@ const teamData = [
     image: antonio,
     linkedIn: "https://www.linkedin.com/in/antonio-lopez-forastier-5a949814b/",
   },
+  {
+    name: "Federico Ilan Ostrovsky",
+    positionKey: "federico",
+    image: federico,
+    linkedIn: "https://www.linkedin.com/in/federico-ostrovsky-944a87300/",
+  },
+  {
+    name: "Nicole Pessaj",
+    positionKey: "nicole",
+    image: nicole,
+    linkedIn: "https://www.linkedin.com/in/nicole-pessaj-457931268/",
+  },
   // {
   //     name: 'Gladis Martina Ozorio',
   //     positionKey: 'gladis',
@@ -43,12 +56,6 @@ const teamData = [
     positionKey: "paula",
     image: paula,
     linkedIn: "https://www.linkedin.com/in/paula-vallejo-staghezza-407823188/",
-  },
-  {
-    name: "Camila Gralatto",
-    positionKey: "camila",
-    image: camila,
-    linkedIn: "https://www.linkedin.com/in/gralattocamila/",
   },
   {
     name: "Kiara Herscovich",
