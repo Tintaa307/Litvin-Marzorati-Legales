@@ -126,7 +126,13 @@ const ContactForm = ({
         }}
         className="flex gap-2 text-xs font-light text-fg-secondary"
       >
-        <input name="check" type="checkbox" checked={isChecked} className="accent-action-bg" />
+        <input
+          name="check"
+          type="checkbox"
+          checked={isChecked}
+          onChange={() => {}}
+          className="accent-action-bg"
+        />
         <h3 className="cursor-default">{accept}</h3>
       </div>
       <div className="w-full flex justify-start">
