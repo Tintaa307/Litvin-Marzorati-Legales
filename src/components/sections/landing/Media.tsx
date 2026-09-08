@@ -54,6 +54,8 @@ const Media = ({ header }: Props) => {
           slidesPerView={1.2}
           centeredSlides={true}
           loop={true}
+          // En desktop el slide mide lo mismo que la imagen (426px): la nota vecina asoma ~75px de cada lado.
+          breakpoints={{ 1024: { slidesPerView: 1.35 } }}
           onSwiper={(swiper) => {
             swiperRef.current = swiper
           }}
@@ -70,11 +72,11 @@ const Media = ({ header }: Props) => {
         {/* Fundido a crema sobre los bordes: la nota que asoma se desvanece en vez de cortarse */}
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-[12%] bg-linear-to-l from-surface-page to-transparent"
+          className="pointer-events-none absolute inset-y-0 right-0 z-10 w-[8%] bg-linear-to-l from-surface-page to-transparent"
         ></span>
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-[12%] bg-linear-to-r from-surface-page to-transparent"
+          className="pointer-events-none absolute inset-y-0 left-0 z-10 w-[8%] bg-linear-to-r from-surface-page to-transparent"
         ></span>
       </div>
       <div className="gap-[0.85rem] lg:hidden flex">
